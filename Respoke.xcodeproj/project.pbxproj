@@ -15,13 +15,14 @@
 		1806896D196613F000BDCD26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806896C196613F000BDCD26 /* AppDelegate.m */; };
 		18068970196613F000BDCD26 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1806896E196613F000BDCD26 /* Main_iPhone.storyboard */; };
 		18068973196613F000BDCD26 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18068971196613F000BDCD26 /* Main_iPad.storyboard */; };
-		18068976196613F000BDCD26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18068975196613F000BDCD26 /* ViewController.m */; };
+		18068976196613F000BDCD26 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18068975196613F000BDCD26 /* LoginViewController.m */; };
 		18068978196613F000BDCD26 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18068977196613F000BDCD26 /* Images.xcassets */; };
 		1806897F196613F000BDCD26 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1806897E196613F000BDCD26 /* XCTest.framework */; };
 		18068980196613F000BDCD26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1806895C196613F000BDCD26 /* Foundation.framework */; };
 		18068981196613F000BDCD26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18068960196613F000BDCD26 /* UIKit.framework */; };
 		18068989196613F000BDCD26 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18068987196613F000BDCD26 /* InfoPlist.strings */; };
 		1806898B196613F000BDCD26 /* RespokeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806898A196613F000BDCD26 /* RespokeTests.m */; };
+		180689961966EA1100BDCD26 /* logo_respoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 180689951966EA1100BDCD26 /* logo_respoke.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +48,15 @@
 		1806896C196613F000BDCD26 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1806896F196613F000BDCD26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		18068972196613F000BDCD26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		18068974196613F000BDCD26 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		18068975196613F000BDCD26 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		18068974196613F000BDCD26 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		18068975196613F000BDCD26 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		18068977196613F000BDCD26 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1806897D196613F000BDCD26 /* RespokeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RespokeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1806897E196613F000BDCD26 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		18068986196613F000BDCD26 /* RespokeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RespokeTests-Info.plist"; sourceTree = "<group>"; };
 		18068988196613F000BDCD26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1806898A196613F000BDCD26 /* RespokeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RespokeTests.m; sourceTree = "<group>"; };
+		180689951966EA1100BDCD26 /* logo_respoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_respoke.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,12 +118,13 @@
 			children = (
 				1806896B196613F000BDCD26 /* AppDelegate.h */,
 				1806896C196613F000BDCD26 /* AppDelegate.m */,
-				1806896E196613F000BDCD26 /* Main_iPhone.storyboard */,
-				18068971196613F000BDCD26 /* Main_iPad.storyboard */,
-				18068974196613F000BDCD26 /* ViewController.h */,
-				18068975196613F000BDCD26 /* ViewController.m */,
+				180689941966EA1100BDCD26 /* Images */,
 				18068977196613F000BDCD26 /* Images.xcassets */,
+				18068971196613F000BDCD26 /* Main_iPad.storyboard */,
+				1806896E196613F000BDCD26 /* Main_iPhone.storyboard */,
 				18068963196613F000BDCD26 /* Supporting Files */,
+				18068974196613F000BDCD26 /* LoginViewController.h */,
+				18068975196613F000BDCD26 /* LoginViewController.m */,
 			);
 			path = Respoke;
 			sourceTree = "<group>";
@@ -153,6 +156,14 @@
 				18068987196613F000BDCD26 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		180689941966EA1100BDCD26 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				180689951966EA1100BDCD26 /* logo_respoke.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +244,7 @@
 			files = (
 				18068973196613F000BDCD26 /* Main_iPad.storyboard in Resources */,
 				18068978196613F000BDCD26 /* Images.xcassets in Resources */,
+				180689961966EA1100BDCD26 /* logo_respoke.png in Resources */,
 				18068970196613F000BDCD26 /* Main_iPhone.storyboard in Resources */,
 				18068967196613F000BDCD26 /* InfoPlist.strings in Resources */,
 			);
@@ -253,7 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18068976196613F000BDCD26 /* ViewController.m in Sources */,
+				18068976196613F000BDCD26 /* LoginViewController.m in Sources */,
 				1806896D196613F000BDCD26 /* AppDelegate.m in Sources */,
 				18068969196613F000BDCD26 /* main.m in Sources */,
 			);
@@ -470,6 +482,7 @@
 				18068990196613F000BDCD26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18068991196613F000BDCD26 /* Build configuration list for PBXNativeTarget "RespokeTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +491,7 @@
 				18068993196613F000BDCD26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
