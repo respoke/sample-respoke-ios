@@ -35,13 +35,67 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.9882352941176471" green="0.69019607843137254" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="connectAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qiB-mq-01f"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254901960785" green="0.47450980392156861" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="usernameTextField" destination="oog-mr-mDb" id="3dH-h8-yhz"/>
+                        <segue destination="iQi-IM-Etk" kind="modal" identifier="StartCall" modalTransitionStyle="crossDissolve" id="afP-3X-jks"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="364" y="141"/>
+        </scene>
+        <!--Call View Controller-->
+        <scene sceneID="4gt-zy-Ch6">
+            <objects>
+                <viewController id="iQi-IM-Etk" customClass="CallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hJg-Un-HSO"/>
+                        <viewControllerLayoutGuide type="bottom" id="os5-HW-Ilr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KJ4-vA-IkF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MsR-7F-gHI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TH6-hO-S6A">
+                                <rect key="frame" x="0.0" y="418" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="CqD-9K-0l6"/>
+                                    <constraint firstAttribute="height" constant="150" id="fwa-KW-PDQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="os5-HW-Ilr" firstAttribute="top" secondItem="MsR-7F-gHI" secondAttribute="bottom" id="BEh-3A-KrN"/>
+                            <constraint firstItem="MsR-7F-gHI" firstAttribute="top" secondItem="KJ4-vA-IkF" secondAttribute="top" id="PtU-dg-ZDw"/>
+                            <constraint firstItem="os5-HW-Ilr" firstAttribute="top" secondItem="TH6-hO-S6A" secondAttribute="bottom" id="eeT-jI-5H5"/>
+                            <constraint firstAttribute="trailing" secondItem="MsR-7F-gHI" secondAttribute="trailing" id="kp0-Y5-309"/>
+                            <constraint firstItem="MsR-7F-gHI" firstAttribute="leading" secondItem="KJ4-vA-IkF" secondAttribute="leading" id="qKA-OR-Ufu"/>
+                            <constraint firstItem="TH6-hO-S6A" firstAttribute="leading" secondItem="KJ4-vA-IkF" secondAttribute="leading" id="wAe-BF-GOs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="localView" destination="TH6-hO-S6A" id="Xr0-1C-wdw"/>
+                        <outlet property="remoteView" destination="MsR-7F-gHI" id="sav-le-oLJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NRz-C7-73P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="848" y="141"/>
         </scene>
     </scenes>
     <resources>

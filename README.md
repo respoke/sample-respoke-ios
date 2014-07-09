@@ -50,5 +50,26 @@ A build script has been provided to pull the correct revision of the source code
 ```
 $ ./pull_webrtc_source.sh
 ```
-This will pull all of the code and associated submodules from a variety of sources. Expect this to take a long time to finish, and will require ~1.5 GB of storage space
+This will pull all of the code and associated submodules from a variety of sources. Expect this to take a long time to finish, and will require ~1.5 GB of storage space. If you would like to use a newer version of the WebRTC source, then edit this file and change the first line to define the specific revision # you are interested in using. I highly recommend one of the stable releases, as the daily builds seem to break somewhat regularly.
 
+Step 3: Build the libraries
+---------------------------
+
+Another build script has been provided to handle actually building the libraries.
+```
+$ ./build_webrtc_libs
+```
+This will build the massive WebRTC source, combine the assorted libraries into a single universal simulator/device compatible library, and then replace the compiled library and associated headers inside of the Respoke iOS project with the new ones. Once it completes successfully, you should be able to open the XCode project, recompile and go.
+
+If you encounter an error during the build phase, there are a multitude of things that could have gone wrong. If you see this error in particular:
+```
+AssertionError: Multiple codesigning fingerprints for identity: iPhone Developer
+```
+Go check out the "Curveball: codesigning" section of my blog post for workarounds. 
+
+Notes about WebRTC library
+--------------------------
+
+The open source WebRTC libraries currently do not build for the armv7s architecture, so it's necessary that any XCode project using this library skip that architecture (it's one of the standard architectures defined for new projects). The library built here will still run on armv7s devices (the newest) but will not be 100% optimized for them. You will get a build error if you try to build for the armv7s architecture.
+
+The WebRTC library is also currently built in debug mode. Release mode has been rumored to have reliability issues at the moment.
