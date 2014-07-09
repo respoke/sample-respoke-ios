@@ -39,6 +39,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" red="0.98823529409999999" green="0.69019607839999997" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="connectAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="QNl-Fe-tda"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -54,9 +57,59 @@
                             <constraint firstAttribute="centerY" secondItem="M0r-Sn-z6L" secondAttribute="centerY" constant="175" id="O2p-WP-RP3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="usernameTextField" destination="TIq-m5-1Ho" id="3LR-V7-rsi"/>
+                        <segue destination="g7T-fq-9zd" kind="modal" identifier="StartCall" modalTransitionStyle="crossDissolve" id="rD9-zg-YzG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Call View Controller-->
+        <scene sceneID="UOq-KI-BNQ">
+            <objects>
+                <viewController id="g7T-fq-9zd" customClass="CallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gFQ-hh-uZa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kl1-vC-eSQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tzS-cY-7Fh">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJv-4A-CcG">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-LF-9uP">
+                                <rect key="frame" x="0.0" y="724" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="0Zx-oE-qIO"/>
+                                    <constraint firstAttribute="height" constant="300" id="sj7-Nt-itV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UJv-4A-CcG" firstAttribute="leading" secondItem="tzS-cY-7Fh" secondAttribute="leading" id="F7e-eZ-apP"/>
+                            <constraint firstItem="Kl1-vC-eSQ" firstAttribute="top" secondItem="UJv-4A-CcG" secondAttribute="bottom" id="GQD-XS-Vh7"/>
+                            <constraint firstAttribute="trailing" secondItem="UJv-4A-CcG" secondAttribute="trailing" id="N81-HF-0rn"/>
+                            <constraint firstItem="ogE-LF-9uP" firstAttribute="leading" secondItem="tzS-cY-7Fh" secondAttribute="leading" id="WVe-eA-r2R"/>
+                            <constraint firstItem="Kl1-vC-eSQ" firstAttribute="top" secondItem="ogE-LF-9uP" secondAttribute="bottom" id="fHX-N5-o7h"/>
+                            <constraint firstItem="UJv-4A-CcG" firstAttribute="top" secondItem="tzS-cY-7Fh" secondAttribute="top" id="rjD-nR-Gby"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="localView" destination="ogE-LF-9uP" id="rBc-N6-AfY"/>
+                        <outlet property="remoteView" destination="UJv-4A-CcG" id="drM-UP-uot"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daj-V9-Sj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="-286"/>
         </scene>
     </scenes>
     <resources>
