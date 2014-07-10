@@ -69,7 +69,6 @@
 		184B0233196F0207000BB925 /* libiSAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B01EA196F0206000BB925 /* libiSAC.a */; };
 		184B0234196F0207000BB925 /* libiSACFix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B01EB196F0206000BB925 /* libiSACFix.a */; };
 		184B0235196F0207000BB925 /* libjingle_media.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B01EC196F0206000BB925 /* libjingle_media.a */; };
-		184B0236196F0207000BB925 /* libjingle_p2p.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B01ED196F0206000BB925 /* libjingle_p2p.a */; };
 		184B0237196F0207000BB925 /* libjingle_peerconnection_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B01EE196F0206000BB925 /* libjingle_peerconnection_objc.a */; };
 		184B0238196F0207000BB925 /* libjingle_peerconnection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B01EF196F0206000BB925 /* libjingle_peerconnection.a */; };
 		184B0239196F0207000BB925 /* libjingle_sound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B01F0196F0206000BB925 /* libjingle_sound.a */; };
@@ -111,6 +110,8 @@
 		184B025F196F0209000BB925 /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B0216196F0207000BB925 /* libwebrtc.a */; };
 		184B0260196F0209000BB925 /* libyuv_neon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B0217196F0207000BB925 /* libyuv_neon.a */; };
 		184B0261196F0209000BB925 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B0218196F0207000BB925 /* libyuv.a */; };
+		184B0264196F20B8000BB925 /* libjingle_p2p_armv7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B0262196F20B8000BB925 /* libjingle_p2p_armv7.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		184B0265196F20B8000BB925 /* libjingle_p2p_x86.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B0263196F20B8000BB925 /* libjingle_p2p_x86.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,7 +225,6 @@
 		184B01EA196F0206000BB925 /* libiSAC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiSAC.a; sourceTree = "<group>"; };
 		184B01EB196F0206000BB925 /* libiSACFix.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiSACFix.a; sourceTree = "<group>"; };
 		184B01EC196F0206000BB925 /* libjingle_media.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_media.a; sourceTree = "<group>"; };
-		184B01ED196F0206000BB925 /* libjingle_p2p.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_p2p.a; sourceTree = "<group>"; };
 		184B01EE196F0206000BB925 /* libjingle_peerconnection_objc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_peerconnection_objc.a; sourceTree = "<group>"; };
 		184B01EF196F0206000BB925 /* libjingle_peerconnection.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_peerconnection.a; sourceTree = "<group>"; };
 		184B01F0196F0206000BB925 /* libjingle_sound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_sound.a; sourceTree = "<group>"; };
@@ -266,6 +266,8 @@
 		184B0216196F0207000BB925 /* libwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc.a; sourceTree = "<group>"; };
 		184B0217196F0207000BB925 /* libyuv_neon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libyuv_neon.a; sourceTree = "<group>"; };
 		184B0218196F0207000BB925 /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libyuv.a; sourceTree = "<group>"; };
+		184B0262196F20B8000BB925 /* libjingle_p2p_armv7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_p2p_armv7.a; sourceTree = "<group>"; };
+		184B0263196F20B8000BB925 /* libjingle_p2p_x86.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_p2p_x86.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 				184B0261196F0209000BB925 /* libyuv.a in Frameworks */,
 				184B01CF196DC79E000BB925 /* GLKit.framework in Frameworks */,
 				184B022B196F0207000BB925 /* libfield_trial_default.a in Frameworks */,
+				184B0265196F20B8000BB925 /* libjingle_p2p_x86.a in Frameworks */,
 				184B023F196F0208000BB925 /* libopus.a in Frameworks */,
 				184B0258196F0208000BB925 /* libwebrtc_i420.a in Frameworks */,
 				184B025C196F0208000BB925 /* libwebrtc_vp8.a in Frameworks */,
@@ -302,7 +305,6 @@
 				184B024D196F0208000BB925 /* libvideo_render_module.a in Frameworks */,
 				184B023B196F0207000BB925 /* libjsoncpp.a in Frameworks */,
 				184B0251196F0208000BB925 /* libvpx_intrinsics_mmx.a in Frameworks */,
-				184B0236196F0207000BB925 /* libjingle_p2p.a in Frameworks */,
 				184B0234196F0207000BB925 /* libiSACFix.a in Frameworks */,
 				184B0246196F0208000BB925 /* libsrtp.a in Frameworks */,
 				184B0225196F0207000BB925 /* libcommon_video.a in Frameworks */,
@@ -339,6 +341,7 @@
 				184B023D196F0207000BB925 /* libneteq.a in Frameworks */,
 				184B0230196F0207000BB925 /* libicuuc.a in Frameworks */,
 				184B0254196F0208000BB925 /* libvpx_intrinsics_ssse3.a in Frameworks */,
+				184B0264196F20B8000BB925 /* libjingle_p2p_armv7.a in Frameworks */,
 				184B025A196F0208000BB925 /* libwebrtc_utility.a in Frameworks */,
 				184B021E196F0207000BB925 /* libaudio_processing_sse2.a in Frameworks */,
 				184B0224196F0207000BB925 /* libcommon_audio.a in Frameworks */,
@@ -473,6 +476,8 @@
 		184B00E619676680000BB925 /* WebRTC */ = {
 			isa = PBXGroup;
 			children = (
+				184B0262196F20B8000BB925 /* libjingle_p2p_armv7.a */,
+				184B0263196F20B8000BB925 /* libjingle_p2p_x86.a */,
 				184B00E719676680000BB925 /* headers */,
 				184B01D0196F0206000BB925 /* lib_core_neon_offsets.a */,
 				184B01D1196F0206000BB925 /* libaudio_coding_module.a */,
@@ -504,7 +509,6 @@
 				184B01EB196F0206000BB925 /* libiSACFix.a */,
 				184B01F1196F0206000BB925 /* libjingle.a */,
 				184B01EC196F0206000BB925 /* libjingle_media.a */,
-				184B01ED196F0206000BB925 /* libjingle_p2p.a */,
 				184B01EF196F0206000BB925 /* libjingle_peerconnection.a */,
 				184B01EE196F0206000BB925 /* libjingle_peerconnection_objc.a */,
 				184B01F0196F0206000BB925 /* libjingle_sound.a */,

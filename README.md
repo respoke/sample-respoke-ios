@@ -59,7 +59,7 @@ Another build script has been provided to handle actually building the libraries
 ```
 $ ./build_webrtc_libs
 ```
-This will build the massive WebRTC source, combine the assorted libraries into a single universal simulator/device compatible library, and then replace the compiled library and associated headers inside of the Respoke iOS project with the new ones. Once it completes successfully, you should be able to open the XCode project, recompile and go.
+This will build the massive WebRTC source, combine the assorted libraries into universal simulator/device compatible libraries, and then replace the compiled libraries and associated headers inside of the Respoke iOS project with the new ones. Once it completes successfully, you should be able to open the XCode project, recompile and go.
 
 If you encounter an error during the build phase, there are a multitude of things that could have gone wrong. If you see this error in particular:
 ```
@@ -67,9 +67,25 @@ AssertionError: Multiple codesigning fingerprints for identity: iPhone Developer
 ```
 Go check out the "Curveball: codesigning" section of my blog post for workarounds. 
 
-Notes about WebRTC library
---------------------------
+Notes about WebRTC libraries
+----------------------------
 
-The open source WebRTC libraries currently do not build for the armv7s architecture, so it's necessary that any XCode project using this library skip that architecture (it's one of the standard architectures defined for new projects). The library built here will still run on armv7s devices (the newest) but will not be 100% optimized for them. You will get a build error if you try to build for the armv7s architecture.
+The open source WebRTC libraries currently do not build for the armv7s or arm64 architectures, so it's necessary that any XCode project using this library skip those architectures (they are part of the standard architectures defined for new projects). The libraries built here will still run on armv7s and arm64 devices (the newest) but will not be 100% optimized for them. You will get a build error if you try to build for the armv7s or arm64 architecture.
 
-The WebRTC library is also currently built in debug mode. Release mode has been rumored to have reliability issues at the moment.
+The WebRTC libraries are also currently built in release mode. some of them are very large (greater than 50 MB), so they cannot be combined into a single library since it will be larger than some revision control systems (specifically Github) allow. To get around this, the libraries are all included into the project individually, with some of them marked as "optional" since they only apply to specific architectures (like the simulator or actual iOS devices). This will produce some warnings during the linking step of compilation, but they can be ignored. The libraries in question are:
+
+lib_core_neon_offsets.a
+libaudio_processing_neon.a 
+libaudio_processing_sse2.a 
+libcommon_audio_sse2.a 
+libcommon_audio_neon.a 
+libisac_neon.a 
+libjingle_p2p_armv7.a 
+libjingle_p2p_x86.a 
+libvpx_asm_offsets_vpx_scale.a 
+libyuv_neon.a 
+libvideo_processing_sse2.a 
+libvpx_intrinsics_mmx.a 
+libvpx_intrinsics_sse2.a 
+libvpx_intrinsics_sse4_1.a 
+libvpx_intrinsics_ssse3.a 

@@ -34,7 +34,7 @@ function buildsim() {
 echo "-- building x86 webrtc"
 pushd trunk
 wrsim && gclient runhooks
-ninja -C out_ios/Debug-iphonesimulator iossim AppRTCDemo
+ninja -C out_ios/Release-iphonesimulator iossim AppRTCDemo
 popd
 echo "-- x86 webrtc has been sucessfully built"
 }
@@ -42,7 +42,7 @@ echo "-- x86 webrtc has been sucessfully built"
 function buildios() {
 echo "-- building arm webrtc ios"
 pushd trunk
-wrios && gclient runhooks && ninja -C out_ios/Debug-iphoneos AppRTCDemo
+wrios && gclient runhooks && ninja -C out_ios/Release-iphoneos AppRTCDemo
 popd
 echo "-- arm webrtc has been sucessfully built"
 }
@@ -55,12 +55,15 @@ cp ./trunk/talk/app/webrtc/objc/public/*.h ./Respoke/WebRTC/headers/
 
 pushd trunk
 pushd out_ios
-pushd Debug-iphoneos
+pushd Release-iphoneos
+
+# libjingle_p2p.a is larger than the maximum file size allowed by Github, let alone when combined with the device slice as well. Therefore, unlike the rest of the libraries, they will be renamed to two separate files and then optionally included in the project to get around this file size limitation.
+mv libjingle_p2p.a libjingle_p2p_armv7.a
 
 for f in *.a; do
-  if [ -f "../Debug-iphonesimulator/$f" ]; then
+  if [ -f "../Release-iphonesimulator/$f" ]; then
     echo "creating fat static library $f"
-    lipo -create "$f" "../Debug-iphonesimulator/$f" -output "../../../Respoke/WebRTC/$f"
+    lipo -create "$f" "../Release-iphonesimulator/$f" -output "../../../Respoke/WebRTC/$f"
   else
     echo ""
     echo "$f was not built for the simulator."
@@ -69,9 +72,12 @@ for f in *.a; do
   fi
 done
 
-cd ../Debug-iphonesimulator
+cd ../Release-iphonesimulator
+mv libjingle_p2p.a libjingle_p2p_x86.a
+cp libjingle_p2p_x86.a ../../../Respoke/WebRTC/
+
 for f in *.a; do
-  if [ ! -f "../Debug-iphoneos/$f" ]; then
+  if [ ! -f "../Release-iphoneos/$f" ]; then
     echo ""
     echo "$f was not built for the iPhone."
     echo ""
