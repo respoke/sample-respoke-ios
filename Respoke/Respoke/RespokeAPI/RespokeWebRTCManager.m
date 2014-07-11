@@ -35,6 +35,9 @@
     {
         [RTCPeerConnectionFactory initializeSSL];
         _connectionManager = [[APPRTCConnectionManager alloc] initWithDelegate:self logger:self];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate) name:UIApplicationWillTerminateNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive) name:UIApplicationWillResignActiveNotification object:nil];
     }
 
     return self;
@@ -93,6 +96,19 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
     [alertView show];
+}
+
+
+- (void)applicationWillResignActive
+{
+    [self logMessage:@"Application lost focus, connection broken."];
+    [self disconnect];
+}
+
+
+- (void)applicationWillTerminate
+{
+    [RTCPeerConnectionFactory deinitializeSSL];
 }
 
 

@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Respoke.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property RespokeClient *respokeClient;
 
 @end
+
+
+#define sharedAppInstance ((AppDelegate*) [UIApplication sharedApplication].delegate)
+#define sharedRespokeClient (sharedAppInstance.respokeClient)
+

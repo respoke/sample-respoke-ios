@@ -13,6 +13,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // Create a Respoke client instance to be used for the duration of the application
+    self.respokeClient = [[Respoke sharedInstance] createClientWithAppID:@"" developmentMode:YES];
+
     return YES;
 }
 							

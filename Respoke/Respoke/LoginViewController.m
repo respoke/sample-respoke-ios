@@ -7,8 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "Respoke.h"
-#import "CallViewController.h"
+#import "GroupTableViewController.h"
 
 
 @implementation LoginViewController
@@ -17,7 +16,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    sharedRespokeClient.connectionDelegate = self;
 }
 
 
@@ -25,20 +25,29 @@
 {
     if ([self.usernameTextField.text length])
     {
-        //[[Respoke sharedInstance] connectWithUsername:self.usernameTextField.text];
-        [self performSegueWithIdentifier:@"StartCall" sender:self];
+        self.activityIndicator.hidden = NO;
+        [self.connectButton setTitle:@"" forState:UIControlStateNormal];
+
+        [sharedRespokeClient connectWithEndpointID:self.usernameTextField.text errorHandler:^(NSString *errorMessage) {
+            self.errorLabel.text = errorMessage;
+            self.errorLabel.hidden = NO;
+            self.activityIndicator.hidden = YES;
+            [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+        }];
     }
     else
     {
         [self.usernameTextField becomeFirstResponder];
+        self.errorLabel.text = @"Username may not be blank";
+        self.errorLabel.hidden = NO;
     }
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    CallViewController *controller = [segue destinationViewController];
-    controller.endpoint = self.usernameTextField.text;
+    GroupTableViewController *controller = [segue destinationViewController];
+    controller.username = self.usernameTextField.text;
 }
 
 
@@ -51,6 +60,26 @@
     [self connectAction];
     
     return YES;
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    self.errorLabel.hidden = YES;
+    
+    return YES;
+}
+
+
+#pragma mark - RespokeClientConnectionDelegate
+
+
+- (void)onConnect:(RespokeClient*)sender
+{
+    self.activityIndicator.hidden = YES;
+    [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+    
+    [self performSegueWithIdentifier:@"ShowGroup" sender:self];
 }
 
 

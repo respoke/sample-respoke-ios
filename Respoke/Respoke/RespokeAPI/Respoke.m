@@ -12,13 +12,14 @@
 
 @interface Respoke() {
     RespokeWebRTCManager *respokeWebRTCManager;
+    NSMutableDictionary *instances;
 }
 
 
 @end
 
 
-@implementation Respoke
+@implementation Respoke 
 
 
 // The Respoke SDK class is a singleton that should be accessed through this share instance method
@@ -40,15 +41,17 @@
     if (self = [super init])
     {
         respokeWebRTCManager = [[RespokeWebRTCManager alloc] init];
+        instances = [[NSMutableDictionary alloc] init];
     }
 
     return self;
 }
 
 
-- (void)connectWithUsername:(NSString*)username
+- (RespokeClient*)createClientWithAppID:(NSString*)appID developmentMode:(BOOL)developmentMode
 {
-
+    RespokeClient *newClient = [[RespokeClient alloc] initWithAppID:appID developmentMode:developmentMode];
+    return newClient;
 }
 
 

@@ -112,6 +112,8 @@
 		184B0261196F0209000BB925 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B0218196F0207000BB925 /* libyuv.a */; };
 		184B0264196F20B8000BB925 /* libjingle_p2p_armv7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B0262196F20B8000BB925 /* libjingle_p2p_armv7.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		184B0265196F20B8000BB925 /* libjingle_p2p_x86.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B0263196F20B8000BB925 /* libjingle_p2p_x86.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		184B026819707F25000BB925 /* RespokeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B026719707F25000BB925 /* RespokeClient.m */; };
+		184B026E19709284000BB925 /* GroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B026D19709284000BB925 /* GroupTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +270,10 @@
 		184B0218196F0207000BB925 /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libyuv.a; sourceTree = "<group>"; };
 		184B0262196F20B8000BB925 /* libjingle_p2p_armv7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_p2p_armv7.a; sourceTree = "<group>"; };
 		184B0263196F20B8000BB925 /* libjingle_p2p_x86.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_p2p_x86.a; sourceTree = "<group>"; };
+		184B026619707F25000BB925 /* RespokeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeClient.h; sourceTree = "<group>"; };
+		184B026719707F25000BB925 /* RespokeClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespokeClient.m; sourceTree = "<group>"; };
+		184B026C19709284000BB925 /* GroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewController.h; sourceTree = "<group>"; };
+		184B026D19709284000BB925 /* GroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +428,10 @@
 			children = (
 				1806896B196613F000BDCD26 /* AppDelegate.h */,
 				1806896C196613F000BDCD26 /* AppDelegate.m */,
+				184B01CB196D9399000BB925 /* CallViewController.h */,
+				184B01CC196D9399000BB925 /* CallViewController.m */,
+				184B026C19709284000BB925 /* GroupTableViewController.h */,
+				184B026D19709284000BB925 /* GroupTableViewController.m */,
 				180689941966EA1100BDCD26 /* Images */,
 				18068977196613F000BDCD26 /* Images.xcassets */,
 				18068974196613F000BDCD26 /* LoginViewController.h */,
@@ -430,8 +440,6 @@
 				1806896E196613F000BDCD26 /* Main_iPhone.storyboard */,
 				184B0187196B097F000BB925 /* RespokeAPI */,
 				18068963196613F000BDCD26 /* Supporting Files */,
-				184B01CB196D9399000BB925 /* CallViewController.h */,
-				184B01CC196D9399000BB925 /* CallViewController.m */,
 			);
 			path = Respoke;
 			sourceTree = "<group>";
@@ -476,8 +484,6 @@
 		184B00E619676680000BB925 /* WebRTC */ = {
 			isa = PBXGroup;
 			children = (
-				184B0262196F20B8000BB925 /* libjingle_p2p_armv7.a */,
-				184B0263196F20B8000BB925 /* libjingle_p2p_x86.a */,
 				184B00E719676680000BB925 /* headers */,
 				184B01D0196F0206000BB925 /* lib_core_neon_offsets.a */,
 				184B01D1196F0206000BB925 /* libaudio_coding_module.a */,
@@ -509,6 +515,8 @@
 				184B01EB196F0206000BB925 /* libiSACFix.a */,
 				184B01F1196F0206000BB925 /* libjingle.a */,
 				184B01EC196F0206000BB925 /* libjingle_media.a */,
+				184B0262196F20B8000BB925 /* libjingle_p2p_armv7.a */,
+				184B0263196F20B8000BB925 /* libjingle_p2p_x86.a */,
 				184B01EF196F0206000BB925 /* libjingle_peerconnection.a */,
 				184B01EE196F0206000BB925 /* libjingle_peerconnection_objc.a */,
 				184B01F0196F0206000BB925 /* libjingle_sound.a */,
@@ -601,6 +609,8 @@
 				184B018B196B09B7000BB925 /* RespokeWebRTCManager.h */,
 				184B018C196B09B7000BB925 /* RespokeWebRTCManager.m */,
 				184B00E619676680000BB925 /* WebRTC */,
+				184B026619707F25000BB925 /* RespokeClient.h */,
+				184B026719707F25000BB925 /* RespokeClient.m */,
 			);
 			path = RespokeAPI;
 			sourceTree = "<group>";
@@ -707,12 +717,14 @@
 			files = (
 				18068976196613F000BDCD26 /* LoginViewController.m in Sources */,
 				184B018A196B097F000BB925 /* Respoke.m in Sources */,
+				184B026819707F25000BB925 /* RespokeClient.m in Sources */,
 				184B0198196B0A84000BB925 /* GAEChannelClient.m in Sources */,
 				184B01CD196D9399000BB925 /* CallViewController.m in Sources */,
 				184B018D196B09B7000BB925 /* RespokeWebRTCManager.m in Sources */,
 				1806896D196613F000BDCD26 /* AppDelegate.m in Sources */,
 				184B0196196B0A84000BB925 /* APPRTCConnectionManager.m in Sources */,
 				184B0195196B0A84000BB925 /* APPRTCAppClient.m in Sources */,
+				184B026E19709284000BB925 /* GroupTableViewController.m in Sources */,
 				18068969196613F000BDCD26 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
