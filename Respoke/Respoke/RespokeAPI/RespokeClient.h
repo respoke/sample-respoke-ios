@@ -10,11 +10,13 @@
 
 
 @protocol RespokeClientConnectionDelegate;
+@protocol RespokeClientErrorDelegate;
 
 
 @interface RespokeClient : NSObject
 
 @property (weak) id <RespokeClientConnectionDelegate> connectionDelegate;
+@property (weak) id <RespokeClientErrorDelegate> errorDelegate;
 
 - (instancetype)initWithAppID:(NSString*)appID developmentMode:(BOOL)developmentMode;
 - (void)connectWithEndpointID:(NSString*)endpoint errorHandler:(void (^)(NSString*))errorHandler;
@@ -25,5 +27,13 @@
 @protocol RespokeClientConnectionDelegate <NSObject>
 
 - (void)onConnect:(RespokeClient*)sender;
+- (void)onDisconnect:(RespokeClient*)sender;
+
+@end
+
+
+@protocol RespokeClientErrorDelegate <NSObject>
+
+- (void)onError:(NSError *)error fromClient:(RespokeClient*)sender;
 
 @end

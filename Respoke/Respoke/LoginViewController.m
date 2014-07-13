@@ -18,6 +18,13 @@
     [super viewDidLoad];
     
     sharedRespokeClient.connectionDelegate = self;
+    sharedRespokeClient.errorDelegate = self;
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.usernameTextField becomeFirstResponder];
 }
 
 
@@ -80,6 +87,24 @@
     [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
     
     [self performSegueWithIdentifier:@"ShowGroup" sender:self];
+}
+
+
+- (void)onDisconnect:(RespokeClient*)sender
+{
+    // Do nothing
+}
+
+
+#pragma mark - RespokeClientErrorDelegate
+
+
+- (void)onError:(NSError *)error fromClient:(RespokeClient*)sender
+{
+    self.errorLabel.text = [error localizedDescription];
+    self.errorLabel.hidden = NO;
+    self.activityIndicator.hidden = YES;
+    [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
 }
 
 

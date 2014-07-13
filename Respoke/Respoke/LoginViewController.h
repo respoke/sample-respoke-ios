@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate, RespokeClientConnectionDelegate>
+@interface LoginViewController : UIViewController <UITextFieldDelegate, RespokeClientConnectionDelegate, RespokeClientErrorDelegate>
 
 @property (weak) IBOutlet UITextField *usernameTextField;
 @property (weak) IBOutlet UILabel *errorLabel;

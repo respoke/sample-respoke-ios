@@ -18,7 +18,7 @@
 {
     if (self = [super init])
     {
-        self.baseURL = @"https://api.respoke.io";
+        self.baseURL = RESPOKE_BASE_URL;
         urlEndpoint = @"";
         params = @"";
         httpMethod = @"POST";
@@ -33,7 +33,7 @@
     self.successHandler = successHandler;
     self.errorHandler = errorHandler;
 
-    NSURL *theURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseURL, urlEndpoint]];
+    NSURL *theURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@%@", self.baseURL, urlEndpoint]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:HTTP_TIMEOUT];
     [request setHTTPMethod:httpMethod];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

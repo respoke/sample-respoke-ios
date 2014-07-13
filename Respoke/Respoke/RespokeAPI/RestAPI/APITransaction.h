@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define RESPOKE_BASE_URL @"api.respoke.io"
+
+
 @interface APITransaction : NSObject <NSURLConnectionDataDelegate> {
     NSURLConnection *connection;
     NSString *httpMethod;
