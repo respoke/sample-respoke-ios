@@ -7,6 +7,7 @@
 //
 
 #import "RespokeClient.h"
+#import "APIGetToken.h"
 
 
 @interface RespokeClient () {
@@ -41,7 +42,16 @@
 
     if (([endpoint length]) && ([applicationID length]))
     {
+        APIGetToken *getToken = [[APIGetToken alloc] init];
+        getToken.appID = applicationID;
+        getToken.endpointID = endpoint;
 
+        [getToken goWithSuccessHandler:^{
+            NSLog(@"Got token: [%@]", getToken.token);
+            [self.connectionDelegate onConnect:self];
+        } errorHandler:^(NSString *errorMessage){
+            errorHandler(errorMessage);
+        }];
     }
     else
     {
