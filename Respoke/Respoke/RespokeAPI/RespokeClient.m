@@ -8,6 +8,7 @@
 
 #import "RespokeClient.h"
 #import "APIGetToken.h"
+#import "APIDoOpen.h"
 
 
 @interface RespokeClient () {
@@ -47,8 +48,16 @@
         getToken.endpointID = endpoint;
 
         [getToken goWithSuccessHandler:^{
-            NSLog(@"Got token: [%@]", getToken.token);
-            [self.connectionDelegate onConnect:self];
+            APIDoOpen *doOpen = [[APIDoOpen alloc] init];
+            doOpen.tokenID = getToken.token;
+
+            [doOpen goWithSuccessHandler:^{
+                NSLog(@"Got app token: [%@]", doOpen.appToken);
+                [self.connectionDelegate onConnect:self];
+            } errorHandler:^(NSString *errorMessage){
+                errorHandler(errorMessage);
+            }];
+
         } errorHandler:^(NSString *errorMessage){
             errorHandler(errorMessage);
         }];

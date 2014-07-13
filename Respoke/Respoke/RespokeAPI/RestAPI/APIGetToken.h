@@ -10,8 +10,11 @@
 
 @interface APIGetToken : APITransaction
 
+// Parameters to send
 @property NSString *appID;
 @property NSString *endpointID;
+
+// Results
 @property NSString *token;
 
 @end

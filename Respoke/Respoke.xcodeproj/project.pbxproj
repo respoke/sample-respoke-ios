@@ -125,8 +125,9 @@
 		184B028C19709C56000BB925 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028B19709C56000BB925 /* CFNetwork.framework */; };
 		184B028E19709C66000BB925 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028D19709C66000BB925 /* Security.framework */; };
 		184B029019709C87000BB925 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028F19709C87000BB925 /* libicucore.dylib */; };
-		184B02931970A058000BB925 /* APIGetToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B02921970A058000BB925 /* APIGetToken.m */; };
-		184B02961971EE23000BB925 /* APITransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B02951971EE23000BB925 /* APITransaction.m */; };
+		184B029C1972E44D000BB925 /* APIGetToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B02991972E44D000BB925 /* APIGetToken.m */; };
+		184B029D1972E44D000BB925 /* APITransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B029B1972E44D000BB925 /* APITransaction.m */; };
+		184B02A01972E46A000BB925 /* APIDoOpen.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B029F1972E46A000BB925 /* APIDoOpen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -308,10 +309,12 @@
 		184B028B19709C56000BB925 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		184B028D19709C66000BB925 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		184B028F19709C87000BB925 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		184B02911970A058000BB925 /* APIGetToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIGetToken.h; sourceTree = "<group>"; };
-		184B02921970A058000BB925 /* APIGetToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIGetToken.m; sourceTree = "<group>"; };
-		184B02941971EE23000BB925 /* APITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APITransaction.h; sourceTree = "<group>"; };
-		184B02951971EE23000BB925 /* APITransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITransaction.m; sourceTree = "<group>"; };
+		184B02981972E44D000BB925 /* APIGetToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIGetToken.h; sourceTree = "<group>"; };
+		184B02991972E44D000BB925 /* APIGetToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIGetToken.m; sourceTree = "<group>"; };
+		184B029A1972E44D000BB925 /* APITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APITransaction.h; sourceTree = "<group>"; };
+		184B029B1972E44D000BB925 /* APITransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APITransaction.m; sourceTree = "<group>"; };
+		184B029E1972E46A000BB925 /* APIDoOpen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIDoOpen.h; sourceTree = "<group>"; };
+		184B029F1972E46A000BB925 /* APIDoOpen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIDoOpen.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -651,15 +654,12 @@
 				184B0194196B0A84000BB925 /* GAEChannelClient.m */,
 				184B0188196B097F000BB925 /* Respoke.h */,
 				184B0189196B097F000BB925 /* Respoke.m */,
-				184B018B196B09B7000BB925 /* RespokeWebRTCManager.h */,
-				184B018C196B09B7000BB925 /* RespokeWebRTCManager.m */,
-				184B00E619676680000BB925 /* WebRTC */,
 				184B026619707F25000BB925 /* RespokeClient.h */,
 				184B026719707F25000BB925 /* RespokeClient.m */,
-				184B02911970A058000BB925 /* APIGetToken.h */,
-				184B02921970A058000BB925 /* APIGetToken.m */,
-				184B02941971EE23000BB925 /* APITransaction.h */,
-				184B02951971EE23000BB925 /* APITransaction.m */,
+				184B018B196B09B7000BB925 /* RespokeWebRTCManager.h */,
+				184B018C196B09B7000BB925 /* RespokeWebRTCManager.m */,
+				184B02971972E44D000BB925 /* RestAPI */,
+				184B00E619676680000BB925 /* WebRTC */,
 			);
 			path = RespokeAPI;
 			sourceTree = "<group>";
@@ -697,6 +697,19 @@
 			name = SocketRocket;
 			path = "socketIOobjc/submodules/socket-rocket/SocketRocket";
 			sourceTree = SOURCE_ROOT;
+		};
+		184B02971972E44D000BB925 /* RestAPI */ = {
+			isa = PBXGroup;
+			children = (
+				184B029E1972E46A000BB925 /* APIDoOpen.h */,
+				184B029F1972E46A000BB925 /* APIDoOpen.m */,
+				184B02981972E44D000BB925 /* APIGetToken.h */,
+				184B02991972E44D000BB925 /* APIGetToken.m */,
+				184B029A1972E44D000BB925 /* APITransaction.h */,
+				184B029B1972E44D000BB925 /* APITransaction.m */,
+			);
+			path = RestAPI;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -809,16 +822,17 @@
 				184B027C19709AC8000BB925 /* SocketIOJSONSerialization.m in Sources */,
 				184B027B19709AC8000BB925 /* SocketIO.m in Sources */,
 				1806896D196613F000BDCD26 /* AppDelegate.m in Sources */,
-				184B02931970A058000BB925 /* APIGetToken.m in Sources */,
+				184B029C1972E44D000BB925 /* APIGetToken.m in Sources */,
+				184B029D1972E44D000BB925 /* APITransaction.m in Sources */,
 				184B0196196B0A84000BB925 /* APPRTCConnectionManager.m in Sources */,
 				184B028919709BDC000BB925 /* NSData+SRB64Additions.m in Sources */,
 				184B0195196B0A84000BB925 /* APPRTCAppClient.m in Sources */,
 				184B028819709BDC000BB925 /* base64.c in Sources */,
-				184B02961971EE23000BB925 /* APITransaction.m in Sources */,
 				184B026E19709284000BB925 /* GroupTableViewController.m in Sources */,
 				184B028A19709BDC000BB925 /* SRWebSocket.m in Sources */,
 				184B027E19709AC8000BB925 /* SocketIOTransportWebsocket.m in Sources */,
 				18068969196613F000BDCD26 /* main.m in Sources */,
+				184B02A01972E46A000BB925 /* APIDoOpen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
