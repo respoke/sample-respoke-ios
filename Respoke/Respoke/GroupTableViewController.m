@@ -22,6 +22,7 @@
     [super viewDidLoad];
     
     sharedRespokeClient.delegate = self;
+    self.group.delegate = self;
 
     self.title = self.username;
 }
@@ -65,12 +66,27 @@
 }
 
 
+#pragma mark - RespokeGroupDelegate
+
+
+- (void)onJoin:(NSString*)endpoint sender:(RespokeGroup*)sender
+{
+    NSLog(@"Joined: %@", endpoint);
+}
+
+
+- (void)onLeave:(NSString*)endpoint sender:(RespokeGroup*)sender
+{
+    NSLog(@"Left: %@", endpoint);
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell" forIndexPath:indexPath];
     
     UILabel *label = (UILabel*)[cell viewWithTag:1];
-    label.text = [(NSDictionary*)[self.groupMembers objectAtIndex:indexPath.row] objectForKey:@"endpointId"];
+    label.text = [self.groupMembers objectAtIndex:indexPath.row];//[(NSDictionary*)[self.groupMembers objectAtIndex:indexPath.row] objectForKey:@"endpointId"];
     
     return cell;
 }

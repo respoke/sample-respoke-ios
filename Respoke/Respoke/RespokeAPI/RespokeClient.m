@@ -86,7 +86,7 @@
         {
             NSString *urlEndpoint = [NSString stringWithFormat:@"/v1/channels/%@/subscribers/", groupName];
             
-            [signalingChannel sendRESTMessage:@"post" url:urlEndpoint responseHandler:^(id response, NSString *errorMessage) {
+            [signalingChannel sendRESTMessage:@"post" url:urlEndpoint data:nil responseHandler:^(id response, NSString *errorMessage) {
                 if (errorMessage)
                 {
                     errorHandler(errorMessage);
@@ -94,8 +94,8 @@
                 else
                 {
                     if (!response)
-                    {
-                        RespokeGroup *newGroup = [[RespokeGroup alloc] initWithGroupID:groupName appToken:applicationToken signalingChannel:signalingChannel];
+                    {   
+                        RespokeGroup *newGroup = [[RespokeGroup alloc] initWithGroupID:groupName appToken:applicationToken signalingChannel:signalingChannel endpointID:endpointID];
                         joinHandler(newGroup);
                     }
                     else
@@ -118,22 +118,6 @@
 
 
 #pragma mark - Private methods
-
-
-/*- (void)heartbeatHandler
-{
-    if (connected)
-    {
-        heartbeatActive = YES;
-        [socketIO sendMessage:@"heartbeat"];
-        [self performSelector:@selector(heartbeatHandler) withObject:nil afterDelay:HEARTBEAT_INTERVAL];
-    }
-    else
-    {
-        // stop sending heartbeat
-        heartbeatActive = NO;
-    }
-}*/
 
 
 #pragma mark - RespokeSignalingChannelConnectionDelegate

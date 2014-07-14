@@ -40,11 +40,16 @@
 }
 
 
-- (void)sendRESTMessage:(NSString *)httpMethod url:(NSString *)url responseHandler:(void (^)(id, NSString*))responseHandler
+- (void)sendRESTMessage:(NSString *)httpMethod url:(NSString *)url data:(NSDictionary*)data responseHandler:(void (^)(id, NSString*))responseHandler
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:@{@"App-Token": appToken} forKey:@"headers"];
     [dict setObject:url forKey:@"url"];
+
+    if (data)
+    {
+        [dict setObject:data forKey:@"data"];
+    }
     
     [socketIO sendEvent:httpMethod withData:dict andAcknowledge:^(id argsData) {
         id response = argsData;
@@ -63,7 +68,7 @@
                 if (!error)
                 {
                     response = jsonResult;
-                    
+
                     if ([jsonResult isKindOfClass:[NSDictionary class]])
                     {
                         errorString = [jsonResult objectForKey:@"error"];
@@ -90,9 +95,27 @@
 
 - (void)socketIODidConnect:(SocketIO *)socket
 {
-    NSLog(@"socketIODidConnect");
+    //NSLog(@"socketIODidConnect");
     self.connected = YES;
-    [self.connectionDelegate onConnect:self];
+
+    [self sendRESTMessage:@"post" url:@"/v1/endpointconnections" data:nil responseHandler:^(id response, NSString *errorMessage) {
+        if (errorMessage)
+        {
+            [self.errorDelegate onError:[NSError errorWithDomain:NSURLErrorDomain code:5 userInfo:@{NSLocalizedDescriptionKey: @"Unexpected response received"}] sender:self];
+        }
+        else
+        {
+            if (response && ([response isKindOfClass:[NSDictionary class]]))
+            {   
+                connectionID = [response objectForKey:@"id"];
+                [self.connectionDelegate onConnect:self];
+            }
+            else
+            {
+                [self.errorDelegate onError:[NSError errorWithDomain:NSURLErrorDomain code:5 userInfo:@{NSLocalizedDescriptionKey: @"Unexpected response received"}] sender:self];  
+            }
+        }
+    }];
 }
 
 
@@ -121,13 +144,39 @@
 - (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
 {
     NSLog(@"didReceiveEvent >>> data: %@", packet.data);
+    NSError *error;
+    id jsonResult = [NSJSONSerialization JSONObjectWithData:[packet.data dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+    if (!error)
+    {
+        if (jsonResult && ([jsonResult isKindOfClass:[NSDictionary class]]))
+        {
+            NSDictionary *dict = (NSDictionary*)jsonResult;
 
+            NSString *name = [dict objectForKey:@"name"];
+            NSArray *args = [dict objectForKey:@"args"];
+
+            if ([name isEqualToString:@"join"])
+            {
+                for (NSDictionary *eachInstance in args)
+                {
+                    [self.groupDelegate onJoin:eachInstance sender:self];
+                }
+            }
+            else if ([name isEqualToString:@"leave"])
+            {
+                for (NSDictionary *eachInstance in args)
+                {
+                    [self.groupDelegate onLeave:eachInstance sender:self];
+                }
+            }
+        }
+    }
 }
 
 
 - (void)socketIO:(SocketIO *)socket didSendMessage:(SocketIOPacket *)packet
 {
-    NSLog(@"didSendMessage");
+//    NSLog(@"didSendMessage");
 }
 
 

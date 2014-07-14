@@ -23,6 +23,7 @@
 		18068989196613F000BDCD26 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18068987196613F000BDCD26 /* InfoPlist.strings */; };
 		1806898B196613F000BDCD26 /* RespokeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806898A196613F000BDCD26 /* RespokeTests.m */; };
 		180689961966EA1100BDCD26 /* logo_respoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 180689951966EA1100BDCD26 /* logo_respoke.png */; };
+		1832379B1974815900243EFE /* RespokeEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1832379A1974815900243EFE /* RespokeEndpoint.m */; };
 		184B018A196B097F000BB925 /* Respoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B0189196B097F000BB925 /* Respoke.m */; };
 		184B018D196B09B7000BB925 /* RespokeWebRTCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B018C196B09B7000BB925 /* RespokeWebRTCManager.m */; };
 		184B0195196B0A84000BB925 /* APPRTCAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B018F196B0A84000BB925 /* APPRTCAppClient.m */; };
@@ -164,6 +165,8 @@
 		18068988196613F000BDCD26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1806898A196613F000BDCD26 /* RespokeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RespokeTests.m; sourceTree = "<group>"; };
 		180689951966EA1100BDCD26 /* logo_respoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_respoke.png; sourceTree = "<group>"; };
+		183237991974815900243EFE /* RespokeEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeEndpoint.h; sourceTree = "<group>"; };
+		1832379A1974815900243EFE /* RespokeEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespokeEndpoint.m; sourceTree = "<group>"; };
 		184B00E819676680000BB925 /* RTCAudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioSource.h; sourceTree = "<group>"; };
 		184B00E919676680000BB925 /* RTCAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioTrack.h; sourceTree = "<group>"; };
 		184B00EA19676680000BB925 /* RTCDataChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCDataChannel.h; sourceTree = "<group>"; };
@@ -662,6 +665,8 @@
 				184B0189196B097F000BB925 /* Respoke.m */,
 				184B026619707F25000BB925 /* RespokeClient.h */,
 				184B026719707F25000BB925 /* RespokeClient.m */,
+				183237991974815900243EFE /* RespokeEndpoint.h */,
+				1832379A1974815900243EFE /* RespokeEndpoint.m */,
 				184B02A419735083000BB925 /* RespokeGroup.h */,
 				184B02A519735083000BB925 /* RespokeGroup.m */,
 				184B02A71973662C000BB925 /* RespokeSignalingChannel.h */,
@@ -841,6 +846,7 @@
 				184B028819709BDC000BB925 /* base64.c in Sources */,
 				184B026E19709284000BB925 /* GroupTableViewController.m in Sources */,
 				184B028A19709BDC000BB925 /* SRWebSocket.m in Sources */,
+				1832379B1974815900243EFE /* RespokeEndpoint.m in Sources */,
 				184B027E19709AC8000BB925 /* SocketIOTransportWebsocket.m in Sources */,
 				184B02A619735083000BB925 /* RespokeGroup.m in Sources */,
 				18068969196613F000BDCD26 /* main.m in Sources */,
