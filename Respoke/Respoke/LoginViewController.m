@@ -10,15 +10,17 @@
 #import "GroupTableViewController.h"
 
 
-@implementation LoginViewController
+@implementation LoginViewController {
+    RespokeGroup *myGroup;
+    NSArray *groupMembers;
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    sharedRespokeClient.connectionDelegate = self;
-    sharedRespokeClient.errorDelegate = self;
+    sharedRespokeClient.delegate = self;
 }
 
 
@@ -33,13 +35,11 @@
     if ([self.usernameTextField.text length])
     {
         self.activityIndicator.hidden = NO;
+        self.errorLabel.hidden = YES;
         [self.connectButton setTitle:@"" forState:UIControlStateNormal];
 
         [sharedRespokeClient connectWithEndpointID:self.usernameTextField.text errorHandler:^(NSString *errorMessage) {
-            self.errorLabel.text = errorMessage;
-            self.errorLabel.hidden = NO;
-            self.activityIndicator.hidden = YES;
-            [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+            [self showError:errorMessage];
         }];
     }
     else
@@ -53,8 +53,25 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    GroupTableViewController *controller = [segue destinationViewController];
+    GroupTableViewController *controller = (GroupTableViewController*) [(UINavigationController*) [segue destinationViewController] topViewController];;
     controller.username = self.usernameTextField.text;
+    controller.group = myGroup;
+    controller.groupMembers = [groupMembers mutableCopy];
+}
+
+
+- (IBAction)unwindFromGroupView:(UIStoryboardSegue*)sender
+{
+    
+}
+
+
+- (void)showError:(NSString*)errorMessage
+{
+    self.errorLabel.text = errorMessage;
+    self.errorLabel.hidden = NO;
+    self.activityIndicator.hidden = YES;
+    [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
 }
 
 
@@ -78,15 +95,27 @@
 }
 
 
-#pragma mark - RespokeClientConnectionDelegate
+#pragma mark - RespokeClientDelegate
 
 
 - (void)onConnect:(RespokeClient*)sender
 {
-    self.activityIndicator.hidden = YES;
-    [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
-    
-    [self performSegueWithIdentifier:@"ShowGroup" sender:self];
+
+    [sharedRespokeClient joinGroup:@"endpointlist" errorHandler:^(NSString *errorMessage) {
+        [self showError:errorMessage];
+    } joinHandler:^(RespokeGroup *group) {
+        myGroup = group;
+        [myGroup getMembersWithSuccessHandler:^(NSArray *memberList) {
+            groupMembers = memberList;
+
+            self.activityIndicator.hidden = YES;
+            [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+            
+            [self performSegueWithIdentifier:@"ShowGroup" sender:self];
+        } errorHandler:^(NSString *errorMessage) {
+            [self showError:errorMessage];
+        }];
+    }];
 }
 
 
@@ -96,15 +125,9 @@
 }
 
 
-#pragma mark - RespokeClientErrorDelegate
-
-
 - (void)onError:(NSError *)error fromClient:(RespokeClient*)sender
 {
-    self.errorLabel.text = [error localizedDescription];
-    self.errorLabel.hidden = NO;
-    self.activityIndicator.hidden = YES;
-    [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+    [self showError:[error localizedDescription]];
 }
 
 

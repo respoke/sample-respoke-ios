@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate, RespokeClientConnectionDelegate, RespokeClientErrorDelegate>
+@interface LoginViewController : UIViewController <UITextFieldDelegate, RespokeClientDelegate>
 
 @property (weak) IBOutlet UITextField *usernameTextField;
 @property (weak) IBOutlet UILabel *errorLabel;
 @property (weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak) IBOutlet UIButton *connectButton;
+
+- (IBAction)unwindFromGroupView:(UIStoryboardSegue*)sender;
 
 @end

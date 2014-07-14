@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface GroupTableViewController : UITableViewController
+
+@interface GroupTableViewController : UITableViewController <RespokeClientDelegate>
 
 @property NSString *username;
+@property RespokeGroup *group;
+@property NSMutableArray *groupMembers;
 
 @end

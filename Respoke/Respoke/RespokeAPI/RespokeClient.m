@@ -9,21 +9,20 @@
 #import "RespokeClient.h"
 #import "APIGetToken.h"
 #import "APIDoOpen.h"
-#import "SocketIO.h"
-#import "SocketIOPacket.h"
+#import "RespokeSignalingChannel.h"
 
-#define RESPOKE_SOCKETIO_PORT 443
-#define HEARTBEAT_INTERVAL 5000
+//#define HEARTBEAT_INTERVAL 5000
 
 
-@interface RespokeClient () <SocketIODelegate> {
+@interface RespokeClient () <SocketIODelegate, RespokeSignalingChannelConnectionDelegate, RespokeSignalingChannelErrorDelegate> {
     BOOL devMode;
-    BOOL reconnect;
+    //BOOL reconnect;
     NSString *applicationID;
+    NSString *applicationToken;
     NSString *endpointID;
-    SocketIO *socketIO;
-    BOOL connected;
-    BOOL heartbeatActive;
+    RespokeSignalingChannel *signalingChannel;
+    //BOOL connected;
+    //BOOL heartbeatActive;
 }
 
 @end
@@ -38,9 +37,7 @@
     {
         applicationID = appID;
         devMode = developmentMode;
-        reconnect = developmentMode;
-        socketIO = [[SocketIO alloc] initWithDelegate:self];
-        socketIO.useSecure = YES;
+        //reconnect = developmentMode;
     }
 
     return self;
@@ -62,7 +59,10 @@
             doOpen.tokenID = getToken.token;
 
             [doOpen goWithSuccessHandler:^{
-                [self authenticateWithToken:doOpen.appToken];
+                signalingChannel = [[RespokeSignalingChannel alloc] initWithAppToken:doOpen.appToken developmentMode:devMode];
+                signalingChannel.connectionDelegate = self;
+                signalingChannel.errorDelegate = self;
+                [signalingChannel authenticate];
             } errorHandler:^(NSString *errorMessage){
                 errorHandler(errorMessage);
             }];
@@ -78,13 +78,49 @@
 }
 
 
-- (void)authenticateWithToken:(NSString*)appToken
+- (void)joinGroup:(NSString*)groupName errorHandler:(void (^)(NSString*))errorHandler joinHandler:(void (^)(RespokeGroup*))joinHandler
 {
-    [socketIO connectToHost:[NSString stringWithFormat:@"%@", RESPOKE_BASE_URL] onPort:RESPOKE_SOCKETIO_PORT withParams:[NSDictionary dictionaryWithObjectsAndKeys:appToken, @"app-token", nil]];
+    if (signalingChannel.connected)
+    {
+        if ([groupName length])
+        {
+            NSString *urlEndpoint = [NSString stringWithFormat:@"/v1/channels/%@/subscribers/", groupName];
+            
+            [signalingChannel sendRESTMessage:@"post" url:urlEndpoint responseHandler:^(id response, NSString *errorMessage) {
+                if (errorMessage)
+                {
+                    errorHandler(errorMessage);
+                }
+                else
+                {
+                    if (!response)
+                    {
+                        RespokeGroup *newGroup = [[RespokeGroup alloc] initWithGroupID:groupName appToken:applicationToken signalingChannel:signalingChannel];
+                        joinHandler(newGroup);
+                    }
+                    else
+                    {
+                        errorHandler(@"Unexpected response received");   
+                    }
+                }
+            }];
+        }
+        else
+        {
+            errorHandler(@"Group name must be specified");
+        }
+    }
+    else
+    {
+        errorHandler(@"The client must be connected before joining a group");
+    }
 }
 
 
-- (void)heartbeatHandler
+#pragma mark - Private methods
+
+
+/*- (void)heartbeatHandler
 {
     if (connected)
     {
@@ -97,66 +133,27 @@
         // stop sending heartbeat
         heartbeatActive = NO;
     }
+}*/
+
+
+#pragma mark - RespokeSignalingChannelConnectionDelegate
+
+
+- (void)onConnect:(RespokeSignalingChannel*)sender
+{
+    [self.delegate onConnect:self];
 }
 
 
-#pragma mark - SocketIODelegate
-
-
-- (void)socketIODidConnect:(SocketIO *)socket
+- (void)onDisconnect:(RespokeSignalingChannel*)sender
 {
-    NSLog(@"socketIODidConnect");
-    connected = YES;
-
-    if (!heartbeatActive)
-    {
-        // start the heartbeat, unless one is already scheduled
-        [self heartbeatHandler];
-    }
-
-    [self.connectionDelegate onConnect:self];
+    [self.delegate onDisconnect:self];
 }
 
 
-- (void)socketIODidDisconnect:(SocketIO *)socket disconnectedWithError:(NSError *)error
+- (void)onError:(NSError *)error sender:(RespokeSignalingChannel*)sender
 {
-    NSLog(@"socketIODidDisconnect: %@", [error localizedDescription]);
-    connected = NO;
-    [self.connectionDelegate onDisconnect:self];
-}
-
-
-- (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet
-{
-    NSLog(@"didReceiveMessage >>> data: %@", packet.data);
-
-}
-
-
-- (void)socketIO:(SocketIO *)socket didReceiveJSON:(SocketIOPacket *)packet
-{
-    NSLog(@"didReceiveJSON");
-
-}
-
-
-- (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
-{
-    NSLog(@"didReceiveEvent >>> data: %@", packet.data);
-
-}
-
-
-- (void)socketIO:(SocketIO *)socket didSendMessage:(SocketIOPacket *)packet
-{
-    NSLog(@"didSendMessage");
-}
-
-
-- (void)socketIO:(SocketIO *)socket onError:(NSError *)error
-{
-    NSLog(@"------%@: socketIO error: %@", [self class], [error localizedDescription]);
-    [self.errorDelegate onError:error fromClient:self];
+    [self.delegate onError:error fromClient:self];
 }
 
 

@@ -7,33 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RespokeGroup.h"
 
 
-@protocol RespokeClientConnectionDelegate;
-@protocol RespokeClientErrorDelegate;
+@protocol RespokeClientDelegate;
 
 
 @interface RespokeClient : NSObject
 
-@property (weak) id <RespokeClientConnectionDelegate> connectionDelegate;
-@property (weak) id <RespokeClientErrorDelegate> errorDelegate;
+@property (weak) id <RespokeClientDelegate> delegate;
 
 - (instancetype)initWithAppID:(NSString*)appID developmentMode:(BOOL)developmentMode;
 - (void)connectWithEndpointID:(NSString*)endpoint errorHandler:(void (^)(NSString*))errorHandler;
+- (void)joinGroup:(NSString*)groupName errorHandler:(void (^)(NSString*))errorHandler joinHandler:(void (^)(RespokeGroup*))joinHandler;
 
 @end
 
 
-@protocol RespokeClientConnectionDelegate <NSObject>
+@protocol RespokeClientDelegate <NSObject>
 
 - (void)onConnect:(RespokeClient*)sender;
 - (void)onDisconnect:(RespokeClient*)sender;
-
-@end
-
-
-@protocol RespokeClientErrorDelegate <NSObject>
-
 - (void)onError:(NSError *)error fromClient:(RespokeClient*)sender;
 
 @end
