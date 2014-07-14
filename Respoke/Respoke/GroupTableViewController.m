@@ -72,12 +72,21 @@
 - (void)onJoin:(NSString*)endpoint sender:(RespokeGroup*)sender
 {
     NSLog(@"Joined: %@", endpoint);
+    [self.groupMembers addObject:endpoint];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.groupMembers count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
 - (void)onLeave:(NSString*)endpoint sender:(RespokeGroup*)sender
 {
     NSLog(@"Left: %@", endpoint);
+    NSInteger index = [self.groupMembers indexOfObject:endpoint];
+
+    if (NSNotFound != index)
+    {
+        [self.groupMembers removeObjectAtIndex:index];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
 

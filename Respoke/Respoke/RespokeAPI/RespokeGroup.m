@@ -121,10 +121,10 @@
 
 - (void)onJoin:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender
 {
-    // only pass on notifications about people other than ourselves
     NSString *endpoint = [params objectForKey:@"endpoint"];
     NSString *connection = [params objectForKey:@"connectionId"];
     
+    // only pass on notifications about people other than ourselves
     if (![endpoint isEqualToString:endpointID])
     {
         RespokeEndpoint *existing = [self endpointWithName:endpoint];
@@ -148,10 +148,26 @@
 
 - (void)onLeave:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender
 {
-    NSString *endpoint = [params objectForKey:@"endpoint"];
+    NSString *endpoint = [params objectForKey:@"endpointId"];
+    NSString *connection = [params objectForKey:@"connectionId"];
+
+    // only pass on notifications about people other than ourselves
     if (![endpoint isEqualToString:endpointID])
     {
-        // only pass on notifications about people other than ourselves
+        RespokeEndpoint *existing = [self endpointWithName:endpoint];
+
+        if (existing)
+        {
+            if ([existing.connections count] > 1)
+            {
+                [existing.connections removeObject:connection];
+            }
+            else
+            {
+                [members removeObjectIdenticalTo:existing];
+                [self.delegate onLeave:endpoint sender:self];
+            }
+        }
     }
 }
 
