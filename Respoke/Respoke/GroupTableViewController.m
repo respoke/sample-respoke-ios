@@ -7,6 +7,7 @@
 //
 
 #import "GroupTableViewController.h"
+#import "ChatTableViewController.h"
 
 
 @interface GroupTableViewController ()
@@ -25,6 +26,21 @@
     self.group.delegate = self;
 
     self.title = self.username;
+
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+}
+
+
+#pragma mark - Navigation
+
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ChatTableViewController *controller = [segue destinationViewController];
+    controller.endpoint = sender;
+    controller.username = self.username;
 }
 
 
@@ -101,15 +117,16 @@
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSString *endpointToShow = [self.groupMembers objectAtIndex:indexPath.row];
+    RespokeEndpoint *selection = [self.group endpointWithName:endpointToShow];
+
+    if (selection)
+    {
+        [self performSegueWithIdentifier:@"ShowContact" sender:selection];
+    }
 }
-*/
+
 
 @end

@@ -24,6 +24,9 @@
 		1806898B196613F000BDCD26 /* RespokeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806898A196613F000BDCD26 /* RespokeTests.m */; };
 		180689961966EA1100BDCD26 /* logo_respoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 180689951966EA1100BDCD26 /* logo_respoke.png */; };
 		1832379B1974815900243EFE /* RespokeEndpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1832379A1974815900243EFE /* RespokeEndpoint.m */; };
+		1832379E19749F4D00243EFE /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1832379D19749F4D00243EFE /* ChatTableViewController.m */; };
+		183237A11975808800243EFE /* ConversationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237A01975808800243EFE /* ConversationMessage.m */; };
+		183237A4197580A700243EFE /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237A3197580A700243EFE /* Conversation.m */; };
 		184B018A196B097F000BB925 /* Respoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B0189196B097F000BB925 /* Respoke.m */; };
 		184B018D196B09B7000BB925 /* RespokeWebRTCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B018C196B09B7000BB925 /* RespokeWebRTCManager.m */; };
 		184B0195196B0A84000BB925 /* APPRTCAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B018F196B0A84000BB925 /* APPRTCAppClient.m */; };
@@ -167,6 +170,12 @@
 		180689951966EA1100BDCD26 /* logo_respoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_respoke.png; sourceTree = "<group>"; };
 		183237991974815900243EFE /* RespokeEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeEndpoint.h; sourceTree = "<group>"; };
 		1832379A1974815900243EFE /* RespokeEndpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespokeEndpoint.m; sourceTree = "<group>"; };
+		1832379C19749F4D00243EFE /* ChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewController.h; sourceTree = "<group>"; };
+		1832379D19749F4D00243EFE /* ChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewController.m; sourceTree = "<group>"; };
+		1832379F1975808800243EFE /* ConversationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationMessage.h; sourceTree = "<group>"; };
+		183237A01975808800243EFE /* ConversationMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationMessage.m; sourceTree = "<group>"; };
+		183237A2197580A700243EFE /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		183237A3197580A700243EFE /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
 		184B00E819676680000BB925 /* RTCAudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioSource.h; sourceTree = "<group>"; };
 		184B00E919676680000BB925 /* RTCAudioTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCAudioTrack.h; sourceTree = "<group>"; };
 		184B00EA19676680000BB925 /* RTCDataChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCDataChannel.h; sourceTree = "<group>"; };
@@ -486,6 +495,12 @@
 				1806896C196613F000BDCD26 /* AppDelegate.m */,
 				184B01CB196D9399000BB925 /* CallViewController.h */,
 				184B01CC196D9399000BB925 /* CallViewController.m */,
+				1832379C19749F4D00243EFE /* ChatTableViewController.h */,
+				1832379D19749F4D00243EFE /* ChatTableViewController.m */,
+				183237A2197580A700243EFE /* Conversation.h */,
+				183237A3197580A700243EFE /* Conversation.m */,
+				1832379F1975808800243EFE /* ConversationMessage.h */,
+				183237A01975808800243EFE /* ConversationMessage.m */,
 				184B026C19709284000BB925 /* GroupTableViewController.h */,
 				184B026D19709284000BB925 /* GroupTableViewController.m */,
 				180689941966EA1100BDCD26 /* Images */,
@@ -835,8 +850,10 @@
 				184B01CD196D9399000BB925 /* CallViewController.m in Sources */,
 				184B02A91973662C000BB925 /* RespokeSignalingChannel.m in Sources */,
 				184B018D196B09B7000BB925 /* RespokeWebRTCManager.m in Sources */,
+				183237A11975808800243EFE /* ConversationMessage.m in Sources */,
 				184B027C19709AC8000BB925 /* SocketIOJSONSerialization.m in Sources */,
 				184B027B19709AC8000BB925 /* SocketIO.m in Sources */,
+				1832379E19749F4D00243EFE /* ChatTableViewController.m in Sources */,
 				1806896D196613F000BDCD26 /* AppDelegate.m in Sources */,
 				184B029C1972E44D000BB925 /* APIGetToken.m in Sources */,
 				184B029D1972E44D000BB925 /* APITransaction.m in Sources */,
@@ -844,6 +861,7 @@
 				184B028919709BDC000BB925 /* NSData+SRB64Additions.m in Sources */,
 				184B0195196B0A84000BB925 /* APPRTCAppClient.m in Sources */,
 				184B028819709BDC000BB925 /* base64.c in Sources */,
+				183237A4197580A700243EFE /* Conversation.m in Sources */,
 				184B026E19709284000BB925 /* GroupTableViewController.m in Sources */,
 				184B028A19709BDC000BB925 /* SRWebSocket.m in Sources */,
 				1832379B1974815900243EFE /* RespokeEndpoint.m in Sources */,
