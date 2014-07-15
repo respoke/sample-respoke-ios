@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "RespokeEndpoint.h"
+#import "Conversation.h"
 
 
 @interface ChatTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, RespokeEndpointDelegate>
 
 @property NSString *username;
 @property RespokeEndpoint *endpoint;
+@property Conversation *conversation;
 @property (weak) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak) IBOutlet UITableView *tableView;
 @property (weak) IBOutlet UITextField *textField;

@@ -78,7 +78,7 @@
                                 [newEndpoint.connections addObject:newConnection];
                                 [members addObject:newEndpoint];
 
-                                [nameList addObject:newEndpointID];
+                                [nameList addObject:newEndpoint];
                             }
                         }
                     }
@@ -135,13 +135,13 @@
         }
         else
         {
-            RespokeEndpoint *newEndpoint = [[RespokeEndpoint alloc] initWithSignalingChannel:signalingChannel];
-            newEndpoint.endpointID = endpoint;
-            [newEndpoint.connections addObject:connection];
-            [members addObject:newEndpoint];
+            existing = [[RespokeEndpoint alloc] initWithSignalingChannel:signalingChannel];
+            existing.endpointID = endpoint;
+            [existing.connections addObject:connection];
+            [members addObject:existing];
         }
         
-        [self.delegate onJoin:endpoint sender:self];
+        [self.delegate onJoin:existing sender:self];
     }
 }
 
@@ -165,7 +165,7 @@
             else
             {
                 [members removeObjectIdenticalTo:existing];
-                [self.delegate onLeave:endpoint sender:self];
+                [self.delegate onLeave:existing sender:self];
             }
         }
     }

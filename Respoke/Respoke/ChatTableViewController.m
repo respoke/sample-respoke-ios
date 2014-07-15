@@ -7,11 +7,9 @@
 //
 
 #import "ChatTableViewController.h"
-#import "Conversation.h"
 
 
 @interface ChatTableViewController () {
-    Conversation *conversation;
     UITableViewCell *remotePrototype;
     UITableViewCell *localPrototype;
 }
@@ -27,10 +25,6 @@
     [super viewDidLoad];
     
     self.title = self.endpoint.endpointID;
-    conversation = [[Conversation alloc] initWithName:self.endpoint.endpointID];
-    /*[conversation addMessage:@"Hi there!" from:self.username];
-    [conversation addMessage:@"Top of the morning to you, fine sir. Top of the morning to you, fine sir. Top of the morning to you, fine sir." from:self.endpoint.endpointID];
-    [conversation addMessage:@"Thanks bro" from:self.username];*/
     self.endpoint.delegate = self;
 
     remotePrototype = [self.tableView dequeueReusableCellWithIdentifier:@"RemoteMessage"];
@@ -38,6 +32,12 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.conversation.unreadCount = 0;
 }
 
 
@@ -54,13 +54,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [conversation.messages count];
+    return [self.conversation.messages count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConversationMessage *message = [conversation.messages objectAtIndex:indexPath.row];
+    ConversationMessage *message = [self.conversation.messages objectAtIndex:indexPath.row];
     UITableViewCell *cell = nil;
 
     if ([message.senderEndpoint isEqualToString:self.username])
@@ -80,7 +80,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ConversationMessage *message = [conversation.messages objectAtIndex:indexPath.row];
+    ConversationMessage *message = [self.conversation.messages objectAtIndex:indexPath.row];
     UITableViewCell *prototypeCell = nil;
 
     if ([message.senderEndpoint isEqualToString:self.username])
@@ -139,9 +139,9 @@
 {
     if ([self.textField.text length])
     {
-        [conversation addMessage:self.textField.text from:self.username];
-        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        [self.conversation addMessage:self.textField.text from:self.username];
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 
         [self.endpoint sendMessage:self.textField.text successHandler:^(void){
             NSLog(@"Message sent");
@@ -185,9 +185,9 @@
 
 - (void)onMessage:(NSString*)message sender:(RespokeEndpoint*)sender
 {
-    [conversation addMessage:message from:sender.endpointID];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    [self.conversation addMessage:message from:sender.endpointID];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 

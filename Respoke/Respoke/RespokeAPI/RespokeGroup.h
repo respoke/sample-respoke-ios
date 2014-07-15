@@ -27,7 +27,7 @@
 
 @protocol RespokeGroupDelegate <NSObject>
 
-- (void)onJoin:(NSString*)endpoint sender:(RespokeGroup*)sender;
-- (void)onLeave:(NSString*)endpoint sender:(RespokeGroup*)sender;
+- (void)onJoin:(RespokeEndpoint*)endpoint sender:(RespokeGroup*)sender;
+- (void)onLeave:(RespokeEndpoint*)endpoint sender:(RespokeGroup*)sender;
 
 @end

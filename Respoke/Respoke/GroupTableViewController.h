@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 
 
-@interface GroupTableViewController : UITableViewController <RespokeClientDelegate, RespokeGroupDelegate>
+@interface GroupTableViewController : UITableViewController <RespokeClientDelegate, RespokeGroupDelegate, RespokeEndpointDelegate>
 
 @property NSString *username;
 @property RespokeGroup *group;

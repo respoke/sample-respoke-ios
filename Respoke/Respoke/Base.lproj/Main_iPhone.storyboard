@@ -158,14 +158,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aae-Q3-IFK">
-                                            <rect key="frame" x="20" y="11" width="280" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aae-Q3-IFK">
+                                            <rect key="frame" x="20" y="11" width="234" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  5  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfY-HI-lzt">
+                                            <rect key="frame" x="264" y="11" width="23" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.61176470589999998" green="0.89019607840000003" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AfY-HI-lzt" firstAttribute="top" secondItem="hWd-Xv-W64" secondAttribute="top" constant="11" id="1df-iu-l3j"/>
+                                        <constraint firstAttribute="bottom" secondItem="AfY-HI-lzt" secondAttribute="bottom" constant="11" id="2gT-sh-4Sw"/>
+                                        <constraint firstItem="AfY-HI-lzt" firstAttribute="leading" secondItem="Aae-Q3-IFK" secondAttribute="trailing" constant="10" id="BYN-D9-Vep"/>
+                                        <constraint firstAttribute="bottom" secondItem="Aae-Q3-IFK" secondAttribute="bottom" constant="11" id="QyE-sN-irZ"/>
+                                        <constraint firstItem="Aae-Q3-IFK" firstAttribute="top" secondItem="hWd-Xv-W64" secondAttribute="top" constant="11" id="gKZ-gI-Xxc"/>
+                                        <constraint firstAttribute="trailing" secondItem="AfY-HI-lzt" secondAttribute="trailing" id="tMN-aj-M3k"/>
+                                        <constraint firstItem="Aae-Q3-IFK" firstAttribute="leading" secondItem="hWd-Xv-W64" secondAttribute="leading" constant="20" id="vOH-Tp-G6t"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
