@@ -112,6 +112,17 @@
     bubble.layer.cornerRadius = 8.0;
 }
 
+
+#pragma mark - UITextFieldDelegate
+
+
+- (BOOL)textFieldShouldReturn:(UITextField*)textField 
+{
+    [self sendAction];
+    
+    return YES;
+}
+
 /*
 #pragma mark - Navigation
 
@@ -125,7 +136,20 @@
 
 - (IBAction)sendAction
 {
+    if ([self.textField.text length])
+    {
+        [conversation addMessage:self.textField.text from:self.username];
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 
+        [self.endpoint sendMessage:self.textField.text successHandler:^(void){
+            NSLog(@"Message sent");
+        } errorHandler:^(NSString *error){
+            NSLog(@"Error sending: %@", error);
+        }];
+
+        self.textField.text = @"";
+    }
 }
 
 

@@ -73,7 +73,7 @@
                             }
                             else
                             {
-                                RespokeEndpoint *newEndpoint = [[RespokeEndpoint alloc] init];
+                                RespokeEndpoint *newEndpoint = [[RespokeEndpoint alloc] initWithSignalingChannel:signalingChannel];
                                 newEndpoint.endpointID = newEndpointID;
                                 [newEndpoint.connections addObject:newConnection];
                                 [members addObject:newEndpoint];
@@ -135,7 +135,7 @@
         }
         else
         {
-            RespokeEndpoint *newEndpoint = [[RespokeEndpoint alloc] init];
+            RespokeEndpoint *newEndpoint = [[RespokeEndpoint alloc] initWithSignalingChannel:signalingChannel];
             newEndpoint.endpointID = endpoint;
             [newEndpoint.connections addObject:connection];
             [members addObject:newEndpoint];

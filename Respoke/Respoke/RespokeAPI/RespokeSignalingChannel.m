@@ -26,8 +26,6 @@
         appToken = token;
         devMode = developmentMode;
         reconnect = developmentMode;
-        socketIO = [[SocketIO alloc] initWithDelegate:self];
-        socketIO.useSecure = YES;
     }
 
     return self;
@@ -36,6 +34,8 @@
 
 - (void)authenticate
 {
+    socketIO = [[SocketIO alloc] initWithDelegate:self];
+    socketIO.useSecure = YES;
     [socketIO connectToHost:[NSString stringWithFormat:@"%@", RESPOKE_BASE_URL] onPort:RESPOKE_SOCKETIO_PORT withParams:[NSDictionary dictionaryWithObjectsAndKeys:appToken, @"app-token", nil]];
 }
 

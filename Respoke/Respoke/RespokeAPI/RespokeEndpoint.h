@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RespokeSignalingChannel.h"
+
 
 @interface RespokeEndpoint : NSObject
 
 @property NSString *endpointID;
 @property NSMutableArray *connections;
+
+- (instancetype)initWithSignalingChannel:(RespokeSignalingChannel*)channel;
+- (void)sendMessage:(NSString*)message successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler;
 
 @end

@@ -10,7 +10,7 @@
 #import "RespokeEndpoint.h"
 
 
-@interface ChatTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ChatTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property NSString *username;
 @property RespokeEndpoint *endpoint;
