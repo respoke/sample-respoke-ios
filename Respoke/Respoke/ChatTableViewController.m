@@ -28,9 +28,10 @@
     
     self.title = self.endpoint.endpointID;
     conversation = [[Conversation alloc] initWithName:self.endpoint.endpointID];
-    [conversation addMessage:@"Hi there!" from:self.username];
+    /*[conversation addMessage:@"Hi there!" from:self.username];
     [conversation addMessage:@"Top of the morning to you, fine sir. Top of the morning to you, fine sir. Top of the morning to you, fine sir." from:self.endpoint.endpointID];
-    [conversation addMessage:@"Thanks bro" from:self.username];
+    [conversation addMessage:@"Thanks bro" from:self.username];*/
+    self.endpoint.delegate = self;
 
     remotePrototype = [self.tableView dequeueReusableCellWithIdentifier:@"RemoteMessage"];
     localPrototype = [self.tableView dequeueReusableCellWithIdentifier:@"LocalMessage"];
@@ -179,6 +180,14 @@
         self.bottomConstraint.constant = 0;
         [self.view layoutIfNeeded];
     } completion:nil];
+}
+
+
+- (void)onMessage:(NSString*)message sender:(RespokeEndpoint*)sender
+{
+    [conversation addMessage:message from:sender.endpointID];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 

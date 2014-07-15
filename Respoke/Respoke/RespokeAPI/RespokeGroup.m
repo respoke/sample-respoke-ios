@@ -172,4 +172,19 @@
 }
 
 
+- (void)onMessage:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender
+{
+    NSDictionary *header = [params objectForKey:@"header"];
+    NSString *from = [header objectForKey:@"from"];
+    NSString *message = [params objectForKey:@"body"];
+
+    RespokeEndpoint *existing = [self endpointWithName:from];
+
+    if (existing)
+    {
+        [existing.delegate onMessage:message sender:existing];
+    }
+}
+
+
 @end

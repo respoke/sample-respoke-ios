@@ -169,6 +169,13 @@
                     [self.groupDelegate onLeave:eachInstance sender:self];
                 }
             }
+            else if ([name isEqualToString:@"message"])
+            {
+                for (NSDictionary *eachInstance in args)
+                {
+                    [self.groupDelegate onMessage:eachInstance sender:self];
+                }
+            }
         }
     }
 }

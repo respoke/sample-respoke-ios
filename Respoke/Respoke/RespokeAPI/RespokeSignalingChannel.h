@@ -56,5 +56,6 @@
 
 - (void)onJoin:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender;
 - (void)onLeave:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender;
+- (void)onMessage:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender;
 
 @end

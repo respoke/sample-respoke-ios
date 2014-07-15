@@ -30,8 +30,7 @@
 {
     if ([self.connections count])
     {
-        NSString *connection = [self.connections objectAtIndex:0];
-        NSDictionary *data = @{@"to": self.endpointID, @"toConnection": connection, @"message": message};
+        NSDictionary *data = @{@"to": self.endpointID, @"message": message};
 
         [signalingChannel sendRESTMessage:@"post" url:@"/v1/messages" data:data responseHandler:^(id response, NSString *errorMessage) {
             if (errorMessage)
