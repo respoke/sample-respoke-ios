@@ -30,6 +30,12 @@
 }
 
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent; 
+}
+
+
 - (IBAction)connectAction
 {
     if ([self.usernameTextField.text length])
@@ -100,8 +106,7 @@
 
 - (void)onConnect:(RespokeClient*)sender
 {
-
-    [sharedRespokeClient joinGroup:@"endpointlist" errorHandler:^(NSString *errorMessage) {
+    [sharedRespokeClient joinGroup:@"jasontest" errorHandler:^(NSString *errorMessage) {
         [self showError:errorMessage];
     } joinHandler:^(RespokeGroup *group) {
         myGroup = group;

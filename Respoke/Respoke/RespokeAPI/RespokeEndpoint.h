@@ -21,6 +21,7 @@
 
 - (instancetype)initWithSignalingChannel:(RespokeSignalingChannel*)channel;
 - (void)sendMessage:(NSString*)message successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler;
+- (void)startVideoCallWithRemoteVideoView:(UIView*)newRemoteView localVideoView:(UIView*)newLocalView;
 
 @end
 

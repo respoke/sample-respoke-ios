@@ -14,6 +14,5 @@
 
 + (Respoke *)sharedInstance;
 - (RespokeClient*)createClientWithAppID:(NSString*)appID developmentMode:(BOOL)developmentMode;
-- (void)startCallWithEndpoint:(NSString*)endpoint remoteVideoView:(UIView*)newRemoteView localVideoView:(UIView*)newLocalView;
 
 @end

@@ -134,6 +134,7 @@
 		184B02A01972E46A000BB925 /* APIDoOpen.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B029F1972E46A000BB925 /* APIDoOpen.m */; };
 		184B02A619735083000BB925 /* RespokeGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B02A519735083000BB925 /* RespokeGroup.m */; };
 		184B02A91973662C000BB925 /* RespokeSignalingChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B02A81973662C000BB925 /* RespokeSignalingChannel.m */; };
+		18D4A01419796CDA00F7FC49 /* StyledNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +334,8 @@
 		184B02A519735083000BB925 /* RespokeGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespokeGroup.m; sourceTree = "<group>"; };
 		184B02A71973662C000BB925 /* RespokeSignalingChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeSignalingChannel.h; sourceTree = "<group>"; };
 		184B02A81973662C000BB925 /* RespokeSignalingChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespokeSignalingChannel.m; sourceTree = "<group>"; };
+		18D4A01219796CDA00F7FC49 /* StyledNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledNavigationController.h; sourceTree = "<group>"; };
+		18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,6 +514,8 @@
 				1806896E196613F000BDCD26 /* Main_iPhone.storyboard */,
 				184B0187196B097F000BB925 /* RespokeAPI */,
 				184B026F19709AB3000BB925 /* socketIO */,
+				18D4A01219796CDA00F7FC49 /* StyledNavigationController.h */,
+				18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */,
 				18068963196613F000BDCD26 /* Supporting Files */,
 			);
 			path = Respoke;
@@ -863,6 +868,7 @@
 				184B028819709BDC000BB925 /* base64.c in Sources */,
 				183237A4197580A700243EFE /* Conversation.m in Sources */,
 				184B026E19709284000BB925 /* GroupTableViewController.m in Sources */,
+				18D4A01419796CDA00F7FC49 /* StyledNavigationController.m in Sources */,
 				184B028A19709BDC000BB925 /* SRWebSocket.m in Sources */,
 				1832379B1974815900243EFE /* RespokeEndpoint.m in Sources */,
 				184B027E19709AC8000BB925 /* SocketIOTransportWebsocket.m in Sources */,

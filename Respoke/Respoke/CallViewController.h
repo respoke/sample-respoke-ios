@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RespokeEndpoint.h"
+
 
 @interface CallViewController : UIViewController
 
 @property (weak) IBOutlet UIView *remoteView;
 @property (weak) IBOutlet UIView *localView;
-@property NSString *endpoint;
+@property RespokeEndpoint *endpoint;
 
 @end

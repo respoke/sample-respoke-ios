@@ -7,6 +7,7 @@
 //
 
 #import "ChatTableViewController.h"
+#import "CallViewController.h"
 
 
 @interface ChatTableViewController () {
@@ -38,6 +39,19 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     self.conversation.unreadCount = 0;
+}
+
+
+#pragma mark - Navigation
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Call"])
+    {
+        CallViewController *controller = [segue destinationViewController];
+        controller.endpoint = self.endpoint;
+    }
 }
 
 
@@ -99,7 +113,7 @@
     [prototypeCell setNeedsLayout];
     [prototypeCell layoutIfNeeded];
     CGFloat height = [prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    return MAX(44.0, height);// + CELL_SEPARATOR_ADJUSTMENT);
+    return MAX(44.0, height);
 }
 
 
@@ -109,7 +123,16 @@
     UIView *bubble = [cell viewWithTag:2];
 
     label.text = message.message;
-    label.preferredMaxLayoutWidth = 200;
+
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        label.preferredMaxLayoutWidth = 600;
+    }
+    else
+    {
+        label.preferredMaxLayoutWidth = 200;   
+    }
+
     bubble.layer.cornerRadius = 8.0;
 }
 
@@ -124,16 +147,6 @@
     return YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)sendAction
 {
@@ -156,7 +169,7 @@
 
 - (IBAction)callAction
 {
-
+    [self performSegueWithIdentifier:@"Call" sender:self];
 }
 
 

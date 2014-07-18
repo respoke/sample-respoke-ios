@@ -7,7 +7,6 @@
 //
 
 #import "CallViewController.h"
-#import "Respoke.h"
 
 
 @interface CallViewController ()
@@ -18,21 +17,17 @@
 @implementation CallViewController
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    [[Respoke sharedInstance] startCallWithEndpoint:self.endpoint remoteVideoView:self.remoteView localVideoView:self.localView];
+    [self.endpoint startVideoCallWithRemoteVideoView:self.remoteView localVideoView:self.localView];
+}
+
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 /*

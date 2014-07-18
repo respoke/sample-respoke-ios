@@ -50,4 +50,12 @@
 }
 
 
+- (void)startVideoCallWithRemoteVideoView:(UIView*)newRemoteView localVideoView:(UIView*)newLocalView
+{
+    //NSString* url = [NSString stringWithFormat:@"https://apprtc.appspot.com/?r=%@", endpoint];
+
+    //[respokeWebRTCManager startCallWithURL:url remoteVideoView:newRemoteView localVideoView:newLocalView];
+}
+
+
 @end
