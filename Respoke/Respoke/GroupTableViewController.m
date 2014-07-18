@@ -58,7 +58,6 @@
 #pragma mark - Navigation
 
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ShowContact"])
@@ -117,7 +116,7 @@
 - (void)onJoin:(RespokeEndpoint*)endpoint sender:(RespokeGroup*)sender
 {
     NSLog(@"Joined: %@", endpoint.endpointID);
-    [self.groupMembers addObject:endpoint.endpointID];
+    [self.groupMembers addObject:endpoint];
     Conversation *conversation = [[Conversation alloc] initWithName:endpoint.endpointID];
     [conversations setObject:conversation forKey:endpoint.endpointID];
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.groupMembers count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
