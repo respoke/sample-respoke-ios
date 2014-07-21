@@ -15,6 +15,7 @@
 @protocol RespokeSignalingChannelConnectionDelegate;
 @protocol RespokeSignalingChannelErrorDelegate;
 @protocol RespokeSignalingChannelGroupDelegate;
+@protocol RespokeSignalingChannelClientDelegate;
 
 
 @interface RespokeSignalingChannel : NSObject {
@@ -28,6 +29,7 @@
 @property (weak) id <RespokeSignalingChannelConnectionDelegate> connectionDelegate;
 @property (weak) id <RespokeSignalingChannelErrorDelegate> errorDelegate;
 @property (weak) id <RespokeSignalingChannelGroupDelegate> groupDelegate;
+@property (weak) id <RespokeSignalingChannelClientDelegate> clientDelegate;
 @property BOOL connected;
 
 - (instancetype)initWithAppToken:(NSString*)token developmentMode:(BOOL)developmentMode;
@@ -37,10 +39,15 @@
 @end
 
 
+@class RespokeCall;
+@class RespokeEndpoint;
+
+
 @protocol RespokeSignalingChannelConnectionDelegate <NSObject>
 
 - (void)onConnect:(RespokeSignalingChannel*)sender;
 - (void)onDisconnect:(RespokeSignalingChannel*)sender;
+- (void)onIncomingCall:(RespokeCall*)call sender:(RespokeSignalingChannel*)sender;
 
 @end
 
@@ -57,5 +64,17 @@
 - (void)onJoin:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender;
 - (void)onLeave:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender;
 - (void)onMessage:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender;
+
+@end
+
+
+@protocol RespokeSignalingChannelClientDelegate
+
+- (void)callCreated:(RespokeCall*)call;
+- (void)callTerminated:(RespokeCall*)call;
+- (RespokeCall*)callWithID:(NSString*)sessionID;
+- (void)endpointDiscovered:(RespokeEndpoint*)endpoint;
+- (void)endpointDisappeared:(RespokeEndpoint*)endpoint;
+- (RespokeEndpoint*)endpointWithID:(NSString*)endpointID;
 
 @end

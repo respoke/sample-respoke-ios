@@ -7,6 +7,9 @@
 //
 
 #import "RespokeSignalingChannel.h"
+#import "RespokeCall.h"
+#import "RespokeEndpoint.h"
+
 
 #define RESPOKE_SOCKETIO_PORT 443
 
@@ -176,6 +179,13 @@
                     [self.groupDelegate onMessage:eachInstance sender:self];
                 }
             }
+            else if ([name isEqualToString:@"signal"])
+            {
+                for (NSDictionary *eachInstance in args)
+                {
+                    [self routeSignal:eachInstance];
+                }
+            }
         }
     }
 }
@@ -191,6 +201,116 @@
 {
     NSLog(@"------%@: socketIO error: %@", [self class], [error localizedDescription]);
     [self.errorDelegate onError:error sender:self];
+}
+
+
+#pragma mark - misc
+
+
+- (void)routeSignal:(NSDictionary*)message
+{
+    NSString *signal = [message objectForKey:@"signal"];
+    NSDictionary *header = [message objectForKey:@"header"];
+    NSString *from = [header objectForKey:@"from"];
+    NSString *fromConnection = [header objectForKey:@"fromConnection"];
+    
+    if (signal && from)
+    {
+        NSError *error;
+        id jsonResult = [NSJSONSerialization JSONObjectWithData:[signal dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+        if ((!error) && ([jsonResult isKindOfClass:[NSDictionary class]]))
+        {
+            NSString *signalType = [jsonResult objectForKey:@"signalType"];
+            NSString *sessionID = [jsonResult objectForKey:@"sessionId"];
+            NSString *target = [jsonResult objectForKey:@"target"];
+            NSString *toConnection = [jsonResult objectForKey:@"toConnection"];
+
+            if (sessionID && signalType)
+            {
+                RespokeCall *call = [self.clientDelegate callWithID:sessionID];
+
+                if ([target isEqualToString:@"call"])
+                {
+                    if (call)
+                    {
+                        if ([signalType isEqualToString:@"hangup"])
+                        {
+                            [call hangupReceived];
+                        }
+                        else if ([signalType isEqualToString:@"answer"])
+                        {
+                            NSDictionary *sdp = [jsonResult objectForKey:@"sdp"];
+
+                            [call answerReceived:sdp fromConnection:fromConnection];
+                        }
+                        else if ([signalType isEqualToString:@"connected"])
+                        {
+                            if ([toConnection isEqualToString:connectionID])
+                            {
+                                [call connectedReceived];
+                            }
+                            else
+                            {
+                                NSLog(@"Another device answered, hanging up.");
+                                [call hangupReceived];
+                            }
+                        }
+                        else if ([signalType isEqualToString:@"iceCandidates"])
+                        {
+                            NSArray *candidates = [jsonResult objectForKey:@"iceCandidates"];
+                            [call iceCandidatesReceived:candidates];
+                        }
+                    }
+                    else if ([signalType isEqualToString:@"offer"])
+                    {
+                        NSDictionary *sdp = [jsonResult objectForKey:@"sdp"];
+                        
+                        if (sdp)
+                        {
+                            // A remote device is trying to call us, so create a call instance to deal with it
+                            RespokeCall *call = [[RespokeCall alloc] initWithSignalingChannel:self incomingCallSDP:sdp];
+                            call.sessionID = sessionID;
+                            call.toConnection = fromConnection;
+
+                            RespokeEndpoint *endpoint = [self.clientDelegate endpointWithID:from];
+
+                            if (!endpoint)
+                            {
+                                // If the endpoint that is calling is not a member of our group, create a new instance just for this call
+                                endpoint = [[RespokeEndpoint alloc] initWithSignalingChannel:self];
+                                endpoint.endpointID = from;
+
+                                if (fromConnection)
+                                {
+                                    [endpoint.connections addObject:fromConnection];
+                                }
+                            }
+
+                            call.endpoint = endpoint;
+                            
+                            [self.connectionDelegate onIncomingCall:call sender:self];
+                        }
+                        else
+                        {
+                            NSLog(@"------Error: Offer missing sdp");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                NSLog(@"------Error: signal is missing type or session ID. Ignoring.");
+            }
+        }
+        else
+        {
+            NSLog(@"------Error: Could not parse signal data");
+        }
+    }
+    else
+    {
+        NSLog(@"------Error: signal missing header data");
+    }
 }
 
 

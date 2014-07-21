@@ -50,11 +50,17 @@
 }
 
 
-- (void)startVideoCallWithRemoteVideoView:(UIView*)newRemoteView localVideoView:(UIView*)newLocalView
+- (RespokeCall*)startVideoCallWithDelegate:(id <RespokeCallDelegate>)delegate remoteVideoView:(UIView*)newRemoteView localVideoView:(UIView*)newLocalView
 {
-    //NSString* url = [NSString stringWithFormat:@"https://apprtc.appspot.com/?r=%@", endpoint];
+    RespokeCall *call = [[RespokeCall alloc] initWithSignalingChannel:signalingChannel];
+    call.delegate = delegate;
+    call.remoteView = newRemoteView;
+    call.localView = newLocalView;
+    call.endpoint = self;
 
-    //[respokeWebRTCManager startCallWithURL:url remoteVideoView:newRemoteView localVideoView:newLocalView];
+    [call startCall];
+
+    return call;
 }
 
 

@@ -195,6 +195,7 @@
                     <connections>
                         <segue destination="6ok-YR-C0i" kind="unwind" identifier="Disconnected" unwindAction="unwindFromGroupView:" id="BhC-nB-Lgn"/>
                         <segue destination="9sg-M0-SNm" kind="push" identifier="ShowContact" id="eNa-ky-0OC"/>
+                        <segue destination="iQi-IM-Etk" kind="modal" identifier="AnswerCall" id="Hwq-In-LqR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPu-mI-uPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -398,4 +399,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Hwq-In-LqR"/>
+    </inferredMetricsTieBreakers>
 </document>

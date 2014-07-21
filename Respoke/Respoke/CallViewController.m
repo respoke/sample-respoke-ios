@@ -9,7 +9,8 @@
 #import "CallViewController.h"
 
 
-@interface CallViewController ()
+@interface CallViewController () <RespokeCallDelegate> {
+}
 
 @end
 
@@ -21,7 +22,17 @@
 {
     [super viewDidLoad];
 
-    [self.endpoint startVideoCallWithRemoteVideoView:self.remoteView localVideoView:self.localView];
+    if (self.call)
+    {
+        self.call.delegate = self;
+        self.call.remoteView = self.remoteView;
+        self.call.localView = self.localView;
+        [self.call answerCall];
+    }
+    else
+    {
+        self.call = [self.endpoint startVideoCallWithDelegate:self remoteVideoView:self.remoteView localVideoView:self.localView];
+    }
 }
 
 
@@ -40,5 +51,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - RespokeCallDelegate
+
+
+- (void)onError:(NSString*)errorMessage sender:(RespokeCall*)sender
+{
+    NSLog(@"Call Error: %@", errorMessage);
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:errorMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+
+- (void)onHangup:(RespokeCall*)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

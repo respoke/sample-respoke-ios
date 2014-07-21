@@ -29,5 +29,6 @@
 - (void)onConnect:(RespokeClient*)sender;
 - (void)onDisconnect:(RespokeClient*)sender;
 - (void)onError:(NSError *)error fromClient:(RespokeClient*)sender;
+- (void)onIncomingCall:(RespokeCall*)call sender:(RespokeClient*)sender;
 
 @end

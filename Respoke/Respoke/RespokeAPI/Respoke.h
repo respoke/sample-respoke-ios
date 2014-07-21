@@ -13,6 +13,7 @@
 @interface Respoke : NSObject
 
 + (Respoke *)sharedInstance;
++ (NSString*)makeGUID;
 - (RespokeClient*)createClientWithAppID:(NSString*)appID developmentMode:(BOOL)developmentMode;
 
 @end

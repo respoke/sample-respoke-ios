@@ -129,6 +129,11 @@
     // Do nothing
 }
 
+- (void)onIncomingCall:(RespokeCall *)call sender:(RespokeClient *)sender
+{
+    // Do nothing
+}
+
 
 - (void)onError:(NSError *)error fromClient:(RespokeClient*)sender
 {

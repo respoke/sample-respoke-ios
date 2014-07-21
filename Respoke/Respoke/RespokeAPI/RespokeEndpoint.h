@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RespokeSignalingChannel.h"
+#import "RespokeCall.h"
 
 
 @protocol RespokeEndpointDelegate;
@@ -21,7 +22,7 @@
 
 - (instancetype)initWithSignalingChannel:(RespokeSignalingChannel*)channel;
 - (void)sendMessage:(NSString*)message successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler;
-- (void)startVideoCallWithRemoteVideoView:(UIView*)newRemoteView localVideoView:(UIView*)newLocalView;
+- (RespokeCall*)startVideoCallWithDelegate:(id <RespokeCallDelegate>)delegate remoteVideoView:(UIView*)newRemoteView localVideoView:(UIView*)newLocalView;
 
 @end
 

@@ -15,5 +15,6 @@
 @property (weak) IBOutlet UIView *remoteView;
 @property (weak) IBOutlet UIView *localView;
 @property RespokeEndpoint *endpoint;
+@property RespokeCall *call;
 
 @end

@@ -8,11 +8,13 @@
 
 #import "GroupTableViewController.h"
 #import "ChatTableViewController.h"
+#import "CallViewController.h"
 
 
 @interface GroupTableViewController () {
     NSMutableDictionary *conversations;
     RespokeEndpoint *endpointBeingViewed;
+    RespokeCall *newCall;
 }
 
 @end
@@ -69,6 +71,12 @@
 
         endpointBeingViewed = sender;
     }
+    else if ([segue.identifier isEqualToString:@"AnswerCall"])
+    {
+        CallViewController *controller = [segue destinationViewController];
+        controller.call = newCall;
+        newCall = nil;
+    }
 }
 
 
@@ -107,6 +115,13 @@
 - (void)onError:(NSError *)error fromClient:(RespokeClient*)sender
 {
 
+}
+
+
+- (void)onIncomingCall:(RespokeCall*)call sender:(RespokeClient*)sender
+{
+    newCall = call;
+    [self performSegueWithIdentifier:@"AnswerCall" sender:self];   
 }
 
 
