@@ -263,6 +263,17 @@
     peerConnection = [peerConnectionFactory peerConnectionWithICEServers:iceServers constraints:constraints delegate:self];
     RTCMediaStream* lms = [peerConnectionFactory mediaStreamWithLabel:@"ARDAMS"];
 
+    remoteVideoView = [[RTCEAGLVideoView alloc] initWithFrame:self.remoteView.bounds];
+    remoteVideoView.delegate = self;
+    remoteVideoView.transform = CGAffineTransformMakeScale(-1, 1);
+    [self.remoteView addSubview:remoteVideoView];
+
+    localVideoView = [[RTCEAGLVideoView alloc] initWithFrame:self.localView.bounds];
+    localVideoView.delegate = self;
+    [self.localView addSubview:localVideoView];
+
+    [self updateVideoViewLayout];
+    
     // The iOS simulator doesn't provide any sort of camera capture
     // support or emulation (http://goo.gl/rHAnC1) so don't bother
     // trying to open a local stream.
