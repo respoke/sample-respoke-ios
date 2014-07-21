@@ -83,6 +83,7 @@
 {
     NSLog(@"Application lost focus, connection broken.");
     [self disconnect];
+    [self.delegate onHangup:self];
 }
 
 
@@ -298,7 +299,7 @@
     NSAssert(cameraID, @"Unable to get the front camera id");
 
     RTCVideoCapturer* capturer = [RTCVideoCapturer capturerWithDeviceName:cameraID];
-    videoSource = [peerConnectionFactory videoSourceWithCapturer:capturer constraints:constraints]; /// TODO: self.client.videoConstraints
+    videoSource = [peerConnectionFactory videoSourceWithCapturer:capturer constraints:nil];
     localVideoTrack = [peerConnectionFactory videoTrackWithID:@"ARDAMSv0" source:videoSource];
 
     if (localVideoTrack) 
