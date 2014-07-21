@@ -92,6 +92,8 @@
     peerConnection = nil;
     videoSource = nil;
     queuedRemoteCandidates = nil;
+    [remoteVideoView removeFromSuperview];
+    [localVideoView removeFromSuperview];
     remoteVideoView = nil;
     localVideoView = nil;
     self.remoteView = nil;
