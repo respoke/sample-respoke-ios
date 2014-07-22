@@ -29,6 +29,8 @@
 - (void)startCall;
 - (void)answerCall;
 - (void)hangup;
+- (void)muteVideo:(BOOL)mute;
+- (void)muteAudio:(BOOL)mute;
 - (void)hangupReceived;
 - (void)answerReceived:(NSDictionary*)remoteSDP fromConnection:(NSString*)remoteConnection;
 - (void)connectedReceived;

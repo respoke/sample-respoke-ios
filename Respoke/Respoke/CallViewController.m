@@ -72,6 +72,9 @@
 - (IBAction)muteVideo
 {
     videoMuted = !videoMuted;
+    [self.call muteVideo:videoMuted];
+    
+    self.localView.hidden = videoMuted;
     
     if (videoMuted)
     {
@@ -89,6 +92,7 @@
 - (IBAction)muteAudio
 {
     audioMuted = !audioMuted;
+    [self.call muteAudio:audioMuted];
     
     if (audioMuted)
     {

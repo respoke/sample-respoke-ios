@@ -24,6 +24,7 @@
 #import "RTCVideoCapturer.h"
 #import "RTCVideoSource.h"
 #import "RTCEAGLVideoView.h"
+#import "RTCMediaStreamTrack.h"
 
 
 @interface RespokeCall () <RTCPeerConnectionDelegate, RTCSessionDescriptionDelegate, RTCStatsDelegate, RTCEAGLVideoViewDelegate> {
@@ -155,6 +156,33 @@
     }
 
     [self disconnect];
+}
+
+
+- (void)muteVideo:(BOOL)mute
+{
+    if (!self.audioOnly)
+    {
+        for (RTCMediaStream *eachStream in peerConnection.localStreams)
+        {
+            for (RTCMediaStreamTrack *eachTrack in eachStream.videoTracks)
+            {
+                [eachTrack setEnabled:!mute];
+            }
+        }
+    }
+}
+
+
+- (void)muteAudio:(BOOL)mute
+{
+    for (RTCMediaStream *eachStream in peerConnection.localStreams)
+    {
+        for (RTCMediaStreamTrack *eachTrack in eachStream.audioTracks)
+        {
+            [eachTrack setEnabled:!mute];
+        }
+    }
 }
 
 
