@@ -9,6 +9,11 @@ The libraries themselves have been pre-compiled and included into this repositor
 
 If you would like to modify or update the WebRTC libraries, then follow the instructions below.
 
+This project also uses git submodules. Please clone the repository from Github using the recursive flag to automatically grab the submodules:
+```
+git clone --recursive git@github.com:Ninjanetic/respoke-ios.git
+```
+
 Building the WebRTC libraries from scratch
 ==========================================
 
