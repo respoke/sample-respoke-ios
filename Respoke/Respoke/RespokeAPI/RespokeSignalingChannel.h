@@ -22,7 +22,6 @@
     NSString *appToken;
     SocketIO *socketIO;
     BOOL devMode;
-    BOOL reconnect;
     NSString *connectionID;
 }
 

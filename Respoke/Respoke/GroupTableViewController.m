@@ -14,7 +14,6 @@
 @interface GroupTableViewController () {
     NSMutableDictionary *conversations;
     RespokeEndpoint *endpointBeingViewed;
-    RespokeCall *newCall;
 }
 
 @end
@@ -71,12 +70,6 @@
 
         endpointBeingViewed = sender;
     }
-    else if ([segue.identifier isEqualToString:@"AnswerCall"])
-    {
-        CallViewController *controller = [segue destinationViewController];
-        controller.call = newCall;
-        newCall = nil;
-    }
 }
 
 
@@ -114,7 +107,7 @@
 
 - (void)onDisconnect:(RespokeClient*)sender
 {
-    [self performSegueWithIdentifier:@"Disconnected" sender:self];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -126,8 +119,10 @@
 
 - (void)onIncomingCall:(RespokeCall*)call sender:(RespokeClient*)sender
 {
-    newCall = call;
-    [self performSegueWithIdentifier:@"AnswerCall" sender:self];   
+    CallViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"CallViewController"];
+    controller.call = call;
+    UIViewController *presenter = [self.navigationController topViewController];
+    [presenter presentViewController:controller animated:YES completion:nil];
 }
 
 

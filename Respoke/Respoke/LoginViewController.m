@@ -67,12 +67,6 @@
 }
 
 
-- (IBAction)unwindFromGroupView:(UIStoryboardSegue*)sender
-{
-    
-}
-
-
 - (void)showError:(NSString*)errorMessage
 {
     self.errorLabel.text = errorMessage;

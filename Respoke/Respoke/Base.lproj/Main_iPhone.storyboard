@@ -117,7 +117,7 @@
         <!--Call View Controller-->
         <scene sceneID="4gt-zy-Ch6">
             <objects>
-                <viewController id="iQi-IM-Etk" customClass="CallViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CallViewController" id="iQi-IM-Etk" customClass="CallViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hJg-Un-HSO"/>
                         <viewControllerLayoutGuide type="bottom" id="os5-HW-Ilr"/>
@@ -243,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRz-C7-73P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2108" y="966"/>
+            <point key="canvasLocation" x="2403" y="141"/>
         </scene>
         <!--Group Table View Controller - Root View Controller-->
         <scene sceneID="M0P-za-LNa">
@@ -302,13 +302,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="6ok-YR-C0i" kind="unwind" identifier="Disconnected" unwindAction="unwindFromGroupView:" id="BhC-nB-Lgn"/>
                         <segue destination="9sg-M0-SNm" kind="push" identifier="ShowContact" id="eNa-ky-0OC"/>
-                        <segue destination="iQi-IM-Etk" kind="modal" identifier="AnswerCall" id="Hwq-In-LqR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPu-mI-uPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="6ok-YR-C0i" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1424" y="141"/>
         </scene>
@@ -510,7 +507,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="jV5-Go-fw9"/>
-    </inferredMetricsTieBreakers>
 </document>

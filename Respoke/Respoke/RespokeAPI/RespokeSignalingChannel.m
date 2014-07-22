@@ -28,7 +28,6 @@
     {
         appToken = token;
         devMode = developmentMode;
-        reconnect = developmentMode;
     }
 
     return self;
