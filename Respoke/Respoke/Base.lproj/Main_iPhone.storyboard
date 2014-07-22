@@ -111,36 +111,98 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MsR-7F-gHI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrO-hw-FrD">
+                                        <rect key="frame" x="120" y="489" width="81" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="UTi-YX-j7H"/>
+                                            <constraint firstAttribute="width" constant="81" id="gjn-hj-SUj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="End">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="endCall" destination="iQi-IM-Etk" eventType="touchUpInside" id="dLW-f2-LgO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCA-kf-R0s">
+                                        <rect key="frame" x="218" y="489" width="70" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="Sex-sa-VOh"/>
+                                            <constraint firstAttribute="height" constant="60" id="UV3-PW-RfN"/>
+                                        </constraints>
+                                        <state key="normal" image="mute_audio.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="muteAudio" destination="iQi-IM-Etk" eventType="touchUpInside" id="hkV-G6-eLK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oy6-Bm-uUz">
+                                        <rect key="frame" x="30" y="489" width="70" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="PUZ-Xs-LY5"/>
+                                            <constraint firstAttribute="height" constant="60" id="Vdy-Ra-IG7"/>
+                                            <constraint firstAttribute="width" constant="70" id="Wzh-vX-CqN"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="fHC-i7-6YV"/>
+                                        </constraints>
+                                        <state key="normal" image="mute_video.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="muteVideo" destination="iQi-IM-Etk" eventType="touchUpInside" id="aN1-V7-5AQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="yrO-hw-FrD" secondAttribute="centerX" id="1No-Ag-z9S"/>
+                                    <constraint firstItem="yrO-hw-FrD" firstAttribute="leading" secondItem="Oy6-Bm-uUz" secondAttribute="trailing" constant="20" id="Bun-ib-A2i"/>
+                                    <constraint firstItem="yrO-hw-FrD" firstAttribute="centerY" secondItem="Oy6-Bm-uUz" secondAttribute="centerY" id="Lh3-YI-MJF"/>
+                                    <constraint firstItem="mCA-kf-R0s" firstAttribute="centerY" secondItem="yrO-hw-FrD" secondAttribute="centerY" id="Msb-h4-urn"/>
+                                    <constraint firstItem="mCA-kf-R0s" firstAttribute="leading" secondItem="yrO-hw-FrD" secondAttribute="trailing" constant="17" id="NxP-AY-kQg"/>
+                                    <constraint firstAttribute="bottom" secondItem="yrO-hw-FrD" secondAttribute="bottom" constant="19" id="UfB-qw-zpQ"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TH6-hO-S6A">
-                                <rect key="frame" x="0.0" y="418" width="150" height="150"/>
+                                <rect key="frame" x="220" y="22" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="CqD-9K-0l6"/>
-                                    <constraint firstAttribute="height" constant="150" id="fwa-KW-PDQ"/>
+                                    <constraint firstAttribute="width" constant="100" id="CqD-9K-0l6"/>
+                                    <constraint firstAttribute="height" constant="100" id="fwa-KW-PDQ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="os5-HW-Ilr" firstAttribute="top" secondItem="MsR-7F-gHI" secondAttribute="bottom" id="BEh-3A-KrN"/>
+                            <constraint firstAttribute="trailing" secondItem="TH6-hO-S6A" secondAttribute="trailing" id="N8m-m5-QJZ"/>
                             <constraint firstItem="MsR-7F-gHI" firstAttribute="top" secondItem="KJ4-vA-IkF" secondAttribute="top" id="PtU-dg-ZDw"/>
-                            <constraint firstItem="os5-HW-Ilr" firstAttribute="top" secondItem="TH6-hO-S6A" secondAttribute="bottom" id="eeT-jI-5H5"/>
                             <constraint firstAttribute="trailing" secondItem="MsR-7F-gHI" secondAttribute="trailing" id="kp0-Y5-309"/>
+                            <constraint firstItem="TH6-hO-S6A" firstAttribute="top" secondItem="KJ4-vA-IkF" secondAttribute="top" constant="22" id="mDK-4b-3ek"/>
                             <constraint firstItem="MsR-7F-gHI" firstAttribute="leading" secondItem="KJ4-vA-IkF" secondAttribute="leading" id="qKA-OR-Ufu"/>
-                            <constraint firstItem="TH6-hO-S6A" firstAttribute="leading" secondItem="KJ4-vA-IkF" secondAttribute="leading" id="wAe-BF-GOs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="endCallButton" destination="yrO-hw-FrD" id="x46-e1-1d0"/>
                         <outlet property="localView" destination="TH6-hO-S6A" id="Xr0-1C-wdw"/>
+                        <outlet property="muteAudioButton" destination="mCA-kf-R0s" id="HVH-hS-4IP"/>
+                        <outlet property="muteVideoButton" destination="Oy6-Bm-uUz" id="a6u-Gx-jL0"/>
                         <outlet property="remoteView" destination="MsR-7F-gHI" id="sav-le-oLJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRz-C7-73P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2429" y="141"/>
+            <point key="canvasLocation" x="2108" y="966"/>
         </scene>
         <!--Group Table View Controller - Root View Controller-->
         <scene sceneID="M0P-za-LNa">
@@ -393,6 +455,8 @@
     </scenes>
     <resources>
         <image name="logo_respoke.png" width="150" height="60"/>
+        <image name="mute_audio.png" width="44" height="44"/>
+        <image name="mute_video.png" width="44" height="44"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

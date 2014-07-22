@@ -27,6 +27,7 @@
 - (instancetype)initWithSignalingChannel:(RespokeSignalingChannel*)channel incomingCallSDP:(NSDictionary*)sdp;
 - (void)startCall;
 - (void)answerCall;
+- (void)hangup;
 - (void)hangupReceived;
 - (void)answerReceived:(NSDictionary*)remoteSDP fromConnection:(NSString*)remoteConnection;
 - (void)connectedReceived;

@@ -22,6 +22,10 @@
 {
     [super viewDidLoad];
 
+    self.endCallButton.layer.cornerRadius = 16.0;
+    self.muteAudioButton.layer.cornerRadius = 16.0;
+    self.muteVideoButton.layer.cornerRadius = 16.0;
+
     if (self.call)
     {
         self.call.delegate = self;
@@ -51,6 +55,28 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (IBAction)endCall
+{
+    self.remoteView.hidden = YES;
+    self.localView.hidden = YES;
+    [self.call hangup];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)muteVideo
+{
+
+}
+
+
+- (IBAction)muteAudio
+{
+
+}
+
 
 #pragma mark - RespokeCallDelegate
 

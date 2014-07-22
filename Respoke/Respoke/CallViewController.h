@@ -14,7 +14,14 @@
 
 @property (weak) IBOutlet UIView *remoteView;
 @property (weak) IBOutlet UIView *localView;
+@property (weak) IBOutlet UIButton *endCallButton;
+@property (weak) IBOutlet UIButton *muteAudioButton;
+@property (weak) IBOutlet UIButton *muteVideoButton;
 @property RespokeEndpoint *endpoint;
 @property RespokeCall *call;
+
+- (IBAction)endCall;
+- (IBAction)muteVideo;
+- (IBAction)muteAudio;
 
 @end

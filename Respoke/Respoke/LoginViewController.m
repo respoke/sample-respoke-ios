@@ -21,6 +21,7 @@
     [super viewDidLoad];
     
     sharedRespokeClient.delegate = self;
+    self.connectButton.layer.cornerRadius = 8.0;
 }
 
 

@@ -136,6 +136,14 @@
 		184B02A91973662C000BB925 /* RespokeSignalingChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B02A81973662C000BB925 /* RespokeSignalingChannel.m */; };
 		18D4A01419796CDA00F7FC49 /* StyledNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */; };
 		18D4A017197990D900F7FC49 /* RespokeCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4A016197990D900F7FC49 /* RespokeCall.m */; };
+		18D4A024197EA50000F7FC49 /* mute_audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01C197EA50000F7FC49 /* mute_audio.png */; };
+		18D4A025197EA50000F7FC49 /* mute_audio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01D197EA50000F7FC49 /* mute_audio@2x.png */; };
+		18D4A026197EA50000F7FC49 /* mute_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01E197EA50000F7FC49 /* mute_video.png */; };
+		18D4A027197EA50000F7FC49 /* mute_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01F197EA50000F7FC49 /* mute_video@2x.png */; };
+		18D4A028197EA50000F7FC49 /* unmute_audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A020197EA50000F7FC49 /* unmute_audio.png */; };
+		18D4A029197EA50000F7FC49 /* unmute_audio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A021197EA50000F7FC49 /* unmute_audio@2x.png */; };
+		18D4A02A197EA50000F7FC49 /* unmute_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A022197EA50000F7FC49 /* unmute_video.png */; };
+		18D4A02B197EA50000F7FC49 /* unmute_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A023197EA50000F7FC49 /* unmute_video@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +348,14 @@
 		18D4A015197990D900F7FC49 /* RespokeCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeCall.h; sourceTree = "<group>"; };
 		18D4A016197990D900F7FC49 /* RespokeCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespokeCall.m; sourceTree = "<group>"; };
 		18D4A01B197C12E300F7FC49 /* RespokePrivateProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RespokePrivateProtocols.h; sourceTree = "<group>"; };
+		18D4A01C197EA50000F7FC49 /* mute_audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_audio.png; sourceTree = "<group>"; };
+		18D4A01D197EA50000F7FC49 /* mute_audio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mute_audio@2x.png"; sourceTree = "<group>"; };
+		18D4A01E197EA50000F7FC49 /* mute_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_video.png; sourceTree = "<group>"; };
+		18D4A01F197EA50000F7FC49 /* mute_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mute_video@2x.png"; sourceTree = "<group>"; };
+		18D4A020197EA50000F7FC49 /* unmute_audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmute_audio.png; sourceTree = "<group>"; };
+		18D4A021197EA50000F7FC49 /* unmute_audio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unmute_audio@2x.png"; sourceTree = "<group>"; };
+		18D4A022197EA50000F7FC49 /* unmute_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmute_video.png; sourceTree = "<group>"; };
+		18D4A023197EA50000F7FC49 /* unmute_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unmute_video@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -558,6 +574,14 @@
 			isa = PBXGroup;
 			children = (
 				180689951966EA1100BDCD26 /* logo_respoke.png */,
+				18D4A01C197EA50000F7FC49 /* mute_audio.png */,
+				18D4A01D197EA50000F7FC49 /* mute_audio@2x.png */,
+				18D4A01E197EA50000F7FC49 /* mute_video.png */,
+				18D4A01F197EA50000F7FC49 /* mute_video@2x.png */,
+				18D4A020197EA50000F7FC49 /* unmute_audio.png */,
+				18D4A021197EA50000F7FC49 /* unmute_audio@2x.png */,
+				18D4A022197EA50000F7FC49 /* unmute_video.png */,
+				18D4A023197EA50000F7FC49 /* unmute_video@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -831,10 +855,18 @@
 			files = (
 				18068973196613F000BDCD26 /* Main_iPad.storyboard in Resources */,
 				18068978196613F000BDCD26 /* Images.xcassets in Resources */,
+				18D4A025197EA50000F7FC49 /* mute_audio@2x.png in Resources */,
+				18D4A029197EA50000F7FC49 /* unmute_audio@2x.png in Resources */,
 				184B0197196B0A84000BB925 /* channel.html in Resources */,
+				18D4A024197EA50000F7FC49 /* mute_audio.png in Resources */,
+				18D4A026197EA50000F7FC49 /* mute_video.png in Resources */,
 				180689961966EA1100BDCD26 /* logo_respoke.png in Resources */,
 				18068970196613F000BDCD26 /* Main_iPhone.storyboard in Resources */,
 				18068967196613F000BDCD26 /* InfoPlist.strings in Resources */,
+				18D4A02A197EA50000F7FC49 /* unmute_video.png in Resources */,
+				18D4A027197EA50000F7FC49 /* mute_video@2x.png in Resources */,
+				18D4A02B197EA50000F7FC49 /* unmute_video@2x.png in Resources */,
+				18D4A028197EA50000F7FC49 /* unmute_audio.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

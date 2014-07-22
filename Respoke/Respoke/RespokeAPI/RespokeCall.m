@@ -131,6 +131,33 @@
 }
 
 
+- (void)hangup
+{
+    NSDictionary *signalData = @{@"signalType": @"hangup", @"target": @"call", @"to": self.endpoint.endpointID, @"toConnection": self.toConnection, @"sessionId": self.sessionID, @"signalId": [Respoke makeGUID]};
+    NSError *jsonError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:signalData options:0 error:&jsonError];
+    
+    if (!jsonError)
+    {
+        NSString *jsonSignal = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSDictionary *data = @{@"signal": jsonSignal, @"to": self.endpoint.endpointID};
+
+        [signalingChannel sendRESTMessage:@"post" url:@"/v1/signaling" data:data responseHandler:^(id response, NSString *errorMessage) {
+            if (errorMessage)
+            {
+                [self.delegate onError:errorMessage sender:self];
+            }
+        }];
+    }
+    else
+    {
+        [self.delegate onError:@"Error encoding hangup signal to json" sender:self];
+    }
+
+    [self disconnect];
+}
+
+
 - (void)hangupReceived
 {
     [self disconnect];
