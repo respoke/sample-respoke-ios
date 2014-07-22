@@ -80,11 +80,20 @@
 }
 
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];   
+}
+
+
 - (void)applicationWillResignActive
 {
-    NSLog(@"Application lost focus, connection broken.");
-    [self disconnect];
-    [self.delegate onHangup:self];
+    if (peerConnection)
+    {
+        NSLog(@"Application lost focus, connection broken.");
+        [self disconnect];
+        [self.delegate onHangup:self];
+    }
 }
 
 

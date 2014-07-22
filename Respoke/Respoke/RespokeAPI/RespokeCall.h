@@ -16,7 +16,7 @@
 
 @interface RespokeCall : NSObject
 
-@property id <RespokeCallDelegate> delegate;
+@property (weak) id <RespokeCallDelegate> delegate;
 @property (weak) UIView *localView;
 @property (weak) UIView *remoteView;
 @property RespokeEndpoint *endpoint;

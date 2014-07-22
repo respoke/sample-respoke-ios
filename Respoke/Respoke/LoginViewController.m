@@ -20,7 +20,6 @@
 {
     [super viewDidLoad];
     
-    sharedRespokeClient.delegate = self;
     self.connectButton.layer.cornerRadius = 8.0;
 }
 
@@ -28,6 +27,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.usernameTextField becomeFirstResponder];
+    sharedRespokeClient.delegate = self;
 }
 
 

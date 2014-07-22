@@ -79,7 +79,7 @@
 
 - (void)joinGroup:(NSString*)groupName errorHandler:(void (^)(NSString*))errorHandler joinHandler:(void (^)(RespokeGroup*))joinHandler
 {
-    if (signalingChannel.connected)
+    if (signalingChannel && signalingChannel.connected)
     {
         if ([groupName length])
         {
@@ -133,6 +133,7 @@
     [calls removeAllObjects];
     [knownEndpoints removeAllObjects];
     [self.delegate onDisconnect:self];
+    signalingChannel = nil;
 }
 
 

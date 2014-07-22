@@ -45,51 +45,58 @@
 
 - (void)sendRESTMessage:(NSString *)httpMethod url:(NSString *)url data:(NSDictionary*)data responseHandler:(void (^)(id, NSString*))responseHandler
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:@{@"App-Token": appToken} forKey:@"headers"];
-    [dict setObject:url forKey:@"url"];
-
-    if (data)
+    if (self.connected)
     {
-        [dict setObject:data forKey:@"data"];
-    }
-    
-    [socketIO sendEvent:httpMethod withData:dict andAcknowledge:^(id argsData) {
-        id response = argsData;
-        NSString *errorString = nil;
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:@{@"App-Token": appToken} forKey:@"headers"];
+        [dict setObject:url forKey:@"url"];
 
-        if (argsData)
+        if (data)
         {
-            if ([argsData isEqualToString:@"null"])
-            {
-                response = nil;
-            }
-            else
-            {
-                NSError *error;
-                id jsonResult = [NSJSONSerialization JSONObjectWithData:[argsData dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
-                if (!error)
-                {
-                    response = jsonResult;
+            [dict setObject:data forKey:@"data"];
+        }
+        
+        [socketIO sendEvent:httpMethod withData:dict andAcknowledge:^(id argsData) {
+            id response = argsData;
+            NSString *errorString = nil;
 
-                    if ([jsonResult isKindOfClass:[NSDictionary class]])
-                    {
-                        errorString = [jsonResult objectForKey:@"error"];
-                    }
+            if (argsData)
+            {
+                if ([argsData isEqualToString:@"null"])
+                {
+                    response = nil;
                 }
                 else
                 {
-                    errorString = @"Unexpected response received";
+                    NSError *error;
+                    id jsonResult = [NSJSONSerialization JSONObjectWithData:[argsData dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+                    if (!error)
+                    {
+                        response = jsonResult;
+
+                        if ([jsonResult isKindOfClass:[NSDictionary class]])
+                        {
+                            errorString = [jsonResult objectForKey:@"error"];
+                        }
+                    }
+                    else
+                    {
+                        errorString = @"Unexpected response received";
+                    }
                 }
             }
-        }
-        else
-        {
-            errorString = @"Unexpected response received";
-        }
+            else
+            {
+                errorString = @"Unexpected response received";
+            }
 
-        responseHandler(response, errorString);
-    }];
+            responseHandler(response, errorString);
+        }];
+    }
+    else
+    {
+        responseHandler(nil, @"Not connected");
+    }
 }
 
 
@@ -98,7 +105,6 @@
 
 - (void)socketIODidConnect:(SocketIO *)socket
 {
-    //NSLog(@"socketIODidConnect");
     self.connected = YES;
 
     [self sendRESTMessage:@"post" url:@"/v1/endpointconnections" data:nil responseHandler:^(id response, NSString *errorMessage) {
@@ -126,6 +132,7 @@
 {
     NSLog(@"socketIODidDisconnect: %@", [error localizedDescription]);
     self.connected = NO;
+    socketIO = nil;
     [self.connectionDelegate onDisconnect:self];
 }
 
