@@ -20,6 +20,7 @@
 - (instancetype)initWithAppID:(NSString*)appID developmentMode:(BOOL)developmentMode;
 - (void)connectWithEndpointID:(NSString*)endpoint errorHandler:(void (^)(NSString*))errorHandler;
 - (void)joinGroup:(NSString*)groupName errorHandler:(void (^)(NSString*))errorHandler joinHandler:(void (^)(RespokeGroup*))joinHandler;
+- (void)disconnect;
 
 @end
 

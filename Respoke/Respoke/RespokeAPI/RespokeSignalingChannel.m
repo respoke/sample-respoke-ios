@@ -100,6 +100,12 @@
 }
 
 
+- (void)disconnect
+{
+    [socketIO disconnect];
+}
+
+
 #pragma mark - SocketIODelegate
 
 

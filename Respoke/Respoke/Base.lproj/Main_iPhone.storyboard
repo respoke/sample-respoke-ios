@@ -276,7 +276,13 @@
                             <outlet property="delegate" destination="bEc-C7-u9k" id="wrr-jG-9d4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="XTw-W3-VcO"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="XTw-W3-VcO">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="1ZT-1S-ZfL">
+                            <connections>
+                                <action selector="logoutAction" destination="bEc-C7-u9k" id="PXg-xt-RNa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="6ok-YR-C0i" kind="unwind" identifier="Disconnected" unwindAction="unwindFromGroupView:" id="BhC-nB-Lgn"/>
                         <segue destination="9sg-M0-SNm" kind="push" identifier="ShowContact" id="eNa-ky-0OC"/>

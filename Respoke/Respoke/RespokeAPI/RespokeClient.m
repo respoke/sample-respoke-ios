@@ -116,6 +116,12 @@
 }
 
 
+- (void)disconnect
+{
+    [signalingChannel disconnect];
+}
+
+
 #pragma mark - Private methods
 
 

@@ -16,4 +16,6 @@
 @property RespokeGroup *group;
 @property NSMutableArray *groupMembers;
 
+- (IBAction)logoutAction;
+
 @end

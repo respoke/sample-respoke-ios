@@ -35,6 +35,7 @@
 - (instancetype)initWithAppToken:(NSString*)token developmentMode:(BOOL)developmentMode;
 - (void)authenticate;
 - (void)sendRESTMessage:(NSString *)httpMethod url:(NSString *)url data:(NSDictionary*)data responseHandler:(void (^)(id, NSString*))responseHandler;
+- (void)disconnect;
 
 @end
 

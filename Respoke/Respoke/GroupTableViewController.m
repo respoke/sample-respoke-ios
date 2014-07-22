@@ -80,6 +80,12 @@
 }
 
 
+- (IBAction)logoutAction
+{
+    [sharedRespokeClient disconnect];
+}
+
+
 #pragma mark - Table view data source
 
 
