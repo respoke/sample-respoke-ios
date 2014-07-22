@@ -28,11 +28,6 @@
 		183237A11975808800243EFE /* ConversationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237A01975808800243EFE /* ConversationMessage.m */; };
 		183237A4197580A700243EFE /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237A3197580A700243EFE /* Conversation.m */; };
 		184B018A196B097F000BB925 /* Respoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B0189196B097F000BB925 /* Respoke.m */; };
-		184B018D196B09B7000BB925 /* RespokeWebRTCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B018C196B09B7000BB925 /* RespokeWebRTCManager.m */; };
-		184B0195196B0A84000BB925 /* APPRTCAppClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B018F196B0A84000BB925 /* APPRTCAppClient.m */; };
-		184B0196196B0A84000BB925 /* APPRTCConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B0191196B0A84000BB925 /* APPRTCConnectionManager.m */; };
-		184B0197196B0A84000BB925 /* channel.html in Resources */ = {isa = PBXBuildFile; fileRef = 184B0192196B0A84000BB925 /* channel.html */; };
-		184B0198196B0A84000BB925 /* GAEChannelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 184B0194196B0A84000BB925 /* GAEChannelClient.m */; };
 		184B019A196B0B29000BB925 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B0199196B0B29000BB925 /* libsqlite3.dylib */; };
 		184B019F196B0CDA000BB925 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B019D196B0CDA000BB925 /* OpenGLES.framework */; };
 		184B01A0196B0CDA000BB925 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B019E196B0CDA000BB925 /* QuartzCore.framework */; };
@@ -214,15 +209,6 @@
 		184B010119676680000BB925 /* RTCVideoTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCVideoTrack.h; sourceTree = "<group>"; };
 		184B0188196B097F000BB925 /* Respoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Respoke.h; sourceTree = "<group>"; };
 		184B0189196B097F000BB925 /* Respoke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Respoke.m; sourceTree = "<group>"; };
-		184B018B196B09B7000BB925 /* RespokeWebRTCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeWebRTCManager.h; sourceTree = "<group>"; };
-		184B018C196B09B7000BB925 /* RespokeWebRTCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespokeWebRTCManager.m; sourceTree = "<group>"; };
-		184B018E196B0A84000BB925 /* APPRTCAppClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPRTCAppClient.h; sourceTree = "<group>"; };
-		184B018F196B0A84000BB925 /* APPRTCAppClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPRTCAppClient.m; sourceTree = "<group>"; };
-		184B0190196B0A84000BB925 /* APPRTCConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPRTCConnectionManager.h; sourceTree = "<group>"; };
-		184B0191196B0A84000BB925 /* APPRTCConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPRTCConnectionManager.m; sourceTree = "<group>"; };
-		184B0192196B0A84000BB925 /* channel.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = channel.html; sourceTree = "<group>"; };
-		184B0193196B0A84000BB925 /* GAEChannelClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAEChannelClient.h; sourceTree = "<group>"; };
-		184B0194196B0A84000BB925 /* GAEChannelClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAEChannelClient.m; sourceTree = "<group>"; };
 		184B0199196B0B29000BB925 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		184B019B196B0C2F000BB925 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		184B019D196B0CDA000BB925 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -702,13 +688,6 @@
 		184B0187196B097F000BB925 /* RespokeAPI */ = {
 			isa = PBXGroup;
 			children = (
-				184B018E196B0A84000BB925 /* APPRTCAppClient.h */,
-				184B018F196B0A84000BB925 /* APPRTCAppClient.m */,
-				184B0190196B0A84000BB925 /* APPRTCConnectionManager.h */,
-				184B0191196B0A84000BB925 /* APPRTCConnectionManager.m */,
-				184B0192196B0A84000BB925 /* channel.html */,
-				184B0193196B0A84000BB925 /* GAEChannelClient.h */,
-				184B0194196B0A84000BB925 /* GAEChannelClient.m */,
 				184B0188196B097F000BB925 /* Respoke.h */,
 				184B0189196B097F000BB925 /* Respoke.m */,
 				18D4A015197990D900F7FC49 /* RespokeCall.h */,
@@ -722,8 +701,6 @@
 				18D4A01B197C12E300F7FC49 /* RespokePrivateProtocols.h */,
 				184B02A71973662C000BB925 /* RespokeSignalingChannel.h */,
 				184B02A81973662C000BB925 /* RespokeSignalingChannel.m */,
-				184B018B196B09B7000BB925 /* RespokeWebRTCManager.h */,
-				184B018C196B09B7000BB925 /* RespokeWebRTCManager.m */,
 				184B02971972E44D000BB925 /* RestAPI */,
 				184B00E619676680000BB925 /* WebRTC */,
 			);
@@ -857,7 +834,6 @@
 				18068978196613F000BDCD26 /* Images.xcassets in Resources */,
 				18D4A025197EA50000F7FC49 /* mute_audio@2x.png in Resources */,
 				18D4A029197EA50000F7FC49 /* unmute_audio@2x.png in Resources */,
-				184B0197196B0A84000BB925 /* channel.html in Resources */,
 				18D4A024197EA50000F7FC49 /* mute_audio.png in Resources */,
 				18D4A026197EA50000F7FC49 /* mute_video.png in Resources */,
 				180689961966EA1100BDCD26 /* logo_respoke.png in Resources */,
@@ -890,10 +866,8 @@
 				184B018A196B097F000BB925 /* Respoke.m in Sources */,
 				184B027D19709AC8000BB925 /* SocketIOPacket.m in Sources */,
 				184B026819707F25000BB925 /* RespokeClient.m in Sources */,
-				184B0198196B0A84000BB925 /* GAEChannelClient.m in Sources */,
 				184B01CD196D9399000BB925 /* CallViewController.m in Sources */,
 				184B02A91973662C000BB925 /* RespokeSignalingChannel.m in Sources */,
-				184B018D196B09B7000BB925 /* RespokeWebRTCManager.m in Sources */,
 				183237A11975808800243EFE /* ConversationMessage.m in Sources */,
 				184B027C19709AC8000BB925 /* SocketIOJSONSerialization.m in Sources */,
 				184B027B19709AC8000BB925 /* SocketIO.m in Sources */,
@@ -901,9 +875,7 @@
 				1806896D196613F000BDCD26 /* AppDelegate.m in Sources */,
 				184B029C1972E44D000BB925 /* APIGetToken.m in Sources */,
 				184B029D1972E44D000BB925 /* APITransaction.m in Sources */,
-				184B0196196B0A84000BB925 /* APPRTCConnectionManager.m in Sources */,
 				184B028919709BDC000BB925 /* NSData+SRB64Additions.m in Sources */,
-				184B0195196B0A84000BB925 /* APPRTCAppClient.m in Sources */,
 				184B028819709BDC000BB925 /* base64.c in Sources */,
 				183237A4197580A700243EFE /* Conversation.m in Sources */,
 				184B026E19709284000BB925 /* GroupTableViewController.m in Sources */,
