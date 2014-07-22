@@ -78,7 +78,7 @@
     
     if (videoMuted)
     {
-        self.muteVideoButton.layer.borderWidth = 1.0;
+        self.muteVideoButton.layer.borderWidth = 4.0;
         [self.muteVideoButton setImage:[UIImage imageNamed:@"unmute_video.png"] forState:UIControlStateNormal];
     }
     else
@@ -96,7 +96,7 @@
     
     if (audioMuted)
     {
-        self.muteAudioButton.layer.borderWidth = 1.0;
+        self.muteAudioButton.layer.borderWidth = 4.0;
         [self.muteAudioButton setImage:[UIImage imageNamed:@"unmute_audio.png"] forState:UIControlStateNormal];
     }
     else
