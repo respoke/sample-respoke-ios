@@ -87,8 +87,15 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textField 
 {
-    [textField resignFirstResponder];
-    [self connectAction];
+    if (textField == self.usernameTextField)
+    {
+        [self.groupTextField becomeFirstResponder];
+    }
+    else
+    {
+        [textField resignFirstResponder];
+        [self connectAction];
+    }
     
     return YES;
 }
@@ -107,7 +114,14 @@
 
 - (void)onConnect:(RespokeClient*)sender
 {
-    [sharedRespokeClient joinGroup:@"jasontest" errorHandler:^(NSString *errorMessage) {
+    NSString *groupName = @"jasontest";
+
+    if ([self.groupTextField.text length])
+    {
+        groupName = self.groupTextField.text;
+    }
+
+    [sharedRespokeClient joinGroup:groupName errorHandler:^(NSString *errorMessage) {
         [self showError:errorMessage];
     } joinHandler:^(RespokeGroup *group) {
         myGroup = group;

@@ -37,8 +37,23 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="vmP-0b-a2f"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional Group" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0tv-Bo-qES">
+                                <rect key="frame" x="66" y="173" width="189" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6Cg-g6-J1M"/>
+                                    <constraint firstAttribute="width" constant="189" id="F1O-xb-cnF"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="189" id="eAa-MA-Kcb"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="gxP-D6-yMd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Av7-TY-XO2"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-o5-GK9">
-                                <rect key="frame" x="66" y="202" width="189" height="30"/>
+                                <rect key="frame" x="66" y="236" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -55,7 +70,7 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHQ-cf-7Kh">
-                                <rect key="frame" x="20" y="175" width="280" height="21"/>
+                                <rect key="frame" x="20" y="209" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="HYU-4c-gpX"/>
@@ -66,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GPI-DF-PW1">
-                                <rect key="frame" x="150" y="207" width="20" height="20"/>
+                                <rect key="frame" x="150" y="241" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -77,10 +92,12 @@
                             <constraint firstItem="oog-mr-mDb" firstAttribute="top" secondItem="6Ae-qy-pro" secondAttribute="bottom" constant="30" id="Kjj-kE-Cm3"/>
                             <constraint firstAttribute="centerX" secondItem="tHQ-cf-7Kh" secondAttribute="centerX" id="LrL-fq-Aen"/>
                             <constraint firstItem="lMf-o5-GK9" firstAttribute="top" secondItem="tHQ-cf-7Kh" secondAttribute="bottom" constant="6" id="Q95-6Q-Oaz"/>
-                            <constraint firstItem="tHQ-cf-7Kh" firstAttribute="top" secondItem="oog-mr-mDb" secondAttribute="bottom" constant="6" id="Rk7-xZ-uMU"/>
+                            <constraint firstItem="tHQ-cf-7Kh" firstAttribute="top" secondItem="oog-mr-mDb" secondAttribute="bottom" constant="40" id="Rk7-xZ-uMU"/>
                             <constraint firstItem="GPI-DF-PW1" firstAttribute="centerY" secondItem="lMf-o5-GK9" secondAttribute="centerY" id="cIG-tL-nC1"/>
                             <constraint firstAttribute="centerX" secondItem="6Ae-qy-pro" secondAttribute="centerX" id="eP5-ev-28r"/>
                             <constraint firstItem="GPI-DF-PW1" firstAttribute="centerX" secondItem="lMf-o5-GK9" secondAttribute="centerX" constant="-0.5" id="enz-g3-lk6"/>
+                            <constraint firstItem="0tv-Bo-qES" firstAttribute="top" secondItem="oog-mr-mDb" secondAttribute="bottom" constant="4" id="j5r-ct-yam"/>
+                            <constraint firstAttribute="centerX" secondItem="0tv-Bo-qES" secondAttribute="centerX" id="o1A-sv-U4U"/>
                             <constraint firstAttribute="centerX" secondItem="oog-mr-mDb" secondAttribute="centerX" id="okP-oo-Lpc"/>
                         </constraints>
                     </view>
@@ -88,6 +105,7 @@
                         <outlet property="activityIndicator" destination="GPI-DF-PW1" id="olL-eh-fg4"/>
                         <outlet property="connectButton" destination="lMf-o5-GK9" id="QTP-Wa-6SL"/>
                         <outlet property="errorLabel" destination="tHQ-cf-7Kh" id="WGl-qd-gy1"/>
+                        <outlet property="groupTextField" destination="0tv-Bo-qES" id="pWf-ND-5LC"/>
                         <outlet property="usernameTextField" destination="oog-mr-mDb" id="3dH-h8-yhz"/>
                         <segue destination="7Cg-UE-5sd" kind="modal" identifier="ShowGroup" id="mUM-ST-aqw"/>
                     </connections>
