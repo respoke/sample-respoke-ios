@@ -23,6 +23,7 @@
 - (instancetype)initWithSignalingChannel:(RespokeSignalingChannel*)channel;
 - (void)sendMessage:(NSString*)message successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler;
 - (RespokeCall*)startVideoCallWithDelegate:(id <RespokeCallDelegate>)delegate remoteVideoView:(UIView*)newRemoteView localVideoView:(UIView*)newLocalView;
+- (RespokeCall*)startAudioCallWithDelegate:(id <RespokeCallDelegate>)delegate;
 
 @end
 

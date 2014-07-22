@@ -64,4 +64,17 @@
 }
 
 
+- (RespokeCall*)startAudioCallWithDelegate:(id <RespokeCallDelegate>)delegate
+{
+    RespokeCall *call = [[RespokeCall alloc] initWithSignalingChannel:signalingChannel];
+    call.delegate = delegate;
+    call.audioOnly = YES;
+    call.endpoint = self;
+
+    [call startCall];
+
+    return call;
+}
+
+
 @end

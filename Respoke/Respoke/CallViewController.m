@@ -35,7 +35,14 @@
     }
     else
     {
-        self.call = [self.endpoint startVideoCallWithDelegate:self remoteVideoView:self.remoteView localVideoView:self.localView];
+        if (self.audioOnly)
+        {
+            self.call = [self.endpoint startAudioCallWithDelegate:self];
+        }
+        else
+        {
+            self.call = [self.endpoint startVideoCallWithDelegate:self remoteVideoView:self.remoteView localVideoView:self.localView];
+        }
     }
 }
 
@@ -44,17 +51,6 @@
 {
     return UIStatusBarStyleLightContent;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 - (IBAction)endCall

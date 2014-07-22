@@ -10,9 +10,10 @@
 #import "CallViewController.h"
 
 
-@interface ChatTableViewController () {
+@interface ChatTableViewController () <UIActionSheetDelegate> {
     UITableViewCell *remotePrototype;
     UITableViewCell *localPrototype;
+    BOOL audioOnly;
 }
 
 @end
@@ -51,6 +52,7 @@
     {
         CallViewController *controller = [segue destinationViewController];
         controller.endpoint = self.endpoint;
+        controller.audioOnly = audioOnly;
     }
 }
 
@@ -169,7 +171,38 @@
 
 - (IBAction)callAction
 {
-    [self performSegueWithIdentifier:@"Call" sender:self];
+    UIActionSheet *methodAlert = [[UIActionSheet alloc] initWithTitle:@""
+                                    delegate:self cancelButtonTitle:@"Cancel"
+                                    destructiveButtonTitle:nil
+                                    otherButtonTitles:  @"Video Call",
+                                                        @"Audio Only",
+                                                        nil];
+
+    // use the same style as the nav bar
+    //methodAlert.actionSheetStyle = self.navigationController.navigationBar.barStyle;
+    [methodAlert showInView:self.view];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)modalView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex)
+    {
+        case 0:
+        {
+            audioOnly = NO;
+            [self performSegueWithIdentifier:@"Call" sender:self];
+        }
+        break;
+
+        case 1:
+        {
+            audioOnly = YES;
+            [self performSegueWithIdentifier:@"Call" sender:self];
+
+            break;
+        }
+    }
 }
 
 

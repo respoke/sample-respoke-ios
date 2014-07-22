@@ -22,6 +22,7 @@
 @property RespokeEndpoint *endpoint;
 @property NSString *sessionID;
 @property NSString *toConnection;
+@property BOOL audioOnly;
 
 - (instancetype)initWithSignalingChannel:(RespokeSignalingChannel*)channel;
 - (instancetype)initWithSignalingChannel:(RespokeSignalingChannel*)channel incomingCallSDP:(NSDictionary*)sdp;

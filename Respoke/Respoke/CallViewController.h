@@ -19,6 +19,7 @@
 @property (weak) IBOutlet UIButton *muteVideoButton;
 @property RespokeEndpoint *endpoint;
 @property RespokeCall *call;
+@property BOOL audioOnly;
 
 - (IBAction)endCall;
 - (IBAction)muteVideo;

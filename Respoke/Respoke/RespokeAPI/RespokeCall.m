@@ -287,55 +287,58 @@
     queuedRemoteCandidates = [[NSMutableArray alloc] init];
     RTCMediaConstraints* constraints = [[RTCMediaConstraints alloc]
             initWithMandatoryConstraints:@[[[RTCPair alloc] initWithKey:@"OfferToReceiveAudio" value:@"true"], 
-                                           [[RTCPair alloc] initWithKey:@"OfferToReceiveVideo" value:@"true"]]
+                                           [[RTCPair alloc] initWithKey:@"OfferToReceiveVideo" value:self.audioOnly ? @"false" : @"true"]]
                      optionalConstraints:@[[[RTCPair alloc] initWithKey:@"internalSctpDataChannels" value:@"true"],
                                            [[RTCPair alloc] initWithKey:@"DtlsSrtpKeyAgreement" value:@"true"]]];
     peerConnection = [peerConnectionFactory peerConnectionWithICEServers:iceServers constraints:constraints delegate:self];
     RTCMediaStream* lms = [peerConnectionFactory mediaStreamWithLabel:@"ARDAMS"];
 
-    remoteVideoView = [[RTCEAGLVideoView alloc] initWithFrame:self.remoteView.bounds];
-    remoteVideoView.delegate = self;
-    remoteVideoView.transform = CGAffineTransformMakeScale(-1, 1);
-    [self.remoteView addSubview:remoteVideoView];
+    if (!self.audioOnly)
+    {
+        remoteVideoView = [[RTCEAGLVideoView alloc] initWithFrame:self.remoteView.bounds];
+        remoteVideoView.delegate = self;
+        remoteVideoView.transform = CGAffineTransformMakeScale(-1, 1);
+        [self.remoteView addSubview:remoteVideoView];
 
-    localVideoView = [[RTCEAGLVideoView alloc] initWithFrame:self.localView.bounds];
-    localVideoView.delegate = self;
-    [self.localView addSubview:localVideoView];
+        localVideoView = [[RTCEAGLVideoView alloc] initWithFrame:self.localView.bounds];
+        localVideoView.delegate = self;
+        [self.localView addSubview:localVideoView];
 
-    [self updateVideoViewLayout];
-    
-    // The iOS simulator doesn't provide any sort of camera capture
-    // support or emulation (http://goo.gl/rHAnC1) so don't bother
-    // trying to open a local stream.
+        [self updateVideoViewLayout];
+        
+        // The iOS simulator doesn't provide any sort of camera capture
+        // support or emulation (http://goo.gl/rHAnC1) so don't bother
+        // trying to open a local stream.
 
-    // TODO(tkchin): local video capture for OSX. See
-    // https://code.google.com/p/webrtc/issues/detail?id=3417.
+        // TODO(tkchin): local video capture for OSX. See
+        // https://code.google.com/p/webrtc/issues/detail?id=3417.
 #if !TARGET_IPHONE_SIMULATOR && TARGET_OS_IPHONE
-    RTCVideoTrack* localVideoTrack;
-    NSString* cameraID = nil;
+        RTCVideoTrack* localVideoTrack;
+        NSString* cameraID = nil;
 
-    for (AVCaptureDevice* captureDevice in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) 
-    {
-        if (captureDevice.position == AVCaptureDevicePositionFront)
+        for (AVCaptureDevice* captureDevice in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) 
         {
-            cameraID = [captureDevice localizedName];
-            break;
+            if (captureDevice.position == AVCaptureDevicePositionFront)
+            {
+                cameraID = [captureDevice localizedName];
+                break;
+            }
         }
-    }
 
-    NSAssert(cameraID, @"Unable to get the front camera id");
+        NSAssert(cameraID, @"Unable to get the front camera id");
 
-    RTCVideoCapturer* capturer = [RTCVideoCapturer capturerWithDeviceName:cameraID];
-    videoSource = [peerConnectionFactory videoSourceWithCapturer:capturer constraints:nil];
-    localVideoTrack = [peerConnectionFactory videoTrackWithID:@"ARDAMSv0" source:videoSource];
+        RTCVideoCapturer* capturer = [RTCVideoCapturer capturerWithDeviceName:cameraID];
+        videoSource = [peerConnectionFactory videoSourceWithCapturer:capturer constraints:nil];
+        localVideoTrack = [peerConnectionFactory videoTrackWithID:@"ARDAMSv0" source:videoSource];
 
-    if (localVideoTrack) 
-    {
-        [lms addVideoTrack:localVideoTrack];
-    }
+        if (localVideoTrack) 
+        {
+            [lms addVideoTrack:localVideoTrack];
+        }
 
-    localVideoView.videoTrack = localVideoTrack;
+        localVideoView.videoTrack = localVideoTrack;
 #endif
+    }
 
     [lms addAudioTrack:[peerConnectionFactory audioTrackWithID:@"ARDAMSa0"]];
     [peerConnection addStream:lms constraints:constraints];
@@ -345,7 +348,7 @@
 - (void)createOffer
 {
     RTCPair* audio = [[RTCPair alloc] initWithKey:@"OfferToReceiveAudio" value:@"true"];
-    RTCPair* video = [[RTCPair alloc] initWithKey:@"OfferToReceiveVideo" value:@"true"];
+    RTCPair* video = [[RTCPair alloc] initWithKey:@"OfferToReceiveVideo" value:self.audioOnly ? @"false" : @"true"];
     NSArray* mandatory = @[ audio, video ];
     RTCMediaConstraints* constraints = [[RTCMediaConstraints alloc] initWithMandatoryConstraints:mandatory optionalConstraints:nil];
     
@@ -508,13 +511,6 @@
             [thePeerConnection setLocalDescriptionWithDelegate:self sessionDescription:sdp];
             NSLog(@"PC setLocalDescription.");
 
-            /*NSString *signalType = @"offer";
-
-            if (!caller)
-            {
-                signalType = @"answer";
-            }*/
-
             NSDictionary *signalData = @{@"signalType": sdp.type, @"target": @"call", @"to": self.endpoint.endpointID, @"sessionId": self.sessionID, @"sdp": @{@"sdp": sdp.description, @"type": sdp.type}, @"signalId": [Respoke makeGUID]};
             NSError *jsonError = nil;
             NSData *jsonData = [NSJSONSerialization dataWithJSONObject:signalData options:0 error:&jsonError];
@@ -528,10 +524,6 @@
                     if (errorMessage)
                     {
                         [self.delegate onError:errorMessage sender:self];
-                    }
-                    else
-                    {
-                        //successHandler();
                     }
                 }];
             }
@@ -624,10 +616,6 @@
             if (errorMessage)
             {
                 [self.delegate onError:errorMessage sender:self];
-            }
-            else
-            {
-                //successHandler();
             }
         }];
     }
