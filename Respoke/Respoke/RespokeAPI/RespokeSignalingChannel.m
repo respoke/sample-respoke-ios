@@ -146,7 +146,6 @@
 
 - (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
 {
-    NSLog(@"didReceiveEvent >>> data: %@", packet.data);
     NSError *error;
     id jsonResult = [NSJSONSerialization JSONObjectWithData:[packet.data dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
     if (!error)

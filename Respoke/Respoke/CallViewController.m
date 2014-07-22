@@ -10,6 +10,8 @@
 
 
 @interface CallViewController () <RespokeCallDelegate> {
+    BOOL audioMuted;
+    BOOL videoMuted;
 }
 
 @end
@@ -22,9 +24,9 @@
 {
     [super viewDidLoad];
 
-    self.endCallButton.layer.cornerRadius = 16.0;
-    self.muteAudioButton.layer.cornerRadius = 16.0;
-    self.muteVideoButton.layer.cornerRadius = 16.0;
+    self.endCallButton.layer.cornerRadius = 32.0;
+    self.muteAudioButton.layer.cornerRadius = 32.0;
+    self.muteVideoButton.layer.cornerRadius = 32.0;
 
     if (self.call)
     {
@@ -37,6 +39,7 @@
     {
         if (self.audioOnly)
         {
+            self.muteVideoButton.hidden = YES;
             self.call = [self.endpoint startAudioCallWithDelegate:self];
         }
         else
@@ -64,13 +67,31 @@
 
 - (IBAction)muteVideo
 {
-
+    videoMuted = !videoMuted;
+    
+    if (videoMuted)
+    {
+        [self.muteVideoButton setImage:[UIImage imageNamed:@"unmute_video.png"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.muteVideoButton setImage:[UIImage imageNamed:@"mute_video.png"] forState:UIControlStateNormal];
+    }
 }
 
 
 - (IBAction)muteAudio
 {
-
+    audioMuted = !audioMuted;
+    
+    if (audioMuted)
+    {
+        [self.muteAudioButton setImage:[UIImage imageNamed:@"unmute_audio.png"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.muteAudioButton setImage:[UIImage imageNamed:@"mute_audio.png"] forState:UIControlStateNormal];
+    }
 }
 
 
@@ -92,6 +113,12 @@
 - (void)onHangup:(RespokeCall*)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)onConnected:(RespokeCall*)sender
+{
+    self.connectingView.hidden = YES;
 }
 
 

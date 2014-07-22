@@ -133,7 +133,7 @@
 
 - (void)hangup
 {
-    NSDictionary *signalData = @{@"signalType": @"hangup", @"target": @"call", @"to": self.endpoint.endpointID, @"toConnection": self.toConnection, @"sessionId": self.sessionID, @"signalId": [Respoke makeGUID]};
+    NSDictionary *signalData = @{@"signalType": @"hangup", @"target": @"call", @"to": self.endpoint.endpointID, @"sessionId": self.sessionID, @"signalId": [Respoke makeGUID]};
     NSError *jsonError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:signalData options:0 error:&jsonError];
     
@@ -187,6 +187,7 @@
             else
             {
                 [self processRemoteSDP];
+                [self.delegate onConnected:self];
             }
         }];
     }
@@ -199,7 +200,7 @@
 
 - (void)connectedReceived
 {
-
+    [self.delegate onConnected:self];
 }
 
 

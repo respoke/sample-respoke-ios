@@ -41,5 +41,6 @@
 
 - (void)onError:(NSString*)errorMessage sender:(RespokeCall*)sender;
 - (void)onHangup:(RespokeCall*)sender;
+- (void)onConnected:(RespokeCall*)sender;
 
 @end

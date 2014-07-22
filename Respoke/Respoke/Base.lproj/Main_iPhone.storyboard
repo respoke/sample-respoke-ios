@@ -113,12 +113,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrO-hw-FrD">
-                                        <rect key="frame" x="120" y="489" width="81" height="60"/>
+                                        <rect key="frame" x="127" y="484" width="65" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="UTi-YX-j7H"/>
-                                            <constraint firstAttribute="width" constant="81" id="gjn-hj-SUj"/>
+                                            <constraint firstAttribute="height" constant="65" id="UTi-YX-j7H"/>
+                                            <constraint firstAttribute="width" constant="65" id="gjn-hj-SUj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,12 +130,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCA-kf-R0s">
-                                        <rect key="frame" x="218" y="489" width="70" height="60"/>
+                                        <rect key="frame" x="209" y="484" width="65" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="Sex-sa-VOh"/>
-                                            <constraint firstAttribute="height" constant="60" id="UV3-PW-RfN"/>
+                                            <constraint firstAttribute="width" constant="65" id="Sex-sa-VOh"/>
+                                            <constraint firstAttribute="height" constant="65" id="UV3-PW-RfN"/>
                                         </constraints>
                                         <state key="normal" image="mute_audio.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,14 +145,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oy6-Bm-uUz">
-                                        <rect key="frame" x="30" y="489" width="70" height="60"/>
+                                        <rect key="frame" x="42" y="484" width="65" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="PUZ-Xs-LY5"/>
-                                            <constraint firstAttribute="height" constant="60" id="Vdy-Ra-IG7"/>
-                                            <constraint firstAttribute="width" constant="70" id="Wzh-vX-CqN"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="fHC-i7-6YV"/>
+                                            <constraint firstAttribute="height" constant="65" id="Vdy-Ra-IG7"/>
+                                            <constraint firstAttribute="width" constant="65" id="Wzh-vX-CqN"/>
                                         </constraints>
                                         <state key="normal" image="mute_video.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,11 +179,35 @@
                                     <constraint firstAttribute="height" constant="100" id="fwa-KW-PDQ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4h0-UI-lw7">
+                                <rect key="frame" x="20" y="224" width="280" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connecting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dm-lm-w2J">
+                                        <rect key="frame" x="72" y="38" width="107" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vFa-fi-sIf">
+                                        <rect key="frame" x="188" y="44" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="119" id="RVO-P1-wXA"/>
+                                    <constraint firstAttribute="width" constant="280" id="ZSg-uM-9zU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="4h0-UI-lw7" secondAttribute="centerY" id="9BX-fT-CFf"/>
                             <constraint firstItem="os5-HW-Ilr" firstAttribute="top" secondItem="MsR-7F-gHI" secondAttribute="bottom" id="BEh-3A-KrN"/>
                             <constraint firstAttribute="trailing" secondItem="TH6-hO-S6A" secondAttribute="trailing" id="N8m-m5-QJZ"/>
+                            <constraint firstAttribute="centerX" secondItem="4h0-UI-lw7" secondAttribute="centerX" id="P62-bI-RAH"/>
                             <constraint firstItem="MsR-7F-gHI" firstAttribute="top" secondItem="KJ4-vA-IkF" secondAttribute="top" id="PtU-dg-ZDw"/>
                             <constraint firstAttribute="trailing" secondItem="MsR-7F-gHI" secondAttribute="trailing" id="kp0-Y5-309"/>
                             <constraint firstItem="TH6-hO-S6A" firstAttribute="top" secondItem="KJ4-vA-IkF" secondAttribute="top" constant="22" id="mDK-4b-3ek"/>
@@ -193,6 +215,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="connectingView" destination="4h0-UI-lw7" id="3hZ-rR-0QQ"/>
                         <outlet property="endCallButton" destination="yrO-hw-FrD" id="x46-e1-1d0"/>
                         <outlet property="localView" destination="TH6-hO-S6A" id="Xr0-1C-wdw"/>
                         <outlet property="muteAudioButton" destination="mCA-kf-R0s" id="HVH-hS-4IP"/>
