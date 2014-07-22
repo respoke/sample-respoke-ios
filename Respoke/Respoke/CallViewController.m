@@ -26,7 +26,11 @@
 
     self.endCallButton.layer.cornerRadius = 32.0;
     self.muteAudioButton.layer.cornerRadius = 32.0;
+    self.muteAudioButton.layer.borderWidth = 0;
+    self.muteAudioButton.layer.borderColor = [UIColor redColor].CGColor;
     self.muteVideoButton.layer.cornerRadius = 32.0;
+    self.muteVideoButton.layer.borderWidth = 0;
+    self.muteVideoButton.layer.borderColor = [UIColor redColor].CGColor;
 
     if (self.call)
     {
@@ -71,10 +75,12 @@
     
     if (videoMuted)
     {
+        self.muteVideoButton.layer.borderWidth = 1.0;
         [self.muteVideoButton setImage:[UIImage imageNamed:@"unmute_video.png"] forState:UIControlStateNormal];
     }
     else
     {
+        self.muteVideoButton.layer.borderWidth = 0;
         [self.muteVideoButton setImage:[UIImage imageNamed:@"mute_video.png"] forState:UIControlStateNormal];
     }
 }
@@ -86,10 +92,12 @@
     
     if (audioMuted)
     {
+        self.muteAudioButton.layer.borderWidth = 1.0;
         [self.muteAudioButton setImage:[UIImage imageNamed:@"unmute_audio.png"] forState:UIControlStateNormal];
     }
     else
     {
+        self.muteAudioButton.layer.borderWidth = 0;
         [self.muteAudioButton setImage:[UIImage imageNamed:@"mute_audio.png"] forState:UIControlStateNormal];
     }
 }
