@@ -62,7 +62,7 @@ Step 3: Build the libraries
 
 Another build script has been provided to handle actually building the libraries.
 ```
-$ ./build_webrtc_libs
+$ ./build_webrtc_libs.sh
 ```
 This will build the massive WebRTC source, combine the assorted libraries into universal simulator/device compatible libraries, and then replace the compiled libraries and associated headers inside of the Respoke iOS project with the new ones. Once it completes successfully, you should be able to open the XCode project, recompile and go.
 
