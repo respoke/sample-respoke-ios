@@ -10,9 +10,15 @@
 #import "GroupTableViewController.h"
 
 
+#define LAST_APP_ID_KEY @"LAST_APP_ID_KEY"
+#define LAST_USER_KEY @"LAST_USER_KEY"
+#define LAST_GROUP_KEY @"LAST_GROUP_KEY"
+
+
 @implementation LoginViewController {
     RespokeGroup *myGroup;
     NSArray *groupMembers;
+    id __weak lastResponder;
 }
 
 
@@ -21,13 +27,35 @@
     [super viewDidLoad];
     
     self.connectButton.layer.cornerRadius = 8.0;
+
+    [self.configButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Change App ID" attributes:@{NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle), NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: [UIFont systemFontOfSize:13]}] forState:UIControlStateNormal];
+
+    NSString *lastAppID = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_APP_ID_KEY];
+
+    if (lastAppID)
+    {
+        self.appIDTextField.text = lastAppID;
+    }
+
+    NSString *lastUser = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_USER_KEY];
+
+    if (lastUser)
+    {
+        self.usernameTextField.text = lastUser;
+    }
+
+    NSString *lastGroup = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_GROUP_KEY];
+
+    if (lastGroup)
+    {
+        self.groupTextField.text = lastGroup;
+    }
 }
 
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.usernameTextField becomeFirstResponder];
-    sharedRespokeClient.delegate = self;
 }
 
 
@@ -41,9 +69,22 @@
 {
     if ([self.usernameTextField.text length])
     {
+        [lastResponder resignFirstResponder];
+        
         self.activityIndicator.hidden = NO;
         self.errorLabel.hidden = YES;
         [self.connectButton setTitle:@"" forState:UIControlStateNormal];
+        
+        NSString *appID = @"2b446810-6d92-4fa4-826a-2eabced82d60";
+        
+        if ([self.appIDTextField.text length])
+        {
+            appID = self.appIDTextField.text;
+        }
+        
+        // Create a Respoke client instance to be used for the duration of the application
+        sharedRespokeClient = [[Respoke sharedInstance] createClientWithAppID:appID developmentMode:YES];
+        sharedRespokeClient.delegate = self;
 
         [sharedRespokeClient connectWithEndpointID:self.usernameTextField.text errorHandler:^(NSString *errorMessage) {
             [self showError:errorMessage];
@@ -55,6 +96,13 @@
         self.errorLabel.text = @"Username may not be blank";
         self.errorLabel.hidden = NO;
     }
+}
+
+
+- (IBAction)configAction
+{
+    self.configButton.hidden = YES;
+    self.appIDTextField.hidden = NO;
 }
 
 
@@ -85,10 +133,14 @@
     {
         [self.groupTextField becomeFirstResponder];
     }
-    else
+    else if (textField == self.groupTextField)
     {
         [textField resignFirstResponder];
         [self connectAction];
+    }
+    else
+    {
+        [textField resignFirstResponder];
     }
     
     return YES;
@@ -100,6 +152,33 @@
     self.errorLabel.hidden = YES;
     
     return YES;
+}
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    lastResponder = textField;
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    lastResponder = nil;
+    
+    if (textField == self.usernameTextField)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:self.usernameTextField.text forKey:LAST_USER_KEY];
+    }
+    else if (textField == self.groupTextField)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:self.groupTextField.text forKey:LAST_GROUP_KEY];
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:self.appIDTextField.text forKey:LAST_APP_ID_KEY];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 

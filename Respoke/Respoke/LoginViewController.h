@@ -13,8 +13,12 @@
 
 @property (weak) IBOutlet UITextField *usernameTextField;
 @property (weak) IBOutlet UITextField *groupTextField;
+@property (weak) IBOutlet UITextField *appIDTextField;
 @property (weak) IBOutlet UILabel *errorLabel;
 @property (weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak) IBOutlet UIButton *connectButton;
+@property (weak) IBOutlet UIButton *configButton;
+
+- (IBAction)configAction;
 
 @end

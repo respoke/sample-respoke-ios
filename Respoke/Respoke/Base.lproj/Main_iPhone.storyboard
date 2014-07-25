@@ -52,6 +52,21 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="Av7-TY-XO2"/>
                                 </connections>
                             </textField>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional App ID" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nUv-cU-dzk">
+                                <rect key="frame" x="66" y="283" width="189" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="189" id="BQH-OM-tvr"/>
+                                    <constraint firstAttribute="height" constant="30" id="IFP-AD-rw3"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="cEB-3f-Crb"/>
+                                    <constraint firstAttribute="width" constant="189" id="loe-G3-g4i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Hgd-yR-JNh"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-o5-GK9">
                                 <rect key="frame" x="66" y="236" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -84,10 +99,23 @@
                                 <rect key="frame" x="150" y="241" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy9-zt-IiW">
+                                <rect key="frame" x="85" y="282" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="configAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="air-9P-Lw9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254901960785" green="0.47450980392156861" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="nUv-cU-dzk" secondAttribute="centerX" id="9Qp-E4-O4N"/>
                             <constraint firstAttribute="centerX" secondItem="lMf-o5-GK9" secondAttribute="centerX" id="Ggd-8S-cCP"/>
+                            <constraint firstItem="nUv-cU-dzk" firstAttribute="top" secondItem="lMf-o5-GK9" secondAttribute="bottom" constant="17" id="I8o-zM-Nfp"/>
                             <constraint firstItem="6Ae-qy-pro" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="29" id="Jer-KF-1Fu"/>
                             <constraint firstItem="oog-mr-mDb" firstAttribute="top" secondItem="6Ae-qy-pro" secondAttribute="bottom" constant="30" id="Kjj-kE-Cm3"/>
                             <constraint firstAttribute="centerX" secondItem="tHQ-cf-7Kh" secondAttribute="centerX" id="LrL-fq-Aen"/>
@@ -103,6 +131,8 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="GPI-DF-PW1" id="olL-eh-fg4"/>
+                        <outlet property="appIDTextField" destination="nUv-cU-dzk" id="qM1-Ad-mLh"/>
+                        <outlet property="configButton" destination="iy9-zt-IiW" id="uzx-3N-Lxx"/>
                         <outlet property="connectButton" destination="lMf-o5-GK9" id="QTP-Wa-6SL"/>
                         <outlet property="errorLabel" destination="tHQ-cf-7Kh" id="WGl-qd-gy1"/>
                         <outlet property="groupTextField" destination="0tv-Bo-qES" id="pWf-ND-5LC"/>
