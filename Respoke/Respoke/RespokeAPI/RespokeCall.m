@@ -144,25 +144,12 @@
 - (void)hangup
 {
     NSDictionary *signalData = @{@"signalType": @"hangup", @"target": @"call", @"to": self.endpoint.endpointID, @"sessionId": self.sessionID, @"signalId": [Respoke makeGUID]};
-    NSError *jsonError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:signalData options:0 error:&jsonError];
     
-    if (!jsonError)
-    {
-        NSString *jsonSignal = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSDictionary *data = @{@"signal": jsonSignal, @"to": self.endpoint.endpointID};
-
-        [signalingChannel sendRESTMessage:@"post" url:@"/v1/signaling" data:data responseHandler:^(id response, NSString *errorMessage) {
-            if (errorMessage)
-            {
-                [self.delegate onError:errorMessage sender:self];
-            }
-        }];
-    }
-    else
-    {
-        [self.delegate onError:@"Error encoding hangup signal to json" sender:self];
-    }
+    [signalingChannel sendSignalMessage:signalData toEndpointID:self.endpoint.endpointID successHandler:^(){
+        // Do nothing
+    } errorHandler:^(NSString *errorMessage) {
+        [self.delegate onError:errorMessage sender:self];
+    }];
 
     [self disconnect];
 }
@@ -208,30 +195,13 @@
     self.toConnection = remoteConnection;
 
     NSDictionary *signalData = @{@"signalType": @"connected", @"target": @"call", @"to": self.endpoint.endpointID, @"toConnection": self.toConnection, @"sessionId": self.sessionID, @"signalId": [Respoke makeGUID]};
-    NSError *jsonError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:signalData options:0 error:&jsonError];
-    
-    if (!jsonError)
-    {
-        NSString *jsonSignal = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSDictionary *data = @{@"signal": jsonSignal, @"to": self.endpoint.endpointID};
 
-        [signalingChannel sendRESTMessage:@"post" url:@"/v1/signaling" data:data responseHandler:^(id response, NSString *errorMessage) {
-            if (errorMessage)
-            {
-                [self.delegate onError:errorMessage sender:self];
-            }
-            else
-            {
-                [self processRemoteSDP];
-                [self.delegate onConnected:self];
-            }
-        }];
-    }
-    else
-    {
-        [self.delegate onError:@"Error encoding ice candidate to json" sender:self];
-    }
+    [signalingChannel sendSignalMessage:signalData toEndpointID:self.endpoint.endpointID successHandler:^(){
+        [self processRemoteSDP];
+        [self.delegate onConnected:self];
+    } errorHandler:^(NSString *errorMessage) {
+        [self.delegate onError:errorMessage sender:self];
+    }];
 }
 
 
@@ -550,25 +520,12 @@
             NSLog(@"PC setLocalDescription.");
 
             NSDictionary *signalData = @{@"signalType": sdp.type, @"target": @"call", @"to": self.endpoint.endpointID, @"sessionId": self.sessionID, @"sdp": @{@"sdp": sdp.description, @"type": sdp.type}, @"signalId": [Respoke makeGUID]};
-            NSError *jsonError = nil;
-            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:signalData options:0 error:&jsonError];
-            
-            if (!jsonError)
-            {
-                NSString *jsonSignal = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-                NSDictionary *data = @{@"signal": jsonSignal, @"to": self.endpoint.endpointID};
-
-                [signalingChannel sendRESTMessage:@"post" url:@"/v1/signaling" data:data responseHandler:^(id response, NSString *errorMessage) {
-                    if (errorMessage)
-                    {
-                        [self.delegate onError:errorMessage sender:self];
-                    }
-                }];
-            }
-            else
-            {
-                [self.delegate onError:@"Error encoding offer/answer to json" sender:self];
-            }
+    
+            [signalingChannel sendSignalMessage:signalData toEndpointID:self.endpoint.endpointID successHandler:^(){
+                // Do nothing
+            } errorHandler:^(NSString *errorMessage) {
+                [self.delegate onError:errorMessage sender:self];
+            }];
         }
     });
 }
@@ -642,25 +599,12 @@
 {
     NSDictionary *candidateDict = @{@"sdpMLineIndex": [NSNumber numberWithInteger:candidate.sdpMLineIndex], @"sdpMid": candidate.sdpMid, @"candidate": candidate.sdp};
     NSDictionary *signalData = @{@"signalType": @"iceCandidates", @"target": @"call", @"to": self.endpoint.endpointID, @"toConnection": self.toConnection, @"iceCandidates": @[candidateDict], @"sessionId": self.sessionID, @"signalId": [Respoke makeGUID]};
-    NSError *jsonError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:signalData options:0 error:&jsonError];
     
-    if (!jsonError)
-    {
-        NSString *jsonSignal = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSDictionary *data = @{@"signal": jsonSignal, @"to": self.endpoint.endpointID};
-
-        [signalingChannel sendRESTMessage:@"post" url:@"/v1/signaling" data:data responseHandler:^(id response, NSString *errorMessage) {
-            if (errorMessage)
-            {
-                [self.delegate onError:errorMessage sender:self];
-            }
-        }];
-    }
-    else
-    {
-        [self.delegate onError:@"Error encoding ice candidate to json" sender:self];
-    }
+    [signalingChannel sendSignalMessage:signalData toEndpointID:self.endpoint.endpointID successHandler:^(){
+        // Do nothing
+    } errorHandler:^(NSString *errorMessage) {
+        [self.delegate onError:errorMessage sender:self];
+    }];
 }
 
 
