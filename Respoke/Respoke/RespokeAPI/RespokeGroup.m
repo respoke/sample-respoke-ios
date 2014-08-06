@@ -121,7 +121,7 @@
 
 - (void)onJoin:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender
 {
-    NSString *endpoint = [params objectForKey:@"endpoint"];
+    NSString *endpoint = [params objectForKey:@"endpointId"];
     NSString *connection = [params objectForKey:@"connectionId"];
     
     // only pass on notifications about people other than ourselves
