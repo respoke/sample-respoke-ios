@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "GroupTableViewController.h"
+#import "RespokeSDK/RespokeGroup.h"
 
 
 #define LAST_APP_ID_KEY @"LAST_APP_ID_KEY"

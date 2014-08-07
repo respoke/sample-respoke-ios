@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "RespokeSDK/RespokeGroup.h"
+#import "RespokeSDK/RespokeEndpoint.h"
 
 
 @interface GroupTableViewController : UITableViewController <RespokeClientDelegate, RespokeGroupDelegate, RespokeEndpointDelegate>

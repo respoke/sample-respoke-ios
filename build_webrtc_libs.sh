@@ -49,9 +49,9 @@ echo "-- arm webrtc has been sucessfully built"
 
 function move_libs() {
 echo "-- moving libraries and headers to the Respoke project"
-rm -f ./Respoke/WebRTC/headers/*.*
-rm -f ./Respoke/WebRTC/*.a
-cp ./trunk/talk/app/webrtc/objc/public/*.h ./Respoke/WebRTC/headers/
+rm -f ./RespokeSDK/WebRTC/headers/*.*
+rm -f ./RespokeSDK/WebRTC/*.a
+cp ./trunk/talk/app/webrtc/objc/public/*.h ./RespokeSDK/WebRTC/headers/
 
 pushd trunk
 pushd out_ios
@@ -63,25 +63,25 @@ mv libjingle_p2p.a libjingle_p2p_armv7.a
 for f in *.a; do
   if [ -f "../Release-iphonesimulator/$f" ]; then
     echo "creating fat static library $f"
-    lipo -create "$f" "../Release-iphonesimulator/$f" -output "../../../Respoke/WebRTC/$f"
+    lipo -create "$f" "../Release-iphonesimulator/$f" -output "../../../RespokeSDK/WebRTC/$f"
   else
     echo ""
     echo "$f was not built for the simulator."
     echo ""
-    cp "$f" "../../../Respoke/WebRTC/"
+    cp "$f" "../../../RespokeSDK/WebRTC/"
   fi
 done
 
 cd ../Release-iphonesimulator
 mv libjingle_p2p.a libjingle_p2p_x86.a
-cp libjingle_p2p_x86.a ../../../Respoke/WebRTC/
+cp libjingle_p2p_x86.a ../../../RespokeSDK/WebRTC/
 
 for f in *.a; do
   if [ ! -f "../Release-iphoneos/$f" ]; then
     echo ""
     echo "$f was not built for the iPhone."
     echo ""
-    cp "$f" "../../../Respoke/WebRTC/"
+    cp "$f" "../../../RespokeSDK/WebRTC/"
   fi
 done
 
