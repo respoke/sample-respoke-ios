@@ -62,7 +62,22 @@
 
 @protocol RespokeSignalingChannelGroupDelegate <NSObject>
 
+
+/**
+ *  Receive notification from the signaling channel that an endpoint has joined this group.
+ *
+ *  @param params Raw parameter data from the signaling channel
+ *  @param sender The signaling channel that triggered the event
+ */
 - (void)onJoin:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender;
+
+
+/**
+ *  Receive notification from the signaling channel that an endpoint has left this group.
+ *
+ *  @param params Raw parameter data from the signaling channel
+ *  @param sender The signaling channel that triggered the event
+ */
 - (void)onLeave:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender;
 - (void)onMessage:(NSDictionary*)params sender:(RespokeSignalingChannel*)sender;
 

@@ -125,7 +125,7 @@
     NSString *connection = [params objectForKey:@"connectionId"];
     
     // only pass on notifications about people other than ourselves
-    if (![endpoint isEqualToString:endpointID])
+    if ((endpoint) && (![endpoint isEqualToString:endpointID]))
     {
         RespokeEndpoint *existing = [self endpointWithName:endpoint];
 
@@ -152,7 +152,7 @@
     NSString *connection = [params objectForKey:@"connectionId"];
 
     // only pass on notifications about people other than ourselves
-    if (![endpoint isEqualToString:endpointID])
+    if ((endpoint) && (![endpoint isEqualToString:endpointID]))
     {
         RespokeEndpoint *existing = [self endpointWithName:endpoint];
 
