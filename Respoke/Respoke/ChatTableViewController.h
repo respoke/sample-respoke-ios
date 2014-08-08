@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RespokeSDK/RespokeEndpoint.h"
+#import "RespokeEndpoint.h"
 #import "Conversation.h"
 
 

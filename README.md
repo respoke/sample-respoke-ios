@@ -87,10 +87,10 @@ libcommon_audio_neon.a
 libisac_neon.a 
 libjingle_p2p_armv7.a 
 libjingle_p2p_x86.a 
-libvpx_asm_offsets_vpx_scale.a 
-libyuv_neon.a 
 libvideo_processing_sse2.a 
+libvpx_asm_offsets_vpx_scale.a
 libvpx_intrinsics_mmx.a 
 libvpx_intrinsics_sse2.a 
 libvpx_intrinsics_sse4_1.a 
-libvpx_intrinsics_ssse3.a 
+libvpx_intrinsics_ssse3.a
+libyuv_neon.a 

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RespokeSDK/RespokeEndpoint.h"
-#import "RespokeSDK/RespokeCall.h"
+#import "RespokeEndpoint.h"
+#import "RespokeCall.h"
 
 
 @interface CallViewController : UIViewController

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RespokeSDK/Respoke.h"
+#import "Respoke.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
