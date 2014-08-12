@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "RespokeGroup.h"
 #import "RespokeEndpoint.h"
+#import "RespokeClient.h"
 
 
 @interface GroupTableViewController : UITableViewController <RespokeClientDelegate, RespokeGroupDelegate, RespokeEndpointDelegate>

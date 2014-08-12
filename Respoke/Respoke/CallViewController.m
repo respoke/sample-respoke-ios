@@ -37,7 +37,7 @@
         self.call.delegate = self;
         self.call.remoteView = self.remoteView;
         self.call.localView = self.localView;
-        [self.call answerCall];
+        [self.call answer];
     }
     else
     {
@@ -64,7 +64,7 @@
 {
     self.remoteView.hidden = YES;
     self.localView.hidden = YES;
-    [self.call hangup];
+    [self.call hangup:YES];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 

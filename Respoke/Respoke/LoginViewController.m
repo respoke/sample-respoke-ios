@@ -218,7 +218,7 @@
     // Do nothing
 }
 
-- (void)onIncomingCall:(RespokeCall *)call sender:(RespokeClient *)sender
+- (void)onCall:(RespokeCall *)call sender:(RespokeClient *)sender
 {
     // Do nothing
 }

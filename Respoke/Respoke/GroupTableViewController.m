@@ -117,7 +117,7 @@
 }
 
 
-- (void)onIncomingCall:(RespokeCall*)call sender:(RespokeClient*)sender
+- (void)onCall:(RespokeCall*)call sender:(RespokeClient*)sender
 {
     CallViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"CallViewController"];
     controller.call = call;

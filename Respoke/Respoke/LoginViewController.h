@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "RespokeClient.h"
+
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate, RespokeClientDelegate>
 
