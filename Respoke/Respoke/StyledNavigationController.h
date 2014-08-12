@@ -3,7 +3,7 @@
 //  Respoke
 //
 //  Created by Jason Adams on 7/18/14.
-//  Copyright (c) 2014 Ninjanetic Design Inc. All rights reserved.
+//  Copyright (c) 2014 Digium, Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

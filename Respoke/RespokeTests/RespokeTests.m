@@ -3,7 +3,7 @@
 //  RespokeTests
 //
 //  Created by Jason Adams on 7/3/14.
-//  Copyright (c) 2014 Ninjanetic Design Inc. All rights reserved.
+//  Copyright (c) 2014 Digium, Inc. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
