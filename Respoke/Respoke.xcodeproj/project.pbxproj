@@ -210,6 +210,7 @@
 		184B028B19709C56000BB925 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		184B028D19709C66000BB925 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		184B028F19709C87000BB925 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		18AFCCA6199BDBA000818468 /* RespokeConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeConnection.h; sourceTree = "<group>"; };
 		18D4A01219796CDA00F7FC49 /* StyledNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledNavigationController.h; sourceTree = "<group>"; };
 		18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledNavigationController.m; sourceTree = "<group>"; };
 		18D4A01C197EA50000F7FC49 /* mute_audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_audio.png; sourceTree = "<group>"; };
@@ -603,6 +604,7 @@
 				18E946C41995328300C8B142 /* Respoke.h */,
 				18E946C51995328300C8B142 /* RespokeCall.h */,
 				18E946C61995328300C8B142 /* RespokeClient.h */,
+				18AFCCA6199BDBA000818468 /* RespokeConnection.h */,
 				18E946C71995328300C8B142 /* RespokeEndpoint.h */,
 				18E946C81995328300C8B142 /* RespokeGroup.h */,
 			);

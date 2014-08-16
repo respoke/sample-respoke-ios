@@ -9,11 +9,13 @@
 #import "GroupTableViewController.h"
 #import "ChatTableViewController.h"
 #import "CallViewController.h"
+#import "RespokeConnection.h"
 
 
 @interface GroupTableViewController () {
     NSMutableDictionary *conversations;
     RespokeEndpoint *endpointBeingViewed;
+    NSMutableArray *endpoints;
 }
 
 @end
@@ -25,13 +27,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+    endpoints = [[NSMutableArray alloc] init];
     conversations = [[NSMutableDictionary alloc] init];
-    for (RespokeEndpoint *each in self.groupMembers)
+
+    for (RespokeConnection *each in self.groupMembers)
     {
-        each.delegate = self;
-        Conversation *conversation = [[Conversation alloc] initWithName:each.endpointID];
-        [conversations setObject:conversation forKey:each.endpointID];
+        RespokeEndpoint *parentEndpoint = [each getEndpoint];
+
+        // Some endpoints may have more than one connection that is a member of this group, so only remember each endpoint once
+        if (NSNotFound == [endpoints indexOfObject:parentEndpoint])
+        {
+            [endpoints addObject:parentEndpoint];
+            parentEndpoint.delegate = self;
+
+            Conversation *conversation = [[Conversation alloc] initWithName:parentEndpoint.endpointID];
+            [conversations setObject:conversation forKey:parentEndpoint.endpointID];
+        }
     }
 
     sharedRespokeClient.delegate = self;
@@ -92,7 +104,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.groupMembers count];
+    return [endpoints count];
 }
 
 
@@ -129,26 +141,63 @@
 #pragma mark - RespokeGroupDelegate
 
 
-- (void)onJoin:(RespokeEndpoint*)endpoint sender:(RespokeGroup*)sender
+- (void)onJoin:(RespokeConnection*)connection sender:(RespokeGroup*)sender
 {
-    NSLog(@"Joined: %@", endpoint.endpointID);
-    [self.groupMembers addObject:endpoint];
-    Conversation *conversation = [[Conversation alloc] initWithName:endpoint.endpointID];
-    [conversations setObject:conversation forKey:endpoint.endpointID];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.groupMembers count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.groupMembers addObject:connection];
+
+    RespokeEndpoint *parentEndpoint = [connection getEndpoint];
+
+    // Some endpoints may have more than one connection that is a member of this group, so only remember each endpoint once
+    if (NSNotFound == [endpoints indexOfObject:parentEndpoint])
+    {
+        NSLog(@"Joined: %@", parentEndpoint.endpointID);
+        [endpoints addObject:parentEndpoint];
+        parentEndpoint.delegate = self;
+
+        Conversation *conversation = [[Conversation alloc] initWithName:parentEndpoint.endpointID];
+        [conversations setObject:conversation forKey:parentEndpoint.endpointID];
+
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[endpoints count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
 
-- (void)onLeave:(RespokeEndpoint*)endpoint sender:(RespokeGroup*)sender
+- (void)onLeave:(RespokeConnection*)connection sender:(RespokeGroup*)sender
 {
-    NSLog(@"Left: %@", endpoint.endpointID);
-    NSInteger index = [self.groupMembers indexOfObject:endpoint];
+    NSInteger index = [self.groupMembers indexOfObject:connection];
 
+    // Avoid leave messages for connection we didn't know about
     if (NSNotFound != index)
     {
         [self.groupMembers removeObjectAtIndex:index];
-        [conversations removeObjectForKey:endpoint.endpointID];
-        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+        RespokeEndpoint *parentEndpoint = [connection getEndpoint];
+
+        if (parentEndpoint)
+        {
+            // Make sure that this is the last connection for this endpoint before removing it from the list
+            NSInteger connectionCount = 0;
+
+            for (RespokeConnection *eachConnection in self.groupMembers)
+            {
+                if (eachConnection.getEndpoint == parentEndpoint)
+                {
+                    connectionCount++;
+                }
+            }
+
+            if (connectionCount == 0)
+            {
+                NSLog(@"Left: %@", parentEndpoint.endpointID);
+                NSInteger index = [endpoints indexOfObject:parentEndpoint];
+
+                if (NSNotFound != index)
+                {
+                    [endpoints removeObjectAtIndex:index];
+                    [conversations removeObjectForKey:parentEndpoint.endpointID];
+                    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }
+        }
     }
 }
 
@@ -160,7 +209,7 @@
     UILabel *label = (UILabel*)[cell viewWithTag:1];
     UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
 
-    RespokeEndpoint *endpoint = [self.groupMembers objectAtIndex:indexPath.row];
+    RespokeEndpoint *endpoint = [endpoints objectAtIndex:indexPath.row];
     Conversation *conversation = [conversations objectForKey:endpoint.endpointID];
 
     label.text = endpoint.endpointID;
@@ -182,7 +231,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    RespokeEndpoint *selection = [self.groupMembers objectAtIndex:indexPath.row];
+    RespokeEndpoint *selection = [endpoints objectAtIndex:indexPath.row];
 
     if (selection)
     {
@@ -197,7 +246,7 @@
     [conversation addMessage:message from:sender.endpointID];
     conversation.unreadCount++;
 
-    NSInteger index = [self.groupMembers indexOfObject:sender];
+    NSInteger index = [endpoints indexOfObject:sender];
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
