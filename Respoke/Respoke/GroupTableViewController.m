@@ -15,6 +15,7 @@
 
 @interface GroupTableViewController () {
     NSMutableArray *endpoints;
+    BOOL leavingGroup;
 }
 
 @end
@@ -60,7 +61,17 @@
 
 - (IBAction)leaveAction
 {
-    //[sharedRespokeClient disconnect];
+    leavingGroup = YES;
+    
+    [sharedContactManager leaveGroup:self.group successHandler:^(){
+        // Once the group has been left, close this view
+        [self.navigationController popViewControllerAnimated:YES];
+    } errorHandler:^(NSString *errorMessage){
+        leavingGroup = NO;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Leaving Group" message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }];
 }
 
 
@@ -110,118 +121,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    RespokeEndpoint *selection = [endpoints objectAtIndex:indexPath.row];
-
-    if (selection)
+    if (!leavingGroup)
     {
-        [self performSegueWithIdentifier:@"ShowContact" sender:selection];
-    }
-}
-/*
+        RespokeEndpoint *selection = [endpoints objectAtIndex:indexPath.row];
 
-#pragma mark - RespokeClientDelegate
-
-
-- (void)onConnect:(RespokeClient*)sender
-{
-
-}
-
-
-- (void)onDisconnect:(RespokeClient*)sender
-{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-- (void)onError:(NSError *)error fromClient:(RespokeClient*)sender
-{
-
-}
-
-
-- (void)onCall:(RespokeCall*)call sender:(RespokeClient*)sender
-{
-    CallViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"CallViewController"];
-    controller.call = call;
-    UIViewController *presenter = [self.navigationController topViewController];
-    [presenter presentViewController:controller animated:YES completion:nil];
-}*/
-
-
-#pragma mark - RespokeGroupDelegate
-
-
-/*- (void)onJoin:(RespokeConnection*)connection sender:(RespokeGroup*)sender
-{
-    [self.groupMembers addObject:connection];
-
-    RespokeEndpoint *parentEndpoint = [connection getEndpoint];
-
-    // Some endpoints may have more than one connection that is a member of this group, so only remember each endpoint once
-    if (NSNotFound == [endpoints indexOfObject:parentEndpoint])
-    {
-        NSLog(@"Joined: %@", parentEndpoint.endpointID);
-        [endpoints addObject:parentEndpoint];
-        parentEndpoint.delegate = self;
-
-        Conversation *conversation = [[Conversation alloc] initWithName:parentEndpoint.endpointID];
-        [conversations setObject:conversation forKey:parentEndpoint.endpointID];
-
-        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[endpoints count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
-}
-
-
-- (void)onLeave:(RespokeConnection*)connection sender:(RespokeGroup*)sender
-{
-    NSInteger index = [self.groupMembers indexOfObject:connection];
-
-    // Avoid leave messages for connection we didn't know about
-    if (NSNotFound != index)
-    {
-        [self.groupMembers removeObjectAtIndex:index];
-        RespokeEndpoint *parentEndpoint = [connection getEndpoint];
-
-        if (parentEndpoint)
+        if (selection)
         {
-            // Make sure that this is the last connection for this endpoint before removing it from the list
-            NSInteger connectionCount = 0;
-
-            for (RespokeConnection *eachConnection in self.groupMembers)
-            {
-                if (eachConnection.getEndpoint == parentEndpoint)
-                {
-                    connectionCount++;
-                }
-            }
-
-            if (connectionCount == 0)
-            {
-                NSLog(@"Left: %@", parentEndpoint.endpointID);
-                NSInteger index = [endpoints indexOfObject:parentEndpoint];
-
-                if (NSNotFound != index)
-                {
-                    [endpoints removeObjectAtIndex:index];
-                    [conversations removeObjectForKey:parentEndpoint.endpointID];
-                    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-                }
-            }
+            [self performSegueWithIdentifier:@"ShowContact" sender:selection];
         }
     }
 }
 
 
-- (void)onMessage:(NSString*)message sender:(RespokeEndpoint*)sender
-{
-    Conversation *conversation = [conversations objectForKey:((RespokeEndpoint*)sender).endpointID];
-    [conversation addMessage:message from:sender.endpointID];
-    conversation.unreadCount++;
-
-    NSInteger index = [endpoints indexOfObject:sender];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-}*/
+#pragma mark - ContactManager notifications
 
 
 - (void)endpointMessageReceived:(NSNotification *)notification

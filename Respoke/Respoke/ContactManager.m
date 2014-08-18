@@ -82,6 +82,54 @@
 }
 
 
+- (void)leaveGroup:(RespokeGroup*)group successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler
+{
+    NSString *groupName = [group getGroupID];
+
+    [group leaveWithSuccessHandler:^() {
+        NSMutableArray *endpoints = [self.groupEndpointArrays objectForKey:groupName];
+
+        // Purge all of the group data
+        [self.groups removeObject:group];
+        [self.groupEndpointArrays removeObjectForKey:groupName];
+        [self.groupConnectionArrays removeObjectForKey:groupName];
+
+        // Purge any endpoints that were only a member of this group from the combined endpoint list
+        for (RespokeEndpoint *eachEndpoint in endpoints)
+        {
+            NSInteger membershipCount = 0;
+
+            for (NSMutableArray *eachArray in self.groupConnectionArrays)
+            {
+                for (RespokeConnection *eachConnection in eachArray)
+                {
+                    // Find the endpoint to which the connection belongs
+                    RespokeEndpoint *parentEndpoint = [eachConnection getEndpoint];
+
+                    if (eachEndpoint == parentEndpoint)
+                    {
+                        membershipCount++;
+                    }
+                }
+            }
+
+            if (membershipCount == 0)
+            {
+                // This endpoint is not a member of any of the other groups, so remove it from the list
+                [self.allKnownEndpoints removeObject:eachEndpoint];
+            }
+        }
+
+        // Notify any UI listeners that group membership has changed
+        [[NSNotificationCenter defaultCenter] postNotificationName:GROUP_MEMBERSHIP_CHANGED object:group userInfo:nil];
+
+        successHandler();
+    } errorHandler:^(NSString *errorMessage) {
+        errorHandler(errorMessage);
+    }];
+}
+
+
 #pragma mark - RespokeGroupDelegate
 
 
