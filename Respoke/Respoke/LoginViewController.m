@@ -17,8 +17,6 @@
 
 
 @implementation LoginViewController {
-    RespokeGroup *myGroup;
-    NSArray *groupMembers;
     id __weak lastResponder;
 }
 

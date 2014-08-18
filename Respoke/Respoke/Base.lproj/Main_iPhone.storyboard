@@ -328,7 +328,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Join" id="jul-so-3zZ">
                             <connections>
-                                <action selector="joinAction" destination="bEc-C7-u9k" id="cCI-3B-93N"/>
+                                <segue destination="sDJ-lv-gUh" kind="modal" id="WaG-Td-ALL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -340,6 +340,115 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPu-mI-uPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1433" y="141"/>
+        </scene>
+        <!--Styled Navigation Controller-->
+        <scene sceneID="dde-te-4HS">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="sDJ-lv-gUh" customClass="StyledNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="V4Q-XJ-Q9K">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.23137254900000001" green="0.47450980390000003" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="69H-Zv-aQ8" kind="relationship" relationship="rootViewController" id="KPf-yh-QLT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZr-4G-fyl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="-655"/>
+        </scene>
+        <!--Join Group View Controller - Join A Group-->
+        <scene sceneID="Uwk-OB-WCw">
+            <objects>
+                <viewController id="69H-Zv-aQ8" customClass="JoinGroupViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Prf-cl-7cR"/>
+                        <viewControllerLayoutGuide type="bottom" id="eHf-9Y-ygx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="znu-fp-SUa">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qh5-q0-gwD">
+                                <rect key="frame" x="20" y="34" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="69H-Zv-aQ8" id="3OJ-CS-tyh"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OM9-hD-4yi">
+                                <rect key="frame" x="66" y="99" width="189" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QGu-ph-Hoc"/>
+                                    <constraint firstAttribute="width" constant="189" id="n29-Wc-23Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Join"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.69019607839999997" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="connectAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ah4-bG-HRC"/>
+                                    <action selector="joinAction" destination="69H-Zv-aQ8" eventType="touchUpInside" id="ZC4-x4-5A8"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="0bs-Mw-WyA">
+                                <rect key="frame" x="150" y="104" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUF-JJ-mF9">
+                                <rect key="frame" x="20" y="71" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="DR1-wY-Y6g"/>
+                                    <constraint firstAttribute="height" constant="21" id="ZjE-jF-eD6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qh5-q0-gwD" firstAttribute="top" secondItem="Prf-cl-7cR" secondAttribute="bottom" constant="34" id="69G-6R-KXt"/>
+                            <constraint firstItem="OM9-hD-4yi" firstAttribute="top" secondItem="Qh5-q0-gwD" secondAttribute="bottom" constant="35" id="CA3-go-irc"/>
+                            <constraint firstAttribute="trailing" secondItem="OM9-hD-4yi" secondAttribute="trailing" constant="65" id="F53-PU-Av5"/>
+                            <constraint firstItem="OM9-hD-4yi" firstAttribute="leading" secondItem="znu-fp-SUa" secondAttribute="leading" constant="66" id="FJn-V0-qjU"/>
+                            <constraint firstItem="0bs-Mw-WyA" firstAttribute="centerX" secondItem="OM9-hD-4yi" secondAttribute="centerX" constant="-0.5" id="FTK-tu-n6k"/>
+                            <constraint firstAttribute="trailing" secondItem="Qh5-q0-gwD" secondAttribute="trailing" constant="20" id="J69-0N-Ubw"/>
+                            <constraint firstItem="TUF-JJ-mF9" firstAttribute="leading" secondItem="znu-fp-SUa" secondAttribute="leading" constant="20" id="Rg0-Gv-1BV"/>
+                            <constraint firstItem="TUF-JJ-mF9" firstAttribute="top" secondItem="Qh5-q0-gwD" secondAttribute="bottom" constant="7" id="WA7-fJ-WR3"/>
+                            <constraint firstItem="0bs-Mw-WyA" firstAttribute="centerY" secondItem="OM9-hD-4yi" secondAttribute="centerY" id="cnk-5P-Xit"/>
+                            <constraint firstAttribute="trailing" secondItem="TUF-JJ-mF9" secondAttribute="trailing" constant="20" id="rDM-RX-Zmw"/>
+                            <constraint firstItem="Qh5-q0-gwD" firstAttribute="leading" secondItem="znu-fp-SUa" secondAttribute="leading" constant="20" id="uYo-Tg-jqR"/>
+                            <constraint firstItem="OM9-hD-4yi" firstAttribute="top" secondItem="TUF-JJ-mF9" secondAttribute="bottom" constant="7" id="vv9-8r-PoK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Join A Group" id="ByW-Rg-UZk">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="tnb-qj-ZBF">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelAction" destination="69H-Zv-aQ8" id="a41-HC-F6D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="0bs-Mw-WyA" id="T47-q8-71n"/>
+                        <outlet property="errorLabel" destination="TUF-JJ-mF9" id="VO7-PO-vNg"/>
+                        <outlet property="groupTextField" destination="Qh5-q0-gwD" id="uLK-1G-KxE"/>
+                        <outlet property="joinButton" destination="OM9-hD-4yi" id="t0q-Uv-agQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mf9-vL-guT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2495" y="-655"/>
         </scene>
         <!--Chat Table View Controller-->
         <scene sceneID="sPD-y0-Qfc">

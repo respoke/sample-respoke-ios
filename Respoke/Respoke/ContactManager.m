@@ -99,7 +99,7 @@
         {
             NSInteger membershipCount = 0;
 
-            for (NSMutableArray *eachArray in self.groupConnectionArrays)
+            for (NSMutableArray *eachArray in [self.groupConnectionArrays allValues])
             {
                 for (RespokeConnection *eachConnection in eachArray)
                 {

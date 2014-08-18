@@ -58,7 +58,7 @@
         ChatTableViewController *controller = [segue destinationViewController];
         controller.endpoint = sender;
     }
-    else
+    else if ([segue.identifier isEqualToString:@"ShowGroup"])
     {
         GroupTableViewController *controller = [segue destinationViewController];
         controller.group = (RespokeGroup*)sender;
@@ -84,7 +84,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [sharedContactManager.groups count] + 1;
+    return 2;
 }
 
 
