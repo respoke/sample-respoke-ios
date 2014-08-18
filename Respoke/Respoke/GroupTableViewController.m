@@ -9,12 +9,11 @@
 #import "GroupTableViewController.h"
 #import "ChatTableViewController.h"
 #import "CallViewController.h"
-#import "RespokeConnection.h"
+#import "RespokeEndpoint.h"
+#import "Conversation.h"
 
 
 @interface GroupTableViewController () {
-    NSMutableDictionary *conversations;
-    RespokeEndpoint *endpointBeingViewed;
     NSMutableArray *endpoints;
 }
 
@@ -28,43 +27,21 @@
 {
     [super viewDidLoad];
 
-    endpoints = [[NSMutableArray alloc] init];
-    conversations = [[NSMutableDictionary alloc] init];
-
-    for (RespokeConnection *each in self.groupMembers)
-    {
-        RespokeEndpoint *parentEndpoint = [each getEndpoint];
-
-        // Some endpoints may have more than one connection that is a member of this group, so only remember each endpoint once
-        if (NSNotFound == [endpoints indexOfObject:parentEndpoint])
-        {
-            [endpoints addObject:parentEndpoint];
-            parentEndpoint.delegate = self;
-
-            Conversation *conversation = [[Conversation alloc] initWithName:parentEndpoint.endpointID];
-            [conversations setObject:conversation forKey:parentEndpoint.endpointID];
-        }
-    }
-
-    sharedRespokeClient.delegate = self;
-    self.group.delegate = self;
-
-    self.title = self.username;
+    self.title = [self.group getGroupID];
+    endpoints = [sharedContactManager.groupEndpointArrays objectForKey:self.title];
 
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointMessageReceived:) name:ENDPOINT_MESSAGE_RECEIVED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointJoinedGroup:) name:ENDPOINT_JOINED_GROUP object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointLeftGroup:) name:ENDPOINT_LEFT_GROUP object:nil];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if (endpointBeingViewed)
-    {
-        endpointBeingViewed.delegate = self;
-        endpointBeingViewed = nil;
-
-        [self.tableView reloadData];
-    }
+    [self.tableView reloadData];
 }
 
 
@@ -77,17 +54,13 @@
     {
         ChatTableViewController *controller = [segue destinationViewController];
         controller.endpoint = sender;
-        controller.username = self.username;
-        controller.conversation = [conversations objectForKey:((RespokeEndpoint*)sender).endpointID];
-
-        endpointBeingViewed = sender;
     }
 }
 
 
-- (IBAction)logoutAction
+- (IBAction)leaveAction
 {
-    [sharedRespokeClient disconnect];
+    //[sharedRespokeClient disconnect];
 }
 
 
@@ -107,6 +80,44 @@
     return [endpoints count];
 }
 
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell" forIndexPath:indexPath];
+    
+    UILabel *label = (UILabel*)[cell viewWithTag:1];
+    UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
+
+    RespokeEndpoint *endpoint = [endpoints objectAtIndex:indexPath.row];
+    Conversation *conversation = [sharedContactManager.conversations objectForKey:endpoint.endpointID];
+
+    label.text = endpoint.endpointID;
+
+    if (conversation.unreadCount > 0)
+    {
+        countLabel.text = [NSString stringWithFormat:@"  %d  ", conversation.unreadCount];
+        countLabel.layer.cornerRadius = 8.0;
+        countLabel.hidden = NO;
+    }
+    else
+    {
+        countLabel.hidden = YES;
+    }
+    
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    RespokeEndpoint *selection = [endpoints objectAtIndex:indexPath.row];
+
+    if (selection)
+    {
+        [self performSegueWithIdentifier:@"ShowContact" sender:selection];
+    }
+}
+/*
 
 #pragma mark - RespokeClientDelegate
 
@@ -135,13 +146,13 @@
     controller.call = call;
     UIViewController *presenter = [self.navigationController topViewController];
     [presenter presentViewController:controller animated:YES completion:nil];
-}
+}*/
 
 
 #pragma mark - RespokeGroupDelegate
 
 
-- (void)onJoin:(RespokeConnection*)connection sender:(RespokeGroup*)sender
+/*- (void)onJoin:(RespokeConnection*)connection sender:(RespokeGroup*)sender
 {
     [self.groupMembers addObject:connection];
 
@@ -202,44 +213,6 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell" forIndexPath:indexPath];
-    
-    UILabel *label = (UILabel*)[cell viewWithTag:1];
-    UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
-
-    RespokeEndpoint *endpoint = [endpoints objectAtIndex:indexPath.row];
-    Conversation *conversation = [conversations objectForKey:endpoint.endpointID];
-
-    label.text = endpoint.endpointID;
-
-    if (conversation.unreadCount > 0)
-    {
-        countLabel.text = [NSString stringWithFormat:@"  %d  ", conversation.unreadCount];
-        countLabel.layer.cornerRadius = 8.0;
-        countLabel.hidden = NO;
-    }
-    else
-    {
-        countLabel.hidden = YES;
-    }
-    
-    return cell;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    RespokeEndpoint *selection = [endpoints objectAtIndex:indexPath.row];
-
-    if (selection)
-    {
-        [self performSegueWithIdentifier:@"ShowContact" sender:selection];
-    }
-}
-
-
 - (void)onMessage:(NSString*)message sender:(RespokeEndpoint*)sender
 {
     Conversation *conversation = [conversations objectForKey:((RespokeEndpoint*)sender).endpointID];
@@ -248,6 +221,33 @@
 
     NSInteger index = [endpoints indexOfObject:sender];
     [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+}*/
+
+
+- (void)endpointMessageReceived:(NSNotification *)notification
+{
+    RespokeEndpoint* endpoint = [notification object];
+
+    NSInteger index = [endpoints indexOfObject:endpoint];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+
+- (void)endpointJoinedGroup:(NSNotification *)notification
+{
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[endpoints count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+
+- (void)endpointLeftGroup:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    NSNumber *index = [userInfo objectForKey:@"index"];
+
+    if (index && ([index integerValue] <= [endpoints count]))
+    {
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[index integerValue] inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
 

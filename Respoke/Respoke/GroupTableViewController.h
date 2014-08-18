@@ -9,16 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "RespokeGroup.h"
-#import "RespokeEndpoint.h"
-#import "RespokeClient.h"
 
 
-@interface GroupTableViewController : UITableViewController <RespokeClientDelegate, RespokeGroupDelegate, RespokeEndpointDelegate>
+@interface GroupTableViewController : UITableViewController
 
-@property NSString *username;
 @property RespokeGroup *group;
-@property NSMutableArray *groupMembers;
 
-- (IBAction)logoutAction;
+- (IBAction)leaveAction;
 
 @end

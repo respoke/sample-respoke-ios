@@ -41,6 +41,8 @@
 		184B028C19709C56000BB925 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028B19709C56000BB925 /* CFNetwork.framework */; };
 		184B028E19709C66000BB925 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028D19709C66000BB925 /* Security.framework */; };
 		184B029019709C87000BB925 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028F19709C87000BB925 /* libicucore.dylib */; };
+		18AFCCAC19A0DF7A00818468 /* GroupListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCAB19A0DF7A00818468 /* GroupListTableViewController.m */; };
+		18AFCCAF19A1605E00818468 /* ContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCAE19A1605E00818468 /* ContactManager.m */; };
 		18D4A01419796CDA00F7FC49 /* StyledNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */; };
 		18D4A024197EA50000F7FC49 /* mute_audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01C197EA50000F7FC49 /* mute_audio.png */; };
 		18D4A025197EA50000F7FC49 /* mute_audio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01D197EA50000F7FC49 /* mute_audio@2x.png */; };
@@ -211,6 +213,10 @@
 		184B028D19709C66000BB925 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		184B028F19709C87000BB925 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		18AFCCA6199BDBA000818468 /* RespokeConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeConnection.h; sourceTree = "<group>"; };
+		18AFCCAA19A0DF7A00818468 /* GroupListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupListTableViewController.h; sourceTree = "<group>"; };
+		18AFCCAB19A0DF7A00818468 /* GroupListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupListTableViewController.m; sourceTree = "<group>"; };
+		18AFCCAD19A1605E00818468 /* ContactManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactManager.h; sourceTree = "<group>"; };
+		18AFCCAE19A1605E00818468 /* ContactManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactManager.m; sourceTree = "<group>"; };
 		18D4A01219796CDA00F7FC49 /* StyledNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledNavigationController.h; sourceTree = "<group>"; };
 		18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledNavigationController.m; sourceTree = "<group>"; };
 		18D4A01C197EA50000F7FC49 /* mute_audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_audio.png; sourceTree = "<group>"; };
@@ -483,10 +489,14 @@
 				184B01CC196D9399000BB925 /* CallViewController.m */,
 				1832379C19749F4D00243EFE /* ChatTableViewController.h */,
 				1832379D19749F4D00243EFE /* ChatTableViewController.m */,
+				18AFCCAD19A1605E00818468 /* ContactManager.h */,
+				18AFCCAE19A1605E00818468 /* ContactManager.m */,
 				183237A2197580A700243EFE /* Conversation.h */,
 				183237A3197580A700243EFE /* Conversation.m */,
 				1832379F1975808800243EFE /* ConversationMessage.h */,
 				183237A01975808800243EFE /* ConversationMessage.m */,
+				18AFCCAA19A0DF7A00818468 /* GroupListTableViewController.h */,
+				18AFCCAB19A0DF7A00818468 /* GroupListTableViewController.m */,
 				184B026C19709284000BB925 /* GroupTableViewController.h */,
 				184B026D19709284000BB925 /* GroupTableViewController.m */,
 				180689941966EA1100BDCD26 /* Images */,
@@ -747,7 +757,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Ninjanetic Design Inc.";
+				ORGANIZATIONNAME = "Digium, Inc.";
 				TargetAttributes = {
 					1806897C196613F000BDCD26 = {
 						TestTargetID = 18068958196613F000BDCD26;
@@ -836,7 +846,9 @@
 				18068976196613F000BDCD26 /* LoginViewController.m in Sources */,
 				184B01CD196D9399000BB925 /* CallViewController.m in Sources */,
 				183237A11975808800243EFE /* ConversationMessage.m in Sources */,
+				18AFCCAF19A1605E00818468 /* ContactManager.m in Sources */,
 				1832379E19749F4D00243EFE /* ChatTableViewController.m in Sources */,
+				18AFCCAC19A0DF7A00818468 /* GroupListTableViewController.m in Sources */,
 				18E944D11993EF9F00C8B142 /* base64.c in Sources */,
 				18E944BE1993EF9F00C8B142 /* SocketIO.m in Sources */,
 				1806896D196613F000BDCD26 /* AppDelegate.m in Sources */,

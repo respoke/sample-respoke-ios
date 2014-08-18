@@ -7,8 +7,8 @@
 //
 
 #import "LoginViewController.h"
-#import "GroupTableViewController.h"
-#import "RespokeGroup.h"
+#import "GroupListTableViewController.h"
+#import "AppDelegate.h"
 
 
 #define LAST_APP_ID_KEY @"LAST_APP_ID_KEY"
@@ -107,15 +107,6 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    GroupTableViewController *controller = (GroupTableViewController*) [(UINavigationController*) [segue destinationViewController] topViewController];;
-    controller.username = self.usernameTextField.text;
-    controller.group = myGroup;
-    controller.groupMembers = [groupMembers mutableCopy];
-}
-
-
 - (void)showError:(NSString*)errorMessage
 {
     self.errorLabel.text = errorMessage;
@@ -194,21 +185,16 @@
     {
         groupName = self.groupTextField.text;
     }
-
-    [sharedRespokeClient joinGroup:groupName errorHandler:^(NSString *errorMessage) {
+    
+    sharedContactManager.username = self.usernameTextField.text;
+    
+    [sharedContactManager joinGroup:groupName successHandler:^(){
+        self.activityIndicator.hidden = YES;
+        [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
+        
+        [self performSegueWithIdentifier:@"ShowGroup" sender:self];
+    } errorHandler:^(NSString *errorMessage) {
         [self showError:errorMessage];
-    } joinHandler:^(RespokeGroup *group) {
-        myGroup = group;
-        [myGroup getMembersWithSuccessHandler:^(NSArray *memberList) {
-            groupMembers = memberList;
-
-            self.activityIndicator.hidden = YES;
-            [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
-            
-            [self performSegueWithIdentifier:@"ShowGroup" sender:self];
-        } errorHandler:^(NSString *errorMessage) {
-            [self showError:errorMessage];
-        }];
     }];
 }
 
