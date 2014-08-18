@@ -11,6 +11,7 @@
 #import "CallViewController.h"
 #import "RespokeEndpoint.h"
 #import "Conversation.h"
+#import "GroupChatTableViewController.h"
 
 
 @interface GroupTableViewController () {
@@ -35,8 +36,9 @@
     self.navigationItem.backBarButtonItem = backButton;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointMessageReceived:) name:ENDPOINT_MESSAGE_RECEIVED object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointJoinedGroup:) name:ENDPOINT_JOINED_GROUP object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointLeftGroup:) name:ENDPOINT_LEFT_GROUP object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointJoinedGroup:) name:ENDPOINT_JOINED_GROUP object:self.group];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointLeftGroup:) name:ENDPOINT_LEFT_GROUP object:self.group];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupMessageReceived:) name:GROUP_MESSAGE_RECEIVED object:self.group];
 }
 
 
@@ -55,6 +57,11 @@
     {
         ChatTableViewController *controller = [segue destinationViewController];
         controller.endpoint = sender;
+    }
+    else
+    {
+        GroupChatTableViewController *controller = [segue destinationViewController];
+        controller.group = self.group;
     }
 }
 
@@ -81,14 +88,21 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [endpoints count];
+    if (section == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return [endpoints count];
+    }
 }
 
 
@@ -99,20 +113,41 @@
     UILabel *label = (UILabel*)[cell viewWithTag:1];
     UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
 
-    RespokeEndpoint *endpoint = [endpoints objectAtIndex:indexPath.row];
-    Conversation *conversation = [sharedContactManager.conversations objectForKey:endpoint.endpointID];
-
-    label.text = endpoint.endpointID;
-
-    if (conversation.unreadCount > 0)
+    if (indexPath.section == 0)
     {
-        countLabel.text = [NSString stringWithFormat:@"  %d  ", conversation.unreadCount];
-        countLabel.layer.cornerRadius = 8.0;
-        countLabel.hidden = NO;
+        NSString *groupName = [self.group getGroupID];
+        Conversation *conversation = [sharedContactManager.groupConversations objectForKey:groupName];
+
+        label.text = [NSString stringWithFormat:@"%@ group messages", groupName];
+
+        if (conversation.unreadCount > 0)
+        {
+            countLabel.text = [NSString stringWithFormat:@"  %d  ", conversation.unreadCount];
+            countLabel.layer.cornerRadius = 8.0;
+            countLabel.hidden = NO;
+        }
+        else
+        {
+            countLabel.hidden = YES;
+        }
     }
     else
     {
-        countLabel.hidden = YES;
+        RespokeEndpoint *endpoint = [endpoints objectAtIndex:indexPath.row];
+        Conversation *conversation = [sharedContactManager.conversations objectForKey:endpoint.endpointID];
+
+        label.text = endpoint.endpointID;
+
+        if (conversation.unreadCount > 0)
+        {
+            countLabel.text = [NSString stringWithFormat:@"  %d  ", conversation.unreadCount];
+            countLabel.layer.cornerRadius = 8.0;
+            countLabel.hidden = NO;
+        }
+        else
+        {
+            countLabel.hidden = YES;
+        }
     }
     
     return cell;
@@ -123,11 +158,18 @@
 {
     if (!leavingGroup)
     {
-        RespokeEndpoint *selection = [endpoints objectAtIndex:indexPath.row];
-
-        if (selection)
+        if (indexPath.section == 0)
         {
-            [self performSegueWithIdentifier:@"ShowContact" sender:selection];
+            [self performSegueWithIdentifier:@"ShowGroupMessages" sender:nil];
+        }
+        else
+        {
+            RespokeEndpoint *selection = [endpoints objectAtIndex:indexPath.row];
+
+            if (selection)
+            {
+                [self performSegueWithIdentifier:@"ShowContact" sender:selection];
+            }
         }
     }
 }
@@ -141,13 +183,13 @@
     RespokeEndpoint* endpoint = [notification object];
 
     NSInteger index = [endpoints indexOfObject:endpoint];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
 - (void)endpointJoinedGroup:(NSNotification *)notification
 {
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[endpoints count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[endpoints count] - 1 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
@@ -158,8 +200,14 @@
 
     if (index && ([index integerValue] <= [endpoints count]))
     {
-        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[index integerValue] inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[index integerValue] inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+}
+
+
+- (void)groupMessageReceived:(NSNotification *)notification
+{
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 

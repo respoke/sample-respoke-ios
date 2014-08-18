@@ -25,6 +25,7 @@
         self.groupEndpointArrays = [[NSMutableDictionary alloc] init];
         self.allKnownEndpoints = [[NSMutableArray alloc] init];
         self.conversations = [[NSMutableDictionary alloc] init];
+        self.groupConversations = [[NSMutableDictionary alloc] init];
     }
 
     return self;
@@ -47,6 +48,10 @@
             NSMutableArray *groupEndpoints = [NSMutableArray array];
             [self.groupEndpointArrays setObject:groupEndpoints forKey:groupName];
 
+            // Start tracking the conversation with this group
+            Conversation *conversation = [[Conversation alloc] initWithName:groupName];
+            [self.groupConversations setObject:conversation forKey:groupName];
+
             // Evaluate each connection in the new group
             for (RespokeConnection *each in memberList)
             {
@@ -60,7 +65,7 @@
                     parentEndpoint.delegate = self;
 
                     // Start tracking the conversation with this endpoint
-                    Conversation *conversation = [[Conversation alloc] initWithName:parentEndpoint.endpointID];
+                    conversation = [[Conversation alloc] initWithName:parentEndpoint.endpointID];
                     [self.conversations setObject:conversation forKey:parentEndpoint.endpointID];
                 }
 
@@ -93,6 +98,7 @@
         [self.groups removeObject:group];
         [self.groupEndpointArrays removeObjectForKey:groupName];
         [self.groupConnectionArrays removeObjectForKey:groupName];
+        [self.groupConversations removeObjectForKey:groupName];
 
         // Purge any endpoints that were only a member of this group from the combined endpoint list
         for (RespokeEndpoint *eachEndpoint in endpoints)
@@ -251,6 +257,17 @@
             }
         }
     }
+}
+
+
+- (void)onGroupMessage:(NSString*)message fromEndpoint:(RespokeEndpoint*)endpoint sender:(RespokeGroup*)sender
+{
+    Conversation *conversation = [self.groupConversations objectForKey:[sender getGroupID]];
+    [conversation addMessage:message from:endpoint.endpointID];
+    conversation.unreadCount++;
+
+    // Notify any UI listeners that a message has been received from a remote endpoint
+    [[NSNotificationCenter defaultCenter] postNotificationName:GROUP_MESSAGE_RECEIVED object:sender userInfo:nil];
 }
 
 

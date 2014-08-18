@@ -44,6 +44,7 @@
 		18AFCCAC19A0DF7A00818468 /* GroupListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCAB19A0DF7A00818468 /* GroupListTableViewController.m */; };
 		18AFCCAF19A1605E00818468 /* ContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCAE19A1605E00818468 /* ContactManager.m */; };
 		18AFCCB219A23BD900818468 /* JoinGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCB119A23BD900818468 /* JoinGroupViewController.m */; };
+		18AFCCB519A2AB7300818468 /* GroupChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCB419A2AB7300818468 /* GroupChatTableViewController.m */; };
 		18D4A01419796CDA00F7FC49 /* StyledNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */; };
 		18D4A024197EA50000F7FC49 /* mute_audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01C197EA50000F7FC49 /* mute_audio.png */; };
 		18D4A025197EA50000F7FC49 /* mute_audio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01D197EA50000F7FC49 /* mute_audio@2x.png */; };
@@ -220,6 +221,8 @@
 		18AFCCAE19A1605E00818468 /* ContactManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactManager.m; sourceTree = "<group>"; };
 		18AFCCB019A23BD900818468 /* JoinGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGroupViewController.h; sourceTree = "<group>"; };
 		18AFCCB119A23BD900818468 /* JoinGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGroupViewController.m; sourceTree = "<group>"; };
+		18AFCCB319A2AB7300818468 /* GroupChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupChatTableViewController.h; sourceTree = "<group>"; };
+		18AFCCB419A2AB7300818468 /* GroupChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupChatTableViewController.m; sourceTree = "<group>"; };
 		18D4A01219796CDA00F7FC49 /* StyledNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledNavigationController.h; sourceTree = "<group>"; };
 		18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledNavigationController.m; sourceTree = "<group>"; };
 		18D4A01C197EA50000F7FC49 /* mute_audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_audio.png; sourceTree = "<group>"; };
@@ -498,6 +501,8 @@
 				183237A3197580A700243EFE /* Conversation.m */,
 				1832379F1975808800243EFE /* ConversationMessage.h */,
 				183237A01975808800243EFE /* ConversationMessage.m */,
+				18AFCCB319A2AB7300818468 /* GroupChatTableViewController.h */,
+				18AFCCB419A2AB7300818468 /* GroupChatTableViewController.m */,
 				18AFCCAA19A0DF7A00818468 /* GroupListTableViewController.h */,
 				18AFCCAB19A0DF7A00818468 /* GroupListTableViewController.m */,
 				184B026C19709284000BB925 /* GroupTableViewController.h */,
@@ -867,6 +872,7 @@
 				18D4A01419796CDA00F7FC49 /* StyledNavigationController.m in Sources */,
 				18E944D31993EF9F00C8B142 /* SRWebSocket.m in Sources */,
 				18068969196613F000BDCD26 /* main.m in Sources */,
+				18AFCCB519A2AB7300818468 /* GroupChatTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

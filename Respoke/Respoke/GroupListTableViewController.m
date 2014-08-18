@@ -33,6 +33,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupMembershipChanged:) name:GROUP_MEMBERSHIP_CHANGED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointDiscovered:) name:ENDPOINT_DISCOVERED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointDisappeared:) name:ENDPOINT_DISAPPEARED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupMessageReceived:) name:GROUP_MESSAGE_RECEIVED object:nil];
 }
 
 
@@ -112,8 +113,20 @@
     if (indexPath.section == 0)
     {
         RespokeGroup *group = [sharedContactManager.groups objectAtIndex:indexPath.row];
-        label.text = [group getGroupID];
-        countLabel.hidden = YES;
+        NSString *groupName = [group getGroupID];
+        label.text = groupName;
+        Conversation *conversation = [sharedContactManager.groupConversations objectForKey:groupName];
+
+        if (conversation.unreadCount > 0)
+        {
+            countLabel.text = [NSString stringWithFormat:@"  %d  ", conversation.unreadCount];
+            countLabel.layer.cornerRadius = 8.0;
+            countLabel.hidden = NO;
+        }
+        else
+        {
+            countLabel.hidden = YES;
+        }
     }
     else
     {
@@ -238,5 +251,18 @@
         [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[index integerValue] inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
+
+
+- (void)groupMessageReceived:(NSNotification *)notification
+{
+    RespokeGroup *group = [notification object];
+    NSInteger index = [sharedContactManager.groups indexOfObject:group];
+
+    if (index < [sharedContactManager.groups count])
+    {
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
 
 @end

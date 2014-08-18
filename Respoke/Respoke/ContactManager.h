@@ -16,6 +16,7 @@
 #define ENDPOINT_DISAPPEARED @"ENDPOINT_DISAPPEARED"
 #define ENDPOINT_JOINED_GROUP @"ENDPOINT_JOINED_GROUP"
 #define ENDPOINT_LEFT_GROUP @"ENDPOINT_LEFT_GROUP"
+#define GROUP_MESSAGE_RECEIVED @"GROUP_MESSAGE_RECEIVED"
 
 
 @interface ContactManager : NSObject <RespokeGroupDelegate, RespokeEndpointDelegate>
@@ -25,6 +26,7 @@
 @property NSMutableDictionary *groupConnectionArrays;
 @property NSMutableDictionary *groupEndpointArrays;
 @property NSMutableDictionary *conversations;
+@property NSMutableDictionary *groupConversations;
 @property NSMutableArray *allKnownEndpoints;
 
 - (void)joinGroup:(NSString*)groupName successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler;
