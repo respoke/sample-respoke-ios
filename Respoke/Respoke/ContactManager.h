@@ -17,6 +17,7 @@
 #define ENDPOINT_JOINED_GROUP @"ENDPOINT_JOINED_GROUP"
 #define ENDPOINT_LEFT_GROUP @"ENDPOINT_LEFT_GROUP"
 #define GROUP_MESSAGE_RECEIVED @"GROUP_MESSAGE_RECEIVED"
+#define ENDPOINT_PRESENCE_CHANGED @"ENDPOINT_PRESENCE_CHANGED"
 
 
 @interface ContactManager : NSObject <RespokeGroupDelegate, RespokeEndpointDelegate>
@@ -31,5 +32,6 @@
 
 - (void)joinGroup:(NSString*)groupName successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler;
 - (void)leaveGroup:(RespokeGroup*)group successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler;
+- (void)disconnected;
 
 @end

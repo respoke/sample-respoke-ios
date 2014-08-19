@@ -36,6 +36,7 @@
     self.navigationItem.backBarButtonItem = backButton;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointMessageReceived:) name:ENDPOINT_MESSAGE_RECEIVED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointPresenceChanged:) name:ENDPOINT_PRESENCE_CHANGED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointJoinedGroup:) name:ENDPOINT_JOINED_GROUP object:self.group];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointLeftGroup:) name:ENDPOINT_LEFT_GROUP object:self.group];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupMessageReceived:) name:GROUP_MESSAGE_RECEIVED object:self.group];
@@ -108,13 +109,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell" forIndexPath:indexPath];
+    UITableViewCell *cell = nil;
     
-    UILabel *label = (UILabel*)[cell viewWithTag:1];
-    UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
-
     if (indexPath.section == 0)
     {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell" forIndexPath:indexPath];
+        
+        UILabel *label = (UILabel*)[cell viewWithTag:1];
+        UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
+        
         NSString *groupName = [self.group getGroupID];
         Conversation *conversation = [sharedContactManager.groupConversations objectForKey:groupName];
 
@@ -133,10 +136,27 @@
     }
     else
     {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell" forIndexPath:indexPath];
+        
+        UILabel *label = (UILabel*)[cell viewWithTag:1];
+        UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
+        UILabel *presenceLabel = (UILabel*)[cell viewWithTag:3];
+
         RespokeEndpoint *endpoint = [endpoints objectAtIndex:indexPath.row];
         Conversation *conversation = [sharedContactManager.conversations objectForKey:endpoint.endpointID];
 
         label.text = endpoint.endpointID;
+        
+        NSObject *presence = [endpoint getPresence];
+        
+        if (presence && [presence isKindOfClass:[NSString class]])
+        {
+            presenceLabel.text = (NSString*) presence;
+        }
+        else
+        {
+            presenceLabel.text = @"";
+        }
 
         if (conversation.unreadCount > 0)
         {
@@ -151,6 +171,30 @@
     }
     
     return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0)
+    {
+        return 44;
+    }
+    else
+    {
+        RespokeEndpoint *endpoint = [endpoints objectAtIndex:indexPath.row];
+        NSObject *presence = [endpoint getPresence];
+        
+        if (presence && [presence isKindOfClass:[NSString class]])
+        {
+            if ([((NSString*) presence) length] > 0)
+            {
+                return 59;
+            }
+        }
+
+        return 44;
+    }
 }
 
 
@@ -179,6 +223,15 @@
 
 
 - (void)endpointMessageReceived:(NSNotification *)notification
+{
+    RespokeEndpoint* endpoint = [notification object];
+
+    NSInteger index = [endpoints indexOfObject:endpoint];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+
+- (void)endpointPresenceChanged:(NSNotification *)notification
 {
     RespokeEndpoint* endpoint = [notification object];
 

@@ -183,8 +183,6 @@
                                                         @"Audio Only",
                                                         nil];
 
-    // use the same style as the nav bar
-    //methodAlert.actionSheetStyle = self.navigationController.navigationBar.barStyle;
     [methodAlert showInView:self.view];
 }
 

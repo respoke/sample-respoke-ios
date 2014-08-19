@@ -30,10 +30,14 @@
     self.navigationItem.backBarButtonItem = backButton;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointMessageReceived:) name:ENDPOINT_MESSAGE_RECEIVED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointPresenceChanged:) name:ENDPOINT_PRESENCE_CHANGED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupMembershipChanged:) name:GROUP_MEMBERSHIP_CHANGED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointDiscovered:) name:ENDPOINT_DISCOVERED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointDisappeared:) name:ENDPOINT_DISAPPEARED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupMessageReceived:) name:GROUP_MESSAGE_RECEIVED object:nil];
+
+    // set the initial status for this client
+    [self setStatus:@"available"];
 }
 
 
@@ -73,9 +77,81 @@
 }
 
 
-- (IBAction)joinAction
+- (IBAction)statusAction
 {
-    
+    UIActionSheet *methodAlert = [[UIActionSheet alloc] initWithTitle:@"Choose a status"
+                                    delegate:self cancelButtonTitle:@"Cancel"
+                                    destructiveButtonTitle:nil
+                                    otherButtonTitles:  @"chat",
+                                                        @"available",
+                                                        @"away",
+                                                        @"dnd",
+                                                        @"unavailable",
+                                                        nil];
+
+    methodAlert.actionSheetStyle = self.navigationController.navigationBar.barStyle;
+    [methodAlert showInView:self.view];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)modalView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *status = nil;
+
+    switch (buttonIndex)
+    {
+        case 0:
+        {
+            status = @"chat";
+        }
+        break;
+
+        case 1:
+        {
+            status = @"available";
+        }
+        break;
+
+        case 2:
+        {
+            status = @"away";
+        }
+        break;
+
+        case 3:
+        {
+            status = @"dnd";
+        }
+        break;
+
+        case 4:
+        {
+            status = @"unavailable";
+        }
+        break;
+    }
+
+    if (status)
+    {
+        [self setStatus:status];
+    }
+}
+
+
+- (void)setStatus:(NSString*)status
+{
+    self.statusButton.hidden = YES;
+    self.activityIndicator.hidden = NO;
+
+    [sharedRespokeClient setPresence:status successHandler:^() {
+        self.statusButton.hidden = NO;
+        self.activityIndicator.hidden = YES;
+        [self.statusButton setTitle:[NSString stringWithFormat:@"Your Status: %@", [sharedRespokeClient getPresence]] forState:UIControlStateNormal];
+    } errorHandler:^(NSString *errorMessage) {
+        self.statusButton.hidden = NO;
+        self.activityIndicator.hidden = YES;
+        NSLog(@"Error: %@", errorMessage);
+    }];
 }
 
 
@@ -105,13 +181,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell" forIndexPath:indexPath];
+    UITableViewCell *cell = nil;
     
-    UILabel *label = (UILabel*)[cell viewWithTag:1];
-    UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
-
     if (indexPath.section == 0)
     {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"GroupCell" forIndexPath:indexPath];
+        
+        UILabel *label = (UILabel*)[cell viewWithTag:1];
+        UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
+
         RespokeGroup *group = [sharedContactManager.groups objectAtIndex:indexPath.row];
         NSString *groupName = [group getGroupID];
         label.text = groupName;
@@ -130,10 +208,27 @@
     }
     else
     {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"PersonCell" forIndexPath:indexPath];
+        
+        UILabel *label = (UILabel*)[cell viewWithTag:1];
+        UILabel *countLabel = (UILabel*)[cell viewWithTag:2];
+        UILabel *presenceLabel = (UILabel*)[cell viewWithTag:3];
+
         RespokeEndpoint *endpoint = [sharedContactManager.allKnownEndpoints objectAtIndex:indexPath.row];
         Conversation *conversation = [sharedContactManager.conversations objectForKey:endpoint.endpointID];
 
         label.text = endpoint.endpointID;
+        
+        NSObject *presence = [endpoint getPresence];
+        
+        if (presence && [presence isKindOfClass:[NSString class]])
+        {
+            presenceLabel.text = (NSString*) presence;
+        }
+        else
+        {
+            presenceLabel.text = @"";
+        }
 
         if (conversation.unreadCount > 0)
         {
@@ -148,6 +243,30 @@
     }
     
     return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0)
+    {
+        return 44;
+    }
+    else
+    {
+        RespokeEndpoint *endpoint = [sharedContactManager.allKnownEndpoints objectAtIndex:indexPath.row];
+        NSObject *presence = [endpoint getPresence];
+        
+        if (presence && [presence isKindOfClass:[NSString class]])
+        {
+            if ([((NSString*) presence) length] > 0)
+            {
+                return 59;
+            }
+        }
+
+        return 44;
+    }
 }
 
 
@@ -198,6 +317,7 @@
 
 - (void)onDisconnect:(RespokeClient*)sender
 {
+    [sharedContactManager disconnected];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -221,6 +341,15 @@
 
 
 - (void)endpointMessageReceived:(NSNotification *)notification
+{
+    RespokeEndpoint* endpoint = [notification object];
+
+    NSInteger index = [sharedContactManager.allKnownEndpoints indexOfObject:endpoint];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+
+- (void)endpointPresenceChanged:(NSNotification *)notification
 {
     RespokeEndpoint* endpoint = [notification object];
 

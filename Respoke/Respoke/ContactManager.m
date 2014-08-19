@@ -79,6 +79,11 @@
             // Notify any UI listeners that group membership has changed
             [[NSNotificationCenter defaultCenter] postNotificationName:GROUP_MEMBERSHIP_CHANGED object:group userInfo:nil];
 
+            for (RespokeEndpoint *eachEndpoint in groupEndpoints)
+            {
+                [eachEndpoint registerPresenceWithSuccessHandler:nil errorHandler:nil];
+            }
+
             successHandler();
         } errorHandler:^(NSString *errorMessage) {
             errorHandler(errorMessage);
@@ -136,6 +141,17 @@
 }
 
 
+- (void)disconnected
+{
+    self.groups = [[NSMutableArray alloc] init];
+    self.groupConnectionArrays = [[NSMutableDictionary alloc] init];
+    self.groupEndpointArrays = [[NSMutableDictionary alloc] init];
+    self.allKnownEndpoints = [[NSMutableArray alloc] init];
+    self.conversations = [[NSMutableDictionary alloc] init];
+    self.groupConversations = [[NSMutableDictionary alloc] init];   
+}
+
+
 #pragma mark - RespokeGroupDelegate
 
 
@@ -170,6 +186,8 @@
 
             // Notify any UI listeners that a new endpoint has been discovered
             [[NSNotificationCenter defaultCenter] postNotificationName:ENDPOINT_DISCOVERED object:parentEndpoint userInfo:nil];
+
+            [parentEndpoint registerPresenceWithSuccessHandler:nil errorHandler:nil];
         }
 
         // If this endpoint is not known in this specific group, remember it
@@ -282,6 +300,13 @@
 
     // Notify any UI listeners that a message has been received from a remote endpoint
     [[NSNotificationCenter defaultCenter] postNotificationName:ENDPOINT_MESSAGE_RECEIVED object:sender userInfo:nil];
+}
+
+
+- (void)onPresence:(NSObject*)presence sender:(RespokeEndpoint*)sender
+{
+    // Notify any UI listeners that presence for this endpoint has been updated
+    [[NSNotificationCenter defaultCenter] postNotificationName:ENDPOINT_PRESENCE_CHANGED object:sender userInfo:nil];
 }
 
 
