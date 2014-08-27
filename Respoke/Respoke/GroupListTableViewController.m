@@ -89,7 +89,7 @@
                                                         @"unavailable",
                                                         nil];
 
-    methodAlert.actionSheetStyle = self.navigationController.navigationBar.barStyle;
+    methodAlert.actionSheetStyle = UIActionSheetStyleAutomatic;
     [methodAlert showInView:self.view];
 }
 
@@ -151,6 +151,26 @@
         self.statusButton.hidden = NO;
         self.activityIndicator.hidden = YES;
         NSLog(@"Error: %@", errorMessage);
+    }];
+}
+
+
+- (void)rejoinGroups
+{
+    NSString *nextGroupID = [groupsToJoin objectAtIndex:0];
+    [groupsToJoin removeObjectAtIndex:0];
+    
+    [sharedContactManager joinGroup:nextGroupID successHandler:^(){
+        if ([groupsToJoin count])
+        {
+            [self rejoinGroups];
+        }
+        else
+        {
+            groupsToJoin = nil;
+        }
+    } errorHandler:^(NSString *errorMessage){
+        NSLog(@"---ERROR rejoining group %@: %@", nextGroupID, errorMessage);
     }];
 }
 
@@ -311,14 +331,45 @@
 
 - (void)onConnect:(RespokeClient*)sender
 {
-
+    self.statusButton.hidden = NO;
+    self.activityIndicator.hidden = YES;
+    
+    if (groupsToJoin)
+    {
+        [self rejoinGroups];
+    }
 }
 
 
-- (void)onDisconnect:(RespokeClient*)sender
+- (void)onDisconnect:(RespokeClient*)sender reconnecting:(BOOL)reconnecting
 {
-    [sharedContactManager disconnected];
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    if (reconnecting)
+    {
+        if ([sharedContactManager.groups count])
+        {
+            groupsToJoin = [[NSMutableArray alloc] init];
+            
+            for (RespokeGroup *eachGroup in sharedContactManager.groups)
+            {
+                [groupsToJoin addObject:eachGroup.getGroupID];
+            }
+        }
+        
+        [sharedContactManager disconnected];
+        
+        self.statusButton.hidden = YES;
+        self.activityIndicator.hidden = NO;
+        [self.tableView reloadData];
+
+        //[self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else
+    {
+        [sharedContactManager disconnected];
+        
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 

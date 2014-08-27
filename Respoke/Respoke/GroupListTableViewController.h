@@ -10,7 +10,9 @@
 #import "RespokeClient.h"
 
 
-@interface GroupListTableViewController : UITableViewController <RespokeClientDelegate, UIActionSheetDelegate>
+@interface GroupListTableViewController : UITableViewController <RespokeClientDelegate, UIActionSheetDelegate> {
+    NSMutableArray *groupsToJoin;
+}
 
 @property (weak) IBOutlet UIButton *statusButton;
 @property (weak) IBOutlet UIActivityIndicatorView *activityIndicator;

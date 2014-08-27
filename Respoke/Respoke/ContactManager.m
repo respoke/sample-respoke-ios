@@ -34,9 +34,7 @@
 
 - (void)joinGroup:(NSString*)groupName successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler
 {
-    [sharedRespokeClient joinGroup:groupName errorHandler:^(NSString *errorMessage) {
-        errorHandler(errorMessage);
-    } joinHandler:^(RespokeGroup *group) {
+    [sharedRespokeClient joinGroup:groupName successHandler:^(RespokeGroup *group) {
         // Become the delegate for this group
         group.delegate = self;
         [self.groups addObject:group];
@@ -88,6 +86,8 @@
         } errorHandler:^(NSString *errorMessage) {
             errorHandler(errorMessage);
         }];
+    } errorHandler:^(NSString *errorMessage) {
+        errorHandler(errorMessage);
     }];
 }
 

@@ -85,7 +85,7 @@
         sharedRespokeClient = [[Respoke sharedInstance] createClientWithAppID:appID developmentMode:YES];
         sharedRespokeClient.delegate = self;
 
-        [sharedRespokeClient connectWithEndpointID:self.usernameTextField.text errorHandler:^(NSString *errorMessage) {
+        [sharedRespokeClient connectWithEndpointID:self.usernameTextField.text reconnect:YES errorHandler:^(NSString *errorMessage) {
             [self showError:errorMessage];
         }];
     }
@@ -197,7 +197,7 @@
 }
 
 
-- (void)onDisconnect:(RespokeClient*)sender
+- (void)onDisconnect:(RespokeClient*)sender reconnecting:(BOOL)reconnecting
 {
     // Do nothing
 }
