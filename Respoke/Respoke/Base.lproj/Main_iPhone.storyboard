@@ -24,8 +24,8 @@
                                     <constraint firstAttribute="height" constant="60" id="jAR-fy-VV7"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oog-mr-mDb">
-                                <rect key="frame" x="66" y="139" width="189" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Endpoint ID" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oog-mr-mDb">
+                                <rect key="frame" x="66" y="159" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="189" id="1Wv-Sw-9zD"/>
@@ -38,7 +38,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional Group" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0tv-Bo-qES">
-                                <rect key="frame" x="66" y="173" width="189" height="30"/>
+                                <rect key="frame" x="66" y="193" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6Cg-g6-J1M"/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </textField>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional App ID" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nUv-cU-dzk">
-                                <rect key="frame" x="66" y="283" width="189" height="30"/>
+                                <rect key="frame" x="66" y="303" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="189" id="BQH-OM-tvr"/>
@@ -68,7 +68,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-o5-GK9">
-                                <rect key="frame" x="66" y="236" width="189" height="30"/>
+                                <rect key="frame" x="66" y="256" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -85,7 +85,7 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHQ-cf-7Kh">
-                                <rect key="frame" x="20" y="209" width="280" height="21"/>
+                                <rect key="frame" x="20" y="229" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="HYU-4c-gpX"/>
@@ -96,11 +96,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GPI-DF-PW1">
-                                <rect key="frame" x="150" y="241" width="20" height="20"/>
+                                <rect key="frame" x="150" y="261" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iy9-zt-IiW">
-                                <rect key="frame" x="85" y="282" width="150" height="30"/>
+                                <rect key="frame" x="85" y="302" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                 <state key="normal">
@@ -110,6 +110,20 @@
                                     <action selector="configAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="air-9P-Lw9"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kgz-EU-qbQ">
+                                <rect key="frame" x="206" y="112" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="brokeredSwitchAction" destination="vXZ-lx-hvc" eventType="valueChanged" id="2hZ-aK-KQL"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use Brokered Auth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2D-TD-Rl5">
+                                <rect key="frame" x="69" y="117" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.23137254901960785" green="0.47450980392156861" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -117,7 +131,7 @@
                             <constraint firstAttribute="centerX" secondItem="lMf-o5-GK9" secondAttribute="centerX" id="Ggd-8S-cCP"/>
                             <constraint firstItem="nUv-cU-dzk" firstAttribute="top" secondItem="lMf-o5-GK9" secondAttribute="bottom" constant="17" id="I8o-zM-Nfp"/>
                             <constraint firstItem="6Ae-qy-pro" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="29" id="Jer-KF-1Fu"/>
-                            <constraint firstItem="oog-mr-mDb" firstAttribute="top" secondItem="6Ae-qy-pro" secondAttribute="bottom" constant="30" id="Kjj-kE-Cm3"/>
+                            <constraint firstItem="oog-mr-mDb" firstAttribute="top" secondItem="6Ae-qy-pro" secondAttribute="bottom" constant="50" id="Kjj-kE-Cm3"/>
                             <constraint firstAttribute="centerX" secondItem="tHQ-cf-7Kh" secondAttribute="centerX" id="LrL-fq-Aen"/>
                             <constraint firstItem="lMf-o5-GK9" firstAttribute="top" secondItem="tHQ-cf-7Kh" secondAttribute="bottom" constant="6" id="Q95-6Q-Oaz"/>
                             <constraint firstItem="tHQ-cf-7Kh" firstAttribute="top" secondItem="oog-mr-mDb" secondAttribute="bottom" constant="40" id="Rk7-xZ-uMU"/>
@@ -132,6 +146,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="GPI-DF-PW1" id="olL-eh-fg4"/>
                         <outlet property="appIDTextField" destination="nUv-cU-dzk" id="qM1-Ad-mLh"/>
+                        <outlet property="brokeredSwitch" destination="Kgz-EU-qbQ" id="EYg-mh-AJv"/>
                         <outlet property="configButton" destination="iy9-zt-IiW" id="uzx-3N-Lxx"/>
                         <outlet property="connectButton" destination="lMf-o5-GK9" id="QTP-Wa-6SL"/>
                         <outlet property="errorLabel" destination="tHQ-cf-7Kh" id="WGl-qd-gy1"/>

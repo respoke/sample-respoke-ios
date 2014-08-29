@@ -20,7 +20,9 @@
 @property (weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak) IBOutlet UIButton *connectButton;
 @property (weak) IBOutlet UIButton *configButton;
+@property (weak) IBOutlet UISwitch *brokeredSwitch;
 
 - (IBAction)configAction;
+- (IBAction)brokeredSwitchAction;
 
 @end

@@ -74,26 +74,54 @@
         self.errorLabel.hidden = YES;
         [self.connectButton setTitle:@"" forState:UIControlStateNormal];
         
-        NSString *appID = @"2b446810-6d92-4fa4-826a-2eabced82d60";
-        
-        if ([self.appIDTextField.text length])
-        {
-            appID = self.appIDTextField.text;
-        }
-        
         // Create a Respoke client instance to be used for the duration of the application
-        sharedRespokeClient = [[Respoke sharedInstance] createClientWithAppID:appID developmentMode:YES];
+        sharedRespokeClient = [[Respoke sharedInstance] createClient];
         sharedRespokeClient.delegate = self;
 
-        [sharedRespokeClient connectWithEndpointID:self.usernameTextField.text reconnect:YES errorHandler:^(NSString *errorMessage) {
-            [self showError:errorMessage];
-        }];
+        if (self.brokeredSwitch.on)
+        {
+            [sharedRespokeClient connectWithTokenID:self.usernameTextField.text errorHandler:^(NSString *errorMessage) {
+                [self showError:errorMessage];
+            }];
+        }
+        else
+        {
+            NSString *appID = @"2b446810-6d92-4fa4-826a-2eabced82d60";
+            
+            if ([self.appIDTextField.text length])
+            {
+                appID = self.appIDTextField.text;
+            }
+            
+            [sharedRespokeClient connectWithEndpointID:self.usernameTextField.text appID:appID reconnect:YES errorHandler:^(NSString *errorMessage) {
+                [self showError:errorMessage];
+            }];
+        }
     }
     else
     {
         [self.usernameTextField becomeFirstResponder];
         self.errorLabel.text = @"Username may not be blank";
         self.errorLabel.hidden = NO;
+    }
+}
+
+
+- (IBAction)brokeredSwitchAction
+{
+    if (self.brokeredSwitch.on)
+    {
+        self.usernameTextField.placeholder = @"Token ID";
+        self.appIDTextField.hidden = YES;
+        self.configButton.hidden = YES;
+    }
+    else
+    {
+        self.usernameTextField.placeholder = @"Endpoint ID";
+        
+        BOOL showAppID = ([self.appIDTextField.text length] > 0);
+        self.appIDTextField.hidden = !showAppID;
+        self.configButton.hidden = showAppID;
     }
 }
 
@@ -184,7 +212,7 @@
         groupName = self.groupTextField.text;
     }
     
-    sharedContactManager.username = self.usernameTextField.text;
+    sharedContactManager.username = [sender getEndpointID];
     
     [sharedContactManager joinGroup:groupName successHandler:^(){
         self.activityIndicator.hidden = YES;
