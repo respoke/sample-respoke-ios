@@ -73,7 +73,23 @@
 
 - (IBAction)logoutAction
 {
+    BOOL notConnected = ![sharedRespokeClient isConnected];
+    
+    // send a disconnect either way to let the client clean itself up
     [sharedRespokeClient disconnect];
+    
+    if (notConnected)
+    {
+        // Switch views immediately, since there will be no callback function
+        [self returnToLoginView];
+    }
+}
+
+
+- (void)returnToLoginView
+{
+    [sharedContactManager disconnected];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -366,9 +382,7 @@
     }
     else
     {
-        [sharedContactManager disconnected];
-        
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        [self returnToLoginView];
     }
 }
 
