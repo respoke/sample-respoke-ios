@@ -80,7 +80,7 @@
 
         if (self.brokeredSwitch.on)
         {
-            [sharedRespokeClient connectWithTokenID:self.usernameTextField.text errorHandler:^(NSString *errorMessage) {
+            [sharedRespokeClient connectWithTokenID:self.usernameTextField.text initialPresence:nil errorHandler:^(NSString *errorMessage) {
                 [self showError:errorMessage];
             }];
         }
@@ -93,7 +93,7 @@
                 appID = self.appIDTextField.text;
             }
             
-            [sharedRespokeClient connectWithEndpointID:self.usernameTextField.text appID:appID reconnect:YES errorHandler:^(NSString *errorMessage) {
+            [sharedRespokeClient connectWithEndpointID:self.usernameTextField.text appID:appID reconnect:YES initialPresence:nil errorHandler:^(NSString *errorMessage) {
                 [self showError:errorMessage];
             }];
         }
