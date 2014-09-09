@@ -205,7 +205,7 @@
 
 - (void)onConnect:(RespokeClient*)sender
 {
-    NSString *groupName = @"endpointlist";
+    NSString *groupName = @"RespokeTeam";
 
     if ([self.groupTextField.text length])
     {
