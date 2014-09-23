@@ -377,7 +377,6 @@
         self.activityIndicator.hidden = NO;
         [self.tableView reloadData];
 
-        //[self dismissViewControllerAnimated:YES completion:nil];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
     else

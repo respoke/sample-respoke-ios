@@ -16,6 +16,7 @@
 @property (weak) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak) IBOutlet UITableView *tableView;
 @property (weak) IBOutlet UITextField *textField;
+@property (weak) IBOutlet UIBarButtonItem *textItem;
 
 - (IBAction)sendAction;
 - (IBAction)callAction;

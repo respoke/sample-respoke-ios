@@ -41,6 +41,7 @@
 		184B028C19709C56000BB925 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028B19709C56000BB925 /* CFNetwork.framework */; };
 		184B028E19709C66000BB925 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028D19709C66000BB925 /* Security.framework */; };
 		184B029019709C87000BB925 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028F19709C87000BB925 /* libicucore.dylib */; };
+		184F225819D234E9007D5675 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184F225719D234E9007D5675 /* Launch Screen.xib */; };
 		18AFCCAC19A0DF7A00818468 /* GroupListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCAB19A0DF7A00818468 /* GroupListTableViewController.m */; };
 		18AFCCAF19A1605E00818468 /* ContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCAE19A1605E00818468 /* ContactManager.m */; };
 		18AFCCB219A23BD900818468 /* JoinGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCB119A23BD900818468 /* JoinGroupViewController.m */; };
@@ -214,6 +215,7 @@
 		184B028B19709C56000BB925 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		184B028D19709C66000BB925 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		184B028F19709C87000BB925 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		184F225719D234E9007D5675 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		18AFCCA6199BDBA000818468 /* RespokeConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeConnection.h; sourceTree = "<group>"; };
 		18AFCCAA19A0DF7A00818468 /* GroupListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupListTableViewController.h; sourceTree = "<group>"; };
 		18AFCCAB19A0DF7A00818468 /* GroupListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupListTableViewController.m; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				18068977196613F000BDCD26 /* Images.xcassets */,
 				18AFCCB019A23BD900818468 /* JoinGroupViewController.h */,
 				18AFCCB119A23BD900818468 /* JoinGroupViewController.m */,
+				184F225719D234E9007D5675 /* Launch Screen.xib */,
 				18068974196613F000BDCD26 /* LoginViewController.h */,
 				18068975196613F000BDCD26 /* LoginViewController.m */,
 				18068971196613F000BDCD26 /* Main_iPad.storyboard */,
@@ -826,6 +829,7 @@
 				18D4A025197EA50000F7FC49 /* mute_audio@2x.png in Resources */,
 				18D4A029197EA50000F7FC49 /* unmute_audio@2x.png in Resources */,
 				18D4A024197EA50000F7FC49 /* mute_audio.png in Resources */,
+				184F225819D234E9007D5675 /* Launch Screen.xib in Resources */,
 				18D4A026197EA50000F7FC49 /* mute_video.png in Resources */,
 				180689961966EA1100BDCD26 /* logo_respoke.png in Resources */,
 				18068970196613F000BDCD26 /* Main_iPhone.storyboard in Resources */,
@@ -1013,7 +1017,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
 				INFOPLIST_FILE = "Respoke/Respoke-Info.plist";
@@ -1031,7 +1034,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
 				INFOPLIST_FILE = "Respoke/Respoke-Info.plist";
@@ -1123,7 +1125,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
 				INFOPLIST_FILE = "Respoke/Respoke-Info.plist";
