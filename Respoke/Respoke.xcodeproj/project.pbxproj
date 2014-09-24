@@ -41,7 +41,9 @@
 		184B028C19709C56000BB925 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028B19709C56000BB925 /* CFNetwork.framework */; };
 		184B028E19709C66000BB925 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028D19709C66000BB925 /* Security.framework */; };
 		184B029019709C87000BB925 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 184B028F19709C87000BB925 /* libicucore.dylib */; };
-		184F225819D234E9007D5675 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184F225719D234E9007D5675 /* Launch Screen.xib */; };
+		184F225D19D23E4F007D5675 /* logo_respoke@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F225B19D23E4F007D5675 /* logo_respoke@2x.png */; };
+		184F225E19D23E4F007D5675 /* logo_respoke@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184F225C19D23E4F007D5675 /* logo_respoke@3x.png */; };
+		184F226219D24497007D5675 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184F226119D24497007D5675 /* Launch Screen.xib */; };
 		18AFCCAC19A0DF7A00818468 /* GroupListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCAB19A0DF7A00818468 /* GroupListTableViewController.m */; };
 		18AFCCAF19A1605E00818468 /* ContactManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCAE19A1605E00818468 /* ContactManager.m */; };
 		18AFCCB219A23BD900818468 /* JoinGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCB119A23BD900818468 /* JoinGroupViewController.m */; };
@@ -215,7 +217,9 @@
 		184B028B19709C56000BB925 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		184B028D19709C66000BB925 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		184B028F19709C87000BB925 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		184F225719D234E9007D5675 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		184F225B19D23E4F007D5675 /* logo_respoke@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_respoke@2x.png"; sourceTree = "<group>"; };
+		184F225C19D23E4F007D5675 /* logo_respoke@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_respoke@3x.png"; sourceTree = "<group>"; };
+		184F226119D24497007D5675 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "Respoke/Launch Screen.xib"; sourceTree = "<group>"; };
 		18AFCCA6199BDBA000818468 /* RespokeConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeConnection.h; sourceTree = "<group>"; };
 		18AFCCAA19A0DF7A00818468 /* GroupListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupListTableViewController.h; sourceTree = "<group>"; };
 		18AFCCAB19A0DF7A00818468 /* GroupListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupListTableViewController.m; sourceTree = "<group>"; };
@@ -446,11 +450,12 @@
 		18068950196613F000BDCD26 = {
 			isa = PBXGroup;
 			children = (
-				18E947181995369600C8B142 /* RespokeSDKBuilder.xcodeproj */,
-				18068962196613F000BDCD26 /* Respoke */,
-				18068984196613F000BDCD26 /* RespokeTests */,
 				1806895B196613F000BDCD26 /* Frameworks */,
+				184F226119D24497007D5675 /* Launch Screen.xib */,
 				1806895A196613F000BDCD26 /* Products */,
+				18068962196613F000BDCD26 /* Respoke */,
+				18E947181995369600C8B142 /* RespokeSDKBuilder.xcodeproj */,
+				18068984196613F000BDCD26 /* RespokeTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -513,7 +518,6 @@
 				18068977196613F000BDCD26 /* Images.xcassets */,
 				18AFCCB019A23BD900818468 /* JoinGroupViewController.h */,
 				18AFCCB119A23BD900818468 /* JoinGroupViewController.m */,
-				184F225719D234E9007D5675 /* Launch Screen.xib */,
 				18068974196613F000BDCD26 /* LoginViewController.h */,
 				18068975196613F000BDCD26 /* LoginViewController.m */,
 				18068971196613F000BDCD26 /* Main_iPad.storyboard */,
@@ -560,6 +564,8 @@
 			isa = PBXGroup;
 			children = (
 				180689951966EA1100BDCD26 /* logo_respoke.png */,
+				184F225B19D23E4F007D5675 /* logo_respoke@2x.png */,
+				184F225C19D23E4F007D5675 /* logo_respoke@3x.png */,
 				18D4A01C197EA50000F7FC49 /* mute_audio.png */,
 				18D4A01D197EA50000F7FC49 /* mute_audio@2x.png */,
 				18D4A01E197EA50000F7FC49 /* mute_video.png */,
@@ -825,17 +831,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				18068973196613F000BDCD26 /* Main_iPad.storyboard in Resources */,
+				184F225D19D23E4F007D5675 /* logo_respoke@2x.png in Resources */,
 				18068978196613F000BDCD26 /* Images.xcassets in Resources */,
 				18D4A025197EA50000F7FC49 /* mute_audio@2x.png in Resources */,
 				18D4A029197EA50000F7FC49 /* unmute_audio@2x.png in Resources */,
 				18D4A024197EA50000F7FC49 /* mute_audio.png in Resources */,
-				184F225819D234E9007D5675 /* Launch Screen.xib in Resources */,
 				18D4A026197EA50000F7FC49 /* mute_video.png in Resources */,
 				180689961966EA1100BDCD26 /* logo_respoke.png in Resources */,
 				18068970196613F000BDCD26 /* Main_iPhone.storyboard in Resources */,
+				184F225E19D23E4F007D5675 /* logo_respoke@3x.png in Resources */,
 				18068967196613F000BDCD26 /* InfoPlist.strings in Resources */,
 				18D4A02A197EA50000F7FC49 /* unmute_video.png in Resources */,
 				18D4A027197EA50000F7FC49 /* mute_video@2x.png in Resources */,
+				184F226219D24497007D5675 /* Launch Screen.xib in Resources */,
 				18D4A02B197EA50000F7FC49 /* unmute_video@2x.png in Resources */,
 				18D4A028197EA50000F7FC49 /* unmute_audio.png in Resources */,
 			);
@@ -1017,6 +1025,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
 				INFOPLIST_FILE = "Respoke/Respoke-Info.plist";
@@ -1034,6 +1043,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
 				INFOPLIST_FILE = "Respoke/Respoke-Info.plist";
@@ -1125,6 +1135,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
 				INFOPLIST_FILE = "Respoke/Respoke-Info.plist";
