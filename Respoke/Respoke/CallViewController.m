@@ -34,13 +34,26 @@
 
     if (self.call)
     {
+        RespokeEndpoint *remoteEndpoint = [self.call getRemoteEndpoint];
+        if (remoteEndpoint)
+        {
+            self.callerNameLabel.text = [remoteEndpoint endpointID];
+        }
+        else
+        {
+            
+            self.callerNameLabel.text = @"Unknown Caller";
+        }
+        
+        self.answerView.hidden = NO;
         self.call.delegate = self;
         self.call.remoteView = self.remoteView;
         self.call.localView = self.localView;
-        [self.call answer];
     }
     else
     {
+        self.answerView.hidden = YES;
+
         if (self.audioOnly)
         {
             self.muteVideoButton.hidden = YES;
@@ -57,6 +70,20 @@
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+
+- (IBAction)answerCall
+{
+    [self.call answer];
+    self.answerView.hidden = YES;
+}
+
+
+- (IBAction)ignoreCall
+{
+    [self.call hangup:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
