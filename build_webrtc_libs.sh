@@ -1,101 +1,56 @@
-function fetch() {
-echo "-- fetching webrtc"
-gclient config http://webrtc.googlecode.com/svn/trunk/
-echo "target_os = ['mac']" >> .gclient
-gclient sync
-
-sed -i "" '$d' .gclient
-echo "target_os = ['ios', 'mac']" >> .gclient
-gclient sync
-echo "-- webrtc has been sucessfully fetched"
-
-}
-
 function wrbase() {
-export GYP_DEFINES="build_with_libjingle=1 build_with_chromium=0 libjingle_objc=1"
-export GYP_GENERATORS="ninja"
+  export GYP_DEFINES="build_with_libjingle=1 build_with_chromium=0 libjingle_objc=1"
+  export GYP_GENERATORS="ninja"
 }
 
 function wrsim() {
-wrbase
-export GYP_DEFINES="$GYP_DEFINES OS=ios target_arch=ia32"
-export GYP_GENERATOR_FLAGS="$GYP_GENERATOR_FLAGS output_dir=out_ios"
-export GYP_CROSSCOMPILE=1
+  wrbase
+  export GYP_DEFINES="$GYP_DEFINES OS=ios target_arch=ia32"
+  export GYP_GENERATOR_FLAGS="$GYP_GENERATOR_FLAGS output_dir=out_ios"
+  export GYP_CROSSCOMPILE=1
 }
  
 function wrios() {
-wrbase
-export GYP_DEFINES="$GYP_DEFINES OS=ios target_arch=armv7"
-export GYP_GENERATOR_FLAGS="$GYP_GENERATOR_FLAGS output_dir=out_ios"
-export GYP_CROSSCOMPILE=1
+  wrbase
+  export GYP_DEFINES="$GYP_DEFINES OS=ios target_arch=armv7"
+  export GYP_GENERATOR_FLAGS="$GYP_GENERATOR_FLAGS output_dir=out_ios"
+  export GYP_CROSSCOMPILE=1
+}
+
+function wrios64() {
+  export GYP_GENERATORS="ninja"
+  export GYP_DEFINES="OS=ios target_arch=arm64 target_subarch=arm64 build_neon=0 $GYP_DEFINES"
+  export GYP_GENERATOR_FLAGS="$GYP_GENERATOR_FLAGS output_dir=out_arm64"
+  export GYP_CROSSCOMPILE=1
 }
 
 function buildsim() {
-echo "-- building x86 webrtc"
-pushd trunk
-wrsim && gclient runhooks
-ninja -C out_ios/Release-iphonesimulator iossim AppRTCDemo
-popd
-echo "-- x86 webrtc has been sucessfully built"
+  echo "-- building x86 webrtc"
+  pushd src
+  wrsim && gclient runhooks
+  ninja -C out_ios/Release-iphonesimulator iossim AppRTCDemo
+  popd
 }
  
 function buildios() {
-echo "-- building arm webrtc ios"
-pushd trunk
-wrios && gclient runhooks && ninja -C out_ios/Release-iphoneos AppRTCDemo
-popd
-echo "-- arm webrtc has been sucessfully built"
+  echo "-- building arm webrtc"
+  pushd src
+  wrios && gclient runhooks && ninja -C out_ios/Release-iphoneos AppRTCDemo
+  popd
 }
 
 function move_libs() {
-echo "-- moving libraries and headers to the Respoke project"
-rm -f ./RespokeSDK/WebRTC/headers/*.*
-rm -f ./RespokeSDK/WebRTC/*.a
-cp ./trunk/talk/app/webrtc/objc/public/*.h ./RespokeSDK/WebRTC/headers/
+  echo "-- moving libraries and headers to the Respoke project"
+  rm -f ./RespokeSDKBuilder/RespokeSDK/WebRTC/*.*
+  rm -f ./RespokeSDK/libs/*.a
+  cp ./src/talk/app/webrtc/objc/public/*.h ./RespokeSDKBuilder/RespokeSDK/WebRTC/
 
-pushd trunk
-pushd out_ios
-pushd Release-iphoneos
-
-# libjingle_p2p.a is larger than the maximum file size allowed by Github, let alone when combined with the device slice as well. Therefore, unlike the rest of the libraries, they will be renamed to two separate files and then optionally included in the project to get around this file size limitation.
-mv libjingle_p2p.a libjingle_p2p_armv7.a
-
-for f in *.a; do
-  if [ -f "../Release-iphonesimulator/$f" ]; then
-    echo "creating fat static library $f"
-    lipo -create "$f" "../Release-iphonesimulator/$f" -output "../../../RespokeSDK/WebRTC/$f"
-  else
-    echo ""
-    echo "$f was not built for the simulator."
-    echo ""
-    cp "$f" "../../../RespokeSDK/WebRTC/"
-  fi
-done
-
-cd ../Release-iphonesimulator
-mv libjingle_p2p.a libjingle_p2p_x86.a
-cp libjingle_p2p_x86.a ../../../RespokeSDK/WebRTC/
-
-for f in *.a; do
-  if [ ! -f "../Release-iphoneos/$f" ]; then
-    echo ""
-    echo "$f was not built for the iPhone."
-    echo ""
-    cp "$f" "../../../RespokeSDK/WebRTC/"
-  fi
-done
-
-popd
-popd
-popd
+  libtool -static -o src/out_ios/Release-iphonesimulator/libWebRTC-sim.a src/out_ios/Release-iphonesimulator/*.a
+  strip -S -x -o src/out_ios/Release-iphonesimulator/libWebRTC-sim-min.a -r src/out_ios/Release-iphonesimulator/libWebRTC-sim.a
+  libtool -static -o src/out_ios/Release-iphoneos/libWebRTC-ios.a src/out_ios/Release-iphoneos/*.a
+  strip -S -x -o src/out_ios/Release-iphoneos/libWebRTC-ios-min.a -r src/out_ios/Release-iphoneos/libWebRTC-ios.a
+  lipo -create src/out_ios/Release-iphonesimulator/libWebRTC-sim-min.a src/out_ios/Release-iphoneos/libWebRTC-ios-min.a -output ./RespokeSDK/libs/libWebRTC.a
 }
 
-function fail() {
-echo "*** webrtc build failed"
-exit 1
-}
-
-#fetch || fail
-buildsim || fail
-buildios || fail
+#buildsim || buildios || 
 move_libs
