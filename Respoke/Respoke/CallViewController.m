@@ -161,4 +161,10 @@
 }
 
 
+- (void)directConnectionAvailable:(RespokeDirectConnection*)directConnection endpoint:(RespokeEndpoint*)endpoint
+{
+    
+}
+
+
 @end

@@ -242,4 +242,10 @@
 }
 
 
+- (void)onDirectConnection:(RespokeDirectConnection*)directConnection endpoint:(RespokeEndpoint*)endpoint
+{
+    // Do nothing
+}
+
+
 @end

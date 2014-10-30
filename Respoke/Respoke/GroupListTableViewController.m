@@ -8,6 +8,7 @@
 
 #import "GroupListTableViewController.h"
 #import "RespokeConnection.h"
+#import "RespokeDirectConnection.h"
 #import "AppDelegate.h"
 #import "Conversation.h"
 #import "ChatTableViewController.h"
@@ -398,6 +399,13 @@
     controller.call = call;
     UIViewController *presenter = [self.navigationController topViewController];
     [presenter presentViewController:controller animated:YES completion:nil];
+}
+
+
+- (void)onDirectConnection:(RespokeDirectConnection*)directConnection endpoint:(RespokeEndpoint*)endpoint
+{
+    //TODO - auto accepting for now
+    [directConnection accept];
 }
 
 
