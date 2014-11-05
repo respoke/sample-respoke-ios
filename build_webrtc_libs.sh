@@ -52,5 +52,4 @@ function move_libs() {
   lipo -create src/out_ios/Release-iphonesimulator/libWebRTC-sim-min.a src/out_ios/Release-iphoneos/libWebRTC-ios-min.a -output ./RespokeSDK/libs/libWebRTC.a
 }
 
-#buildsim || buildios || 
-move_libs
+buildsim || buildios || move_libs
