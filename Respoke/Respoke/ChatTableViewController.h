@@ -13,12 +13,18 @@
 @interface ChatTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property RespokeEndpoint *endpoint;
+@property RespokeDirectConnection *directConnection;
 @property (weak) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak) IBOutlet UITableView *tableView;
 @property (weak) IBOutlet UITextField *textField;
 @property (weak) IBOutlet UIBarButtonItem *textItem;
+@property (weak) IBOutlet UIView *connectingView;
+@property (weak) IBOutlet UIView *answerView;
+@property (weak) IBOutlet UILabel *callerNameLabel;
 
 - (IBAction)sendAction;
 - (IBAction)callAction;
+- (IBAction)acceptConnection;
+- (IBAction)ignoreConnection;
 
 @end

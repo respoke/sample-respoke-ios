@@ -56,16 +56,7 @@
                 // Find the endpoint to which the connection belongs
                 RespokeEndpoint *parentEndpoint = [each getEndpoint];
 
-                // If this endpoint is not known in any group, remember it
-                if (NSNotFound == [self.allKnownEndpoints indexOfObject:parentEndpoint])
-                {
-                    [self.allKnownEndpoints addObject:parentEndpoint];
-                    parentEndpoint.delegate = self;
-
-                    // Start tracking the conversation with this endpoint
-                    conversation = [[Conversation alloc] initWithName:parentEndpoint.endpointID];
-                    [self.conversations setObject:conversation forKey:parentEndpoint.endpointID];
-                }
+                [self trackEndpoint:parentEndpoint];
 
                 // If this endpoint is not known in this specific group, remember it
                 if (NSNotFound == [groupEndpoints indexOfObject:parentEndpoint])
@@ -152,6 +143,21 @@
 }
 
 
+- (void)trackEndpoint:(RespokeEndpoint*)newEndpoint
+{
+    // If this endpoint is not known in any group, remember it
+    if (NSNotFound == [self.allKnownEndpoints indexOfObject:newEndpoint])
+    {
+        [self.allKnownEndpoints addObject:newEndpoint];
+        newEndpoint.delegate = self;
+
+        // Start tracking the conversation with this endpoint
+        Conversation *conversation = [[Conversation alloc] initWithName:newEndpoint.endpointID];
+        [self.conversations setObject:conversation forKey:newEndpoint.endpointID];
+    }
+}
+
+
 #pragma mark - RespokeGroupDelegate
 
 
@@ -177,12 +183,8 @@
         if (NSNotFound == [self.allKnownEndpoints indexOfObject:parentEndpoint])
         {
             NSLog(@"Joined: %@", parentEndpoint.endpointID);
-            [self.allKnownEndpoints addObject:parentEndpoint];
-            parentEndpoint.delegate = self;
-
-            // Start tracking the conversation with this endpoint
-            Conversation *conversation = [[Conversation alloc] initWithName:parentEndpoint.endpointID];
-            [self.conversations setObject:conversation forKey:parentEndpoint.endpointID];
+            
+            [self trackEndpoint:parentEndpoint];
 
             // Notify any UI listeners that a new endpoint has been discovered
             [[NSNotificationCenter defaultCenter] postNotificationName:ENDPOINT_DISCOVERED object:parentEndpoint userInfo:nil];

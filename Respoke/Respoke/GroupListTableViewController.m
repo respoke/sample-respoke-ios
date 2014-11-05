@@ -404,8 +404,17 @@
 
 - (void)onDirectConnection:(RespokeDirectConnection*)directConnection endpoint:(RespokeEndpoint*)endpoint
 {
-    //TODO - auto accepting for now
-    [directConnection accept];
+    // Make the contact manager aware of this endpoint in case it is not a member of a group this client has joined
+    [sharedContactManager trackEndpoint:endpoint];
+
+    // Show the chat view controller for this endpoint with a special "incoming connection" view
+    ChatTableViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ChatTableViewController"];
+    controller.directConnection = directConnection;
+    controller.endpoint = endpoint;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+    
+    UIViewController *presenter = [self.navigationController topViewController];
+    [presenter presentViewController:navController animated:YES completion:nil];
 }
 
 

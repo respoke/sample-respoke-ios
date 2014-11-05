@@ -10,9 +10,10 @@
 #import "CallViewController.h"
 #import "AppDelegate.h"
 #import "Conversation.h"
+#import "RespokeDirectConnection.h"
 
 
-@interface ChatTableViewController () <UIActionSheetDelegate> {
+@interface ChatTableViewController () <UIActionSheetDelegate, RespokeCallDelegate, RespokeDirectConnectionDelegate> {
     UITableViewCell *remotePrototype;
     UITableViewCell *localPrototype;
     BOOL audioOnly;
@@ -41,6 +42,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointMessageReceived:) name:ENDPOINT_MESSAGE_RECEIVED object:self.endpoint];
     
     self.textItem.width = 244 + self.view.frame.size.width - 320;
+
+    if (self.directConnection)
+    {
+        self.directConnection.delegate = self;
+        self.answerView.hidden = NO;
+        self.callerNameLabel.text = [self.endpoint endpointID];
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(closeDirectConnectionView)];
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+        self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    }
 }
 
 
@@ -61,6 +74,15 @@
         controller.endpoint = self.endpoint;
         controller.audioOnly = audioOnly;
     }
+}
+
+
+- (void)closeDirectConnectionView
+{
+    RespokeCall *call = [self.directConnection getCall];
+    [call hangup:YES];
+
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -241,6 +263,94 @@
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
+
+
+- (IBAction)acceptConnection
+{
+    RespokeCall *call = [self.directConnection getCall];
+    if (call)
+    {
+        call.delegate = self;
+    }
+
+    [self.directConnection accept];
+    self.connectingView.hidden = NO;
+    self.answerView.hidden = YES;
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+
+- (IBAction)ignoreConnection
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - RespokeCallDelegate methods for direct connections
+
+
+- (void)onError:(NSString*)errorMessage sender:(RespokeCall*)sender
+{
+    NSLog(@"Call Error: %@", errorMessage);
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:errorMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+
+- (void)onHangup:(RespokeCall*)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)onConnected:(RespokeCall*)sender
+{
+    self.connectingView.hidden = YES;
+}
+
+
+- (void)directConnectionAvailable:(RespokeDirectConnection*)directConnection endpoint:(RespokeEndpoint*)endpoint
+{
+    
+}
+
+
+#pragma mark - RespokeDirectConnectionDelegate
+
+
+- (void)onStart:(RespokeDirectConnection*)sender
+{
+
+}
+
+
+- (void)onOpen:(RespokeDirectConnection*)sender
+{
+
+}
+
+
+- (void)onClose:(RespokeDirectConnection*)sender
+{
+
+}
+
+
+ - (void)onMessage:(id)message sender:(RespokeDirectConnection*)sender
+ {
+    if ([message isKindOfClass:[NSString class]])
+    {
+        NSString *messageString = (NSString*)message;
+        
+        [conversation addMessage:messageString from:self.endpoint.endpointID];
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    }
+ }
 
 
 @end
