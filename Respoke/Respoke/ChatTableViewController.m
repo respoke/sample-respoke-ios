@@ -186,15 +186,26 @@
 {
     if ([self.textField.text length])
     {
-        [conversation addMessage:self.textField.text from:sharedContactManager.username directMessage:NO];
+        [conversation addMessage:self.textField.text from:sharedContactManager.username directMessage:(nil != self.directConnection)];
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 
-        [self.endpoint sendMessage:self.textField.text successHandler:^(void){
-            NSLog(@"Message sent");
-        } errorHandler:^(NSString *error){
-            NSLog(@"Error sending: %@", error);
-        }];
+        if (self.directConnection)
+        {
+            [self.directConnection sendMessage:self.textField.text successHandler:^(void){
+                NSLog(@"Direct message sent");
+            } errorHandler:^(NSString *error){
+                NSLog(@"Error sending: %@", error);
+            }];
+        }
+        else
+        {
+            [self.endpoint sendMessage:self.textField.text successHandler:^(void){
+                NSLog(@"Message sent");
+            } errorHandler:^(NSString *error){
+                NSLog(@"Error sending: %@", error);
+            }];
+        }
 
         self.textField.text = @"";
     }
