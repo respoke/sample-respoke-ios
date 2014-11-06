@@ -17,6 +17,6 @@
 @property NSInteger unreadCount;
 
 - (instancetype)initWithName:(NSString*)name;
-- (void)addMessage:(NSString*)message from:(NSString*)sender;
+- (void)addMessage:(NSString*)message from:(NSString*)sender directMessage:(BOOL)directMessage;
 
 @end

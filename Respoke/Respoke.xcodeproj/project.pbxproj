@@ -49,6 +49,9 @@
 		18AFCCB219A23BD900818468 /* JoinGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCB119A23BD900818468 /* JoinGroupViewController.m */; };
 		18AFCCB519A2AB7300818468 /* GroupChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AFCCB419A2AB7300818468 /* GroupChatTableViewController.m */; };
 		18C0CF3719FEF5E8003B3B1B /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C0CF3619FEF5E8003B3B1B /* libc++.dylib */; };
+		18CF1C001A0BC27200E98203 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CF1BFE1A0BC27200E98203 /* lock.png */; };
+		18CF1C011A0BC27200E98203 /* lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CF1BFF1A0BC27200E98203 /* lock@2x.png */; };
+		18CF1C051A0BC2B300E98203 /* lock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18CF1C041A0BC2B300E98203 /* lock@3x.png */; };
 		18D4A01419796CDA00F7FC49 /* StyledNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */; };
 		18D4A024197EA50000F7FC49 /* mute_audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01C197EA50000F7FC49 /* mute_audio.png */; };
 		18D4A025197EA50000F7FC49 /* mute_audio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A01D197EA50000F7FC49 /* mute_audio@2x.png */; };
@@ -67,7 +70,7 @@
 		18E944D21993EF9F00C8B142 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944801993EF9F00C8B142 /* NSData+SRB64Additions.m */; };
 		18E944D31993EF9F00C8B142 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944831993EF9F00C8B142 /* SRWebSocket.m */; };
 		18FBD4AA1A02811900AE02B5 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBD4A91A02811900AE02B5 /* libWebRTC.a */; };
-		18FBD4AB1A0282BA00AE02B5 /* libRespokeSDKBuilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E9471F1995369600C8B142 /* libRespokeSDKBuilder.a */; };
+		18FBD4AB1A0282BA00AE02B5 /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E9471F1995369600C8B142 /* libRespokeSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +164,9 @@
 		18AFCCB319A2AB7300818468 /* GroupChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupChatTableViewController.h; sourceTree = "<group>"; };
 		18AFCCB419A2AB7300818468 /* GroupChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupChatTableViewController.m; sourceTree = "<group>"; };
 		18C0CF3619FEF5E8003B3B1B /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		18CF1BFE1A0BC27200E98203 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		18CF1BFF1A0BC27200E98203 /* lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@2x.png"; sourceTree = "<group>"; };
+		18CF1C041A0BC2B300E98203 /* lock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@3x.png"; sourceTree = "<group>"; };
 		18D4A01219796CDA00F7FC49 /* StyledNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledNavigationController.h; sourceTree = "<group>"; };
 		18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledNavigationController.m; sourceTree = "<group>"; };
 		18D4A01C197EA50000F7FC49 /* mute_audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_audio.png; sourceTree = "<group>"; };
@@ -202,7 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18FBD4AB1A0282BA00AE02B5 /* libRespokeSDKBuilder.a in Frameworks */,
+				18FBD4AB1A0282BA00AE02B5 /* libRespokeSDK.a in Frameworks */,
 				18C0CF3719FEF5E8003B3B1B /* libc++.dylib in Frameworks */,
 				184B029019709C87000BB925 /* libicucore.dylib in Frameworks */,
 				184B028E19709C66000BB925 /* Security.framework in Frameworks */,
@@ -354,6 +360,9 @@
 		180689941966EA1100BDCD26 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				18CF1BFE1A0BC27200E98203 /* lock.png */,
+				18CF1BFF1A0BC27200E98203 /* lock@2x.png */,
+				18CF1C041A0BC2B300E98203 /* lock@3x.png */,
 				180689951966EA1100BDCD26 /* logo_respoke.png */,
 				184F225B19D23E4F007D5675 /* logo_respoke@2x.png */,
 				184F225C19D23E4F007D5675 /* logo_respoke@3x.png */,
@@ -444,7 +453,7 @@
 		18E947191995369600C8B142 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18E9471F1995369600C8B142 /* libRespokeSDKBuilder.a */,
+				18E9471F1995369600C8B142 /* libRespokeSDK.a */,
 				18E947211995369600C8B142 /* RespokeSDKBuilderTests.xctest */,
 			);
 			name = Products;
@@ -529,10 +538,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		18E9471F1995369600C8B142 /* libRespokeSDKBuilder.a */ = {
+		18E9471F1995369600C8B142 /* libRespokeSDK.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libRespokeSDKBuilder.a;
+			path = libRespokeSDK.a;
 			remoteRef = 18E9471E1995369600C8B142 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -552,16 +561,19 @@
 			files = (
 				18068973196613F000BDCD26 /* Main_iPad.storyboard in Resources */,
 				184F225D19D23E4F007D5675 /* logo_respoke@2x.png in Resources */,
+				18CF1C001A0BC27200E98203 /* lock.png in Resources */,
 				18068978196613F000BDCD26 /* Images.xcassets in Resources */,
 				18D4A025197EA50000F7FC49 /* mute_audio@2x.png in Resources */,
 				18D4A029197EA50000F7FC49 /* unmute_audio@2x.png in Resources */,
 				18D4A024197EA50000F7FC49 /* mute_audio.png in Resources */,
 				18D4A026197EA50000F7FC49 /* mute_video.png in Resources */,
 				180689961966EA1100BDCD26 /* logo_respoke.png in Resources */,
+				18CF1C051A0BC2B300E98203 /* lock@3x.png in Resources */,
 				18068970196613F000BDCD26 /* Main_iPhone.storyboard in Resources */,
 				184F225E19D23E4F007D5675 /* logo_respoke@3x.png in Resources */,
 				18068967196613F000BDCD26 /* InfoPlist.strings in Resources */,
 				18D4A02A197EA50000F7FC49 /* unmute_video.png in Resources */,
+				18CF1C011A0BC27200E98203 /* lock@2x.png in Resources */,
 				18D4A027197EA50000F7FC49 /* mute_video@2x.png in Resources */,
 				184F226219D24497007D5675 /* Launch Screen.xib in Resources */,
 				18D4A02B197EA50000F7FC49 /* unmute_video@2x.png in Resources */,

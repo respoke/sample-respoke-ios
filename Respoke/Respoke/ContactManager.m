@@ -283,7 +283,7 @@
 - (void)onGroupMessage:(NSString*)message fromEndpoint:(RespokeEndpoint*)endpoint sender:(RespokeGroup*)sender
 {
     Conversation *conversation = [self.groupConversations objectForKey:[sender getGroupID]];
-    [conversation addMessage:message from:endpoint.endpointID];
+    [conversation addMessage:message from:endpoint.endpointID directMessage:NO];
     conversation.unreadCount++;
 
     // Notify any UI listeners that a message has been received from a remote endpoint
@@ -297,7 +297,7 @@
 - (void)onMessage:(NSString*)message sender:(RespokeEndpoint*)sender
 {
     Conversation *conversation = [self.conversations objectForKey:sender.endpointID];
-    [conversation addMessage:message from:sender.endpointID];
+    [conversation addMessage:message from:sender.endpointID directMessage:NO];
     conversation.unreadCount++;
 
     // Notify any UI listeners that a message has been received from a remote endpoint

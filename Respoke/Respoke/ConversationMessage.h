@@ -12,5 +12,6 @@
 
 @property NSString *message;
 @property NSString *senderEndpoint;
+@property BOOL direct;
 
 @end

@@ -655,11 +655,20 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Pg-NM-AU8">
+                                                            <rect key="frame" x="69" y="12" width="16" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="16" id="42m-EA-tVC"/>
+                                                                <constraint firstAttribute="height" constant="22" id="HjV-d4-KD7"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="o0M-hZ-nSB" firstAttribute="height" secondItem="r7y-pL-cyq" secondAttribute="height" constant="-4" id="0S2-Vn-FW6"/>
                                                         <constraint firstItem="o0M-hZ-nSB" firstAttribute="top" secondItem="Lea-bn-PCf" secondAttribute="top" constant="9" id="4ty-R2-kxt"/>
                                                         <constraint firstItem="o0M-hZ-nSB" firstAttribute="leading" secondItem="Lea-bn-PCf" secondAttribute="leading" constant="14" id="JGz-WQ-PVj"/>
+                                                        <constraint firstItem="8Pg-NM-AU8" firstAttribute="centerY" secondItem="r7y-pL-cyq" secondAttribute="centerY" constant="0.5" id="Lpk-T8-P8v"/>
+                                                        <constraint firstItem="8Pg-NM-AU8" firstAttribute="leading" secondItem="r7y-pL-cyq" secondAttribute="trailing" constant="9" id="SyE-Tb-0iQ"/>
                                                         <constraint firstItem="o0M-hZ-nSB" firstAttribute="centerX" secondItem="r7y-pL-cyq" secondAttribute="centerX" constant="-0.5" id="b4B-Bt-OTl"/>
                                                         <constraint firstItem="o0M-hZ-nSB" firstAttribute="width" secondItem="r7y-pL-cyq" secondAttribute="width" constant="-15" id="bOg-O4-Uok"/>
                                                         <constraint firstAttribute="bottom" secondItem="o0M-hZ-nSB" secondAttribute="bottom" constant="8" id="li4-PK-0jl"/>
@@ -674,6 +683,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
+                                                        <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="5BV-Jl-QgF">
+                                                            <rect key="frame" x="235" y="12" width="16" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="16" id="hU7-SE-UeD"/>
+                                                                <constraint firstAttribute="height" constant="22" id="hed-Xm-vYE"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9m-cT-KTu">
                                                             <rect key="frame" x="260" y="7" width="53" height="32"/>
                                                             <color key="backgroundColor" red="0.23137254900000001" green="0.47450980390000003" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -687,12 +703,14 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="GB0-GK-g8Z" firstAttribute="top" secondItem="3OS-2u-7v0" secondAttribute="top" constant="9" id="1l8-k0-f17"/>
+                                                        <constraint firstItem="p9m-cT-KTu" firstAttribute="centerY" secondItem="5BV-Jl-QgF" secondAttribute="centerY" id="7ek-jf-ebA"/>
                                                         <constraint firstItem="GB0-GK-g8Z" firstAttribute="height" secondItem="p9m-cT-KTu" secondAttribute="height" constant="-5" id="BEY-5T-Syc"/>
                                                         <constraint firstItem="p9m-cT-KTu" firstAttribute="centerX" secondItem="GB0-GK-g8Z" secondAttribute="centerX" id="Gmk-0P-qcL"/>
                                                         <constraint firstAttribute="trailing" secondItem="GB0-GK-g8Z" secondAttribute="trailing" constant="14" id="Ucc-zY-QeQ"/>
                                                         <constraint firstItem="GB0-GK-g8Z" firstAttribute="width" secondItem="p9m-cT-KTu" secondAttribute="width" constant="-15" id="Yjd-Sb-MVf"/>
                                                         <constraint firstAttribute="bottom" secondItem="GB0-GK-g8Z" secondAttribute="bottom" constant="8" id="fyd-C5-vVC"/>
                                                         <constraint firstItem="p9m-cT-KTu" firstAttribute="centerY" secondItem="GB0-GK-g8Z" secondAttribute="centerY" id="lYa-BL-VzI"/>
+                                                        <constraint firstItem="p9m-cT-KTu" firstAttribute="leading" secondItem="5BV-Jl-QgF" secondAttribute="trailing" constant="9" id="pKg-Zg-o8G"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -1205,6 +1223,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="lock.png" width="16" height="22"/>
         <image name="logo_respoke.png" width="150" height="60"/>
         <image name="mute_audio.png" width="44" height="44"/>
         <image name="mute_video.png" width="44" height="44"/>

@@ -225,10 +225,19 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="9uo-J2-VK6">
+                                                            <rect key="frame" x="69" y="12" width="16" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="EPq-Be-VHc"/>
+                                                                <constraint firstAttribute="width" constant="16" id="sHp-eI-T3c"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="XJl-0e-2fN" firstAttribute="width" secondItem="SyD-bU-4zN" secondAttribute="width" constant="-15" id="E3S-gm-XcI"/>
                                                         <constraint firstItem="XJl-0e-2fN" firstAttribute="centerY" secondItem="SyD-bU-4zN" secondAttribute="centerY" id="IUg-yI-xdL"/>
+                                                        <constraint firstItem="9uo-J2-VK6" firstAttribute="leading" secondItem="SyD-bU-4zN" secondAttribute="trailing" constant="9" id="Uk4-s2-au4"/>
+                                                        <constraint firstItem="9uo-J2-VK6" firstAttribute="centerY" secondItem="SyD-bU-4zN" secondAttribute="centerY" constant="0.5" id="YXc-jd-dJB"/>
                                                         <constraint firstAttribute="bottom" secondItem="XJl-0e-2fN" secondAttribute="bottom" constant="8" id="a2D-qP-dJr"/>
                                                         <constraint firstItem="XJl-0e-2fN" firstAttribute="top" secondItem="uyN-w1-U7V" secondAttribute="top" constant="9" id="dtn-0O-TbX"/>
                                                         <constraint firstItem="XJl-0e-2fN" firstAttribute="height" secondItem="SyD-bU-4zN" secondAttribute="height" constant="-4" id="fd2-eM-juo"/>
@@ -254,9 +263,18 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="2bJ-kX-ZF1">
+                                                            <rect key="frame" x="684" y="12" width="16" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="fLC-t0-taw"/>
+                                                                <constraint firstAttribute="width" constant="16" id="wkN-hs-emA"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="YuQ-1M-nse" firstAttribute="centerX" secondItem="U2j-WT-5l2" secondAttribute="centerX" id="Mo8-nU-D2Y"/>
+                                                        <constraint firstItem="YuQ-1M-nse" firstAttribute="centerY" secondItem="2bJ-kX-ZF1" secondAttribute="centerY" id="PG9-zh-AEF"/>
+                                                        <constraint firstItem="YuQ-1M-nse" firstAttribute="leading" secondItem="2bJ-kX-ZF1" secondAttribute="trailing" constant="9" id="Rlr-my-BWV"/>
                                                         <constraint firstItem="U2j-WT-5l2" firstAttribute="width" secondItem="YuQ-1M-nse" secondAttribute="width" constant="-15" id="YDD-x7-uik"/>
                                                         <constraint firstItem="U2j-WT-5l2" firstAttribute="top" secondItem="rS3-lW-yFi" secondAttribute="top" constant="9" id="b6y-wa-Uxj"/>
                                                         <constraint firstItem="U2j-WT-5l2" firstAttribute="height" secondItem="YuQ-1M-nse" secondAttribute="height" constant="-5" id="mMB-2K-0JN"/>
@@ -1223,6 +1241,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="lock.png" width="16" height="22"/>
         <image name="logo_respoke.png" width="150" height="60"/>
         <image name="mute_audio.png" width="44" height="44"/>
         <image name="mute_video.png" width="44" height="44"/>

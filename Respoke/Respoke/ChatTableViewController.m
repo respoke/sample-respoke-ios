@@ -152,6 +152,7 @@
 {
     UILabel *label = (UILabel*)[cell viewWithTag:1];
     UIView *bubble = [cell viewWithTag:2];
+    UIImageView *imageView = (UIImageView*)[cell viewWithTag:3];
 
     label.text = message.message;
 
@@ -165,6 +166,8 @@
     }
 
     bubble.layer.cornerRadius = 8.0;
+
+    imageView.hidden = !message.direct;
 }
 
 
@@ -183,7 +186,7 @@
 {
     if ([self.textField.text length])
     {
-        [conversation addMessage:self.textField.text from:sharedContactManager.username];
+        [conversation addMessage:self.textField.text from:sharedContactManager.username directMessage:NO];
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 
@@ -346,7 +349,7 @@
     {
         NSString *messageString = (NSString*)message;
         
-        [conversation addMessage:messageString from:self.endpoint.endpointID];
+        [conversation addMessage:messageString from:self.endpoint.endpointID directMessage:YES];
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }

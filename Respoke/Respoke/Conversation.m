@@ -23,11 +23,12 @@
 }
 
 
-- (void)addMessage:(NSString*)message from:(NSString*)sender
+- (void)addMessage:(NSString*)message from:(NSString*)sender directMessage:(BOOL)directMessage
 {
     ConversationMessage *newMessage = [[ConversationMessage alloc] init];
     newMessage.message = message;
     newMessage.senderEndpoint = sender;
+    newMessage.direct = directMessage;
     [self.messages addObject:newMessage];
 }
 

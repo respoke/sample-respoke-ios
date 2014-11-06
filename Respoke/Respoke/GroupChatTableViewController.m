@@ -151,7 +151,7 @@
 {
     if ([self.textField.text length])
     {
-        [conversation addMessage:self.textField.text from:sharedContactManager.username];
+        [conversation addMessage:self.textField.text from:sharedContactManager.username directMessage:NO];
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 
