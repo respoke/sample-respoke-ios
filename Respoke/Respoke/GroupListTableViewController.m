@@ -402,7 +402,7 @@
 }
 
 
-- (void)onDirectConnection:(RespokeDirectConnection*)directConnection endpoint:(RespokeEndpoint*)endpoint
+- (void)onIncomingDirectConnection:(RespokeDirectConnection*)directConnection endpoint:(RespokeEndpoint*)endpoint
 {
     // Make the contact manager aware of this endpoint in case it is not a member of a group this client has joined
     [sharedContactManager trackEndpoint:endpoint];

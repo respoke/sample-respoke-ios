@@ -46,11 +46,22 @@
     if (self.directConnection)
     {
         self.directConnection.delegate = self;
-        self.answerView.hidden = NO;
+
+        RespokeCall *call = [self.directConnection getCall];
+        BOOL caller = NO;
+
+        if (call)
+        {
+            call.delegate = self;
+            caller = [call isCaller];
+        }
+
+        self.answerView.hidden = caller;
+        self.connectingView.hidden = !caller;
         self.callerNameLabel.text = [self.endpoint endpointID];
         
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(closeDirectConnectionView)];
-        [self.navigationController setNavigationBarHidden:YES animated:NO];
+        [self.navigationController setNavigationBarHidden:!caller animated:NO];
         self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     }
@@ -219,6 +230,7 @@
                                     destructiveButtonTitle:nil
                                     otherButtonTitles:  @"Video Call",
                                                         @"Audio Only",
+                                                        self.directConnection ? nil : @"Direct Connection",
                                                         nil];
 
     [methodAlert showInView:self.view];
@@ -240,6 +252,19 @@
         {
             audioOnly = YES;
             [self performSegueWithIdentifier:@"Call" sender:self];
+
+            break;
+        }
+
+        case 2:
+        {
+            ChatTableViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ChatTableViewController"];
+            controller.directConnection = [self.endpoint startDirectConnection];
+            controller.endpoint = self.endpoint;
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+            
+            UIViewController *presenter = [self.navigationController topViewController];
+            [presenter presentViewController:navController animated:YES completion:nil];
 
             break;
         }
@@ -281,12 +306,6 @@
 
 - (IBAction)acceptConnection
 {
-    RespokeCall *call = [self.directConnection getCall];
-    if (call)
-    {
-        call.delegate = self;
-    }
-
     [self.directConnection accept];
     self.connectingView.hidden = NO;
     self.answerView.hidden = YES;

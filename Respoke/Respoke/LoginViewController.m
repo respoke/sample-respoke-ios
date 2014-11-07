@@ -242,7 +242,7 @@
 }
 
 
-- (void)onDirectConnection:(RespokeDirectConnection*)directConnection endpoint:(RespokeEndpoint*)endpoint
+- (void)onIncomingDirectConnection:(RespokeDirectConnection*)directConnection endpoint:(RespokeEndpoint*)endpoint
 {
     // Do nothing
 }
