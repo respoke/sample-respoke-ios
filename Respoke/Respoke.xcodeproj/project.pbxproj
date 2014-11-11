@@ -71,8 +71,8 @@
 		18E944D31993EF9F00C8B142 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944831993EF9F00C8B142 /* SRWebSocket.m */; };
 		18E9A07E1A125DF50094377F /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07C1A125DF50094377F /* switch_camera.png */; };
 		18E9A07F1A125DF50094377F /* switch_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07D1A125DF50094377F /* switch_camera@2x.png */; };
+		18E9A0831A126E080094377F /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E9A0821A126E080094377F /* libRespokeSDK.a */; };
 		18FBD4AA1A02811900AE02B5 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBD4A91A02811900AE02B5 /* libWebRTC.a */; };
-		18FBD4AB1A0282BA00AE02B5 /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E9471F1995369600C8B142 /* libRespokeSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +204,7 @@
 		18E947181995369600C8B142 /* RespokeSDKBuilder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RespokeSDKBuilder.xcodeproj; path = ../RespokeSDKBuilder/RespokeSDKBuilder.xcodeproj; sourceTree = "<group>"; };
 		18E9A07C1A125DF50094377F /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
 		18E9A07D1A125DF50094377F /* switch_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_camera@2x.png"; sourceTree = "<group>"; };
+		18E9A0821A126E080094377F /* libRespokeSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRespokeSDK.a; sourceTree = "<group>"; };
 		18FBD4A91A02811900AE02B5 /* libWebRTC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWebRTC.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,8 +213,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18FBD4AB1A0282BA00AE02B5 /* libRespokeSDK.a in Frameworks */,
 				18C0CF3719FEF5E8003B3B1B /* libc++.dylib in Frameworks */,
+				18E9A0831A126E080094377F /* libRespokeSDK.a in Frameworks */,
 				184B029019709C87000BB925 /* libicucore.dylib in Frameworks */,
 				184B028E19709C66000BB925 /* Security.framework in Frameworks */,
 				184B028C19709C56000BB925 /* CFNetwork.framework in Frameworks */,
@@ -451,6 +452,7 @@
 		18E9467A1995328300C8B142 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				18E9A0821A126E080094377F /* libRespokeSDK.a */,
 				18FBD4A91A02811900AE02B5 /* libWebRTC.a */,
 			);
 			path = libs;
