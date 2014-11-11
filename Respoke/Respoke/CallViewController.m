@@ -12,6 +12,7 @@
 @interface CallViewController () <RespokeCallDelegate> {
     BOOL audioMuted;
     BOOL videoMuted;
+    BOOL usingBackFacingCamera;
 }
 
 @end
@@ -57,6 +58,7 @@
         if (self.audioOnly)
         {
             self.muteVideoButton.hidden = YES;
+            self.switchCameraButton.hidden = YES;
             self.call = [self.endpoint startAudioCallWithDelegate:self];
         }
         else
@@ -131,6 +133,13 @@
         self.muteAudioButton.layer.borderWidth = 0;
         [self.muteAudioButton setImage:[UIImage imageNamed:@"mute_audio.png"] forState:UIControlStateNormal];
     }
+}
+
+
+- (IBAction)toggleCamera
+{
+    [self.call switchVideoSource:usingBackFacingCamera];
+    usingBackFacingCamera = !usingBackFacingCamera;
 }
 
 

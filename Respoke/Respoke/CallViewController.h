@@ -18,6 +18,7 @@
 @property (weak) IBOutlet UIButton *endCallButton;
 @property (weak) IBOutlet UIButton *muteAudioButton;
 @property (weak) IBOutlet UIButton *muteVideoButton;
+@property (weak) IBOutlet UIButton *switchCameraButton;
 @property (weak) IBOutlet UIView *connectingView;
 @property (weak) IBOutlet UIView *answerView;
 @property (weak) IBOutlet UILabel *callerNameLabel;
@@ -30,5 +31,6 @@
 - (IBAction)endCall;
 - (IBAction)muteVideo;
 - (IBAction)muteAudio;
+- (IBAction)toggleCamera;
 
 @end

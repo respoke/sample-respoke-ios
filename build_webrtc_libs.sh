@@ -18,8 +18,8 @@ function wrios() {
 }
 
 function wrios64() {
-  export GYP_GENERATORS="ninja"
-  export GYP_DEFINES="OS=ios target_arch=arm64 target_subarch=arm64 build_neon=0 $GYP_DEFINES"
+  wrbase
+  export GYP_DEFINES="$GYP_DEFINES OS=ios target_arch=arm64 target_subarch=arm64"
   export GYP_GENERATOR_FLAGS="$GYP_GENERATOR_FLAGS output_dir=out_arm64"
   export GYP_CROSSCOMPILE=1
 }
@@ -33,9 +33,16 @@ function buildsim() {
 }
  
 function buildios() {
-  echo "-- building arm webrtc"
+  echo "-- building armv7 webrtc"
   pushd src
   wrios && gclient runhooks && ninja -C out_ios/Release-iphoneos AppRTCDemo
+  popd
+}
+ 
+function buildios64() {
+  echo "-- building arm64 webrtc"
+  pushd src
+  wrios64 && gclient runhooks && ninja -C out_arm64/Release-iphoneos AppRTCDemo
   popd
 }
 
@@ -45,11 +52,13 @@ function move_libs() {
   rm -f ./RespokeSDK/libs/*.a
   cp ./src/talk/app/webrtc/objc/public/*.h ./RespokeSDKBuilder/RespokeSDK/WebRTC/
 
-  libtool -static -o src/out_ios/Release-iphonesimulator/libWebRTC-sim.a src/out_ios/Release-iphonesimulator/*.a
-  strip -S -x -o src/out_ios/Release-iphonesimulator/libWebRTC-sim-min.a -r src/out_ios/Release-iphonesimulator/libWebRTC-sim.a
-  libtool -static -o src/out_ios/Release-iphoneos/libWebRTC-ios.a src/out_ios/Release-iphoneos/*.a
-  strip -S -x -o src/out_ios/Release-iphoneos/libWebRTC-ios-min.a -r src/out_ios/Release-iphoneos/libWebRTC-ios.a
-  lipo -create src/out_ios/Release-iphonesimulator/libWebRTC-sim-min.a src/out_ios/Release-iphoneos/libWebRTC-ios-min.a -output ./RespokeSDK/libs/libWebRTC.a
+  libtool -static -o src/out_ios/libWebRTC-sim.a src/out_ios/Release-iphonesimulator/*.a
+  strip -S -x -o src/out_ios/libWebRTC-sim-min.a -r src/out_ios/libWebRTC-sim.a
+  libtool -static -o src/out_ios/libWebRTC-ios.a src/out_ios/Release-iphoneos/*.a
+  strip -S -x -o src/out_ios/libWebRTC-ios-min.a -r src/out_ios/libWebRTC-ios.a
+  libtool -static -o src/out_arm64/libWebRTC-ios64.a src/out_arm64/Release-iphoneos/*.a
+  strip -S -x -o src/out_arm64/libWebRTC-ios64-min.a -r src/out_arm64/libWebRTC-ios64.a
+  lipo -create src/out_ios/libWebRTC-sim-min.a src/out_ios/libWebRTC-ios-min.a src/out_arm64/libWebRTC-ios64-min.a -output ./RespokeSDK/libs/libWebRTC.a
 }
 
-buildsim || buildios || move_libs
+buildsim && buildios && buildios64 && move_libs

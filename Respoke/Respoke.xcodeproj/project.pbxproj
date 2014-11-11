@@ -69,6 +69,8 @@
 		18E944D11993EF9F00C8B142 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 18E9447D1993EF9F00C8B142 /* base64.c */; };
 		18E944D21993EF9F00C8B142 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944801993EF9F00C8B142 /* NSData+SRB64Additions.m */; };
 		18E944D31993EF9F00C8B142 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944831993EF9F00C8B142 /* SRWebSocket.m */; };
+		18E9A07E1A125DF50094377F /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07C1A125DF50094377F /* switch_camera.png */; };
+		18E9A07F1A125DF50094377F /* switch_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07D1A125DF50094377F /* switch_camera@2x.png */; };
 		18FBD4AA1A02811900AE02B5 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBD4A91A02811900AE02B5 /* libWebRTC.a */; };
 		18FBD4AB1A0282BA00AE02B5 /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E9471F1995369600C8B142 /* libRespokeSDK.a */; };
 /* End PBXBuildFile section */
@@ -200,6 +202,8 @@
 		18E946C71995328300C8B142 /* RespokeEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeEndpoint.h; sourceTree = "<group>"; };
 		18E946C81995328300C8B142 /* RespokeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespokeGroup.h; sourceTree = "<group>"; };
 		18E947181995369600C8B142 /* RespokeSDKBuilder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RespokeSDKBuilder.xcodeproj; path = ../RespokeSDKBuilder/RespokeSDKBuilder.xcodeproj; sourceTree = "<group>"; };
+		18E9A07C1A125DF50094377F /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
+		18E9A07D1A125DF50094377F /* switch_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_camera@2x.png"; sourceTree = "<group>"; };
 		18FBD4A91A02811900AE02B5 /* libWebRTC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWebRTC.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -370,6 +374,8 @@
 				18D4A01D197EA50000F7FC49 /* mute_audio@2x.png */,
 				18D4A01E197EA50000F7FC49 /* mute_video.png */,
 				18D4A01F197EA50000F7FC49 /* mute_video@2x.png */,
+				18E9A07C1A125DF50094377F /* switch_camera.png */,
+				18E9A07D1A125DF50094377F /* switch_camera@2x.png */,
 				18D4A020197EA50000F7FC49 /* unmute_audio.png */,
 				18D4A021197EA50000F7FC49 /* unmute_audio@2x.png */,
 				18D4A022197EA50000F7FC49 /* unmute_video.png */,
@@ -577,6 +583,8 @@
 				18D4A027197EA50000F7FC49 /* mute_video@2x.png in Resources */,
 				184F226219D24497007D5675 /* Launch Screen.xib in Resources */,
 				18D4A02B197EA50000F7FC49 /* unmute_video@2x.png in Resources */,
+				18E9A07E1A125DF50094377F /* switch_camera.png in Resources */,
+				18E9A07F1A125DF50094377F /* switch_camera@2x.png in Resources */,
 				18D4A028197EA50000F7FC49 /* unmute_audio.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
