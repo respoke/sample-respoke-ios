@@ -23,6 +23,7 @@
 		18068989196613F000BDCD26 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18068987196613F000BDCD26 /* InfoPlist.strings */; };
 		1806898B196613F000BDCD26 /* RespokeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806898A196613F000BDCD26 /* RespokeTests.m */; };
 		180689961966EA1100BDCD26 /* logo_respoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 180689951966EA1100BDCD26 /* logo_respoke.png */; };
+		182CC3C71A1510190084E704 /* libRespokeSDKBuilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E9471F1995369600C8B142 /* libRespokeSDKBuilder.a */; };
 		1832379E19749F4D00243EFE /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1832379D19749F4D00243EFE /* ChatTableViewController.m */; };
 		183237A11975808800243EFE /* ConversationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237A01975808800243EFE /* ConversationMessage.m */; };
 		183237A4197580A700243EFE /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237A3197580A700243EFE /* Conversation.m */; };
@@ -71,7 +72,6 @@
 		18E944D31993EF9F00C8B142 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944831993EF9F00C8B142 /* SRWebSocket.m */; };
 		18E9A07E1A125DF50094377F /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07C1A125DF50094377F /* switch_camera.png */; };
 		18E9A07F1A125DF50094377F /* switch_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07D1A125DF50094377F /* switch_camera@2x.png */; };
-		18E9A0831A126E080094377F /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E9A0821A126E080094377F /* libRespokeSDK.a */; };
 		18FBD4AA1A02811900AE02B5 /* libWebRTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBD4A91A02811900AE02B5 /* libWebRTC.a */; };
 /* End PBXBuildFile section */
 
@@ -213,8 +213,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182CC3C71A1510190084E704 /* libRespokeSDKBuilder.a in Frameworks */,
 				18C0CF3719FEF5E8003B3B1B /* libc++.dylib in Frameworks */,
-				18E9A0831A126E080094377F /* libRespokeSDK.a in Frameworks */,
 				184B029019709C87000BB925 /* libicucore.dylib in Frameworks */,
 				184B028E19709C66000BB925 /* Security.framework in Frameworks */,
 				184B028C19709C56000BB925 /* CFNetwork.framework in Frameworks */,
@@ -461,7 +461,7 @@
 		18E947191995369600C8B142 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18E9471F1995369600C8B142 /* libRespokeSDK.a */,
+				18E9471F1995369600C8B142 /* libRespokeSDKBuilder.a */,
 				18E947211995369600C8B142 /* RespokeSDKBuilderTests.xctest */,
 			);
 			name = Products;
@@ -549,7 +549,7 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		18E9471F1995369600C8B142 /* libRespokeSDK.a */ = {
+		18E9471F1995369600C8B142 /* libRespokeSDKBuilder.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRespokeSDKBuilder.a;
