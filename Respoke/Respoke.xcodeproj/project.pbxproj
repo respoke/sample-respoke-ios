@@ -515,6 +515,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Digium, Inc.";
 				TargetAttributes = {
+					18068958196613F000BDCD26 = {
+						DevelopmentTeam = TUJ68F8659;
+					};
 					1806897C196613F000BDCD26 = {
 						TestTargetID = 18068958196613F000BDCD26;
 					};
@@ -549,7 +552,7 @@
 		18E9471F1995369600C8B142 /* libRespokeSDK.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libRespokeSDK.a;
+			path = libRespokeSDKBuilder.a;
 			remoteRef = 18E9471E1995369600C8B142 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -768,6 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
 				INFOPLIST_FILE = "Respoke/Respoke-Info.plist";
@@ -786,6 +790,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
 				INFOPLIST_FILE = "Respoke/Respoke-Info.plist";
@@ -878,6 +883,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
 				INFOPLIST_FILE = "Respoke/Respoke-Info.plist";

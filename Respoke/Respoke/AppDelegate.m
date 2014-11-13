@@ -14,6 +14,16 @@
 {
     self.contactManager = [[ContactManager alloc] init];
 
+    // Enable this application to receive push notifications
+    UIUserNotificationType types = UIUserNotificationTypeBadge |
+                 UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+ 
+    UIUserNotificationSettings *mySettings =
+                [UIUserNotificationSettings settingsForTypes:types categories:nil];
+ 
+    [application registerUserNotificationSettings:mySettings];
+    [application registerForRemoteNotifications];
+
     return YES;
 }
 							
@@ -42,6 +52,16 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+ 
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)token 
+{
+    [[Respoke sharedInstance] registerPushToken:token];
+}
+ 
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
+{
+    NSLog(@"Error in registration. Error: %@", err);
 }
 
 @end
