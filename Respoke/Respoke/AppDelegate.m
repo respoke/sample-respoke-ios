@@ -15,14 +15,19 @@
     self.contactManager = [[ContactManager alloc] init];
 
     // Enable this application to receive push notifications
-    UIUserNotificationType types = UIUserNotificationTypeBadge |
-                 UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
- 
-    UIUserNotificationSettings *mySettings =
-                [UIUserNotificationSettings settingsForTypes:types categories:nil];
- 
-    [application registerUserNotificationSettings:mySettings];
-    [application registerForRemoteNotifications];
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationType types = UIUserNotificationTypeBadge |
+                     UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+     
+        UIUserNotificationSettings *mySettings =
+                    [UIUserNotificationSettings settingsForTypes:types categories:nil];
+     
+        [application registerUserNotificationSettings:mySettings];
+        [application registerForRemoteNotifications];
+    } else {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
 
     return YES;
 }
