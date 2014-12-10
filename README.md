@@ -8,9 +8,9 @@ git clone --recursive git@github.com:Ninjanetic/respoke-ios.git
 
 This repository contains several different parts used to build and test the Respoke SDK:
 
-RespokeSDKBuilder - The source code to the Respoke SDK and an XCode project to build the Respoke SDK library
+RespokeSDK - The source code to the Respoke SDK and an XCode project to build the Respoke SDK library
 
-RespokeSDK - The output directory of the distributable Respoke libraries and public header files. See the readme in this folder for instructions on how to use the Respoke SDK in a third-party application.
+RespokeSDK/RespokeSDK/Public - The output directory of the distributable Respoke libraries and public header files. See the readme in this folder for instructions on how to use the Respoke SDK in a third-party application.
 
 Respoke - A demo iOS application that uses the RespokeSDK to demonstrate video/audio chat and text messaging
 

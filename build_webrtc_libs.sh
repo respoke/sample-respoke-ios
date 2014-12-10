@@ -48,9 +48,9 @@ function buildios64() {
 
 function move_libs() {
   echo "-- moving libraries and headers to the Respoke project"
-  rm -f ./RespokeSDKBuilder/RespokeSDK/WebRTC/*.*
+  rm -f ./RespokeSDK/RespokeSDK/WebRTC/*.*
   rm -f ./RespokeSDK/libs/*.a
-  cp ./src/talk/app/webrtc/objc/public/*.h ./RespokeSDKBuilder/RespokeSDK/WebRTC/
+  cp ./src/talk/app/webrtc/objc/public/*.h ./RespokeSDK/RespokeSDK/WebRTC/
 
   libtool -static -o src/out_ios/libWebRTC-sim.a src/out_ios/Release-iphonesimulator/*.a
   strip -S -x -o src/out_ios/libWebRTC-sim-min.a -r src/out_ios/libWebRTC-sim.a
