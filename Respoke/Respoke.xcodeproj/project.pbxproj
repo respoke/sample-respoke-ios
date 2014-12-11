@@ -61,14 +61,6 @@
 		18D4A029197EA50000F7FC49 /* unmute_audio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A021197EA50000F7FC49 /* unmute_audio@2x.png */; };
 		18D4A02A197EA50000F7FC49 /* unmute_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A022197EA50000F7FC49 /* unmute_video.png */; };
 		18D4A02B197EA50000F7FC49 /* unmute_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A023197EA50000F7FC49 /* unmute_video@2x.png */; };
-		18E944BE1993EF9F00C8B142 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944561993EF9F00C8B142 /* SocketIO.m */; };
-		18E944BF1993EF9F00C8B142 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944581993EF9F00C8B142 /* SocketIOJSONSerialization.m */; };
-		18E944C01993EF9F00C8B142 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E9445A1993EF9F00C8B142 /* SocketIOPacket.m */; };
-		18E944C11993EF9F00C8B142 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E9445D1993EF9F00C8B142 /* SocketIOTransportWebsocket.m */; };
-		18E944C21993EF9F00C8B142 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E9445F1993EF9F00C8B142 /* SocketIOTransportXHR.m */; };
-		18E944D11993EF9F00C8B142 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 18E9447D1993EF9F00C8B142 /* base64.c */; };
-		18E944D21993EF9F00C8B142 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944801993EF9F00C8B142 /* NSData+SRB64Additions.m */; };
-		18E944D31993EF9F00C8B142 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E944831993EF9F00C8B142 /* SRWebSocket.m */; };
 		18E9A07E1A125DF50094377F /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07C1A125DF50094377F /* switch_camera.png */; };
 		18E9A07F1A125DF50094377F /* switch_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07D1A125DF50094377F /* switch_camera@2x.png */; };
 		D42AE9F11A38E16B00B1C9A1 /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D42AE9EF1A38E0AF00B1C9A1 /* libRespokeSDK.a */; };
@@ -177,23 +169,6 @@
 		18D4A021197EA50000F7FC49 /* unmute_audio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unmute_audio@2x.png"; sourceTree = "<group>"; };
 		18D4A022197EA50000F7FC49 /* unmute_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmute_video.png; sourceTree = "<group>"; };
 		18D4A023197EA50000F7FC49 /* unmute_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unmute_video@2x.png"; sourceTree = "<group>"; };
-		18E944551993EF9F00C8B142 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
-		18E944561993EF9F00C8B142 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIO.m; sourceTree = "<group>"; };
-		18E944571993EF9F00C8B142 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOJSONSerialization.h; sourceTree = "<group>"; };
-		18E944581993EF9F00C8B142 /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOJSONSerialization.m; sourceTree = "<group>"; };
-		18E944591993EF9F00C8B142 /* SocketIOPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOPacket.h; sourceTree = "<group>"; };
-		18E9445A1993EF9F00C8B142 /* SocketIOPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOPacket.m; sourceTree = "<group>"; };
-		18E9445B1993EF9F00C8B142 /* SocketIOTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransport.h; sourceTree = "<group>"; };
-		18E9445C1993EF9F00C8B142 /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportWebsocket.h; sourceTree = "<group>"; };
-		18E9445D1993EF9F00C8B142 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
-		18E9445E1993EF9F00C8B142 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportXHR.h; sourceTree = "<group>"; };
-		18E9445F1993EF9F00C8B142 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = "<group>"; };
-		18E9447D1993EF9F00C8B142 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
-		18E9447E1993EF9F00C8B142 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
-		18E9447F1993EF9F00C8B142 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
-		18E944801993EF9F00C8B142 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
-		18E944821993EF9F00C8B142 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
-		18E944831993EF9F00C8B142 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		18E9A07C1A125DF50094377F /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
 		18E9A07D1A125DF50094377F /* switch_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_camera@2x.png"; sourceTree = "<group>"; };
 		D42AE9EF1A38E0AF00B1C9A1 /* libRespokeSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRespokeSDK.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Respoke-avbphwkhhtaudednwxebwnwrgdhr/Build/Products/Debug-iphoneos/libRespokeSDK.a"; sourceTree = "<group>"; };
@@ -326,7 +301,6 @@
 				18068971196613F000BDCD26 /* Main_iPad.storyboard */,
 				1806896E196613F000BDCD26 /* Main_iPhone.storyboard */,
 				18E946791995328300C8B142 /* RespokeSDK */,
-				18E9444E1993EF9F00C8B142 /* socketIOobjc */,
 				18D4A01219796CDA00F7FC49 /* StyledNavigationController.h */,
 				18D4A01319796CDA00F7FC49 /* StyledNavigationController.m */,
 				18068963196613F000BDCD26 /* Supporting Files */,
@@ -384,54 +358,6 @@
 				18D4A023197EA50000F7FC49 /* unmute_video@2x.png */,
 			);
 			path = Images;
-			sourceTree = "<group>";
-		};
-		18E9444E1993EF9F00C8B142 /* socketIOobjc */ = {
-			isa = PBXGroup;
-			children = (
-				18E944551993EF9F00C8B142 /* SocketIO.h */,
-				18E944561993EF9F00C8B142 /* SocketIO.m */,
-				18E944571993EF9F00C8B142 /* SocketIOJSONSerialization.h */,
-				18E944581993EF9F00C8B142 /* SocketIOJSONSerialization.m */,
-				18E944591993EF9F00C8B142 /* SocketIOPacket.h */,
-				18E9445A1993EF9F00C8B142 /* SocketIOPacket.m */,
-				18E9445B1993EF9F00C8B142 /* SocketIOTransport.h */,
-				18E9445C1993EF9F00C8B142 /* SocketIOTransportWebsocket.h */,
-				18E9445D1993EF9F00C8B142 /* SocketIOTransportWebsocket.m */,
-				18E9445E1993EF9F00C8B142 /* SocketIOTransportXHR.h */,
-				18E9445F1993EF9F00C8B142 /* SocketIOTransportXHR.m */,
-				18E9446F1993EF9F00C8B142 /* submodules */,
-			);
-			path = socketIOobjc;
-			sourceTree = SOURCE_ROOT;
-		};
-		18E9446F1993EF9F00C8B142 /* submodules */ = {
-			isa = PBXGroup;
-			children = (
-				18E944711993EF9F00C8B142 /* socket-rocket */,
-			);
-			path = submodules;
-			sourceTree = "<group>";
-		};
-		18E944711993EF9F00C8B142 /* socket-rocket */ = {
-			isa = PBXGroup;
-			children = (
-				18E9447C1993EF9F00C8B142 /* SocketRocket */,
-			);
-			path = "socket-rocket";
-			sourceTree = "<group>";
-		};
-		18E9447C1993EF9F00C8B142 /* SocketRocket */ = {
-			isa = PBXGroup;
-			children = (
-				18E9447D1993EF9F00C8B142 /* base64.c */,
-				18E9447E1993EF9F00C8B142 /* base64.h */,
-				18E9447F1993EF9F00C8B142 /* NSData+SRB64Additions.h */,
-				18E944801993EF9F00C8B142 /* NSData+SRB64Additions.m */,
-				18E944821993EF9F00C8B142 /* SRWebSocket.h */,
-				18E944831993EF9F00C8B142 /* SRWebSocket.m */,
-			);
-			path = SocketRocket;
 			sourceTree = "<group>";
 		};
 		18E946791995328300C8B142 /* RespokeSDK */ = {
@@ -610,7 +536,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18E944D21993EF9F00C8B142 /* NSData+SRB64Additions.m in Sources */,
 				18068976196613F000BDCD26 /* LoginViewController.m in Sources */,
 				184B01CD196D9399000BB925 /* CallViewController.m in Sources */,
 				183237A11975808800243EFE /* ConversationMessage.m in Sources */,
@@ -618,17 +543,10 @@
 				18AFCCAF19A1605E00818468 /* ContactManager.m in Sources */,
 				1832379E19749F4D00243EFE /* ChatTableViewController.m in Sources */,
 				18AFCCAC19A0DF7A00818468 /* GroupListTableViewController.m in Sources */,
-				18E944D11993EF9F00C8B142 /* base64.c in Sources */,
-				18E944BE1993EF9F00C8B142 /* SocketIO.m in Sources */,
 				1806896D196613F000BDCD26 /* AppDelegate.m in Sources */,
 				183237A4197580A700243EFE /* Conversation.m in Sources */,
-				18E944BF1993EF9F00C8B142 /* SocketIOJSONSerialization.m in Sources */,
-				18E944C01993EF9F00C8B142 /* SocketIOPacket.m in Sources */,
-				18E944C21993EF9F00C8B142 /* SocketIOTransportXHR.m in Sources */,
 				184B026E19709284000BB925 /* GroupTableViewController.m in Sources */,
-				18E944C11993EF9F00C8B142 /* SocketIOTransportWebsocket.m in Sources */,
 				18D4A01419796CDA00F7FC49 /* StyledNavigationController.m in Sources */,
-				18E944D31993EF9F00C8B142 /* SRWebSocket.m in Sources */,
 				18068969196613F000BDCD26 /* main.m in Sources */,
 				18AFCCB519A2AB7300818468 /* GroupChatTableViewController.m in Sources */,
 			);

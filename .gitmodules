@@ -1,3 +1,0 @@
-[submodule "Respoke/socketIOobjc"]
-	path = Respoke/socketIOobjc
-	url = https://github.com/pkyeck/socket.IO-objc.git
