@@ -75,27 +75,6 @@
 			remoteGlobalIDString = 18068958196613F000BDCD26;
 			remoteInfo = Respoke;
 		};
-		D42AE9F81A38E31F00B1C9A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D42AE9F21A38E31F00B1C9A1 /* RespokeSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 18E942091993D46E00C8B142;
-			remoteInfo = RespokeSDK;
-		};
-		D42AE9FA1A38E31F00B1C9A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D42AE9F21A38E31F00B1C9A1 /* RespokeSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 18E942191993D46E00C8B142;
-			remoteInfo = RespokeSDKTests;
-		};
-		D42AE9FC1A38E46100B1C9A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D42AE9F21A38E31F00B1C9A1 /* RespokeSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 18E945C419952B2200C8B142;
-			remoteInfo = UniversalLib;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -172,7 +151,6 @@
 		18E9A07C1A125DF50094377F /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
 		18E9A07D1A125DF50094377F /* switch_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_camera@2x.png"; sourceTree = "<group>"; };
 		D42AE9EF1A38E0AF00B1C9A1 /* libRespokeSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRespokeSDK.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Respoke-avbphwkhhtaudednwxebwnwrgdhr/Build/Products/Debug-iphoneos/libRespokeSDK.a"; sourceTree = "<group>"; };
-		D42AE9F21A38E31F00B1C9A1 /* RespokeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RespokeSDK.xcodeproj; path = ../RespokeSDK/RespokeSDK.xcodeproj; sourceTree = "<group>"; };
 		D42AE9FF1A38E54900B1C9A1 /* libwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc.a; sourceTree = "<group>"; };
 		D42AEA001A38E54900B1C9A1 /* Respoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Respoke.h; path = RespokeSDK/Public/Respoke.h; sourceTree = "<group>"; };
 		D42AEA011A38E54900B1C9A1 /* RespokeCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeCall.h; path = RespokeSDK/Public/RespokeCall.h; sourceTree = "<group>"; };
@@ -226,7 +204,6 @@
 		18068950196613F000BDCD26 = {
 			isa = PBXGroup;
 			children = (
-				D42AE9F21A38E31F00B1C9A1 /* RespokeSDK.xcodeproj */,
 				1806895B196613F000BDCD26 /* Frameworks */,
 				184F226119D24497007D5675 /* Launch Screen.xib */,
 				1806895A196613F000BDCD26 /* Products */,
@@ -376,15 +353,6 @@
 			path = ../../RespokeSDK;
 			sourceTree = "<group>";
 		};
-		D42AE9F31A38E31F00B1C9A1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D42AE9F91A38E31F00B1C9A1 /* libRespokeSDK.a */,
-				D42AE9FB1A38E31F00B1C9A1 /* RespokeSDKTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D42AE9FE1A38E54900B1C9A1 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,7 +376,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				D42AE9FD1A38E46100B1C9A1 /* PBXTargetDependency */,
 			);
 			name = Respoke;
 			productName = Respoke;
@@ -461,12 +428,6 @@
 			mainGroup = 18068950196613F000BDCD26;
 			productRefGroup = 1806895A196613F000BDCD26 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D42AE9F31A38E31F00B1C9A1 /* Products */;
-					ProjectRef = D42AE9F21A38E31F00B1C9A1 /* RespokeSDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				18068958196613F000BDCD26 /* Respoke */,
@@ -474,23 +435,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		D42AE9F91A38E31F00B1C9A1 /* libRespokeSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRespokeSDK.a;
-			remoteRef = D42AE9F81A38E31F00B1C9A1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D42AE9FB1A38E31F00B1C9A1 /* RespokeSDKTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RespokeSDKTests.xctest;
-			remoteRef = D42AE9FA1A38E31F00B1C9A1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		18068957196613F000BDCD26 /* Resources */ = {
@@ -567,11 +511,6 @@
 			isa = PBXTargetDependency;
 			target = 18068958196613F000BDCD26 /* Respoke */;
 			targetProxy = 18068982196613F000BDCD26 /* PBXContainerItemProxy */;
-		};
-		D42AE9FD1A38E46100B1C9A1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = UniversalLib;
-			targetProxy = D42AE9FC1A38E46100B1C9A1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
