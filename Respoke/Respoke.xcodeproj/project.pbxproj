@@ -63,8 +63,16 @@
 		18D4A02B197EA50000F7FC49 /* unmute_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A023197EA50000F7FC49 /* unmute_video@2x.png */; };
 		18E9A07E1A125DF50094377F /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07C1A125DF50094377F /* switch_camera.png */; };
 		18E9A07F1A125DF50094377F /* switch_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07D1A125DF50094377F /* switch_camera@2x.png */; };
-		D42AE9F11A38E16B00B1C9A1 /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D42AE9EF1A38E0AF00B1C9A1 /* libRespokeSDK.a */; };
 		D42AEA071A38E54900B1C9A1 /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D42AE9FF1A38E54900B1C9A1 /* libwebrtc.a */; };
+		D4B6D49F1A3A399E005923F3 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3231A3A399C005923F3 /* SocketIO.m */; };
+		D4B6D4A01A3A399E005923F3 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3251A3A399C005923F3 /* SocketIOJSONSerialization.m */; };
+		D4B6D4A11A3A399E005923F3 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3271A3A399C005923F3 /* SocketIOPacket.m */; };
+		D4B6D4A21A3A399E005923F3 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D32A1A3A399C005923F3 /* SocketIOTransportWebsocket.m */; };
+		D4B6D4A31A3A399E005923F3 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D32C1A3A399C005923F3 /* SocketIOTransportXHR.m */; };
+		D4B6D6081A3A3A13005923F3 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D6011A3A3A13005923F3 /* base64.c */; };
+		D4B6D6091A3A3A13005923F3 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D6041A3A3A13005923F3 /* NSData+SRB64Additions.m */; };
+		D4B6D60A1A3A3A13005923F3 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D6071A3A3A13005923F3 /* SRWebSocket.m */; };
+		D4B6D60E1A3A4632005923F3 /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B6D31D1A3A38E2005923F3 /* libRespokeSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +82,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 18068958196613F000BDCD26;
 			remoteInfo = Respoke;
+		};
+		D4B6D31C1A3A38E2005923F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18E942091993D46E00C8B142;
+			remoteInfo = RespokeSDK;
+		};
+		D4B6D31E1A3A38E2005923F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18E942191993D46E00C8B142;
+			remoteInfo = RespokeSDKTests;
+		};
+		D4B6D60B1A3A45AD005923F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 18E945C419952B2200C8B142;
+			remoteInfo = UniversalLib;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -159,6 +188,25 @@
 		D42AEA041A38E54900B1C9A1 /* RespokeDirectConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeDirectConnection.h; path = RespokeSDK/Public/RespokeDirectConnection.h; sourceTree = "<group>"; };
 		D42AEA051A38E54900B1C9A1 /* RespokeEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeEndpoint.h; path = RespokeSDK/Public/RespokeEndpoint.h; sourceTree = "<group>"; };
 		D42AEA061A38E54900B1C9A1 /* RespokeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeGroup.h; path = RespokeSDK/Public/RespokeGroup.h; sourceTree = "<group>"; };
+		D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RespokeSDK.xcodeproj; path = ../RespokeSDK/RespokeSDK.xcodeproj; sourceTree = "<group>"; };
+		D4B6D3221A3A399C005923F3 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIO.h; path = "../../RespokeSDK/socket.IO-objc/SocketIO.h"; sourceTree = "<group>"; };
+		D4B6D3231A3A399C005923F3 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIO.m; path = "../../RespokeSDK/socket.IO-objc/SocketIO.m"; sourceTree = "<group>"; };
+		D4B6D3241A3A399C005923F3 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOJSONSerialization.h; path = "../../RespokeSDK/socket.IO-objc/SocketIOJSONSerialization.h"; sourceTree = "<group>"; };
+		D4B6D3251A3A399C005923F3 /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOJSONSerialization.m; path = "../../RespokeSDK/socket.IO-objc/SocketIOJSONSerialization.m"; sourceTree = "<group>"; };
+		D4B6D3261A3A399C005923F3 /* SocketIOPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOPacket.h; path = "../../RespokeSDK/socket.IO-objc/SocketIOPacket.h"; sourceTree = "<group>"; };
+		D4B6D3271A3A399C005923F3 /* SocketIOPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOPacket.m; path = "../../RespokeSDK/socket.IO-objc/SocketIOPacket.m"; sourceTree = "<group>"; };
+		D4B6D3281A3A399C005923F3 /* SocketIOTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOTransport.h; path = "../../RespokeSDK/socket.IO-objc/SocketIOTransport.h"; sourceTree = "<group>"; };
+		D4B6D3291A3A399C005923F3 /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportWebsocket.h; path = "../../RespokeSDK/socket.IO-objc/SocketIOTransportWebsocket.h"; sourceTree = "<group>"; };
+		D4B6D32A1A3A399C005923F3 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportWebsocket.m; path = "../../RespokeSDK/socket.IO-objc/SocketIOTransportWebsocket.m"; sourceTree = "<group>"; };
+		D4B6D32B1A3A399C005923F3 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportXHR.h; path = "../../RespokeSDK/socket.IO-objc/SocketIOTransportXHR.h"; sourceTree = "<group>"; };
+		D4B6D32C1A3A399C005923F3 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportXHR.m; path = "../../RespokeSDK/socket.IO-objc/SocketIOTransportXHR.m"; sourceTree = "<group>"; };
+		D4B6D6011A3A3A13005923F3 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		D4B6D6021A3A3A13005923F3 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		D4B6D6031A3A3A13005923F3 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		D4B6D6041A3A3A13005923F3 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		D4B6D6051A3A3A13005923F3 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		D4B6D6061A3A3A13005923F3 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		D4B6D6071A3A3A13005923F3 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D42AE9F11A38E16B00B1C9A1 /* libRespokeSDK.a in Frameworks */,
+				D4B6D60E1A3A4632005923F3 /* libRespokeSDK.a in Frameworks */,
 				18C0CF3719FEF5E8003B3B1B /* libc++.dylib in Frameworks */,
 				184B029019709C87000BB925 /* libicucore.dylib in Frameworks */,
 				184B028E19709C66000BB925 /* Security.framework in Frameworks */,
@@ -204,6 +252,7 @@
 		18068950196613F000BDCD26 = {
 			isa = PBXGroup;
 			children = (
+				D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */,
 				1806895B196613F000BDCD26 /* Frameworks */,
 				184F226119D24497007D5675 /* Launch Screen.xib */,
 				1806895A196613F000BDCD26 /* Products */,
@@ -251,6 +300,7 @@
 		18068962196613F000BDCD26 /* Respoke */ = {
 			isa = PBXGroup;
 			children = (
+				D4B6D3211A3A396B005923F3 /* Socket.IO */,
 				1806896B196613F000BDCD26 /* AppDelegate.h */,
 				1806896C196613F000BDCD26 /* AppDelegate.m */,
 				184B01CB196D9399000BB925 /* CallViewController.h */,
@@ -362,6 +412,49 @@
 			path = RespokeSDK/Public/libs;
 			sourceTree = "<group>";
 		};
+		D4B6D3171A3A38E2005923F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4B6D31D1A3A38E2005923F3 /* libRespokeSDK.a */,
+				D4B6D31F1A3A38E2005923F3 /* RespokeSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4B6D3211A3A396B005923F3 /* Socket.IO */ = {
+			isa = PBXGroup;
+			children = (
+				D4B6D6001A3A3A13005923F3 /* SocketRocket */,
+				D4B6D3221A3A399C005923F3 /* SocketIO.h */,
+				D4B6D3231A3A399C005923F3 /* SocketIO.m */,
+				D4B6D3241A3A399C005923F3 /* SocketIOJSONSerialization.h */,
+				D4B6D3251A3A399C005923F3 /* SocketIOJSONSerialization.m */,
+				D4B6D3261A3A399C005923F3 /* SocketIOPacket.h */,
+				D4B6D3271A3A399C005923F3 /* SocketIOPacket.m */,
+				D4B6D3281A3A399C005923F3 /* SocketIOTransport.h */,
+				D4B6D3291A3A399C005923F3 /* SocketIOTransportWebsocket.h */,
+				D4B6D32A1A3A399C005923F3 /* SocketIOTransportWebsocket.m */,
+				D4B6D32B1A3A399C005923F3 /* SocketIOTransportXHR.h */,
+				D4B6D32C1A3A399C005923F3 /* SocketIOTransportXHR.m */,
+			);
+			name = Socket.IO;
+			sourceTree = "<group>";
+		};
+		D4B6D6001A3A3A13005923F3 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				D4B6D6011A3A3A13005923F3 /* base64.c */,
+				D4B6D6021A3A3A13005923F3 /* base64.h */,
+				D4B6D6031A3A3A13005923F3 /* NSData+SRB64Additions.h */,
+				D4B6D6041A3A3A13005923F3 /* NSData+SRB64Additions.m */,
+				D4B6D6051A3A3A13005923F3 /* SocketRocket-Prefix.pch */,
+				D4B6D6061A3A3A13005923F3 /* SRWebSocket.h */,
+				D4B6D6071A3A3A13005923F3 /* SRWebSocket.m */,
+			);
+			name = SocketRocket;
+			path = "../../RespokeSDK/socket.IO-objc/submodules/socket-rocket/SocketRocket";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -376,6 +469,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D4B6D60C1A3A45AD005923F3 /* PBXTargetDependency */,
 			);
 			name = Respoke;
 			productName = Respoke;
@@ -428,6 +522,12 @@
 			mainGroup = 18068950196613F000BDCD26;
 			productRefGroup = 1806895A196613F000BDCD26 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D4B6D3171A3A38E2005923F3 /* Products */;
+					ProjectRef = D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				18068958196613F000BDCD26 /* Respoke */,
@@ -435,6 +535,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D4B6D31D1A3A38E2005923F3 /* libRespokeSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRespokeSDK.a;
+			remoteRef = D4B6D31C1A3A38E2005923F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D4B6D31F1A3A38E2005923F3 /* RespokeSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RespokeSDKTests.xctest;
+			remoteRef = D4B6D31E1A3A38E2005923F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		18068957196613F000BDCD26 /* Resources */ = {
@@ -480,10 +597,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B6D6091A3A3A13005923F3 /* NSData+SRB64Additions.m in Sources */,
 				18068976196613F000BDCD26 /* LoginViewController.m in Sources */,
 				184B01CD196D9399000BB925 /* CallViewController.m in Sources */,
+				D4B6D4A01A3A399E005923F3 /* SocketIOJSONSerialization.m in Sources */,
 				183237A11975808800243EFE /* ConversationMessage.m in Sources */,
+				D4B6D4A11A3A399E005923F3 /* SocketIOPacket.m in Sources */,
 				18AFCCB219A23BD900818468 /* JoinGroupViewController.m in Sources */,
+				D4B6D6081A3A3A13005923F3 /* base64.c in Sources */,
+				D4B6D49F1A3A399E005923F3 /* SocketIO.m in Sources */,
 				18AFCCAF19A1605E00818468 /* ContactManager.m in Sources */,
 				1832379E19749F4D00243EFE /* ChatTableViewController.m in Sources */,
 				18AFCCAC19A0DF7A00818468 /* GroupListTableViewController.m in Sources */,
@@ -493,6 +615,9 @@
 				18D4A01419796CDA00F7FC49 /* StyledNavigationController.m in Sources */,
 				18068969196613F000BDCD26 /* main.m in Sources */,
 				18AFCCB519A2AB7300818468 /* GroupChatTableViewController.m in Sources */,
+				D4B6D60A1A3A3A13005923F3 /* SRWebSocket.m in Sources */,
+				D4B6D4A21A3A399E005923F3 /* SocketIOTransportWebsocket.m in Sources */,
+				D4B6D4A31A3A399E005923F3 /* SocketIOTransportXHR.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +636,11 @@
 			isa = PBXTargetDependency;
 			target = 18068958196613F000BDCD26 /* Respoke */;
 			targetProxy = 18068982196613F000BDCD26 /* PBXContainerItemProxy */;
+		};
+		D4B6D60C1A3A45AD005923F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UniversalLib;
+			targetProxy = D4B6D60B1A3A45AD005923F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
