@@ -7,8 +7,5 @@
 /chromium_deps/
 /.gclient_entries
 /depot_tools/
-RespokeSDK/libs/libRespokeSDK.a
-RespokeSDKBuilder/build/
-RespokeSDKBuilder/RespokeSDKBuilder.xcodeproj/project.xcworkspace/xcuserdata/
-RespokeSDKBuilder/RespokeSDKBuilder.xcodeproj/xcuserdata
 Respoke/Respoke.xcodeproj/project.xcworkspace/xcshareddata
+Respoke.xcworkspace/xcuserdata
