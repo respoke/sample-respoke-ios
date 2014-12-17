@@ -54,7 +54,7 @@
 
             joinInProgress = YES;
 
-            [sharedContactManager joinGroup:self.groupTextField.text successHandler:^(){
+            [sharedContactManager joinGroups:@[self.groupTextField.text] successHandler:^(){
                 self.activityIndicator.hidden = YES;
                 [self.joinButton setTitle:@"Join" forState:UIControlStateNormal];
                 

@@ -32,51 +32,55 @@
 }
 
 
-- (void)joinGroup:(NSString*)groupName successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler
+- (void)joinGroups:(NSArray*)groupNames successHandler:(void (^)(void))successHandler errorHandler:(void (^)(NSString*))errorHandler
 {
-    [sharedRespokeClient joinGroup:groupName successHandler:^(RespokeGroup *group) {
-        // Become the delegate for this group
-        group.delegate = self;
-        [self.groups addObject:group];
+    [sharedRespokeClient joinGroups:groupNames successHandler:^(NSArray *groups) {
 
-        [group getMembersWithSuccessHandler:^(NSArray *memberList) {
-            // Establish the connection and endpoint tracking arrays for this group
-            [self.groupConnectionArrays setObject:[memberList mutableCopy] forKey:groupName];
+        for (RespokeGroup *group in groups)
+        {
+            // Become the delegate for this group
+            group.delegate = self;
+            [self.groups addObject:group];
 
-            NSMutableArray *groupEndpoints = [NSMutableArray array];
-            [self.groupEndpointArrays setObject:groupEndpoints forKey:groupName];
+            [group getMembersWithSuccessHandler:^(NSArray *memberList) {
+                // Establish the connection and endpoint tracking arrays for this group
+                [self.groupConnectionArrays setObject:[memberList mutableCopy] forKey:[group getGroupID]];
 
-            // Start tracking the conversation with this group
-            Conversation *conversation = [[Conversation alloc] initWithName:groupName];
-            [self.groupConversations setObject:conversation forKey:groupName];
+                NSMutableArray *groupEndpoints = [NSMutableArray array];
+                [self.groupEndpointArrays setObject:groupEndpoints forKey:[group getGroupID]];
 
-            // Evaluate each connection in the new group
-            for (RespokeConnection *each in memberList)
-            {
-                // Find the endpoint to which the connection belongs
-                RespokeEndpoint *parentEndpoint = [each getEndpoint];
+                // Start tracking the conversation with this group
+                Conversation *conversation = [[Conversation alloc] initWithName:[group getGroupID]];
+                [self.groupConversations setObject:conversation forKey:[group getGroupID]];
 
-                [self trackEndpoint:parentEndpoint];
-
-                // If this endpoint is not known in this specific group, remember it
-                if (NSNotFound == [groupEndpoints indexOfObject:parentEndpoint])
+                // Evaluate each connection in the new group
+                for (RespokeConnection *each in memberList)
                 {
-                    [groupEndpoints addObject:parentEndpoint];
+                    // Find the endpoint to which the connection belongs
+                    RespokeEndpoint *parentEndpoint = [each getEndpoint];
+
+                    [self trackEndpoint:parentEndpoint];
+
+                    // If this endpoint is not known in this specific group, remember it
+                    if (NSNotFound == [groupEndpoints indexOfObject:parentEndpoint])
+                    {
+                        [groupEndpoints addObject:parentEndpoint];
+                    }
                 }
-            }
 
-            // Notify any UI listeners that group membership has changed
-            [[NSNotificationCenter defaultCenter] postNotificationName:GROUP_MEMBERSHIP_CHANGED object:group userInfo:nil];
+                // Notify any UI listeners that group membership has changed
+                [[NSNotificationCenter defaultCenter] postNotificationName:GROUP_MEMBERSHIP_CHANGED object:group userInfo:nil];
 
-            for (RespokeEndpoint *eachEndpoint in groupEndpoints)
-            {
-                [eachEndpoint registerPresenceWithSuccessHandler:nil errorHandler:nil];
-            }
+                for (RespokeEndpoint *eachEndpoint in groupEndpoints)
+                {
+                    [eachEndpoint registerPresenceWithSuccessHandler:nil errorHandler:nil];
+                }
 
-            successHandler();
-        } errorHandler:^(NSString *errorMessage) {
-            errorHandler(errorMessage);
-        }];
+                successHandler();
+            } errorHandler:^(NSString *errorMessage) {
+                errorHandler(errorMessage);
+            }];
+        }
     } errorHandler:^(NSString *errorMessage) {
         errorHandler(errorMessage);
     }];

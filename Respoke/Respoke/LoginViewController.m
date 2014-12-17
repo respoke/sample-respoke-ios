@@ -214,7 +214,7 @@
     
     sharedContactManager.username = [sender getEndpointID];
     
-    [sharedContactManager joinGroup:groupName successHandler:^(){
+    [sharedContactManager joinGroups:@[groupName] successHandler:^(){
         self.activityIndicator.hidden = YES;
         [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
         
