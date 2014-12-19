@@ -86,8 +86,8 @@
         }
         else
         {
-            NSString *appID = @"2b446810-6d92-4fa4-826a-2eabced82d60";
-            
+            NSString *appID = @"57ac5f3a-0513-40b5-ba42-b80939e69436"; // integration
+
             if ([self.appIDTextField.text length])
             {
                 appID = self.appIDTextField.text;
@@ -214,7 +214,7 @@
     
     sharedContactManager.username = [sender getEndpointID];
     
-    [sharedContactManager joinGroup:groupName successHandler:^(){
+    [sharedContactManager joinGroups:@[groupName] successHandler:^(){
         self.activityIndicator.hidden = YES;
         [self.connectButton setTitle:@"Connect" forState:UIControlStateNormal];
         

@@ -174,20 +174,10 @@
 
 - (void)rejoinGroups
 {
-    NSString *nextGroupID = [groupsToJoin objectAtIndex:0];
-    [groupsToJoin removeObjectAtIndex:0];
-    
-    [sharedContactManager joinGroup:nextGroupID successHandler:^(){
-        if ([groupsToJoin count])
-        {
-            [self rejoinGroups];
-        }
-        else
-        {
-            groupsToJoin = nil;
-        }
+    [sharedContactManager joinGroups:groupsToJoin successHandler:^(){
+        groupsToJoin = nil;
     } errorHandler:^(NSString *errorMessage){
-        NSLog(@"---ERROR rejoining group %@: %@", nextGroupID, errorMessage);
+        NSLog(@"---ERROR rejoining groups: %@", errorMessage);
     }];
 }
 
