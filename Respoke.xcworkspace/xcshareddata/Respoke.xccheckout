@@ -24,7 +24,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>14F6686CB62C38D15756BEE16C4690BA1A66CB88</key>
-		<string>../RespokeSDK/</string>
+		<string>../RespokeSDK</string>
 		<key>43AC92FD7017ECDE18489EEA6AD2FD795E158D7E</key>
 		<string>..Respoke/socketIOobjc</string>
 		<key>A4DB131B153FB1D0EF4EC090C0247B31FB895829</key>
