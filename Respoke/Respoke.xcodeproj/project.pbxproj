@@ -63,7 +63,9 @@
 		18D4A02B197EA50000F7FC49 /* unmute_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D4A023197EA50000F7FC49 /* unmute_video@2x.png */; };
 		18E9A07E1A125DF50094377F /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07C1A125DF50094377F /* switch_camera.png */; };
 		18E9A07F1A125DF50094377F /* switch_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07D1A125DF50094377F /* switch_camera@2x.png */; };
+		220CCC7209147B0768CB76C5 /* libPods-RespokeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF92BE8AC9E4E11C542FF6F /* libPods-RespokeTests.a */; };
 		D42AEA071A38E54900B1C9A1 /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D42AE9FF1A38E54900B1C9A1 /* libwebrtc.a */; };
+		D48F6D6E1A7858D200D59572 /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D48F6D6D1A7858D200D59572 /* libRespokeSDK.a */; };
 		D4B6D49F1A3A399E005923F3 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3231A3A399C005923F3 /* SocketIO.m */; };
 		D4B6D4A01A3A399E005923F3 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3251A3A399C005923F3 /* SocketIOJSONSerialization.m */; };
 		D4B6D4A11A3A399E005923F3 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3271A3A399C005923F3 /* SocketIOPacket.m */; };
@@ -72,7 +74,6 @@
 		D4B6D6081A3A3A13005923F3 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D6011A3A3A13005923F3 /* base64.c */; };
 		D4B6D6091A3A3A13005923F3 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D6041A3A3A13005923F3 /* NSData+SRB64Additions.m */; };
 		D4B6D60A1A3A3A13005923F3 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D6071A3A3A13005923F3 /* SRWebSocket.m */; };
-		D4B6D60E1A3A4632005923F3 /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B6D31D1A3A38E2005923F3 /* libRespokeSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,27 +83,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 18068958196613F000BDCD26;
 			remoteInfo = Respoke;
-		};
-		D4B6D31C1A3A38E2005923F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 18E942091993D46E00C8B142;
-			remoteInfo = RespokeSDK;
-		};
-		D4B6D31E1A3A38E2005923F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 18E942191993D46E00C8B142;
-			remoteInfo = RespokeSDKTests;
-		};
-		D4B6D60B1A3A45AD005923F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 18E945C419952B2200C8B142;
-			remoteInfo = UniversalLib;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -179,6 +159,8 @@
 		18D4A023197EA50000F7FC49 /* unmute_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unmute_video@2x.png"; sourceTree = "<group>"; };
 		18E9A07C1A125DF50094377F /* switch_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_camera.png; sourceTree = "<group>"; };
 		18E9A07D1A125DF50094377F /* switch_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_camera@2x.png"; sourceTree = "<group>"; };
+		6F98023BB2CFE474EADCF20F /* Pods-RespokeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespokeTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RespokeTests/Pods-RespokeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7DF92BE8AC9E4E11C542FF6F /* libPods-RespokeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RespokeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42AE9EF1A38E0AF00B1C9A1 /* libRespokeSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRespokeSDK.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Respoke-avbphwkhhtaudednwxebwnwrgdhr/Build/Products/Debug-iphoneos/libRespokeSDK.a"; sourceTree = "<group>"; };
 		D42AE9FF1A38E54900B1C9A1 /* libwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc.a; sourceTree = "<group>"; };
 		D42AEA001A38E54900B1C9A1 /* Respoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Respoke.h; path = RespokeSDK/Public/Respoke.h; sourceTree = "<group>"; };
@@ -189,7 +171,7 @@
 		D42AEA051A38E54900B1C9A1 /* RespokeEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeEndpoint.h; path = RespokeSDK/Public/RespokeEndpoint.h; sourceTree = "<group>"; };
 		D42AEA061A38E54900B1C9A1 /* RespokeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeGroup.h; path = RespokeSDK/Public/RespokeGroup.h; sourceTree = "<group>"; };
 		D46B55021A69F7C600544267 /* RespokeMediaStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeMediaStats.h; path = RespokeSDK/Public/RespokeMediaStats.h; sourceTree = "<group>"; };
-		D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RespokeSDK.xcodeproj; path = ../RespokeSDK/RespokeSDK.xcodeproj; sourceTree = "<group>"; };
+		D48F6D6D1A7858D200D59572 /* libRespokeSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRespokeSDK.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Respoke-djojeejgieruhegekrdemjykozdv/Build/Products/Debug-iphoneos/libRespokeSDK.a"; sourceTree = "<group>"; };
 		D4B6D3221A3A399C005923F3 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIO.h; path = "../../RespokeSDK/socket.IO-objc/SocketIO.h"; sourceTree = "<group>"; };
 		D4B6D3231A3A399C005923F3 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIO.m; path = "../../RespokeSDK/socket.IO-objc/SocketIO.m"; sourceTree = "<group>"; };
 		D4B6D3241A3A399C005923F3 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOJSONSerialization.h; path = "../../RespokeSDK/socket.IO-objc/SocketIOJSONSerialization.h"; sourceTree = "<group>"; };
@@ -208,6 +190,8 @@
 		D4B6D6051A3A3A13005923F3 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		D4B6D6061A3A3A13005923F3 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		D4B6D6071A3A3A13005923F3 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		DE253A40BAA709886447DDD2 /* Pods-RespokeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespokeTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RespokeTests/Pods-RespokeTests.release.xcconfig"; sourceTree = "<group>"; };
+		FFFFB9A4925A9661315E85EC /* Pods-RespokeTests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespokeTests.distribution.xcconfig"; path = "../Pods/Target Support Files/Pods-RespokeTests/Pods-RespokeTests.distribution.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B6D60E1A3A4632005923F3 /* libRespokeSDK.a in Frameworks */,
+				D48F6D6E1A7858D200D59572 /* libRespokeSDK.a in Frameworks */,
 				18C0CF3719FEF5E8003B3B1B /* libc++.dylib in Frameworks */,
 				184B029019709C87000BB925 /* libicucore.dylib in Frameworks */,
 				184B028E19709C66000BB925 /* Security.framework in Frameworks */,
@@ -244,6 +228,7 @@
 				1806897F196613F000BDCD26 /* XCTest.framework in Frameworks */,
 				18068981196613F000BDCD26 /* UIKit.framework in Frameworks */,
 				18068980196613F000BDCD26 /* Foundation.framework in Frameworks */,
+				220CCC7209147B0768CB76C5 /* libPods-RespokeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,12 +238,12 @@
 		18068950196613F000BDCD26 = {
 			isa = PBXGroup;
 			children = (
-				D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */,
 				1806895B196613F000BDCD26 /* Frameworks */,
 				184F226119D24497007D5675 /* Launch Screen.xib */,
 				1806895A196613F000BDCD26 /* Products */,
 				18068962196613F000BDCD26 /* Respoke */,
 				18068984196613F000BDCD26 /* RespokeTests */,
+				F37F8216877736E41F84601A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,6 +259,7 @@
 		1806895B196613F000BDCD26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D48F6D6D1A7858D200D59572 /* libRespokeSDK.a */,
 				D42AE9EF1A38E0AF00B1C9A1 /* libRespokeSDK.a */,
 				18C0CF3619FEF5E8003B3B1B /* libc++.dylib */,
 				184B028F19709C87000BB925 /* libicucore.dylib */,
@@ -294,6 +280,7 @@
 				1806895E196613F000BDCD26 /* CoreGraphics.framework */,
 				18068960196613F000BDCD26 /* UIKit.framework */,
 				1806897E196613F000BDCD26 /* XCTest.framework */,
+				7DF92BE8AC9E4E11C542FF6F /* libPods-RespokeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -414,15 +401,6 @@
 			path = RespokeSDK/Public/libs;
 			sourceTree = "<group>";
 		};
-		D4B6D3171A3A38E2005923F3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D4B6D31D1A3A38E2005923F3 /* libRespokeSDK.a */,
-				D4B6D31F1A3A38E2005923F3 /* RespokeSDKTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D4B6D3211A3A396B005923F3 /* Socket.IO */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +435,16 @@
 			path = "../../RespokeSDK/socket.IO-objc/submodules/socket-rocket/SocketRocket";
 			sourceTree = "<group>";
 		};
+		F37F8216877736E41F84601A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F98023BB2CFE474EADCF20F /* Pods-RespokeTests.debug.xcconfig */,
+				DE253A40BAA709886447DDD2 /* Pods-RespokeTests.release.xcconfig */,
+				FFFFB9A4925A9661315E85EC /* Pods-RespokeTests.distribution.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,7 +459,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				D4B6D60C1A3A45AD005923F3 /* PBXTargetDependency */,
 			);
 			name = Respoke;
 			productName = Respoke;
@@ -482,9 +469,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18068991196613F000BDCD26 /* Build configuration list for PBXNativeTarget "RespokeTests" */;
 			buildPhases = (
+				EA60831F25F8D69B10607638 /* Check Pods Manifest.lock */,
 				18068979196613F000BDCD26 /* Sources */,
 				1806897A196613F000BDCD26 /* Frameworks */,
 				1806897B196613F000BDCD26 /* Resources */,
+				B92956EA0C1D5AD7D72206C7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -524,12 +513,6 @@
 			mainGroup = 18068950196613F000BDCD26;
 			productRefGroup = 1806895A196613F000BDCD26 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D4B6D3171A3A38E2005923F3 /* Products */;
-					ProjectRef = D4B6D3161A3A38E2005923F3 /* RespokeSDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				18068958196613F000BDCD26 /* Respoke */,
@@ -537,23 +520,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		D4B6D31D1A3A38E2005923F3 /* libRespokeSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRespokeSDK.a;
-			remoteRef = D4B6D31C1A3A38E2005923F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D4B6D31F1A3A38E2005923F3 /* RespokeSDKTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RespokeSDKTests.xctest;
-			remoteRef = D4B6D31E1A3A38E2005923F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		18068957196613F000BDCD26 /* Resources */ = {
@@ -593,6 +559,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B92956EA0C1D5AD7D72206C7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RespokeTests/Pods-RespokeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA60831F25F8D69B10607638 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		18068955196613F000BDCD26 /* Sources */ = {
@@ -638,11 +637,6 @@
 			isa = PBXTargetDependency;
 			target = 18068958196613F000BDCD26 /* Respoke */;
 			targetProxy = 18068982196613F000BDCD26 /* PBXContainerItemProxy */;
-		};
-		D4B6D60C1A3A45AD005923F3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = UniversalLib;
-			targetProxy = D4B6D60B1A3A45AD005923F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -769,6 +763,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)SDK",
 					"$(PROJECT_DIR)SDK/RespokeSDK/Public/libs",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Respoke-djojeejgieruhegekrdemjykozdv/Build/Products/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -788,6 +783,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)SDK",
 					"$(PROJECT_DIR)SDK/RespokeSDK/Public/libs",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Respoke-djojeejgieruhegekrdemjykozdv/Build/Products/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -796,6 +792,7 @@
 		};
 		18068992196613F000BDCD26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F98023BB2CFE474EADCF20F /* Pods-RespokeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Respoke.app/Respoke";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -818,6 +815,7 @@
 		};
 		18068993196613F000BDCD26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE253A40BAA709886447DDD2 /* Pods-RespokeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Respoke.app/Respoke";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -881,6 +879,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)SDK",
 					"$(PROJECT_DIR)SDK/RespokeSDK/Public/libs",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Respoke-djojeejgieruhegekrdemjykozdv/Build/Products/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -889,6 +888,7 @@
 		};
 		18D4A02E197F00A400F7FC49 /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFFFB9A4925A9661315E85EC /* Pods-RespokeTests.distribution.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Respoke.app/Respoke";
 				FRAMEWORK_SEARCH_PATHS = (

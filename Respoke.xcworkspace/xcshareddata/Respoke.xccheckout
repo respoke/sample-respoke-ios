@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>999D77D5-D286-4C82-9382-EAB3E54E0CAB</string>
+	<string>8E67F2CD-5B0D-454C-B728-BE699EE1A628</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Respoke</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -13,9 +13,9 @@
 		<key>14F6686CB62C38D15756BEE16C4690BA1A66CB88</key>
 		<string>https://stash.digium.com/stash/scm/scl/respoke-sdk-ios.git</string>
 		<key>43AC92FD7017ECDE18489EEA6AD2FD795E158D7E</key>
-		<string>https://github.com/pkyeck/socket.IO-objc.git</string>
+		<string>https://github.com/pkyeck/socket.IO-objc</string>
 		<key>A4DB131B153FB1D0EF4EC090C0247B31FB895829</key>
-		<string>https://github.com/Ninjanetic/respoke-ios.git</string>
+		<string>https://stash.digium.com/stash/scm/sa/respoke-ios.git</string>
 		<key>ABB939127996C66F7E852A780552ADEEF03C6B13</key>
 		<string>https://github.com/square/SocketRocket.git</string>
 	</dict>
@@ -24,16 +24,16 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>14F6686CB62C38D15756BEE16C4690BA1A66CB88</key>
-		<string>../RespokeSDK</string>
+		<string>..RespokeSDK</string>
 		<key>43AC92FD7017ECDE18489EEA6AD2FD795E158D7E</key>
-		<string>..Respoke/socketIOobjc</string>
+		<string>..RespokeSDK/socket.IO-objc</string>
 		<key>A4DB131B153FB1D0EF4EC090C0247B31FB895829</key>
 		<string>..</string>
 		<key>ABB939127996C66F7E852A780552ADEEF03C6B13</key>
-		<string>..Respoke/socketIOobjc/submodules/socket-rocket</string>
+		<string>..RespokeSDK/socket.IO-objc/submodules/socket-rocket</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Ninjanetic/respoke-ios.git</string>
+	<string>https://stash.digium.com/stash/scm/sa/respoke-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -54,7 +54,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>14F6686CB62C38D15756BEE16C4690BA1A66CB88</string>
 			<key>IDESourceControlWCCName</key>
-			<string>RespokeSDK</string>
+			<string>respoke-iosRespokeSDK</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -70,7 +70,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>43AC92FD7017ECDE18489EEA6AD2FD795E158D7E</string>
 			<key>IDESourceControlWCCName</key>
-			<string>socketIOobjc</string>
+			<string>socket.IO-objc</string>
 		</dict>
 	</array>
 </dict>
