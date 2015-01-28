@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:Respoke/Respoke.xcodeproj">
+      location = "group:Respoke/Respoke.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RespokeSDK/RespokeSDK.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
