@@ -21,7 +21,6 @@
 		18068980196613F000BDCD26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1806895C196613F000BDCD26 /* Foundation.framework */; };
 		18068981196613F000BDCD26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18068960196613F000BDCD26 /* UIKit.framework */; };
 		18068989196613F000BDCD26 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18068987196613F000BDCD26 /* InfoPlist.strings */; };
-		1806898B196613F000BDCD26 /* RespokeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1806898A196613F000BDCD26 /* RespokeTests.m */; };
 		180689961966EA1100BDCD26 /* logo_respoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 180689951966EA1100BDCD26 /* logo_respoke.png */; };
 		1832379E19749F4D00243EFE /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1832379D19749F4D00243EFE /* ChatTableViewController.m */; };
 		183237A11975808800243EFE /* ConversationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 183237A01975808800243EFE /* ConversationMessage.m */; };
@@ -65,6 +64,9 @@
 		18E9A07F1A125DF50094377F /* switch_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07D1A125DF50094377F /* switch_camera@2x.png */; };
 		220CCC7209147B0768CB76C5 /* libPods-RespokeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF92BE8AC9E4E11C542FF6F /* libPods-RespokeTests.a */; };
 		D42AEA071A38E54900B1C9A1 /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D42AE9FF1A38E54900B1C9A1 /* libwebrtc.a */; };
+		D45DE6131A7861CC0002AF53 /* LoginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE6121A7861CC0002AF53 /* LoginTests.m */; };
+		D45DE6161A7869DD0002AF53 /* KIFUITestActor+Respoke.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE6151A7869DD0002AF53 /* KIFUITestActor+Respoke.m */; };
+		D4729F211A79997300B79D40 /* GroupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4729F201A79997300B79D40 /* GroupTests.m */; };
 		D48F6D6E1A7858D200D59572 /* libRespokeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D48F6D6D1A7858D200D59572 /* libRespokeSDK.a */; };
 		D4B6D49F1A3A399E005923F3 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3231A3A399C005923F3 /* SocketIO.m */; };
 		D4B6D4A01A3A399E005923F3 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3251A3A399C005923F3 /* SocketIOJSONSerialization.m */; };
@@ -106,7 +108,6 @@
 		1806897E196613F000BDCD26 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		18068986196613F000BDCD26 /* RespokeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RespokeTests-Info.plist"; sourceTree = "<group>"; };
 		18068988196613F000BDCD26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1806898A196613F000BDCD26 /* RespokeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RespokeTests.m; sourceTree = "<group>"; };
 		180689951966EA1100BDCD26 /* logo_respoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_respoke.png; sourceTree = "<group>"; };
 		1832379C19749F4D00243EFE /* ChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewController.h; sourceTree = "<group>"; };
 		1832379D19749F4D00243EFE /* ChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewController.m; sourceTree = "<group>"; };
@@ -170,7 +171,11 @@
 		D42AEA041A38E54900B1C9A1 /* RespokeDirectConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeDirectConnection.h; path = RespokeSDK/Public/RespokeDirectConnection.h; sourceTree = "<group>"; };
 		D42AEA051A38E54900B1C9A1 /* RespokeEndpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeEndpoint.h; path = RespokeSDK/Public/RespokeEndpoint.h; sourceTree = "<group>"; };
 		D42AEA061A38E54900B1C9A1 /* RespokeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeGroup.h; path = RespokeSDK/Public/RespokeGroup.h; sourceTree = "<group>"; };
+		D45DE6121A7861CC0002AF53 /* LoginTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTests.m; sourceTree = "<group>"; };
+		D45DE6141A7869DD0002AF53 /* KIFUITestActor+Respoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIFUITestActor+Respoke.h"; sourceTree = "<group>"; };
+		D45DE6151A7869DD0002AF53 /* KIFUITestActor+Respoke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIFUITestActor+Respoke.m"; sourceTree = "<group>"; };
 		D46B55021A69F7C600544267 /* RespokeMediaStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeMediaStats.h; path = RespokeSDK/Public/RespokeMediaStats.h; sourceTree = "<group>"; };
+		D4729F201A79997300B79D40 /* GroupTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTests.m; sourceTree = "<group>"; };
 		D48F6D6D1A7858D200D59572 /* libRespokeSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRespokeSDK.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Respoke-djojeejgieruhegekrdemjykozdv/Build/Products/Debug-iphoneos/libRespokeSDK.a"; sourceTree = "<group>"; };
 		D4B6D3221A3A399C005923F3 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIO.h; path = "../../RespokeSDK/socket.IO-objc/SocketIO.h"; sourceTree = "<group>"; };
 		D4B6D3231A3A399C005923F3 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIO.m; path = "../../RespokeSDK/socket.IO-objc/SocketIO.m"; sourceTree = "<group>"; };
@@ -337,7 +342,10 @@
 		18068984196613F000BDCD26 /* RespokeTests */ = {
 			isa = PBXGroup;
 			children = (
-				1806898A196613F000BDCD26 /* RespokeTests.m */,
+				D45DE6121A7861CC0002AF53 /* LoginTests.m */,
+				D4729F201A79997300B79D40 /* GroupTests.m */,
+				D45DE6141A7869DD0002AF53 /* KIFUITestActor+Respoke.h */,
+				D45DE6151A7869DD0002AF53 /* KIFUITestActor+Respoke.m */,
 				18068985196613F000BDCD26 /* Supporting Files */,
 			);
 			path = RespokeTests;
@@ -626,7 +634,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1806898B196613F000BDCD26 /* RespokeTests.m in Sources */,
+				D45DE6161A7869DD0002AF53 /* KIFUITestActor+Respoke.m in Sources */,
+				D45DE6131A7861CC0002AF53 /* LoginTests.m in Sources */,
+				D4729F211A79997300B79D40 /* GroupTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

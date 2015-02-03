@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -30,6 +30,7 @@
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Endpoint ID" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TIq-m5-1Ho">
                                         <rect key="frame" x="64" y="123" width="189" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Endpoint ID"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="189" id="M1h-N1-ppJ"/>
                                             <constraint firstAttribute="height" constant="30" id="MAP-TF-3gG"/>
@@ -42,6 +43,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional Group" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="STS-t9-9KR">
                                         <rect key="frame" x="65" y="155" width="189" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Optional Group"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="189" id="I3F-di-4O0"/>
                                             <constraint firstAttribute="height" constant="30" id="gzY-XK-ZI9"/>
@@ -55,6 +57,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNb-Up-99p">
                                         <rect key="frame" x="65" y="212" width="189" height="34"/>
                                         <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" label="Connect"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="Yw3-bb-JRH"/>
                                             <constraint firstAttribute="width" constant="189" id="wMI-Eo-9fU"/>
@@ -73,6 +76,7 @@
                                     </activityIndicatorView>
                                     <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dB-pX-onw">
                                         <rect key="frame" x="0.0" y="188" width="318" height="21"/>
+                                        <accessibility key="accessibilityConfiguration" label="Error"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="iqI-vg-WOZ"/>
                                             <constraint firstAttribute="width" constant="318" id="oNW-ma-gTE"/>
@@ -83,6 +87,7 @@
                                     </label>
                                     <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqI-7Z-3vl">
                                         <rect key="frame" x="84" y="260" width="150" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Change App ID"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="kqr-sA-M4L"/>
                                             <constraint firstAttribute="width" constant="150" id="tWS-8m-pi9"/>
@@ -97,6 +102,7 @@
                                     </button>
                                     <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Optional App ID" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6MN-Bj-nkN">
                                         <rect key="frame" x="64" y="260" width="189" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Optional App ID"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="189" id="PzT-O3-cm3"/>
                                             <constraint firstAttribute="height" constant="30" id="ZPi-nQ-Bjy"/>
@@ -109,6 +115,7 @@
                                     </textField>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6zM-Qa-uNm">
                                         <rect key="frame" x="204" y="81" width="51" height="31"/>
+                                        <accessibility key="accessibilityConfiguration" label="Use Brokered Authentication"/>
                                         <connections>
                                             <action selector="brokeredSwitchAction" destination="BYZ-38-t0r" eventType="valueChanged" id="kGg-K3-9xC"/>
                                         </connections>
@@ -502,7 +509,7 @@
             </objects>
             <point key="canvasLocation" x="4086" y="-191"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Group List-->
         <scene sceneID="aHY-z2-zUY">
             <objects>
                 <tableViewController id="GUD-dE-Uoi" customClass="GroupListTableViewController" sceneMemberID="viewController">
@@ -516,6 +523,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTO-Sa-fn7">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="40"/>
+                                    <accessibility key="accessibilityConfiguration" label="Change Status"/>
                                     <state key="normal" title="Your Status: available">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -614,18 +622,27 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Groups and Endpoints"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="GUD-dE-Uoi" id="1qP-ba-B0u"/>
                             <outlet property="delegate" destination="GUD-dE-Uoi" id="lUO-Xk-oog"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="tDK-TJ-Fnb">
+                    <navigationItem key="navigationItem" title="Group List" id="tDK-TJ-Fnb">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="jms-s3-rwe">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Log Out"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="logoutAction" destination="GUD-dE-Uoi" id="zf4-5F-BNH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Join" id="arr-M8-19S">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Join Group"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <segue destination="URS-6j-or7" kind="modal" identifier="JoinGroup" id="MMn-Ex-8tN"/>
                             </connections>
@@ -945,6 +962,9 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Group"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="NAt-Nh-iep" id="xiO-7K-mQM"/>
                             <outlet property="delegate" destination="NAt-Nh-iep" id="yc3-IF-cjj"/>
@@ -952,6 +972,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="M7r-z7-aWf">
                         <barButtonItem key="rightBarButtonItem" title="Leave" id="Df0-zd-sqh">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Leave Group"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="leaveAction" destination="NAt-Nh-iep" id="ctG-1X-qOp"/>
                             </connections>
@@ -1006,6 +1029,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHu-DG-m8B">
                                         <rect key="frame" x="98" y="168" width="189" height="30"/>
                                         <color key="backgroundColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" label="Join"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="1c6-DJ-e2j"/>
                                             <constraint firstAttribute="height" constant="30" id="ghn-hV-bxB"/>
@@ -1033,6 +1057,7 @@
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kE7-Q7-HtK">
                                         <rect key="frame" x="20" y="101" width="344" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Group Name"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="xIF-BJ-FIn"/>
                                         </constraints>
@@ -1063,6 +1088,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" label="Join a Group"/>
                         <constraints>
                             <constraint firstItem="chT-x8-dwV" firstAttribute="top" secondItem="BZe-iZ-Afn" secondAttribute="bottom" id="GiL-y5-aER"/>
                             <constraint firstAttribute="centerX" secondItem="chT-x8-dwV" secondAttribute="centerX" id="Zfb-4K-oGx"/>
@@ -1263,6 +1289,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BPw-v5-3DU"/>
+        <segue reference="Blw-eH-fm8"/>
     </inferredMetricsTieBreakers>
 </document>
