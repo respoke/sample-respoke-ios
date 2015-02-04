@@ -7,6 +7,5 @@
 /chromium_deps/
 /.gclient_entries
 /depot_tools/
-Respoke/Respoke.xcodeproj/project.xcworkspace/xcshareddata
 Respoke.xcworkspace/xcuserdata
 Pods/Pods.xcodeproj/xcuserdata
