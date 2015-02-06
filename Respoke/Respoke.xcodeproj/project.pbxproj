@@ -77,6 +77,7 @@
 		D4B6D6081A3A3A13005923F3 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D6011A3A3A13005923F3 /* base64.c */; };
 		D4B6D6091A3A3A13005923F3 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D6041A3A3A13005923F3 /* NSData+SRB64Additions.m */; };
 		D4B6D60A1A3A3A13005923F3 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D6071A3A3A13005923F3 /* SRWebSocket.m */; };
+		D4F2D5E01A854F1D006F38F8 /* CallingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F2D5DF1A854F1D006F38F8 /* CallingTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 		D4B6D6051A3A3A13005923F3 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		D4B6D6061A3A3A13005923F3 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		D4B6D6071A3A3A13005923F3 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		D4F2D5DF1A854F1D006F38F8 /* CallingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallingTests.m; sourceTree = "<group>"; };
 		DE253A40BAA709886447DDD2 /* Pods-RespokeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespokeTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RespokeTests/Pods-RespokeTests.release.xcconfig"; sourceTree = "<group>"; };
 		FFFFB9A4925A9661315E85EC /* Pods-RespokeTests.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespokeTests.distribution.xcconfig"; path = "../Pods/Target Support Files/Pods-RespokeTests/Pods-RespokeTests.distribution.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -347,6 +349,7 @@
 				D45DE6121A7861CC0002AF53 /* LoginTests.m */,
 				D4729F201A79997300B79D40 /* GroupTests.m */,
 				D42993121A8194CE00794B1E /* EndpointTests.m */,
+				D4F2D5DF1A854F1D006F38F8 /* CallingTests.m */,
 				D45DE6141A7869DD0002AF53 /* KIFUITestActor+Respoke.h */,
 				D45DE6151A7869DD0002AF53 /* KIFUITestActor+Respoke.m */,
 				18068985196613F000BDCD26 /* Supporting Files */,
@@ -639,6 +642,7 @@
 			files = (
 				D45DE6161A7869DD0002AF53 /* KIFUITestActor+Respoke.m in Sources */,
 				D45DE6131A7861CC0002AF53 /* LoginTests.m in Sources */,
+				D4F2D5E01A854F1D006F38F8 /* CallingTests.m in Sources */,
 				D42993131A8194CE00794B1E /* EndpointTests.m in Sources */,
 				D4729F211A79997300B79D40 /* GroupTests.m in Sources */,
 			);
