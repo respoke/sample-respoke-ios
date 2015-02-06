@@ -73,9 +73,13 @@
         self.activityIndicator.hidden = NO;
         self.errorLabel.hidden = YES;
         [self.connectButton setTitle:@"" forState:UIControlStateNormal];
-        
-        // Create a Respoke client instance to be used for the duration of the application
-        sharedRespokeClient = [[Respoke sharedInstance] createClient];
+
+        // Hook for testing. Don't create the client if the test framework has already done so.
+        if (!sharedRespokeClient)
+        {
+            // Create a Respoke client instance to be used for the duration of the application
+            sharedRespokeClient = [[Respoke sharedInstance] createClient];
+        }
         sharedRespokeClient.delegate = self;
 
         if (self.brokeredSwitch.on)

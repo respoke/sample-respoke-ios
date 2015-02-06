@@ -98,38 +98,7 @@
 }
 
 
-- (void)testStatusChanges
-{
-    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_GROUP appID:nil];
-
-    // verify status changes
-    UIButton *statusButton = (UIButton *) [tester waitForViewWithAccessibilityLabel:GROUP_LIST_STATUS_BUTTON];
-    [self setStatus:@"chat" statusButton:statusButton];
-    [self setStatus:@"available" statusButton:statusButton];
-    [self setStatus:@"away" statusButton:statusButton];
-    [self setStatus:@"dnd" statusButton:statusButton];
-    [self setStatus:@"unavailable" statusButton:statusButton];
-
-    // verify that status doesn't change if we cancel
-    [tester tapViewWithAccessibilityLabel:GROUP_LIST_STATUS_BUTTON];
-    [tester tapViewWithAccessibilityLabel:@"Cancel"];
-    XCTAssertTrue([statusButton.titleLabel.text hasSuffix:@"unavailable"],
-                  @"Status should contain 'unavailable'");
-
-    [tester logout];
-}
-
-
 #pragma mark - Helper Methods
-
-
-- (void)setStatus:(NSString *)status statusButton:(UIButton *)statusButton
-{
-    [tester tapViewWithAccessibilityLabel:GROUP_LIST_STATUS_BUTTON];
-    [tester tapViewWithAccessibilityLabel:status];
-    XCTAssertTrue([statusButton.titleLabel.text hasSuffix:status],
-                  @"Status should contain '%@'", status);
-}
 
 
 @end

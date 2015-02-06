@@ -43,6 +43,9 @@
     
     self.textItem.width = 244 + self.view.frame.size.width - 320;
 
+    self.textField.accessibilityLabel = @"Message";
+    self.textItem.accessibilityLabel = @"Send";
+
     if (self.directConnection)
     {
         self.directConnection.delegate = self;

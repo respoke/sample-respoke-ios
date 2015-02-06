@@ -9,6 +9,20 @@
 #import <KIF/KIF.h>
 
 
+// TestBot constants
+#define TEST_BOT_ENDPOINT_ID            @"testbot"
+#define TEST_BOT_GROUP_ID               @"robots are taking over"
+#define TEST_BOT_HELLO_MESSAGE          @"Hi testbot!"
+#define TEST_BOT_HELLO_REPLY            @"Hey pal!"
+#define TEST_BOT_PRESENCE_DND_MESSAGE   @"You still there, dude?"
+#define TEST_BOT_PRESENCE_DND           @"dnd"
+#define TEST_BOT_PRESENCE_AVAIL_MESSAGE @"This is important, we need to talk."
+#define TEST_BOT_PRESENCE_AVAIL         @"available"
+#define TEST_BOT_CALL_ME_AUDIO_MESSAGE  @"Testbot! Call me sometime! Or now!"
+#define TEST_BOT_CALL_ME_VIDEO_MESSAGE  @"Testbot! Video call me sometime! Or now!"
+#define TEST_BOT_HANGUP_MESSAGE         @"Hang up dude. I'm done talking."
+
+
 // LoginViewController accessibility labels
 #define LOGIN_ENDPOINT_ID_TEXTFIELD @"Endpoint ID"
 #define LOGIN_GROUP_TEXTFIELD       @"Optional Group"
@@ -35,6 +49,29 @@
 // GroupTableViewController accessibility labels
 #define GROUP_TABLE_VIEW            @"Group"
 #define GROUP_LEAVE_BUTTON          @"Leave Group"
+
+
+// ChatTableViewController accessibility labels
+#define CHAT_TABLE_VIEW_SEND_BUTTON         @"Send"
+#define CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD   @"Message"
+#define CHAT_TABLE_VIEW_BACK_BUTTON         @"Back"
+#define CHAT_TABLE_VIEW_CALL_BUTTON         @"Call"
+#define CHAT_TABLE_VIEW_AUDIO_CALL_BUTTON   @"Audio Only"
+#define CHAT_TABLE_VIEW_VIDEO_CALL_BUTTON   @"Video Call"
+
+
+// CallViewController accessibility labels
+#define CALL_VIEW_MUTE_AUDIO_BUTTON         @"Mute Audio"
+#define CALL_VIEW_UNMUTE_AUDIO_BUTTON       @"Unmute Audio"
+#define CALL_VIEW_MUTE_VIDEO_BUTTON         @"Mute Video"
+#define CALL_VIEW_UNMUTE_VIDEO_BUTTON       @"Unmute Video"
+#define CALL_VIEW_END_CALL_BUTTON           @"End"
+#define CALL_VIEW_ANSWER_BUTTON             @"Answer"
+#define CALL_VIEW_IGNORE_BUTTON             @"Ignore"
+#define CALL_VIEW_LOCAL_VIDEO_VIEW          @"Local Video"
+#define CALL_VIEW_REMOTE_VIDEO_VIEW         @"Remote Video"
+#define CALL_VIEW_SWITCH_CAMERA_BUTTON      @"Switch Camera"
+#define CALL_VIEW_STATUS_INDICATOR          @"Connecting"
 
 
 @interface KIFUITestActor (Respoke)

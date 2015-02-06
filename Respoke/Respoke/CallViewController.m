@@ -29,9 +29,11 @@
     self.muteAudioButton.layer.cornerRadius = 32.0;
     self.muteAudioButton.layer.borderWidth = 0;
     self.muteAudioButton.layer.borderColor = [UIColor redColor].CGColor;
+    self.muteAudioButton.accessibilityLabel = @"Mute Audio";
     self.muteVideoButton.layer.cornerRadius = 32.0;
     self.muteVideoButton.layer.borderWidth = 0;
     self.muteVideoButton.layer.borderColor = [UIColor redColor].CGColor;
+    self.muteVideoButton.accessibilityLabel = @"Mute Video";
 
     if (self.call)
     {
@@ -66,6 +68,9 @@
             self.call = [self.endpoint startVideoCallWithDelegate:self remoteVideoView:self.remoteView localVideoView:self.localView];
         }
     }
+    self.remoteView.accessibilityLabel = @"Remote Video";
+    self.localView.accessibilityLabel = @"Local Video";
+    self.switchCameraButton.accessibilityLabel = @"Switch Camera";
 }
 
 
@@ -85,7 +90,7 @@
 - (IBAction)ignoreCall
 {
     [self.call hangup:YES];
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -94,7 +99,7 @@
     self.remoteView.hidden = YES;
     self.localView.hidden = YES;
     [self.call hangup:YES];
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -109,11 +114,13 @@
     {
         self.muteVideoButton.layer.borderWidth = 4.0;
         [self.muteVideoButton setImage:[UIImage imageNamed:@"unmute_video.png"] forState:UIControlStateNormal];
+        self.muteVideoButton.accessibilityLabel = @"Unmute Video";
     }
     else
     {
         self.muteVideoButton.layer.borderWidth = 0;
         [self.muteVideoButton setImage:[UIImage imageNamed:@"mute_video.png"] forState:UIControlStateNormal];
+        self.muteVideoButton.accessibilityLabel = @"Mute Video";
     }
 }
 
@@ -127,11 +134,13 @@
     {
         self.muteAudioButton.layer.borderWidth = 4.0;
         [self.muteAudioButton setImage:[UIImage imageNamed:@"unmute_audio.png"] forState:UIControlStateNormal];
+        self.muteAudioButton.accessibilityLabel = @"Unmute Audio";
     }
     else
     {
         self.muteAudioButton.layer.borderWidth = 0;
         [self.muteAudioButton setImage:[UIImage imageNamed:@"mute_audio.png"] forState:UIControlStateNormal];
+        self.muteAudioButton.accessibilityLabel = @"Mute Audio";
     }
 }
 

@@ -63,6 +63,7 @@
 		18E9A07E1A125DF50094377F /* switch_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07C1A125DF50094377F /* switch_camera.png */; };
 		18E9A07F1A125DF50094377F /* switch_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E9A07D1A125DF50094377F /* switch_camera@2x.png */; };
 		220CCC7209147B0768CB76C5 /* libPods-RespokeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF92BE8AC9E4E11C542FF6F /* libPods-RespokeTests.a */; };
+		D42993131A8194CE00794B1E /* EndpointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D42993121A8194CE00794B1E /* EndpointTests.m */; };
 		D42AEA071A38E54900B1C9A1 /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D42AE9FF1A38E54900B1C9A1 /* libwebrtc.a */; };
 		D45DE6131A7861CC0002AF53 /* LoginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE6121A7861CC0002AF53 /* LoginTests.m */; };
 		D45DE6161A7869DD0002AF53 /* KIFUITestActor+Respoke.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE6151A7869DD0002AF53 /* KIFUITestActor+Respoke.m */; };
@@ -162,6 +163,7 @@
 		18E9A07D1A125DF50094377F /* switch_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_camera@2x.png"; sourceTree = "<group>"; };
 		6F98023BB2CFE474EADCF20F /* Pods-RespokeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespokeTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RespokeTests/Pods-RespokeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7DF92BE8AC9E4E11C542FF6F /* libPods-RespokeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RespokeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D42993121A8194CE00794B1E /* EndpointTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndpointTests.m; sourceTree = "<group>"; };
 		D42AE9EF1A38E0AF00B1C9A1 /* libRespokeSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRespokeSDK.a; path = "../../../../../Library/Developer/Xcode/DerivedData/Respoke-avbphwkhhtaudednwxebwnwrgdhr/Build/Products/Debug-iphoneos/libRespokeSDK.a"; sourceTree = "<group>"; };
 		D42AE9FF1A38E54900B1C9A1 /* libwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc.a; sourceTree = "<group>"; };
 		D42AEA001A38E54900B1C9A1 /* Respoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Respoke.h; path = RespokeSDK/Public/Respoke.h; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 			children = (
 				D45DE6121A7861CC0002AF53 /* LoginTests.m */,
 				D4729F201A79997300B79D40 /* GroupTests.m */,
+				D42993121A8194CE00794B1E /* EndpointTests.m */,
 				D45DE6141A7869DD0002AF53 /* KIFUITestActor+Respoke.h */,
 				D45DE6151A7869DD0002AF53 /* KIFUITestActor+Respoke.m */,
 				18068985196613F000BDCD26 /* Supporting Files */,
@@ -636,6 +639,7 @@
 			files = (
 				D45DE6161A7869DD0002AF53 /* KIFUITestActor+Respoke.m in Sources */,
 				D45DE6131A7861CC0002AF53 /* LoginTests.m in Sources */,
+				D42993131A8194CE00794B1E /* EndpointTests.m in Sources */,
 				D4729F211A79997300B79D40 /* GroupTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -816,6 +820,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/KIF\"",
+					"\"$(PROJECT_DIR)SDK/RespokeSDK\"",
+				);
 				INFOPLIST_FILE = "RespokeTests/RespokeTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -835,6 +844,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/KIF\"",
+					"\"$(PROJECT_DIR)SDK/RespokeSDK\"",
+				);
 				INFOPLIST_FILE = "RespokeTests/RespokeTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -908,6 +922,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/KIF\"",
+					"\"$(PROJECT_DIR)SDK/RespokeSDK\"",
+				);
 				INFOPLIST_FILE = "RespokeTests/RespokeTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

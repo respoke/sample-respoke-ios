@@ -7,26 +7,30 @@
 //
 
 #import "KIFUITestActor+Respoke.h"
+#import "AppDelegate.h"
+#import "RespokeClient+private.h"
 
 
 @implementation KIFUITestActor (Respoke)
 
 
-#define LAST_APP_ID_KEY @"LAST_APP_ID_KEY"
-
+#define LAST_APP_ID_KEY         @"LAST_APP_ID_KEY"
+#define RESPOKE_TEST_BASE_URL   @"https://api-int.respoke.io"
 
 - (void)initializeLoginScreen
 {
+    // This is a workaround to clear out any appIDs that may have been saved in user defaults
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        // This is a workaround to clear out any appIDs that may have been saved in user defaults
-        NSString *lastAppID = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_APP_ID_KEY];
-        if (lastAppID)
-        {
-            // show the app id text field
-            [tester tapViewWithAccessibilityLabel:LOGIN_CHANGE_APP_ID_BUTTON];
-        }
+        // show the app id text field
+        [tester tapViewWithAccessibilityLabel:LOGIN_CHANGE_APP_ID_BUTTON];
+
+        // clear out all text
         [self resetLoginScreen];
+
+        // use the intergration server for testing
+        sharedRespokeClient = [[Respoke sharedInstance] createClient];
+        [sharedRespokeClient setBaseURL:RESPOKE_TEST_BASE_URL];
     });
 
     // hit change app id button

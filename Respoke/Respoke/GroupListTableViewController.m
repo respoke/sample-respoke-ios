@@ -223,6 +223,7 @@
         RespokeGroup *group = [sharedContactManager.groups objectAtIndex:indexPath.row];
         NSString *groupName = [group getGroupID];
         label.text = groupName;
+        cell.accessibilityLabel = groupName;
         Conversation *conversation = [sharedContactManager.groupConversations objectForKey:groupName];
 
         if (conversation.unreadCount > 0)
@@ -248,6 +249,7 @@
         Conversation *conversation = [sharedContactManager.conversations objectForKey:endpoint.endpointID];
 
         label.text = endpoint.endpointID;
+        cell.accessibilityLabel = endpoint.endpointID;
         
         NSObject *presence = [endpoint getPresence];
         
@@ -259,6 +261,7 @@
         {
             presenceLabel.text = @"";
         }
+        presenceLabel.accessibilityLabel = presenceLabel.text;
 
         if (conversation.unreadCount > 0)
         {
