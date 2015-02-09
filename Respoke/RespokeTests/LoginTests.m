@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 
 
-#define TEST_ENDPOINT       @"test endpoint"
 #define TEST_GROUP          @"test group"
 #define TEST_APP_ID         @"57ac5f3a-0513-40b5-ba42-b80939e69436"
 #define TEST_BAD_APP_ID     @"bad app id"

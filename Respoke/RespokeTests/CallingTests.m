@@ -23,7 +23,7 @@
 - (void)beforeAll
 {
     [tester initializeLoginScreen];
-    [tester loginEndpoint:@"testdevice" groupName:TEST_BOT_GROUP_ID appID:nil];
+    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_BOT_GROUP_ID appID:nil];
 }
 
 
@@ -43,10 +43,10 @@
     [tester tapViewWithAccessibilityLabel:TEST_BOT_ENDPOINT_ID];
 
     // hit "call" bar button item
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_CALL_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_CALL_BUTTON];
 
     // hit "audio only" button
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_AUDIO_CALL_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_AUDIO_CALL_BUTTON];
 
     // wait for status indicator to disappear
     [tester waitForAbsenceOfViewWithAccessibilityLabel:CALL_VIEW_STATUS_INDICATOR];
@@ -64,10 +64,10 @@
     [tester tapViewWithAccessibilityLabel:CALL_VIEW_END_CALL_BUTTON];
 
     // verify we navigate back to chat view
-    [tester waitForViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester waitForViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // hit back bar button item to navigate back to group list
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_BACK_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_BACK_BUTTON];
 
     // verify we navigate to group list
     [tester waitForViewWithAccessibilityLabel:GROUP_LIST_TABLE_VIEW];
@@ -80,10 +80,10 @@
     [tester tapViewWithAccessibilityLabel:TEST_BOT_ENDPOINT_ID];
 
     // enter "call me" message into textbox
-    [tester enterText:TEST_BOT_CALL_ME_AUDIO_MESSAGE intoViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester enterText:TEST_BOT_CALL_ME_AUDIO_MESSAGE intoViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // click send to request audio call
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_SEND_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_SEND_BUTTON];
 
     // click answer button
     [tester tapViewWithAccessibilityLabel:CALL_VIEW_ANSWER_BUTTON];
@@ -95,10 +95,10 @@
     [tester tapViewWithAccessibilityLabel:CALL_VIEW_END_CALL_BUTTON];
 
     // verify we navigate back to chat view
-    [tester waitForViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester waitForViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // hit back bar button item to navigate back to group list
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_BACK_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_BACK_BUTTON];
 
     // verify we navigate to group list
     [tester waitForViewWithAccessibilityLabel:GROUP_LIST_TABLE_VIEW];
@@ -111,19 +111,19 @@
     [tester tapViewWithAccessibilityLabel:TEST_BOT_ENDPOINT_ID];
 
     // enter message in textbox to request audio call
-    [tester enterText:TEST_BOT_CALL_ME_AUDIO_MESSAGE intoViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester enterText:TEST_BOT_CALL_ME_AUDIO_MESSAGE intoViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // click send
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_SEND_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_SEND_BUTTON];
 
     // click the ignore button
     [tester tapViewWithAccessibilityLabel:CALL_VIEW_IGNORE_BUTTON];
 
     // verify we navigate back to chat view
-    [tester waitForViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester waitForViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // hit back bar button item to navigate back to group list
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_BACK_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_BACK_BUTTON];
 
     // verify we navigate to group list
     [tester waitForViewWithAccessibilityLabel:GROUP_LIST_TABLE_VIEW];
@@ -136,10 +136,10 @@
     [tester tapViewWithAccessibilityLabel:TEST_BOT_ENDPOINT_ID];
 
     // hit "call" bar button item
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_CALL_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_CALL_BUTTON];
 
     // hit "video call" button
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_VIDEO_CALL_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_VIDEO_CALL_BUTTON];
 
     // wait for status indicator to disappear
     [tester waitForAbsenceOfViewWithAccessibilityLabel:CALL_VIEW_STATUS_INDICATOR];
@@ -180,10 +180,10 @@
     [tester tapViewWithAccessibilityLabel:CALL_VIEW_END_CALL_BUTTON];
 
     // verify we navigate back to chat view
-    [tester waitForViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester waitForViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // hit back bar button item to navigate back to group list
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_BACK_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_BACK_BUTTON];
 
     // verify we navigate to group list
     [tester waitForViewWithAccessibilityLabel:GROUP_LIST_TABLE_VIEW];
@@ -196,10 +196,10 @@
     [tester tapViewWithAccessibilityLabel:TEST_BOT_ENDPOINT_ID];
 
     // enter "call me" message into textbox
-    [tester enterText:TEST_BOT_CALL_ME_VIDEO_MESSAGE intoViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester enterText:TEST_BOT_CALL_ME_VIDEO_MESSAGE intoViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // click send to request video call
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_SEND_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_SEND_BUTTON];
 
     // click answer button
     [tester tapViewWithAccessibilityLabel:CALL_VIEW_ANSWER_BUTTON];
@@ -217,10 +217,10 @@
     [tester tapViewWithAccessibilityLabel:CALL_VIEW_END_CALL_BUTTON];
 
     // verify we navigate back to chat view
-    [tester waitForViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester waitForViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // hit back bar button item to navigate back to group list
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_BACK_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_BACK_BUTTON];
     
     // verify we navigate to group list
     [tester waitForViewWithAccessibilityLabel:GROUP_LIST_TABLE_VIEW];

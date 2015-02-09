@@ -23,7 +23,7 @@
 - (void)beforeAll
 {
     [tester initializeLoginScreen];
-    [tester loginEndpoint:@"testdevice" groupName:TEST_BOT_GROUP_ID appID:nil];
+    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_BOT_GROUP_ID appID:nil];
 }
 
 
@@ -43,16 +43,16 @@
     [tester tapViewWithAccessibilityLabel:TEST_BOT_ENDPOINT_ID];
 
     // enter message in textbox
-    [tester enterText:TEST_BOT_HELLO_MESSAGE intoViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester enterText:TEST_BOT_HELLO_MESSAGE intoViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // click send
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_SEND_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_SEND_BUTTON];
 
     // verify reply received
     [tester waitForViewWithAccessibilityLabel:TEST_BOT_HELLO_REPLY];
 
     // hit back bar button item navigate back
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_BACK_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_BACK_BUTTON];
 
     // verify we navigate to group list
     [tester waitForViewWithAccessibilityLabel:GROUP_LIST_TABLE_VIEW];
@@ -65,13 +65,13 @@
     [tester tapViewWithAccessibilityLabel:TEST_BOT_ENDPOINT_ID];
 
     // enter message in textbox
-    [tester enterText:TEST_BOT_PRESENCE_DND_MESSAGE intoViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester enterText:TEST_BOT_PRESENCE_DND_MESSAGE intoViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // click send to tell testbot to change status to "dnd"
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_SEND_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_SEND_BUTTON];
 
     // hit back bar button item navigate back
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_BACK_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_BACK_BUTTON];
 
     // verify testbot changed status to "dnd"
     [tester waitForViewWithAccessibilityLabel:@"dnd"];
@@ -80,13 +80,13 @@
     [tester tapViewWithAccessibilityLabel:TEST_BOT_ENDPOINT_ID];
 
     // enter message in textbox
-    [tester enterText:TEST_BOT_PRESENCE_AVAIL_MESSAGE intoViewWithAccessibilityLabel:CHAT_TABLE_VIEW_MESSAGE_TEXTFIELD];
+    [tester enterText:TEST_BOT_PRESENCE_AVAIL_MESSAGE intoViewWithAccessibilityLabel:CHAT_MESSAGE_TEXTFIELD];
 
     // click send to tell testbot to change status to "available"
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_SEND_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_SEND_BUTTON];
 
     // hit back bar button item navigate back
-    [tester tapViewWithAccessibilityLabel:CHAT_TABLE_VIEW_BACK_BUTTON];
+    [tester tapViewWithAccessibilityLabel:CHAT_BACK_BUTTON];
 
     // verify testbot changed status to "available"
     [tester waitForViewWithAccessibilityLabel:@"available"];

@@ -40,8 +40,7 @@
     // set the initial status for this client
     [self setStatus:@"available"];
 
-    // we need this for UI testing
-    self.tableView.accessibilityIdentifier = self.tableView.accessibilityLabel;
+    self.tableView.accessibilityLabel = @"Group List";
 }
 
 
