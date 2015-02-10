@@ -47,6 +47,12 @@
             
             self.callerNameLabel.text = @"Unknown Caller";
         }
+
+        if (self.call.audioOnly)
+        {
+            self.muteVideoButton.hidden = YES;
+            self.switchCameraButton.hidden = YES;
+        }
         
         self.answerView.hidden = NO;
         self.call.delegate = self;
