@@ -25,7 +25,7 @@
 #define TEST_BOT_PRESENCE_AVAIL_MESSAGE     @"This is important, we need to talk."
 #define TEST_BOT_PRESENCE_AVAIL             @"available"
 #define TEST_BOT_CALL_ME_AUDIO_MESSAGE      @"Testbot! Call me sometime! Or now!"
-#define TEST_BOT_CALL_ME_VIDEO_MESSAGE      @"Testbot! Video call me sometime! Or now!"
+#define TEST_BOT_CALL_ME_VIDEO_MESSAGE      @"Testbot! Call me using video!"
 #define TEST_BOT_HANGUP_MESSAGE             @"Hang up dude. I'm done talking."
 
 
