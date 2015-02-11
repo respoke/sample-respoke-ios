@@ -13,6 +13,7 @@
     BOOL audioMuted;
     BOOL videoMuted;
     BOOL usingBackFacingCamera;
+    BOOL dismissed;
 }
 
 @end
@@ -96,7 +97,11 @@
 - (IBAction)ignoreCall
 {
     [self.call hangup:YES];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    if (!dismissed)
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        dismissed = YES;
+    }
 }
 
 
@@ -105,7 +110,11 @@
     self.remoteView.hidden = YES;
     self.localView.hidden = YES;
     [self.call hangup:YES];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    if (!dismissed)
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        dismissed = YES;
+    }
 }
 
 
@@ -175,7 +184,11 @@
 
 - (void)onHangup:(RespokeCall*)sender
 {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    if (!dismissed)
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        dismissed = YES;
+    }
 }
 
 

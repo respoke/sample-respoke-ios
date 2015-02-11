@@ -17,6 +17,7 @@
     UITableViewCell *remotePrototype;
     UITableViewCell *localPrototype;
     BOOL audioOnly;
+    BOOL dismissed;
     Conversation *conversation;
 }
 
@@ -96,7 +97,11 @@
     RespokeCall *call = [self.directConnection getCall];
     [call hangup:YES];
 
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    if (!dismissed)
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        dismissed = YES;
+    }
 }
 
 
@@ -318,7 +323,11 @@
 
 - (IBAction)ignoreConnection
 {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    if (!dismissed)
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        dismissed = YES;
+    }
 }
 
 
@@ -339,7 +348,11 @@
 
 - (void)onHangup:(RespokeCall*)sender
 {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    if (!dismissed)
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        dismissed = YES;
+    }
 }
 
 
