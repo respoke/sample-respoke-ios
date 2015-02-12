@@ -227,12 +227,6 @@
 }
 
 
-- (void)testDirectConnection
-{
-    // TODO: Direct connection no workie!
-}
-
-
 #pragma mark - Helper Methods
 
 

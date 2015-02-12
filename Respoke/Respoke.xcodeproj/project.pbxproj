@@ -69,6 +69,7 @@
 		D45DE6131A7861CC0002AF53 /* LoginTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE6121A7861CC0002AF53 /* LoginTests.m */; };
 		D45DE6161A7869DD0002AF53 /* KIFUITestActor+Respoke.m in Sources */ = {isa = PBXBuildFile; fileRef = D45DE6151A7869DD0002AF53 /* KIFUITestActor+Respoke.m */; };
 		D4729F211A79997300B79D40 /* GroupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4729F201A79997300B79D40 /* GroupTests.m */; };
+		D478E24C1A8C24D60093FFBF /* DirectConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D478E24B1A8C24D60093FFBF /* DirectConnectionTests.m */; };
 		D4B6D49F1A3A399E005923F3 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3231A3A399C005923F3 /* SocketIO.m */; };
 		D4B6D4A01A3A399E005923F3 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3251A3A399C005923F3 /* SocketIOJSONSerialization.m */; };
 		D4B6D4A11A3A399E005923F3 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B6D3271A3A399C005923F3 /* SocketIOPacket.m */; };
@@ -179,6 +180,7 @@
 		D45DE6151A7869DD0002AF53 /* KIFUITestActor+Respoke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIFUITestActor+Respoke.m"; sourceTree = "<group>"; };
 		D46B55021A69F7C600544267 /* RespokeMediaStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RespokeMediaStats.h; path = RespokeSDK/Public/RespokeMediaStats.h; sourceTree = "<group>"; };
 		D4729F201A79997300B79D40 /* GroupTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTests.m; sourceTree = "<group>"; };
+		D478E24B1A8C24D60093FFBF /* DirectConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectConnectionTests.m; sourceTree = "<group>"; };
 		D4B6D3221A3A399C005923F3 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIO.h; path = "../../RespokeSDK/socket.IO-objc/SocketIO.h"; sourceTree = "<group>"; };
 		D4B6D3231A3A399C005923F3 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIO.m; path = "../../RespokeSDK/socket.IO-objc/SocketIO.m"; sourceTree = "<group>"; };
 		D4B6D3241A3A399C005923F3 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOJSONSerialization.h; path = "../../RespokeSDK/socket.IO-objc/SocketIOJSONSerialization.h"; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				D4729F201A79997300B79D40 /* GroupTests.m */,
 				D42993121A8194CE00794B1E /* EndpointTests.m */,
 				D4F2D5DF1A854F1D006F38F8 /* CallingTests.m */,
+				D478E24B1A8C24D60093FFBF /* DirectConnectionTests.m */,
 				D45DE6141A7869DD0002AF53 /* KIFUITestActor+Respoke.h */,
 				D45DE6151A7869DD0002AF53 /* KIFUITestActor+Respoke.m */,
 				18068985196613F000BDCD26 /* Supporting Files */,
@@ -640,6 +643,7 @@
 			files = (
 				D45DE6161A7869DD0002AF53 /* KIFUITestActor+Respoke.m in Sources */,
 				D45DE6131A7861CC0002AF53 /* LoginTests.m in Sources */,
+				D478E24C1A8C24D60093FFBF /* DirectConnectionTests.m in Sources */,
 				D4F2D5E01A854F1D006F38F8 /* CallingTests.m in Sources */,
 				D42993131A8194CE00794B1E /* EndpointTests.m in Sources */,
 				D4729F211A79997300B79D40 /* GroupTests.m in Sources */,

@@ -46,6 +46,7 @@
 
     self.textField.accessibilityLabel = @"Message";
     self.textItem.accessibilityLabel = @"Send";
+    self.tableView.accessibilityLabel = @"Chat";
 
     if (self.directConnection)
     {
@@ -68,6 +69,12 @@
         [self.navigationController setNavigationBarHidden:!caller animated:NO];
         self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+
+        // TOOD: remove this when we support direct connection calls
+        self.navigationItem.rightBarButtonItem = nil;
+
+        self.tableView.accessibilityLabel = @"Direct Chat";
+        self.connectingView.accessibilityLabel = @"Connecting";
     }
 }
 
@@ -365,7 +372,7 @@
 
 - (void)onConnected:(RespokeCall*)sender
 {
-    self.connectingView.hidden = YES;
+
 }
 
 
@@ -386,13 +393,12 @@
 
 - (void)onOpen:(RespokeDirectConnection*)sender
 {
-
+    self.connectingView.hidden = YES;
 }
 
 
 - (void)onClose:(RespokeDirectConnection*)sender
 {
-
 }
 
 

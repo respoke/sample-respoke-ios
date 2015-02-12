@@ -27,6 +27,8 @@
 #define TEST_BOT_CALL_ME_AUDIO_MESSAGE      @"Testbot! Call me sometime! Or now!"
 #define TEST_BOT_CALL_ME_VIDEO_MESSAGE      @"Testbot! Call me using video!"
 #define TEST_BOT_HANGUP_MESSAGE             @"Hang up dude. I'm done talking."
+#define TEST_BOT_DIRECT_CONNECT_MESSAGE     @"Connect to me."
+#define TEST_BOT_DIRECT_CLOSE_MESSAGE       @"Disconnect from me."
 
 
 // LoginViewController accessibility labels
@@ -65,6 +67,12 @@
 #define CHAT_CALL_BUTTON                    @"Call"
 #define CHAT_AUDIO_CALL_BUTTON              @"Audio Only"
 #define CHAT_VIDEO_CALL_BUTTON              @"Video Call"
+#define CHAT_VIDEO_DIRECT_CONNECTION_BUTTON @"Direct Connection"
+#define CHAT_TABLE_VIEW                     @"Chat"
+#define CHAT_DIRECT_TABLE_VIEW              @"Direct Chat"
+#define CHAT_CLOSE_BUTTON                   @"Close"
+#define CHAT_CONNECTING_VIEW                @"Connecting"
+#define CHAT_VIEW_IGNORE_BUTTON             @"Ignore"
 
 
 // GroupChatTableViewController accessibility labels
@@ -83,6 +91,7 @@
 #define CALL_VIEW_END_CALL_BUTTON           @"End"
 #define CALL_VIEW_ANSWER_BUTTON             @"Answer"
 #define CALL_VIEW_IGNORE_BUTTON             @"Ignore"
+#define CALL_VIEW_ACCEPT_BUTTON             @"Accept"
 #define CALL_VIEW_LOCAL_VIDEO_VIEW          @"Local Video"
 #define CALL_VIEW_REMOTE_VIDEO_VIEW         @"Remote Video"
 #define CALL_VIEW_SWITCH_CAMERA_BUTTON      @"Switch Camera"
