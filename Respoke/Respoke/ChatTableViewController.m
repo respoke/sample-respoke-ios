@@ -72,6 +72,13 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // need to load direct connection messages into table when direct connection closes
+    [self.tableView reloadData];
+}
+
+
 - (void)viewDidAppear:(BOOL)animated
 {
     conversation.unreadCount = 0;
