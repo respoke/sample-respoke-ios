@@ -45,14 +45,14 @@
 
 - (void)testSuccessfulLogin
 {
-    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_GROUP appID:nil];
+    [tester loginEndpoint:[KIFUITestActor generateTestEndpointID] groupName:TEST_GROUP appID:nil];
     [tester logout];
 }
 
 
  - (void)testSuccessfulLoginWithValidAppID
 {
-    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_GROUP appID:TEST_APP_ID];
+    [tester loginEndpoint:[KIFUITestActor generateTestEndpointID] groupName:TEST_GROUP appID:TEST_APP_ID];
     [tester logout];
 }
 
@@ -60,7 +60,7 @@
 - (void)testFailedLoginWithBadAppID
 {
     // supply endpoint, group, and appID
-    [tester enterText:TEST_ENDPOINT intoViewWithAccessibilityLabel:LOGIN_ENDPOINT_ID_TEXTFIELD];
+    [tester enterText:[KIFUITestActor generateTestEndpointID] intoViewWithAccessibilityLabel:LOGIN_ENDPOINT_ID_TEXTFIELD];
     [tester enterText:TEST_GROUP intoViewWithAccessibilityLabel:LOGIN_GROUP_TEXTFIELD];
     [tester enterText:TEST_BAD_APP_ID intoViewWithAccessibilityLabel:LOGIN_APP_ID_TEXTFIELD];
 

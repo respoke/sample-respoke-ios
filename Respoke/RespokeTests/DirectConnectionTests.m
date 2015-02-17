@@ -24,7 +24,7 @@
 {
     // navigate to chat view
     [tester initializeLoginScreen];
-    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_BOT_GROUP_ID appID:nil];
+    [tester loginEndpoint:[KIFUITestActor generateTestEndpointID] groupName:TEST_BOT_GROUP_ID appID:nil];
     [tester tapViewWithAccessibilityLabel:TEST_BOT_ENDPOINT_ID];
 }
 
@@ -48,7 +48,7 @@
     [self closeIncomingDirectConnection];
 }
 
-// TODO: Fix this. Ignoring an incoming connection causes other test cases to fail
+// TODO: Remove this once the fix for dead direct connection is added to Transporter
 /*
 - (void)testIncomingConnectionIgnore
 {

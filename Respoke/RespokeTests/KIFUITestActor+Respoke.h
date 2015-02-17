@@ -9,13 +9,9 @@
 #import <KIF/KIF.h>
 
 
-// Common constants
-#define TEST_ENDPOINT                       @"testdevice"
-
-
 // TestBot constants
-#define TEST_BOT_ENDPOINT_ID                @"testbot-roberto"
-#define TEST_BOT_GROUP_ID                   @"robots are taking over"
+#define TEST_BOT_ENDPOINT_ID                [NSString stringWithFormat:@"testbot-%@", [[NSProcessInfo processInfo] environment][@"TEST_BOT_SUFFIX"]]
+#define TEST_BOT_GROUP_ID                   [NSString stringWithFormat:@"robots are taking over %@", [[NSProcessInfo processInfo] environment][@"TEST_BOT_SUFFIX"]]
 #define TEST_BOT_HELLO_MESSAGE              @"Hi testbot!"
 #define TEST_BOT_HELLO_REPLY                @"Hey pal!"
 #define TEST_BOT_GROUP_HELLO_MESSAGE        @"Hi guys!"
@@ -99,6 +95,12 @@
 
 
 @interface KIFUITestActor (Respoke)
+
+
+/**
+ * Generate a unique endpoint ID to use during testing
+ */
++ (NSString*)generateTestEndpointID;
 
 
 /**

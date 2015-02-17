@@ -337,6 +337,9 @@
 
 - (IBAction)ignoreConnection
 {
+    RespokeCall *call = [self.directConnection getCall];
+    [call hangup:YES];
+    
     if (!dismissed)
     {
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];

@@ -23,7 +23,7 @@
 - (void)beforeAll
 {
     [tester initializeLoginScreen];
-    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_BOT_GROUP_ID appID:nil];
+    [tester loginEndpoint:[KIFUITestActor generateTestEndpointID] groupName:TEST_BOT_GROUP_ID appID:nil];
 }
 
 
