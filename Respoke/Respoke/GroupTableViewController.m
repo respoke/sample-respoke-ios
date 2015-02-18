@@ -40,6 +40,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointJoinedGroup:) name:ENDPOINT_JOINED_GROUP object:self.group];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endpointLeftGroup:) name:ENDPOINT_LEFT_GROUP object:self.group];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupMessageReceived:) name:GROUP_MESSAGE_RECEIVED object:self.group];
+
+    self.tableView.accessibilityLabel = @"Group";
 }
 
 
@@ -122,6 +124,7 @@
         Conversation *conversation = [sharedContactManager.groupConversations objectForKey:groupName];
 
         label.text = [NSString stringWithFormat:@"%@ group messages", groupName];
+        cell.accessibilityLabel = label.text;
 
         if (conversation.unreadCount > 0)
         {
@@ -146,7 +149,8 @@
         Conversation *conversation = [sharedContactManager.conversations objectForKey:endpoint.endpointID];
 
         label.text = endpoint.endpointID;
-        
+        cell.accessibilityLabel = endpoint.endpointID;
+
         NSObject *presence = [endpoint getPresence];
         
         if (presence && [presence isKindOfClass:[NSString class]])

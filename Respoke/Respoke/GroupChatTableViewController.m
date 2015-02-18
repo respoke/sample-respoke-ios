@@ -39,6 +39,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupMessageReceived:) name:GROUP_MESSAGE_RECEIVED object:self.group];
     
     self.textItem.width = 244 + self.view.frame.size.width - 320;
+
+    self.textField.accessibilityLabel = @"Message";
+    self.textItem.accessibilityLabel = @"Send";
+    self.tableView.accessibilityLabel = @"Group Chat";
 }
 
 

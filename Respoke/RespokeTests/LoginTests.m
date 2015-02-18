@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 
 
-#define TEST_ENDPOINT       @"test endpoint"
 #define TEST_GROUP          @"test group"
 #define TEST_APP_ID         @"57ac5f3a-0513-40b5-ba42-b80939e69436"
 #define TEST_BAD_APP_ID     @"bad app id"
@@ -46,14 +45,14 @@
 
 - (void)testSuccessfulLogin
 {
-    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_GROUP appID:nil];
+    [tester loginEndpoint:[KIFUITestActor generateTestEndpointID] groupName:TEST_GROUP appID:nil];
     [tester logout];
 }
 
 
  - (void)testSuccessfulLoginWithValidAppID
 {
-    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_GROUP appID:TEST_APP_ID];
+    [tester loginEndpoint:[KIFUITestActor generateTestEndpointID] groupName:TEST_GROUP appID:TEST_APP_ID];
     [tester logout];
 }
 
@@ -61,7 +60,7 @@
 - (void)testFailedLoginWithBadAppID
 {
     // supply endpoint, group, and appID
-    [tester enterText:TEST_ENDPOINT intoViewWithAccessibilityLabel:LOGIN_ENDPOINT_ID_TEXTFIELD];
+    [tester enterText:[KIFUITestActor generateTestEndpointID] intoViewWithAccessibilityLabel:LOGIN_ENDPOINT_ID_TEXTFIELD];
     [tester enterText:TEST_GROUP intoViewWithAccessibilityLabel:LOGIN_GROUP_TEXTFIELD];
     [tester enterText:TEST_BAD_APP_ID intoViewWithAccessibilityLabel:LOGIN_APP_ID_TEXTFIELD];
 
@@ -98,38 +97,7 @@
 }
 
 
-- (void)testStatusChanges
-{
-    [tester loginEndpoint:TEST_ENDPOINT groupName:TEST_GROUP appID:nil];
-
-    // verify status changes
-    UIButton *statusButton = (UIButton *) [tester waitForViewWithAccessibilityLabel:GROUP_LIST_STATUS_BUTTON];
-    [self setStatus:@"chat" statusButton:statusButton];
-    [self setStatus:@"available" statusButton:statusButton];
-    [self setStatus:@"away" statusButton:statusButton];
-    [self setStatus:@"dnd" statusButton:statusButton];
-    [self setStatus:@"unavailable" statusButton:statusButton];
-
-    // verify that status doesn't change if we cancel
-    [tester tapViewWithAccessibilityLabel:GROUP_LIST_STATUS_BUTTON];
-    [tester tapViewWithAccessibilityLabel:@"Cancel"];
-    XCTAssertTrue([statusButton.titleLabel.text hasSuffix:@"unavailable"],
-                  @"Status should contain 'unavailable'");
-
-    [tester logout];
-}
-
-
 #pragma mark - Helper Methods
-
-
-- (void)setStatus:(NSString *)status statusButton:(UIButton *)statusButton
-{
-    [tester tapViewWithAccessibilityLabel:GROUP_LIST_STATUS_BUTTON];
-    [tester tapViewWithAccessibilityLabel:status];
-    XCTAssertTrue([statusButton.titleLabel.text hasSuffix:status],
-                  @"Status should contain '%@'", status);
-}
 
 
 @end

@@ -17,6 +17,7 @@
     UITableViewCell *remotePrototype;
     UITableViewCell *localPrototype;
     BOOL audioOnly;
+    BOOL dismissed;
     Conversation *conversation;
 }
 
@@ -43,6 +44,10 @@
     
     self.textItem.width = 244 + self.view.frame.size.width - 320;
 
+    self.textField.accessibilityLabel = @"Message";
+    self.textItem.accessibilityLabel = @"Send";
+    self.tableView.accessibilityLabel = @"Chat";
+
     if (self.directConnection)
     {
         self.directConnection.delegate = self;
@@ -64,7 +69,20 @@
         [self.navigationController setNavigationBarHidden:!caller animated:NO];
         self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+
+        // TOOD: remove this when we support direct connection calls
+        self.navigationItem.rightBarButtonItem = nil;
+
+        self.tableView.accessibilityLabel = @"Direct Chat";
+        self.connectingView.accessibilityLabel = @"Connecting";
     }
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // need to load direct connection messages into table when direct connection closes
+    [self.tableView reloadData];
 }
 
 
@@ -93,7 +111,11 @@
     RespokeCall *call = [self.directConnection getCall];
     [call hangup:YES];
 
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    if (!dismissed)
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        dismissed = YES;
+    }
 }
 
 
@@ -315,7 +337,14 @@
 
 - (IBAction)ignoreConnection
 {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    RespokeCall *call = [self.directConnection getCall];
+    [call hangup:YES];
+    
+    if (!dismissed)
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        dismissed = YES;
+    }
 }
 
 
@@ -336,13 +365,17 @@
 
 - (void)onHangup:(RespokeCall*)sender
 {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    if (!dismissed)
+    {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        dismissed = YES;
+    }
 }
 
 
 - (void)onConnected:(RespokeCall*)sender
 {
-    self.connectingView.hidden = YES;
+
 }
 
 
@@ -363,13 +396,12 @@
 
 - (void)onOpen:(RespokeDirectConnection*)sender
 {
-
+    self.connectingView.hidden = YES;
 }
 
 
 - (void)onClose:(RespokeDirectConnection*)sender
 {
-
 }
 
 
