@@ -128,7 +128,7 @@
 
         if (conversation.unreadCount > 0)
         {
-            countLabel.text = [NSString stringWithFormat:@"  %d  ", conversation.unreadCount];
+            countLabel.text = [NSString stringWithFormat:@"  %ld  ", (long)conversation.unreadCount];
             countLabel.layer.cornerRadius = 8.0;
             countLabel.hidden = NO;
         }
@@ -164,7 +164,7 @@
 
         if (conversation.unreadCount > 0)
         {
-            countLabel.text = [NSString stringWithFormat:@"  %d  ", conversation.unreadCount];
+            countLabel.text = [NSString stringWithFormat:@"  %ld  ", (long)conversation.unreadCount];
             countLabel.layer.cornerRadius = 8.0;
             countLabel.hidden = NO;
         }
