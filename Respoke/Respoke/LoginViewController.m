@@ -90,7 +90,7 @@
         }
         else
         {
-            NSString *appID = @"57ac5f3a-0513-40b5-ba42-b80939e69436"; // integration
+            NSString *appID = @"7c15ec35-71a9-457f-8b73-97caf4eb43ca";
 
             if ([self.appIDTextField.text length])
             {
