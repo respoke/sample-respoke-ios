@@ -58,6 +58,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.usernameTextField becomeFirstResponder];
+    sharedRespokeClient = nil;
 }
 
 
