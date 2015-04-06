@@ -284,11 +284,13 @@
 }
 
 
-- (void)onGroupMessage:(NSString*)message fromEndpoint:(RespokeEndpoint*)endpoint sender:(RespokeGroup*)sender
+- (void)onGroupMessage:(NSString*)message fromEndpoint:(RespokeEndpoint*)endpoint sender:(RespokeGroup*)sender timestamp:(NSDate*)timestamp
 {
     Conversation *conversation = [self.groupConversations objectForKey:[sender getGroupID]];
     [conversation addMessage:message from:endpoint.endpointID directMessage:NO];
     conversation.unreadCount++;
+
+    // TODO: process timestamp
 
     // Notify any UI listeners that a message has been received from a remote endpoint
     [[NSNotificationCenter defaultCenter] postNotificationName:GROUP_MESSAGE_RECEIVED object:sender userInfo:nil];

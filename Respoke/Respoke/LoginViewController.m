@@ -15,6 +15,9 @@
 #define LAST_USER_KEY @"LAST_USER_KEY"
 #define LAST_GROUP_KEY @"LAST_GROUP_KEY"
 
+#define PRODUCTION_APP_ID @"7c15ec35-71a9-457f-8b73-97caf4eb43ca"
+#define INTEGRATION_APP_ID @"a8c5a9ea-1bab-4353-b8e9-b743bde220f9"
+
 
 @implementation LoginViewController {
     id __weak lastResponder;
@@ -55,6 +58,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.usernameTextField becomeFirstResponder];
+    sharedRespokeClient = nil;
 }
 
 
@@ -66,6 +70,8 @@
 
 - (IBAction)connectAction
 {
+    BOOL isRunningUITests = false;
+
     if ([self.usernameTextField.text length])
     {
         [lastResponder resignFirstResponder];
@@ -74,12 +80,17 @@
         self.errorLabel.hidden = YES;
         [self.connectButton setTitle:@"" forState:UIControlStateNormal];
 
-        // Hook for testing. Don't create the client if the test framework has already done so.
+        // Hook for UI testing. Don't create the client if the test framework has already done so.
         if (!sharedRespokeClient)
         {
             // Create a Respoke client instance to be used for the duration of the application
             sharedRespokeClient = [[Respoke sharedInstance] createClient];
         }
+        else
+        {
+            isRunningUITests = true;
+        }
+
         sharedRespokeClient.delegate = self;
 
         if (self.brokeredSwitch.on)
@@ -90,7 +101,10 @@
         }
         else
         {
-            NSString *appID = @"7c15ec35-71a9-457f-8b73-97caf4eb43ca";
+            NSString *appID = PRODUCTION_APP_ID;
+            if (isRunningUITests) {
+                appID = INTEGRATION_APP_ID;
+            }
 
             if ([self.appIDTextField.text length])
             {
