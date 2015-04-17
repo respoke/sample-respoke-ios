@@ -18,3 +18,9 @@ Respoke - A demo iOS application that uses the RespokeSDK to demonstrate video/a
 Working with the RespokeSDK
 ===========================
 Refer to the README at https://stash.digium.com/stash/projects/SCL/repos/respoke-sdk-ios
+
+
+License
+=======
+
+The Respoke SDK and demo applications are licensed under the MIT license. Please see the LICENSE file for details.
