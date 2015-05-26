@@ -13,26 +13,10 @@ PODS:
 DEPENDENCIES:
   - KIF (~> 3.0)
   - Respoke (from `./RespokeSDK`)
-  - RespokeSocket.IO (from `https://github.com/respoke/socket.IO-objc.git`, tag `0.5.3`)
-  - RespokeSocketRocket (from `https://github.com/respoke/SocketRocket`, tag `0.3.2`)
 
 EXTERNAL SOURCES:
   Respoke:
     :path: ./RespokeSDK
-  RespokeSocket.IO:
-    :git: https://github.com/respoke/socket.IO-objc.git
-    :tag: 0.5.3
-  RespokeSocketRocket:
-    :git: https://github.com/respoke/SocketRocket
-    :tag: 0.3.2
-
-CHECKOUT OPTIONS:
-  RespokeSocket.IO:
-    :git: https://github.com/respoke/socket.IO-objc.git
-    :tag: 0.5.3
-  RespokeSocketRocket:
-    :git: https://github.com/respoke/SocketRocket
-    :tag: 0.3.2
 
 SPEC CHECKSUMS:
   KIF: b0bd762b0c7890b04920cf618021d6d4fd5127bd
