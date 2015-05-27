@@ -1,11 +1,13 @@
 Respoke SDK and demo application
 ================================
 
-This project uses git submodules. Please clone the repository from Github using the recursive flag to automatically grab the submodules:
+This project uses git submodules and CocoaPods. Please clone the repository from Github using the recursive flag to automatically grab the submodules.
 
-```
-git clone --recursive https://<USER_NAME>@stash.digium.com/stash/scm/sa/respoke-ios.git
-```
+    git clone --recursive https://<USER_NAME>@stash.digium.com/stash/scm/sa/respoke-ios.git
+
+Then install the CocoaPods:
+
+    pod install
 
 This repository contains several different parts used to build and test the Respoke SDK:
 
