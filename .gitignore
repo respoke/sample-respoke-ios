@@ -1,11 +1,3 @@
 .DS_Store
-/Respoke/Respoke.xcodeproj/xcuserdata/
-/Respoke/Respoke.xcodeproj/project.xcworkspace/xcuserdata/
-/trunk/
-/src/
-/chromium_gn/
-/chromium_deps/
-/.gclient_entries
-/depot_tools/
-Respoke.xcworkspace/xcuserdata
-Pods/Pods.xcodeproj/xcuserdata
+xcuserdata
+Pods

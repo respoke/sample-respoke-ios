@@ -1,24 +1,36 @@
-Respoke SDK and demo application
-================================
+Respoke SDK demo application
+============================
 
-This project uses git submodules. Please clone the repository from Github using the recursive flag to automatically grab the submodules:
-```
-git clone --recursive https://<USER_NAME>@stash.digium.com/stash/scm/sa/respoke-ios.git
-```
+The Respoke demo application showcases the live voice, video, and text messaging features of the [Respoke iOS SDK](https://github.com/respoke/respoke-sdk-ios).
 
-This repository contains several different parts used to build and test the Respoke SDK:
+Refer to the [Getting Started Guide](https://docs.respoke.io/client/ios/getting-started.html) for instructions on adding the Respoke SDK to your own mobile application.
 
-RespokeSDK - The source code to the Respoke SDK and an XCode project to build the Respoke SDK library
+Installation
+============
 
-RespokeSDK/RespokeSDK/Public - The output directory of the distributable Respoke libraries and public header files. See the readme in this folder for instructions on how to use the Respoke SDK in a third-party application.
+Clone the repository from Github:
 
-Respoke - A demo iOS application that uses the RespokeSDK to demonstrate video/audio chat and text messaging
+    git clone https://github.com/respoke/respoke-ios.git
 
+Then install the CocoaPods:
+
+    pod install
+
+(The Respoke SDK depends on [libjingle_peerconnection](http://cocoadocs.org/docsets/libjingle_peerconnection) which ships with a ~1GB binary. So bear with us, hopefully the `pod install` step won't be necessary forever.)
+
+Components
+==========
+
+The Respoke demo workspace contains several parts:
+
+* Respoke/Respoke: The demo application showcasing the Respoke SDK capabilities.
+* Respoke/RespokeTests: The demo application functional tests.
+* Pods: Source files and libraries for the Respoke SDK and other dependencies.
 
 Working with the RespokeSDK
 ===========================
-Refer to the README at https://stash.digium.com/stash/projects/SCL/repos/respoke-sdk-ios
 
+Refer to the README on [Github](https://github.com/respoke/respoke-sdk-ios)
 
 License
 =======

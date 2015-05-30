@@ -5,32 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8E67F2CD-5B0D-454C-B728-BE699EE1A628</string>
+	<string>69B0AD8C-D12C-4E41-BE44-8590EC6505C1</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Respoke</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>14F6686CB62C38D15756BEE16C4690BA1A66CB88</key>
-		<string>https://stash.digium.com/stash/scm/scl/respoke-sdk-ios.git</string>
-		<key>43AC92FD7017ECDE18489EEA6AD2FD795E158D7E</key>
-		<string>https://github.com/pkyeck/socket.IO-objc</string>
 		<key>A4DB131B153FB1D0EF4EC090C0247B31FB895829</key>
 		<string>https://stash.digium.com/stash/scm/sa/respoke-ios.git</string>
-		<key>ABB939127996C66F7E852A780552ADEEF03C6B13</key>
-		<string>https://github.com/square/SocketRocket.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Respoke.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>14F6686CB62C38D15756BEE16C4690BA1A66CB88</key>
-		<string>..RespokeSDK</string>
-		<key>43AC92FD7017ECDE18489EEA6AD2FD795E158D7E</key>
-		<string>..RespokeSDK/socket.IO-objc</string>
 		<key>A4DB131B153FB1D0EF4EC090C0247B31FB895829</key>
 		<string>..</string>
-		<key>ABB939127996C66F7E852A780552ADEEF03C6B13</key>
-		<string>..RespokeSDK/socket.IO-objc/submodules/socket-rocket</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://stash.digium.com/stash/scm/sa/respoke-ios.git</string>
@@ -47,30 +35,6 @@
 			<string>A4DB131B153FB1D0EF4EC090C0247B31FB895829</string>
 			<key>IDESourceControlWCCName</key>
 			<string>respoke-ios</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>14F6686CB62C38D15756BEE16C4690BA1A66CB88</string>
-			<key>IDESourceControlWCCName</key>
-			<string>respoke-iosRespokeSDK</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>ABB939127996C66F7E852A780552ADEEF03C6B13</string>
-			<key>IDESourceControlWCCName</key>
-			<string>socket-rocket</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>43AC92FD7017ECDE18489EEA6AD2FD795E158D7E</string>
-			<key>IDESourceControlWCCName</key>
-			<string>socket.IO-objc</string>
 		</dict>
 	</array>
 </dict>

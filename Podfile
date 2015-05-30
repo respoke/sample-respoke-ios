@@ -1,8 +1,7 @@
-workspace 'Respoke'
-xcodeproj 'Respoke/Respoke'
-xcodeproj 'RespokeSDK/RespokeSDK'
+xcodeproj 'Respoke/Respoke.xcodeproj'
 
-target 'RespokeTests', :exclusive => true do
+pod 'RespokeSDK'
+
+target :RespokeTests, :exclusive => true do
   pod 'KIF', '~> 3.0', :configurations => ['Debug']
-  xcodeproj 'Respoke/Respoke.xcodeproj'
 end

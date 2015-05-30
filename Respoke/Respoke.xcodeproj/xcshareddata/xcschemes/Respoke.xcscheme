@@ -34,20 +34,6 @@
                ReferencedContainer = "container:Respoke.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18E945C419952B2200C8B142"
-               BuildableName = "UniversalLib"
-               BlueprintName = "UniversalLib"
-               ReferencedContainer = "container:../RespokeSDK/RespokeSDK.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

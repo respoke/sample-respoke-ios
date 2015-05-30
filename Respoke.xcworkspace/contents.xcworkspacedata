@@ -5,9 +5,6 @@
       location = "group:Respoke/Respoke.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:RespokeSDK/RespokeSDK.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
