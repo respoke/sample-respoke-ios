@@ -3,7 +3,7 @@ PODS:
     - KIF/XCTest (= 3.2.2)
   - KIF/XCTest (3.2.2)
   - libjingle_peerconnection (9208.0.0)
-  - RespokeSDK (0.0.9):
+  - RespokeSDK (1.0.2):
     - libjingle_peerconnection (= 9208.0.0)
     - RespokeSocket.IO (~> 0.5.3)
   - RespokeSocket.IO (0.5.3):
@@ -12,23 +12,12 @@ PODS:
 
 DEPENDENCIES:
   - KIF (~> 3.0)
-  - RespokeSDK (from `https://stash.digium.com/stash/scm/scl/respoke-sdk-ios.git`,
-    commit `0ce1be049bf`)
-
-EXTERNAL SOURCES:
-  RespokeSDK:
-    :commit: 0ce1be049bf
-    :git: https://stash.digium.com/stash/scm/scl/respoke-sdk-ios.git
-
-CHECKOUT OPTIONS:
-  RespokeSDK:
-    :commit: 0ce1be049bf
-    :git: https://stash.digium.com/stash/scm/scl/respoke-sdk-ios.git
+  - RespokeSDK
 
 SPEC CHECKSUMS:
   KIF: b0bd762b0c7890b04920cf618021d6d4fd5127bd
   libjingle_peerconnection: dafcdc32446509db70bb8d3f6a950256287595e4
-  RespokeSDK: 296390f0143c1c28755d71530c093715cb50ddb6
+  RespokeSDK: 903dd34e7a5521d5a5b9e7385c04797a3a255e04
   RespokeSocket.IO: 11d06f1309e18f497a0c4871875e1ffb66a9c290
   RespokeSocketRocket: 310662b5569cbf78bceaa039aeb89101b8135357
 
