@@ -10,7 +10,7 @@ Installation
 
 Clone the repository from Github:
 
-    git clone https://github.com/respoke/respoke-ios.git
+    git clone https://github.com/respoke/sample-respoke-ios.git
 
 Then install the CocoaPods:
 

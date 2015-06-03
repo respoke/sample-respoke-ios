@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A4DB131B153FB1D0EF4EC090C0247B31FB895829</key>
-		<string>https://stash.digium.com/stash/scm/sa/respoke-ios.git</string>
+		<string>https://github.com/respoke/sample-respoke-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Respoke.xcworkspace</string>
@@ -21,7 +21,7 @@
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://stash.digium.com/stash/scm/sa/respoke-ios.git</string>
+	<string>https://github.com/respoke/sample-respoke-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>A4DB131B153FB1D0EF4EC090C0247B31FB895829</string>
 			<key>IDESourceControlWCCName</key>
-			<string>respoke-ios</string>
+			<string>sample-respoke-ios</string>
 		</dict>
 	</array>
 </dict>
