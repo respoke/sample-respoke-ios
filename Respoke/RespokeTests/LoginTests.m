@@ -17,7 +17,7 @@
 
 
 #define TEST_GROUP          @"test group"
-#define TEST_APP_ID         @"a8c5a9ea-1bab-4353-b8e9-b743bde220f9"
+#define TEST_APP_ID         @"REPLACE_ME"
 #define TEST_BAD_APP_ID     @"bad app id"
 
 

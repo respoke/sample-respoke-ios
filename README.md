@@ -26,6 +26,26 @@ Installation
 
 When you run the application, you will be given the chance to enter an endpoint ID (similar to a user name) and an optional group. The demo app discovers other endpoints when they join a group that your endpoint is also a member of. To test the real time chat features of Respoke, run this demo app (or the Android app) on two different devices. Choose a unique endpoint ID on each device, and join the same group. The devices will then discover each other and allow you to chat through text, audio, or video.
 
+Running the Test Cases
+==========================
+
+The functional test cases for the demo application require a specific web application based on Respoke.js that is set up to automatically respond to certain actions that the test cases perform. This web test application is currently maintained in the [Respoke SDK repo](https://github.com/respoke/respoke-sdk-ios)
+.
+
+To run the test cases, do the following:
+
+1) Open the file LoginTests.m and replace the value of the macro `TEST_APP_ID` with the application ID you received in step 1 of the "Installation" section above.
+
+2) Either clone the [Respoke SDK repository](https://github.com/respoke/respoke-sdk-ios) onto your development computer, or just grab the [single-file Web Test Bot](https://github.com/respoke/respoke-sdk-ios/blob/master/RespokeSDKTests/WebTestBot/index.html) that you will need for testing the demo application.
+
+3) Follow the instructions in the [SDK README](https://github.com/respoke/respoke-sdk-ios/blob/master/README.md) in the section "Starting the Web TESTBOT" in order to get the web test application ready for testing.
+
+4) Open the sample application workspace in XCode and choose Product -> Test
+
+5) The test cases will run, displaying the results inside of XCode. You will also see debug messages and video displayed in the web browser running the TestBot.
+
+** Please note that since the test cases do functional testing with audio and video, it is necessary to use a physical iOS device. The iOS simulator will not be able to pass all of the tests.
+
 Components
 ==========
 
@@ -39,6 +59,11 @@ Working with the RespokeSDK
 ===========================
 
 Refer to the README on [Github](https://github.com/respoke/respoke-sdk-ios)
+
+Contributing
+============
+
+We welcome pull requests to improve the demo application for everyone. When submitting changes, please make sure you have run the test cases before submitting and added/modified any tests that are affected by your improvements.
 
 License
 =======
