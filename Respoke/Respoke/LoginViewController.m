@@ -20,8 +20,13 @@
 #define LAST_USER_KEY @"LAST_USER_KEY"
 #define LAST_GROUP_KEY @"LAST_GROUP_KEY"
 
-#define PRODUCTION_APP_ID @"7c15ec35-71a9-457f-8b73-97caf4eb43ca"
-#define INTEGRATION_APP_ID @"a8c5a9ea-1bab-4353-b8e9-b743bde220f9"
+/**
+ * Substitute your own Respoke application ID here. This is the ID you got from the Respoke
+ * Developer Console when you signed up and defined an application:
+ *
+ * https://portal.respoke.io/#/signup
+ */
+#define RESPOKE_APP_ID @"REPLACE_ME"
 
 
 @implementation LoginViewController {
@@ -75,8 +80,6 @@
 
 - (IBAction)connectAction
 {
-    BOOL isRunningUITests = false;
-
     if ([self.usernameTextField.text length])
     {
         [lastResponder resignFirstResponder];
@@ -91,10 +94,6 @@
             // Create a Respoke client instance to be used for the duration of the application
             sharedRespokeClient = [[Respoke sharedInstance] createClient];
         }
-        else
-        {
-            isRunningUITests = true;
-        }
 
         sharedRespokeClient.delegate = self;
 
@@ -106,10 +105,7 @@
         }
         else
         {
-            NSString *appID = PRODUCTION_APP_ID;
-            if (isRunningUITests) {
-                appID = INTEGRATION_APP_ID;
-            }
+            NSString *appID = RESPOKE_APP_ID;
 
             if ([self.appIDTextField.text length])
             {

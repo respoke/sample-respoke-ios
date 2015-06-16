@@ -21,7 +21,6 @@
 
 
 #define LAST_APP_ID_KEY         @"LAST_APP_ID_KEY"
-#define RESPOKE_TEST_BASE_URL   @"https://api-int.respoke.io"
 
 
 + (NSString*)generateTestEndpointID
@@ -62,7 +61,6 @@
 
         // use the intergration server for testing
         sharedRespokeClient = [[Respoke sharedInstance] createClient];
-        [sharedRespokeClient setBaseURL:RESPOKE_TEST_BASE_URL];
     });
 
     // hit change app id button
