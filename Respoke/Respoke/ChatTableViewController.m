@@ -238,7 +238,7 @@
         }
         else
         {
-            [self.endpoint sendMessage:self.textField.text successHandler:^(void){
+            [self.endpoint sendMessage:self.textField.text push:NO ccSelf:NO successHandler:^(void){
                 NSLog(@"Message sent");
             } errorHandler:^(NSString *error){
                 NSLog(@"Error sending: %@", error);

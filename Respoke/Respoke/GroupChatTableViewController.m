@@ -164,7 +164,7 @@
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[conversation.messages count] - 1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 
-        [self.group sendMessage:self.textField.text successHandler:^(void){
+        [self.group sendMessage:self.textField.text push:NO successHandler:^(void){
             NSLog(@"Message sent");
         } errorHandler:^(NSString *error){
             NSLog(@"Error sending: %@", error);

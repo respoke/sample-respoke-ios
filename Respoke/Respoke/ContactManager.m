@@ -305,16 +305,19 @@
 #pragma mark - RespokeEndpointDelegate
 
 
-- (void)onMessage:(NSString*)message sender:(RespokeEndpoint*)sender timestamp:(NSDate *)timestamp
+- (void)onMessage:(NSString*)message endpoint:(RespokeEndpoint*)endpoint timestamp:(NSDate*)timestamp didSend:(BOOL)didSend
 {
-    Conversation *conversation = [self.conversations objectForKey:sender.endpointID];
-    [conversation addMessage:message from:sender.endpointID directMessage:NO];
-    conversation.unreadCount++;
+    if (didSend) // the endpoint sent the message (not a ccSelf message)
+    {
+        Conversation *conversation = [self.conversations objectForKey:endpoint.endpointID];
+        [conversation addMessage:message from:endpoint.endpointID directMessage:NO];
+        conversation.unreadCount++;
 
-    // TODO: process timestamp
+        // TODO: process timestamp
 
-    // Notify any UI listeners that a message has been received from a remote endpoint
-    [[NSNotificationCenter defaultCenter] postNotificationName:ENDPOINT_MESSAGE_RECEIVED object:sender userInfo:nil];
+        // Notify any UI listeners that a message has been received from a remote endpoint
+        [[NSNotificationCenter defaultCenter] postNotificationName:ENDPOINT_MESSAGE_RECEIVED object:endpoint userInfo:nil];
+    }
 }
 
 
