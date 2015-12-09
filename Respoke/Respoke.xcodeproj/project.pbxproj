@@ -377,6 +377,7 @@
 				18068956196613F000BDCD26 /* Frameworks */,
 				18068957196613F000BDCD26 /* Resources */,
 				FC64A6EFD27EB0F131E01B04 /* Copy Pods Resources */,
+				A3E2BD16BFA9705A84A428C2 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -396,6 +397,7 @@
 				1806897A196613F000BDCD26 /* Frameworks */,
 				1806897B196613F000BDCD26 /* Resources */,
 				B92956EA0C1D5AD7D72206C7 /* Copy Pods Resources */,
+				7BB75A2D86E619CC113C33CD /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -483,6 +485,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7BB75A2D86E619CC113C33CD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RespokeTests/Pods-RespokeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3E2BD16BFA9705A84A428C2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A94B312D4FD1C86CDCDD0F9C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -706,6 +738,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
@@ -725,6 +758,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
@@ -818,6 +852,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Respoke/Respoke-Prefix.pch";
