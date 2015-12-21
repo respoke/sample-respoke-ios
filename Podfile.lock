@@ -2,9 +2,9 @@ PODS:
   - KIF (3.2.3):
     - KIF/XCTest (= 3.2.3)
   - KIF/XCTest (3.2.3)
-  - libjingle_peerconnection (9208.0.0)
-  - RespokeSDK (1.1.0):
-    - libjingle_peerconnection (= 9208.0.0)
+  - libjingle_peerconnection (10842.2.0)
+  - RespokeSDK (1.2.3):
+    - libjingle_peerconnection (= 10842.2.0)
     - RespokeSocket.IO (~> 0.5.3)
   - RespokeSocket.IO (0.5.3):
     - RespokeSocketRocket (~> 0.3.2)
@@ -12,13 +12,13 @@ PODS:
 
 DEPENDENCIES:
   - KIF (~> 3.0)
-  - RespokeSDK (~> 1.1.0)
+  - RespokeSDK (~> 1.2.0)
 
 SPEC CHECKSUMS:
   KIF: a94bffe9c97e449e44f8fa481c53243d21309e1e
-  libjingle_peerconnection: dafcdc32446509db70bb8d3f6a950256287595e4
-  RespokeSDK: df8a7b86457b060a1a9b4ecc3beebd91613e4b76
+  libjingle_peerconnection: 176c8d3e12d9437abc0e1f08a924947444e97b69
+  RespokeSDK: e3063ddddc290a5926303e35a76072c1ca888ce9
   RespokeSocket.IO: 11d06f1309e18f497a0c4871875e1ffb66a9c290
   RespokeSocketRocket: 310662b5569cbf78bceaa039aeb89101b8135357
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A4DB131B153FB1D0EF4EC090C0247B31FB895829",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "14F6686CB62C38D15756BEE16C4690BA1A66CB88" : 0,
+    "A4DB131B153FB1D0EF4EC090C0247B31FB895829" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "69B0AD8C-D12C-4E41-BE44-8590EC6505C1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "14F6686CB62C38D15756BEE16C4690BA1A66CB88" : "respoke-sdk-ios.github\/",
+    "A4DB131B153FB1D0EF4EC090C0247B31FB895829" : "sample-respoke-ios"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Respoke",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Respoke.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/respoke\/respoke-sdk-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "14F6686CB62C38D15756BEE16C4690BA1A66CB88"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/respoke\/sample-respoke-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A4DB131B153FB1D0EF4EC090C0247B31FB895829"
+    }
+  ]
+}
